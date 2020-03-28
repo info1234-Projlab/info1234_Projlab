@@ -9,7 +9,15 @@
 //
 //
 
-
+/**
+ * Az osztály felelőssége az eszkimó hős menedzselése. Ide tartozik az összes
+tevékenység (ásás, tárgy felvétele stb…), beleértve a különleges képességét
+(igluépítés) is, amit egy eszkimó a játék során végezhet.
+Ezen kívül, ez az osztály felügyeli az eszkimó testhőjét, figyeli, hogy maximum csak
+4 munkát végezhessen egy körön belül, valamint tárolja, hogy éppen melyik
+jégmezőn tartózkodik, illetve az elérhető maximális testő értékét (5).
+ *
+ */
 
 
 public class Eskimo extends Player {
@@ -18,7 +26,7 @@ public class Eskimo extends Player {
 	 * @param field	Ahova az eszkimót ledobjuk a pályán. 
 	 */
 	public Eskimo(Field field) {
-		super(4, field);
+		super(5, field);
 	}
 	
 	public void UseAbility() {

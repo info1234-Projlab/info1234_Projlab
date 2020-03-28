@@ -9,6 +9,21 @@
 //
 //
 
+import java.util.ArrayList;
+
+/**
+ * 
+ * Ez az objektum eltárolja a szomszédos jégtáblákat, ami segítségével megtudhatjuk,
+hogy a rajta álló játékos hova léphet. Tudjuk róla hogy stabil-e vagy instabil illetve,
+hogy mennyi hó van a tetején. Azt is el tudja tárolni, hogy építettek-e már rá iglut és
+lehetnek rajta eszközök is. Igluból egy még eszközből bármennyi lehet rajta. A
+stabilitása pedig meghatározza, hogy hány embert bír el anélkül, hogy kibillenjen és
+a vízbe esnének a játékosok. A kibillenéstől nem szűnik meg a jégtábla. Tehát (ha a
+játékosok túlélik és megy tovább a játék) a jégtábla paraméterei nem változnak és a
+rajta lévő tárgyak is megmaradnak. Egyik mezőről a másikra lépni egy munkát vesz
+igénybe.
+ *
+ */
 
 
 
@@ -18,15 +33,24 @@ public class Field {
 	protected boolean hasIglu;
 	protected boolean visibleCapacity;
 	protected int numOfPlayers;
-	protected Field neighbourFields;
-	private Board fields;
-	private Player players;
+	protected ArrayList<Field> neighbourFields;
+	private ArrayList<Player> players;
 	
-	public Field() {
-		
+	/**
+	 * 
+	 * @param capacity	Megadja hány embert bír el a mező.
+	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
+	 */
+	public Field(int capacity, int snowLayer) {
+		this.capacity = capacity;
+		this.snowLayer = snowLayer;
+		this.hasIglu = false;
+		this.visibleCapacity = false;
+		this.numOfPlayers = 0;
 	}
 	
-	public void Init(Field neighbour) {
+	public void AddNeighbour(Field neighbour) {
+		neighbourFields.add(neighbour);
 	}
 	
 	public boolean IsFall() {
@@ -35,7 +59,14 @@ public class Field {
 	public void Fall() {
 	}
 	
-	public void CanBuildIglu() {
+	public boolean CanBuildIglu() {
+		if(this.capacity > 0 && this.hasIglu == false) {
+			System.out.printf("Igen, lehet iglut építeni! \n");
+			return true;
+		}else {
+			System.out.printf("Nem, sajnos ide nem lehet iglut építeni! \n");
+			return false;	
+		}
 	}
 	
 	public void AddItem(Inventory item) {
@@ -54,5 +85,14 @@ public class Field {
 	}
 	
 	public void RemovePlayer(Player p) {
+	}
+	
+	public void SetHasIglu(boolean b) {
+		this.hasIglu = b ;
+		if(b == true) {
+			System.out.printf("Most már van rajta iglu! \n");
+		}
+		else
+			System.out.printf("Most már nincs rajta iglu! \n");
 	}
 }

@@ -9,10 +9,25 @@
 //
 //
 
-
+/**
+ * Az osztály felelőssége a sarkkutató hős menedzselése. Ide tartozik az összes
+tevékenység (ásás, tárgy felvétele stb…), beleértve a különleges képességét is, amit
+egy sarkkutató a játék során végezhet.
+Ezen kívül, ez az osztály felügyeli a sarkkutató testhőjét, figyeli, hogy maximum csak
+4 munkát végezhessen egy körön belül, valamint tárolja, hogy éppen melyik
+jégmezőn tartózkodik, illetve az elérhető maximális testő értékét (4).
+ * 
+ *
+ */
 
 
 public class Explorer extends Player {
+	
+	public Explorer(Field field) {
+		super(4, field);
+	}
+	
+	
 	public void UseAbility() {
 	}
 }
