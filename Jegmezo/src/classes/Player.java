@@ -53,6 +53,14 @@ public class Player {
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
+	public int GetHP() {
+		return hp;
+	}
+	
+	public int GetMaxHP() {
+		return maxHp;
+	}
+	
 	public void UseAbility() {
 	}
 	
@@ -60,6 +68,7 @@ public class Player {
 	}
 	
 	public void IncreaseHp() {
+		hp += 1;
 	}
 	
 	public void DecreaseHp() {
@@ -75,6 +84,7 @@ public class Player {
 	}
 	
 	public void DigPlayer(int layers) {
+		field.DigItems(layers);
 	}
 	
 	public void SwimPlayer() {
@@ -93,5 +103,8 @@ public class Player {
 	}
 	public void SetNumOfAction(int n) {
 		this.numberOfAction = n ;
+	}
+	public void SetWin(boolean b) {
+		win = b;
 	}
 }

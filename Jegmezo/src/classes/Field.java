@@ -35,6 +35,7 @@ public class Field {
 	protected int numOfPlayers;
 	protected ArrayList<Field> neighbourFields;
 	private ArrayList<Player> players;
+	private ArrayList<Inventory> items;
 	
 	/**
 	 * 
@@ -76,6 +77,18 @@ public class Field {
 	}
 	
 	public void DigItems(int layers) {
+		for (Inventory i : items) {
+			if (snowLayer - i.GetLayer() == 2) {
+				i.SetVisible(true);
+			}
+			else if (snowLayer - i.GetLayer() == 1) {
+				i.SetVisible(true);
+				i.DecreaseLayer(1);
+			}
+			else if (snowLayer - i.GetLayer() == 0) {
+				i.DecreaseLayer(2);
+			}
+		}
 	}
 	
 	public boolean IsFull() {
