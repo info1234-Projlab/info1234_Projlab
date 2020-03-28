@@ -81,10 +81,16 @@ public class Field {
 	public boolean IsFull() {
 	}
 	
-	public void AddPlayer(Player p) {
+	public void AddPlayer(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly AddPlayer(p: Player) fuggvenye hivodott meg.");
 	}
 	
-	public void RemovePlayer(Player p) {
+	public void RemovePlayer(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly RemovePlayer(p: Player) fuggvenye hivodott meg.");
 	}
 	
 	public void SetHasIglu(boolean b) {

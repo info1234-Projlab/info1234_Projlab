@@ -50,6 +50,21 @@ public class Player {
 		this.field = field;
 	}
 	
+	public Field GetField(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly GetField():Field fuggvenye hivodott meg.");
+		return field;
+	}
+	
+	public void SetField(Field f, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly SetField(f: Field) fuggvenye hivodott meg.");
+		this.field=f;
+	}
+	
+	
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */

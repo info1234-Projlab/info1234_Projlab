@@ -13,30 +13,21 @@
 
 
 public interface Inventory {
-	public boolean Eat(Player p) {
-	}
+	public boolean Eat(Player p);
 	
-	public boolean Dig(Player p) {
-	}
+	public boolean Dig(Player p);
 	
-	public boolean Pull(Player p) {
-	}
+	public boolean Pull(Player p, Field to);
 	
-	public boolean PutOn(Player p) {
-	}
+	public boolean PutOn(Player p);
 	
-	public boolean Shoot(Player p) {
-	}
+	public boolean Shoot(Player p);
 	
-	public boolean Swim(Player p) {
-	}
+	public boolean Swim(Player p);
 	
-	public void Drop(Player p) {
-	}
+	public void Drop(Player p);
 	
-	public void DecreaseLayer(int i) {
-	}
+	public void DecreaseLayer(int i);
 	
-	public void PickUp(PLayer p) {
-	}
+	public void PickUp(Player p);
 }

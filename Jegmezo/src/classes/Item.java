@@ -15,28 +15,37 @@
 public class Item implements Inventory {
 	protected int layer;
 	protected boolean visible;
+	
 	public boolean Eat(Player p) {
+		return false;
 	}
 	
 	public boolean Dig(Player p) {
+		return false;
 	}
 	
-	public boolean Pull(Player p) {
+	public boolean Pull(Player p, Field to) {
+		return false;
 	}
 	
 	public boolean PutOn(Player p) {
+		return false;
 	}
 	
 	public boolean Shoot(Player p) {
+		return false;
 	}
 	
 	public boolean Swim(Player p) {
+		return false;
 	}
 	
 	public void Drop(Player p) {
+
 	}
 	
 	public void DecreaseLayer(int i) {
+		layer=layer-i;
 	}
 	
 	public void PickUp(Player p) {
