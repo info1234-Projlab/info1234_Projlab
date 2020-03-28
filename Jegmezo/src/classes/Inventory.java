@@ -12,9 +12,7 @@
 
 
 
-public class Inventory {
-	private Player items;
-	private Field items;
+public interface Inventory {
 	public boolean Eat(Player p) {
 	}
 	

@@ -39,6 +39,6 @@ public class Item implements Inventory {
 	public void DecreaseLayer(int i) {
 	}
 	
-	public Inventory PickUp(Player p) {
+	public void PickUp(Player p) {
 	}
 }
