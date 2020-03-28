@@ -68,7 +68,10 @@ public class Player {
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
-	public void UseAbility() {
+	public void UseAbility(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly UseAbility() fuggvenye hivodott meg.");
 	}
 	
 	public void Move(Field f, int tab) {
@@ -101,8 +104,9 @@ public class Player {
 	public void PullPlayer() {
 	}
 	
-	public void DecreaseAction() {
-		
+	public void DecreaseAction(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
 		if(this.numberOfAction > 0)	this.numberOfAction--; // a feltétel lehet felesleges
 		System.out.printf("Akciók száma csökkent, így %d akció van hátra\n", this.numberOfAction);
 	}

@@ -101,7 +101,10 @@ public class Field {
 		System.out.println("A Field osztaly RemovePlayer(p: Player) fuggvenye hivodott meg.");
 	}
 	
-	public void SetHasIglu(boolean b) {
+	public void SetHasIglu(boolean b, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly SetHasIglu(b: boolean) fuggvenye hivodott meg");
 		this.hasIglu = b ;
 		if(b == true) {
 			System.out.printf("Jelenleg van rajta iglu! \n");
@@ -109,7 +112,10 @@ public class Field {
 		else
 			System.out.printf("Jelenleg nincs rajta iglu! \n");
 	}
-	public void SetVisibleCapacity(boolean bool) {
+	public void SetVisibleCapacity(boolean bool, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly SetVisibleCapacity(b: boolean) fuggvenye hivodott meg");
 		this.visibleCapacity = bool;
 		if(bool==true)	System.out.printf("A mező kapacitása: %d " , this.capacity);
 	}
