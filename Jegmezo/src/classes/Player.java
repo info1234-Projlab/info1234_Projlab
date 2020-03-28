@@ -33,8 +33,8 @@ public class Player {
 	protected int numberOfAction;
 	protected int maxHp;
 	protected boolean win;
-	private Field field;
-	private ArrayList<Item> items;
+	protected Field field;				//ez eredetileg private volt de az szerintem hülyeség
+	protected ArrayList<Item> items;	//ez is
 
 	
 	/**

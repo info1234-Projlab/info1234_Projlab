@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Main{
 	public static void main(String args[]) {
-		UseAbilityEskimo();
+		
+		
 	}
 
 
@@ -27,5 +28,24 @@ public static void UseAbilityEskimo() {
 		}	
 	}
 }
+
+public static void UseAbilityExplorer() {
+	
+	System.out.printf("Add meg, hány akciója van még hátra a játékosnak (0-4), mekkora legyen a mező kapacitása. \n");
+	Scanner in = new Scanner(System.in);
+	int actions = in.nextInt();
+	int cap = in.nextInt();
+	Field f = new Field(cap, 3);	
+	Explorer e = new Explorer(f);
+	e.SetNumOfAction(actions);
+	if(e.GetNumOfAction() == 0 ) { System.out.printf("Nem tud akciót végrehajtani! \n");}
+	if(e.GetNumOfAction() > 0 ) {
+		f.SetVisibleCapacity(true);
+		}	
+}
+
+
+
+
 
 }

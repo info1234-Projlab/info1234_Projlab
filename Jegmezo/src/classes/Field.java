@@ -95,4 +95,9 @@ public class Field {
 		else
 			System.out.printf("Jelenleg nincs rajta iglu! \n");
 	}
+	public void SetVisibleCapacity(boolean bool) {
+		this.visibleCapacity = bool;
+		if(bool==true)	System.out.printf("A mező kapacitása: %d " , this.capacity);
+	}
+	
 }
