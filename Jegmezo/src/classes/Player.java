@@ -9,8 +9,24 @@
 //
 //
 
+import java.util.ArrayList;
 
-
+/**
+ * A játékosokat egységbe foglalja, a felelőssége a különböző hősökkel történő lépések
+ *	menedzselése és azok testhőjének, munkavégzésének figyelése.
+ *	@param hp	  a játékos aktuális testhőjét tárolja.
+ *	@param numOfAction	 A játékos által még elvégezhető tevékenységeknek a
+ *	száma. Jellemzően 0-4 közötti értéket vehet fel. Kör elején 4 értékre állítódik
+ *	be.
+ *	@param field	 A játékos aktuális tartózkodási mezőjét tárolja.
+ *	@param maxHp	 A játékos maximálisan elérhető testhőjét tárolja.
+ *	
+ *	@param items	 Tárolja a különböző itemeket.
+ *	@param win	 Alapértéke false, akkor válik igazzá, ha elsütötték a
+ *	jelzőfegyvert.
+ *
+ *
+ */
 
 public class Player {
 	protected int hp;
@@ -18,9 +34,25 @@ public class Player {
 	protected int maxHp;
 	protected boolean win;
 	private Field field;
-	private Game players;
-	private Item items;
-	private Game currentPlayer;
+	private ArrayList<Item> items;
+
+	
+	/**
+	 * 
+	 * @param maxHp	konstruktornak átadott maxHp érték
+	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
+	 */
+	public Player(int maxHp, Field field) {	
+		this.hp = maxHp;
+		this.maxHp = maxHp;
+		this.numberOfAction = 4;
+		this.win = false;
+		this.field = field;
+	}
+	
+	/**
+	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
+	 */
 	public void UseAbility() {
 	}
 	

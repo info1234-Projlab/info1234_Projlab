@@ -13,6 +13,14 @@
 
 
 public class Eskimo extends Player {
+	/**
+	 * 
+	 * @param field	Ahova az eszkimót ledobjuk a pályán. 
+	 */
+	public Eskimo(Field field) {
+		super(4, field);
+	}
+	
 	public void UseAbility() {
 	}
 }

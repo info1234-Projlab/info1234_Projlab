@@ -21,6 +21,11 @@ public class Field {
 	protected Field neighbourFields;
 	private Board fields;
 	private Player players;
+	
+	public Field() {
+		
+	}
+	
 	public void Init(Field neighbour) {
 	}
 	
