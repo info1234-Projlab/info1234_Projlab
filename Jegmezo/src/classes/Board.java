@@ -17,6 +17,7 @@ public class Board {
 	public void Storm() {
 		GITHUB TESZT;
 		GITHUB TESZT2;
+		Dina teszt;
 	}
 	
 	public void Init(Field [1..*] fields) {
