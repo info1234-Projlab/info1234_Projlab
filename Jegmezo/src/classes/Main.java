@@ -41,7 +41,9 @@ public static void UseAbilityExplorer() {
 	if(e.GetNumOfAction() == 0 ) { System.out.printf("Nem tud akciót végrehajtani! \n");}
 	if(e.GetNumOfAction() > 0 ) {
 		f.SetVisibleCapacity(true);
+		e.DecreaseAction();
 		}	
+	
 }
 
 
