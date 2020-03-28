@@ -15,10 +15,7 @@
 public class Board {
 	private Game board;
 	public void Storm() {
-		GITHUB TESZT;
-		GITHUB TESZT2;
-		Dina teszt;
-		testtttttt
+		
 	}
 	
 	public void Init(Field [1..*] fields) {
