@@ -53,6 +53,14 @@ public class Field {
 		neighbourFields.add(neighbour);
 	}
 	
+	public ArrayList<Field> GetNeighbouringFields(int tab){
+	for(int i=0; i<tab; i++)
+		System.out.print("\t");
+	System.out.println("A Field osztaly GetNeighbouringFields() fuggvenye hivodott meg.");
+	
+	return neighbourFields;
+	}
+	
 	public boolean IsFall() {
 	}
 	
