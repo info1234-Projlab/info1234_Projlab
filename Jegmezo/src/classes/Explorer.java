@@ -28,7 +28,12 @@ public class Explorer extends Player {
 	}
 	
 	
-	public void UseAbility() {
-		field.SetVisibleCapacity(true);
+	public void UseAbility(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Explorer osztaly UseAbility() fuggvenye hivodott meg.");
+		field.SetVisibleCapacity(true, tab+1);
+	}
+		
 	}
 }

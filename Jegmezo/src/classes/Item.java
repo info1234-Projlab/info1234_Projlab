@@ -15,6 +15,7 @@ package classes;
 public class Item implements Inventory {
 	protected int layer;
 	protected boolean visible;
+	
 	public boolean Eat(Player p) {
 		return false;
 	}
@@ -23,7 +24,11 @@ public class Item implements Inventory {
 		return false;
 	}
 	
+<<<<<<< HEAD
 	public boolean Pull(Player p) {
+=======
+	public boolean Pull(Player p, Field to) {
+>>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
 		return false;
 	}
 	
@@ -40,9 +45,11 @@ public class Item implements Inventory {
 	}
 	
 	public void Drop(Player p) {
+
 	}
 	
 	public void DecreaseLayer(int i) {
+<<<<<<< HEAD
 		layer -= 1;
 	}
 	
@@ -55,5 +62,11 @@ public class Item implements Inventory {
 	
 	public void SetVisible(boolean b) {
 		visible = b;
+=======
+		layer=layer-i;
+	}
+	
+	public void PickUp(Player p) {
+>>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
 	}
 }

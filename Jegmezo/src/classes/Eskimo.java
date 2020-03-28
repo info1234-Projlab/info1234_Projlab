@@ -29,6 +29,9 @@ public class Eskimo extends Player {
 		super(5, field);
 	}
 	
-	public void UseAbility() {
+	public void UseAbility(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Eskimo osztaly UseAbility() fuggvenye hivodott meg.");
 	}
 }

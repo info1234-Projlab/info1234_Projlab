@@ -14,6 +14,7 @@ package classes;
 
 public interface Inventory {
 	public boolean Eat(Player p);
+<<<<<<< HEAD
 	
 	public boolean Dig(Player p);
 	
@@ -34,4 +35,22 @@ public interface Inventory {
 	public int GetLayer();
 	
 	public void SetVisible(boolean b);
+=======
+	
+	public boolean Dig(Player p);
+	
+	public boolean Pull(Player p, Field to);
+	
+	public boolean PutOn(Player p);
+	
+	public boolean Shoot(Player p);
+	
+	public boolean Swim(Player p);
+	
+	public void Drop(Player p);
+	
+	public void DecreaseLayer(int i);
+	
+	public void PickUp(Player p);
+>>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
 }

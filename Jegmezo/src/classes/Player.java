@@ -50,9 +50,25 @@ public class Player {
 		this.field = field;
 	}
 	
+	public Field GetField(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly GetField():Field fuggvenye hivodott meg.");
+		return field;
+	}
+	
+	public void SetField(Field f, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly SetField(f: Field) fuggvenye hivodott meg.");
+		this.field=f;
+	}
+	
+	
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
+<<<<<<< HEAD
 	public int GetHP() {
 		return hp;
 	}
@@ -62,9 +78,18 @@ public class Player {
 	}
 	
 	public void UseAbility() {
+=======
+	public void UseAbility(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly UseAbility() fuggvenye hivodott meg.");
+>>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
 	}
 	
-	public void Move(Field f) {
+	public void Move(Field f, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly Move(f: Field) fuggvenye hivodott meg.");
 	}
 	
 	public void IncreaseHp() {
@@ -93,15 +118,22 @@ public class Player {
 	public void PullPlayer() {
 	}
 	
-	public void DecreaseAction() {
-		
+	public void DecreaseAction(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
 		if(this.numberOfAction > 0)	this.numberOfAction--; // a feltétel lehet felesleges
 		System.out.printf("Akciók száma csökkent, így %d akció van hátra\n", this.numberOfAction);
 	}
-	public int GetNumOfAction() {
+	public int GetNumOfAction(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly GetNumOfAction() fuggvenye hivodott meg.");
 		return this.numberOfAction;
 	}
-	public void SetNumOfAction(int n) {
+	public void SetNumOfAction(int n, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly SetNumOfAction(n: int) fuggvenye hivodott meg.");
 		this.numberOfAction = n ;
 	}
 	public void SetWin(boolean b) {
