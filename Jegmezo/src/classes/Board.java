@@ -15,6 +15,7 @@
 public class Board {
 	private Game board;
 	public void Storm() {
+		GITHUB TESZT;
 	}
 	
 	public void Init(Field [1..*] fields) {
