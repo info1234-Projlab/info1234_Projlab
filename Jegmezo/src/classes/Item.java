@@ -61,7 +61,11 @@ public class Item implements Inventory {
 		layer -= i;
 	}
 	
-	public void PickUp(Player p) {
+	public void PickUp(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("Az Item osztaly PickUp(p:Player) fuggvenye hivodott meg");
+		p.AddItem(this,tab+1);
 	}
 	
 	public int GetLayer(int tab) {
@@ -81,6 +85,13 @@ public class Item implements Inventory {
 			System.out.print("\t");
 		System.out.print("Az Item osztaly SetVisible() fuggvenye hivodott meg");
 		visible = b;
+	}
+	
+	public boolean GetVisible(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("Az Item osztaly GetVisible():boolean fuggvenye hivodott meg");
+		return visible;
 	}
 	
 	public boolean Pull(Player p) {

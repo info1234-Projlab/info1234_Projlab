@@ -35,7 +35,7 @@ public class Player {
 	protected int maxHp;
 	protected boolean win;
 	protected Field field;				//ez eredetileg private volt de az szerintem hülyeség
-	protected ArrayList<Item> items;	//ez is
+	protected ArrayList<Inventory> items;	//ez is
 
 	
 	/**
@@ -111,7 +111,11 @@ public class Player {
 		hp--;
 	}
 	
-	public void AddItem(Inventory i) {
+	public void AddItem(Inventory i,int tab) {
+		for(int j=0; j<tab; j++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly AddItem(i:Inventory) fuggvenye hivodott meg.");
+		items.add(i);
 	}
 	
 	public void RemoveItem(Inventory i,int tab) {

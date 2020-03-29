@@ -13,4 +13,11 @@ package classes;
 
 
 public class Gun extends FlareGun implements Inventory {
+	
+	public Gun(int layer, boolean visible,int tab) {
+	super(layer,visible, tab+1);
+	for(int i=0; i<tab; i++)
+		System.out.print("\t");
+	System.out.println("A Gun osztaly konstruktora hivodott meg.");
+	}
 }

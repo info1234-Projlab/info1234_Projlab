@@ -1,4 +1,4 @@
-
+package classes;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -94,9 +94,20 @@ public class Field {
 		System.out.printf("A Field osztály AddItem(item:Inventory):void hívódott meg \n");
 		item.SetLayer(this.snowLayer);
 		items.add(item);
+		Player player=Game.GetCurrentPlayer(tab+1);
+		item.Drop(player,tab+1);
 	}
 	
-	public void RemoveItem(Player p) {
+	public void RemoveItem(Player p,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("A Field osztály RemoveItem(p:Player):void hívódott meg \n");
+		for(int i=0; i<items.size(); i++) {
+			if(items.get(i).GetVisible(tab+1)) {
+				items.get(i).PickUp(p,tab+1);
+			}
+				
+		}
 	}
 	
 	public void DigItems(int layers, int tab) {

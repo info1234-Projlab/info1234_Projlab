@@ -19,6 +19,17 @@ public class FlareGun implements Inventory {
 	protected int layer;
 	protected boolean visible;
 	protected ArrayList<FlareGun> components;
+	
+	public FlareGun(int layer, boolean visible, int tab) {
+		this.layer=layer;
+		this.visible=visible;
+		this.components=new ArrayList<>();
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A FlareGun osztaly konstruktora hivodott meg.");
+	}
+	
+	
 	public boolean Shoot(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -52,7 +63,12 @@ public class FlareGun implements Inventory {
 	public void Drop(Player p) {
 	}
 	
-	public void PickUp(Player p) {
+	public void PickUp(Player p,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("Az FlareGun osztaly PickUp(p:Player) fuggvenye hivodott meg");
+		p.AddItem(this,tab+1);
+		components.add(this);
 	}
 	
 	public void DecreaseLayer(int i, int tab) {
