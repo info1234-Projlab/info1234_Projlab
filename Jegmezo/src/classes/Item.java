@@ -37,7 +37,7 @@ public class Item implements Inventory {
 		return false;
 	}
 	
-	public boolean Shoot(Player p) {
+	public boolean Shoot(Player p, int tab) {
 		return false;
 	}
 	
@@ -57,7 +57,7 @@ public class Item implements Inventory {
 	public void DecreaseLayer(int i, int tab) {
 		for(int j=0; j<tab; j++)
 			System.out.print("\t");
-		System.out.print("A Item osztaly DecreaseLayer() fuggvenye hivodott meg");
+		System.out.print("Az Item osztaly DecreaseLayer() fuggvenye hivodott meg");
 		layer -= i;
 	}
 	
@@ -67,7 +67,7 @@ public class Item implements Inventory {
 	public int GetLayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Item osztaly GetLayer() fuggvenye hivodott meg");
+		System.out.print("Az Item osztaly GetLayer() fuggvenye hivodott meg");
 		return layer;
 	}
 	
@@ -79,6 +79,7 @@ public class Item implements Inventory {
 	public void SetVisible(boolean b, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
+		System.out.print("Az Item osztaly SetVisible() fuggvenye hivodott meg");
 		visible = b;
 	}
 	

@@ -20,6 +20,9 @@ public class FlareGun implements Inventory {
 	protected boolean visible;
 	protected ArrayList<FlareGun> components;
 	public boolean Shoot(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		if (!(components.contains(new Gun()) && components.contains(new Flare()) && components.contains(new Cartridge()))) {
@@ -38,10 +41,6 @@ public class FlareGun implements Inventory {
 		return false;
 	}
 	
-	public boolean Pull(Player p) {
-		return false;
-	}
-	
 	public boolean PutOn(Player p) {
 		return false;
 	}
@@ -56,30 +55,35 @@ public class FlareGun implements Inventory {
 	public void PickUp(Player p) {
 	}
 	
-	public void DecreaseLayer(int i) {
-		layer -= 1;
+	public void DecreaseLayer(int i, int tab) {
+		for(int j=0; j<tab; j++)
+			System.out.print("\t");
+		System.out.print("A Item osztaly DecreaseLayer() fuggvenye hivodott meg");
+		layer -= i;
 	}
 
-	public int GetLayer() {
-		return layer;
-	}
-
-	public void SetVisible(boolean b) {
-		visible = b;
-	}
-
-	@Override
 	public boolean Pull(Player p, Field to) {
 		return false;
 	}
 
-	@Override
-	public boolean Shoot(Player p) {
-		return false;
+
+	public void SetLayer(int num) {
+		this.layer=num;
+		System.out.printf("Az Item oszt�ly SetLayer(num:int):void h�v�dott meg \n");
 	}
 
-	@Override
-	public void SetLayer(int num) {
+	public int GetLayer(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Item osztaly GetLayer() fuggvenye hivodott meg");
+		return layer;
+	}
+
+	public void SetVisible(boolean b, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("Az Item osztaly SetVisible() fuggvenye hivodott meg");
+		visible = b;
 		
 	}
 }

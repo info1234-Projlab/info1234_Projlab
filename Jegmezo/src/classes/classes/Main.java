@@ -1,12 +1,10 @@
-
 package classes;
-import java.util.ArrayList;
+//package classes;
 import java.util.Scanner;
-
 
 public class Main{
 	public static void main(String args[]) {
-		StepOnHoleButNoHelp();
+		StepToNeighbourField();
 	}
 
 /**
@@ -45,12 +43,12 @@ public static void UseAbilityExplorer() {
 }
 
 public static void AddItemToField() {
-	System.out.printf("Add meg, hany reteg ho legyen a mezon\n");
+	System.out.printf("Add meg, hany reteg h� legyen a mez�n\n");
 	Scanner in = new Scanner(System.in);
 	int layer=in.nextInt();
 	Field f=new Field(1,layer,1);
 	Explorer e=new Explorer(f,1); 
-	System.out.printf("A targy buvarruha legyen (1) vagy egyeb (2)?\n");
+	System.out.printf("A t�rgy b�v�rruha legyen (1) vagy egy�b (2)?\n");
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
@@ -80,7 +78,7 @@ public static void FieldNotNeighbour(){
 
 public static void StepToNeighbourField(){
 	
-	System.out.println("Explorer a szomszedos mezore lep:");
+	System.out.println("Eskimo a szomszedos mezore lep:");
 	
 	Field toField = new Field(1,0,1);
 	Field fromField = new Field(1,0,2);
@@ -92,38 +90,8 @@ public static void StepToNeighbourField(){
 	fromField.RemovePlayer(explorer,7);
 	toField.IsFall(8);
 	
-	System.out.println("Explorer atlepett a szomszedos mezore!");
+	System.out.println("Eskimo atlepett a szomszedos mezore!");
 	
 }
-
-public static void StepOnHoleButNoHelp(){
-	System.out.println("Eskimo egy lukba lep:");
-	
-	Field toField = new Field(1,0,1);
-	Field fromField = new Field(1,0,2);
-	
-	Eskimo eskimo = new Eskimo(fromField,3);
-	eskimo.Move(toField,4);
-	
-	toField.AddPlayer(eskimo, 6);
-	fromField.RemovePlayer(eskimo,7);
-	toField.IsFall(8);
-	
-	toField.Fall(9);
-	eskimo.SetHp(0,11);
-	
-	System.out.println("Eskimo belefulladt a vizbe");
-}
-
-public static void StormOnBoard() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
-	ArrayList<Field> fields=new ArrayList<>();
-	fields.add(f);
-	Board board=new Board(fields,1);
-	board.Storm(1);
-	
-}
-
 
 }

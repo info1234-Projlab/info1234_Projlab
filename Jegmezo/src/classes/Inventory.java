@@ -21,7 +21,7 @@ public interface Inventory {
 	
 	public boolean PutOn(Player p);
 	
-	public boolean Shoot(Player p);
+	public boolean Shoot(Player p, int tab);
 	
 	public boolean Swim(Player p);
 	
