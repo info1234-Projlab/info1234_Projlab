@@ -24,14 +24,30 @@ public class Eskimo extends Player {
 	/**
 	 * 
 	 * @param field	Ahova az eszkimót ledobjuk a pályán. 
+	 * @param tab	Indentálást jelzi. 
 	 */
-	public Eskimo(Field field) {
-		super(5, field);
+	public Eskimo(Field field,int tab) {
+		super(5, field,tab+1);
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Eskimo osztaly konstruktora hivodott meg.");
 	}
 	
+	/**
+	 * Az eszkimo UseAbility fuggvenye egy iglut epit a mezore, amennyiben azon meg nincsen. Ez egy munkaba kerul.
+	 * @param tab	Az indentalast jelzi.
+	 */
 	public void UseAbility(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("Az Eskimo osztaly UseAbility() fuggvenye hivodott meg.");
+		int a = this.GetNumOfAction(tab+1);
+		if(a == 0 ) { System.out.printf("Nem tud akciót végrehajtani! \n");}
+		if(a > 0 ) {
+			if(this.GetField(tab+1).CanBuildIglu(tab+1)) {
+			this.GetField(tab+1).SetHasIglu(true,tab+1);
+			this.DecreaseAction(tab+1);
+			}	
+		}
 	}
 }

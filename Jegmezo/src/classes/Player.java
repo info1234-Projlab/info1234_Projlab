@@ -42,7 +42,10 @@ public class Player {
 	 * @param maxHp	konstruktornak átadott maxHp érték
 	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
 	 */
-	public Player(int maxHp, Field field) {	
+	public Player(int maxHp, Field field, int tab) {	
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly konstruktora hivodott meg.");
 		this.hp = maxHp;
 		this.maxHp = maxHp;
 		this.numberOfAction = 4;
@@ -68,7 +71,7 @@ public class Player {
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
-<<<<<<< HEAD
+// <<<<<<< HEAD
 	public int GetHP() {
 		return hp;
 	}
@@ -77,13 +80,11 @@ public class Player {
 		return maxHp;
 	}
 	
-	public void UseAbility() {
-=======
+
 	public void UseAbility(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Player osztaly UseAbility() fuggvenye hivodott meg.");
->>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
 	}
 	
 	public void Move(Field f, int tab) {
@@ -121,6 +122,7 @@ public class Player {
 	public void DecreaseAction(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
+		System.out.println("A Player osztaly DecreaseAction() fuggvenye hivodott meg.");
 		if(this.numberOfAction > 0)	this.numberOfAction--; // a feltétel lehet felesleges
 		System.out.printf("Akciók száma csökkent, így %d akció van hátra\n", this.numberOfAction);
 	}

@@ -42,7 +42,10 @@ public class Field {
 	 * @param capacity	Megadja hány embert bír el a mező.
 	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
 	 */
-	public Field(int capacity, int snowLayer) {
+	public Field(int capacity, int snowLayer, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly konstruktora hivodott meg.");
 		this.capacity = capacity;
 		this.snowLayer = snowLayer;
 		this.hasIglu = false;
@@ -68,7 +71,10 @@ public class Field {
 	public void Fall() {
 	}
 	
-	public boolean CanBuildIglu() {
+	public boolean CanBuildIglu(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Field osztaly CanBuildIglu() fuggvenye hivodott meg.");
 		if(this.capacity > 0 && this.hasIglu == false) {
 			System.out.printf("Igen, lehet iglut építeni! \n");
 			return true;
@@ -125,12 +131,13 @@ public class Field {
 		else
 			System.out.printf("Jelenleg nincs rajta iglu! \n");
 	}
+	
 	public void SetVisibleCapacity(boolean bool, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Field osztaly SetVisibleCapacity(b: boolean) fuggvenye hivodott meg");
 		this.visibleCapacity = bool;
-		if(bool==true)	System.out.printf("A mező kapacitása: %d " , this.capacity);
+		if(bool==true)	System.out.printf("A mező kapacitása: %d \n" , this.capacity);
 	}
 	
 }

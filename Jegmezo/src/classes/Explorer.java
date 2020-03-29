@@ -23,17 +23,29 @@ jégmezőn tartózkodik, illetve az elérhető maximális testő értékét (4).
 
 public class Explorer extends Player {
 	
-	public Explorer(Field field) {
-		super(4, field);
+	public Explorer(Field field,int tab) {
+		super(4, field, tab+1);
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Explorer osztaly konstruktora hivodott meg.");
+		
 	}
 	
-	
+	/**
+	 * A kutato UseAbility fuggvenye egy megnezi, hogy az adott mezo kapacitasa mekkora. Ez egy munkaba kerul.
+	 * @param tab	Az indentalast jelzi.
+	 */
 	public void UseAbility(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("Az Explorer osztaly UseAbility() fuggvenye hivodott meg.");
-		field.SetVisibleCapacity(true, tab+1);
+		int a = this.GetNumOfAction(tab+1);
+		if(a == 0 ) { System.out.printf("Nem tud akciót végrehajtani! \n");}
+		if(a > 0 ) {
+			this.GetField(tab+1).SetVisibleCapacity(true,tab+1);
+			this.DecreaseAction(tab+1);
+			}
 	}
 		
-	}
+	
 }
