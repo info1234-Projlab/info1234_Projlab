@@ -90,17 +90,20 @@ public class Field {
 	public void RemoveItem(Player p) {
 	}
 	
-	public void DigItems(int layers) {
+	public void DigItems(int layers, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Field osztaly DigItems() fuggvenye hivodott meg");
 		for (Inventory i : items) {
-			if (snowLayer - i.GetLayer() == 2) {
-				i.SetVisible(true);
+			if (snowLayer - i.GetLayer(tab + 1) == 2) {
+				i.SetVisible(true, tab + 1);
 			}
-			else if (snowLayer - i.GetLayer() == 1) {
-				i.SetVisible(true);
-				i.DecreaseLayer(1);
+			else if (snowLayer - i.GetLayer(tab + 1) == 1) {
+				i.SetVisible(true, tab + 1);
+				i.DecreaseLayer(1, tab + 1);
 			}
-			else if (snowLayer - i.GetLayer() == 0) {
-				i.DecreaseLayer(2);
+			else if (snowLayer - i.GetLayer(tab + 1) == 0) {
+				i.DecreaseLayer(2, tab + 1);
 			}
 		}
 	}

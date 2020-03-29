@@ -27,13 +27,13 @@ public interface Inventory {
 	
 	public void Drop(Player p);
 	
-	public void DecreaseLayer(int i);
+	public void DecreaseLayer(int i, int tab);
 	
 	public void PickUp(Player p);
 	
-	public int GetLayer();
+	public int GetLayer(int tab);
 	
 	public void SetLayer(int num);
 	
-	public void SetVisible(boolean b);
+	public void SetVisible(boolean b, int tab);
 }

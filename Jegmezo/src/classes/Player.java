@@ -72,11 +72,17 @@ public class Player {
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
-	public int GetHP() {
+	public int GetHP(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Player osztaly GetHP() fuggvenye hivodott meg");
 		return hp;
 	}
 	
-	public int GetMaxHP() {
+	public int GetMaxHP(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Player osztaly GetMaxHP() fuggvenye hivodott meg");
 		return maxHp;
 	}
 	
@@ -114,8 +120,11 @@ public class Player {
 	public void StartTurn(int numOfAction) {
 	}
 	
-	public void DigPlayer(int layers) {
-		field.DigItems(layers);
+	public void DigPlayer(int layers, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Player osztaly DigPlayer fuggvenye hivodott meg");
+		field.DigItems(layers, tab + 1);
 	}
 	
 	public void SwimPlayer() {

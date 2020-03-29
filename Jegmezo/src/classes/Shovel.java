@@ -24,7 +24,7 @@ public class Shovel extends Item {
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);
-		p.DigPlayer(2);
+		p.DigPlayer(2, tab + 1);
 		return true;
 	}
 }

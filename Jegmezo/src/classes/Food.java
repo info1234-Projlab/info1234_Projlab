@@ -19,9 +19,12 @@ public class Food extends Item {
 	}
 	
 	public boolean Eat(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Food osztály Eat() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
-		if (p.GetHP() == p.GetMaxHP()) {
+		if (p.GetHP(tab + 1) == p.GetMaxHP(tab + 1)) {
 			return false;
 		}
 		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);

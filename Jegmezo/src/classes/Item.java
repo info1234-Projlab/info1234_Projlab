@@ -54,14 +54,20 @@ public class Item implements Inventory {
 		
 	}
 	
-	public void DecreaseLayer(int i) {
-		layer -= 1;
+	public void DecreaseLayer(int i, int tab) {
+		for(int j=0; j<tab; j++)
+			System.out.print("\t");
+		System.out.print("A Item osztaly DecreaseLayer() fuggvenye hivodott meg");
+		layer -= i;
 	}
 	
 	public void PickUp(Player p) {
 	}
 	
-	public int GetLayer() {
+	public int GetLayer(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Item osztaly GetLayer() fuggvenye hivodott meg");
 		return layer;
 	}
 	
@@ -70,7 +76,9 @@ public class Item implements Inventory {
 		System.out.printf("Az Item oszt�ly SetLayer(num:int):void h�v�dott meg \n");
 	}
 	
-	public void SetVisible(boolean b) {
+	public void SetVisible(boolean b, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
 		visible = b;
 	}
 	
