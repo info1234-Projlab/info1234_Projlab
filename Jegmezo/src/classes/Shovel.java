@@ -21,6 +21,7 @@ public class Shovel extends Item {
 	public boolean Dig(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
+		System.out.print("A Shovel osztaly Dig() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);
