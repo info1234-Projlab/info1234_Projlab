@@ -44,6 +44,9 @@ public static void UseAbilityExplorer() {
 	
 }
 
+/**
+ * A Field AddItem függvényéhez tartozó forgatókönyv
+ */
 public static void AddItemToField() {
 	Field f=new Field(1,0,1);
 	Explorer e=new Explorer(f,1);
@@ -59,14 +62,15 @@ public static void AddItemToField() {
 		
 		f.AddItem(dsuit,1);
 		}
-	
 }
 
+/**
+ * A Field RemoveItem függvényéhez tartozó forgatókönyv
+ */
 public static void RemoveItemFromFiled() {
 	Field f=new Field(1,0,1);
 	Explorer e=new Explorer(f,1);
-		f.RemoveItem(e,1);
-	
+		f.RemoveItem(e,1);	
 }
 
 
@@ -120,6 +124,9 @@ public static void StepOnHoleButNoHelp(){
 	System.out.println("Eskimo belefulladt a vizbe");
 }
 
+/**
+ * A Board Storm függvényéhez tartozó forgatókönyv
+ */
 public static void StormOnBoard() {
 	Field f=new Field(1,0,1);
 	Explorer e=new Explorer(f,1);

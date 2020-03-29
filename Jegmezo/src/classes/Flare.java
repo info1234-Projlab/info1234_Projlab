@@ -9,11 +9,22 @@ package classes;
 //
 //
 
-
+/**
+ * 
+ * Különleges tárgy, mert a játék megnyeréséhez elengedhetetlen. 
+ * Bármely típusú játékos felveheti amely egy egység munkát vesz igénybe. A nyeréshez a másik két 
+ * fontos alkatrésszel kell összeszerelni, ami szintén egy munka.
+ *
+ */
 
 
 public class Flare extends FlareGun implements Inventory {
-	
+	/**
+	 * 
+	 * @param layer mennyi réteg hó van a tárgy felett
+	 * @param visible ez akkor igaz ha láthatóa tárgy(nincs rajta hó
+	 * @param tab indentálás
+	 */
 	public Flare(int layer, boolean visible,int tab) {
 		super(layer,visible, tab+1);
 		for(int i=0; i<tab; i++)

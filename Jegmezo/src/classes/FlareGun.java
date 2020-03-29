@@ -12,7 +12,11 @@ import java.util.ArrayList;
 //
 //
 
-
+/**
+ *Az osztály felelõssége a jelzõfegyver menedzselése.
+ * Figyelnie kell, hogy felvették-e az alkatrészeket, kigyûlt-e már mind a három és a fegyver elsütéséért is ez felelõs.
+ *
+ */
 
 
 public class FlareGun implements Inventory {
@@ -20,6 +24,13 @@ public class FlareGun implements Inventory {
 	protected boolean visible;
 	protected ArrayList<FlareGun> components;
 	
+	/**
+	 * 
+	 * @param layer mennyi réteg hó van a tárgy felett
+	 * @param visible ez akkor igaz ha láthatóa tárgy(nincs rajta hó
+	 * @param tab indentálás
+	 * még van egy ArrayList váltazója is amiben a pisztolytartozékokat fogjuk pakolni, ha felvettük
+	 */
 	public FlareGun(int layer, boolean visible, int tab) {
 		this.layer=layer;
 		this.visible=visible;
@@ -60,9 +71,23 @@ public class FlareGun implements Inventory {
 		return false;
 	}
 	
-	public void Drop(Player p) {
+	/**
+	 * Ha valaki el szeretne dobni egy tárgyat akkor hívódik ez a függvény. 
+	 * Ilyenkor, a paraméterül kapott Player items tárolójából kiveszi az adott tárgyat és “leteszi” a földre,
+	 *  azaz a Player field-jének az items tárolójába, ezen kívül a saját components tárolójából is kiveszi magát.
+	 */
+	public void Drop(Player p,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("Az FlareGun osztaly Drop(p:Player):void hivodott meg \n");
+		p.RemoveItem(this,tab+1);
 	}
 	
+	/**
+	 *  Ez a függvény pedig a tárgyak felvételére szolgál.
+	 *   Tehát, ha valaki felvesz egy tárgyat, a Field items tárolójából átkerül a Player items tárolójába.
+	 *    Ezen kívül beteszi magát a saját components tárolójába is.
+	 */
 	public void PickUp(Player p,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -85,20 +110,20 @@ public class FlareGun implements Inventory {
 
 	public void SetLayer(int num) {
 		this.layer=num;
-		System.out.printf("Az Item osztï¿½ly SetLayer(num:int):void hï¿½vï¿½dott meg \n");
+		System.out.printf("Az FlareGun osztï¿½ly SetLayer(num:int):void hï¿½vï¿½dott meg \n");
 	}
 
 	public int GetLayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Item osztaly GetLayer() fuggvenye hivodott meg");
+		System.out.print("A FlareGun osztaly GetLayer() fuggvenye hivodott meg");
 		return layer;
 	}
 
 	public void SetVisible(boolean b, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("Az Item osztaly SetVisible() fuggvenye hivodott meg");
+		System.out.print("Az FlareGun osztaly SetVisible() fuggvenye hivodott meg");
 		visible = b;
 		
 	}

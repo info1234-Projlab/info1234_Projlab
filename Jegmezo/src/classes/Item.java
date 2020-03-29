@@ -9,7 +9,12 @@ package classes;
 //
 //
 
-
+/**
+Felelõssége a tárgyak használatának, elérhetõségének és 
+láthatóságának felügyelete. Ez az osztály felel azért, hogy az adott tárgy birtoklása 
+a játékosra milyen hatással van. 
+ *
+ */
 
 
 public class Item implements Inventory {
@@ -45,13 +50,16 @@ public class Item implements Inventory {
 		return false;
 	}
 	
+	/**
+	 * Ha valaki el szeretne dobni egy tárgyat akkor hívódik ez a 
+	 * függvény. Ilyenkor, a paraméterül kapott Player items tárolójából kiveszi az adott tárgyat és
+	 *  “leteszi” a földre, azaz a Player field-jének az items tárolójába.
+	 */
 	public void Drop(Player p,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("Az Item osztï¿½ly Drop(p:Player):void hï¿½vï¿½dott meg \n");
+		System.out.printf("Az Item osztaly Drop(p:Player):void hivodott meg \n");
 		p.RemoveItem(this,tab+1);
-		
-		
 	}
 	
 	public void DecreaseLayer(int i, int tab) {
@@ -61,6 +69,10 @@ public class Item implements Inventory {
 		layer -= i;
 	}
 	
+	/**
+	 * Ez pedig a tárgyak felvételére szolgál. Tehát ha valaki felvesz egy tárgyat, 
+	 * a Field items tárolójából átkerül a Player items tárolójába.
+	 */
 	public void PickUp(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -98,6 +110,4 @@ public class Item implements Inventory {
 		return false;
 	}
 
-	public void Drop(Player p) {
-	}
 }

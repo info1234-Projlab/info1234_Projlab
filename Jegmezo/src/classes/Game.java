@@ -11,7 +11,13 @@ import java.util.ArrayList;
 //  @ Author : 
 //
 //
-
+/**
+ * Az osztály egy játék felépítéséért és lebonyolításáért felel. 
+ * Statikusak a függvényei és a paraméterei is, így tettük lehetõvé, hogy ha a játék folyamán a
+ * Game osztályt használjuk, ne kelljen példányosítani, a változtatások az elején létrehozott
+ * Game-ben történjenek
+ *
+ */
 public class Game {
 	private static Player currentPlayer;
 	private static ArrayList<Player> players;

@@ -111,6 +111,9 @@ public class Player {
 		hp--;
 	}
 	
+	/**
+	 * A kapott Inventory-t beteszi az items listájába.
+	 */
 	public void AddItem(Inventory i,int tab) {
 		for(int j=0; j<tab; j++)
 			System.out.print("\t");
@@ -118,6 +121,9 @@ public class Player {
 		items.add(i);
 	}
 	
+	/**
+	 * A kapott Inventory-t kiveszi az items listájából.
+	 */
 	public void RemoveItem(Inventory i,int tab) {
 		for(int j=0; j<tab; j++)
 			System.out.print("\t");

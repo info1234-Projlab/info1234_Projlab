@@ -88,6 +88,13 @@ public class Field {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param item egy eszköz amit eldobunk a földre
+	 * @param tab indentálás
+	 *  Hozzáadja az itemet a saját listájához és beállítja annak layer változóját.
+	 *  majd meghívja az eszközhöz tartozó eldobó függvényt
+	 */
 	public void AddItem(Inventory item,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -98,6 +105,13 @@ public class Field {
 		item.Drop(player,tab+1);
 	}
 	
+	/**
+	 * 
+	 * @param p az a játékos aki a tárgyat felveszi
+	 * @param tab indentálás
+	 * Kiveszi a listájából azokat az Inventorykat amik a felszínen vannak és visszaadja azokat.
+	 * amik láthatóak azokon meghívja a felvevõ függvényt
+	 */
 	public void RemoveItem(Player p,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -164,6 +178,13 @@ public class Field {
 		if(bool==true)	System.out.printf("A mezÅ‘ kapacitÃ¡sa: %d \n" , this.capacity);
 	}
 	
+	/**
+	 * 
+	 * @param layer hány réteg hó került a mezõre
+	 * @param tab indentálás
+	 * Beállítja a hóréteget, ha van iglu akkor a tárgyak láthatósága nem szûnik meg és a játékos sértetlen marad
+	 * Ha nincs akkor a játékos élete csökken és rakódik egy réteg hó 
+	 */
 	public void SetLayer(int layer, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -174,16 +195,22 @@ public class Field {
 		System.out.printf("Legyen iglu a mezon ahol allunk vagy ne? true/false\n");
 		Scanner in = new Scanner(System.in);
 		boolean hasiglu=in.hasNext();
-		if (hasiglu) {
-			hasiglu=true;
+		if (!hasiglu) {
+			hasIglu=false;
 			for(int i=0; i<items.size(); i++) {
 				items.get(i).SetVisible(false, tab+1);
 			}
 			for(int i=0; i<players.size(); i++)
 				players.get(i).DecreaseHp(tab+1);
 		}
+		else
+			System.out.printf("Megmenekültél a hóvihartól, a mezõre sem került plusz hó\n");
 	}
 	
+	/**
+	 * @param tabindentálás
+	 * visszaadja a mezõ aktuális hórétegét
+	 */
 	public int GetLayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
