@@ -35,5 +35,5 @@ public class Explorer extends Player {
 		field.SetVisibleCapacity(true, tab+1);
 	}
 		
-	}
 }
+

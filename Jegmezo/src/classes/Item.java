@@ -16,6 +16,11 @@ public class Item implements Inventory {
 	protected int layer;
 	protected boolean visible;
 	
+	public Item(int layer, boolean visible) {
+		this.layer=layer;
+		this.visible=visible;
+	}
+	
 	public boolean Eat(Player p) {
 		return false;
 	}
@@ -44,8 +49,13 @@ public class Item implements Inventory {
 		return false;
 	}
 	
-	public void Drop(Player p) {
-
+	public void Drop(Player p,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("Az Item osztály Drop(p:Player):void hívódott meg \n");
+		p.RemoveItem(this,tab+1);
+		
+		
 	}
 	
 	public void DecreaseLayer(int i) {
@@ -58,6 +68,11 @@ public class Item implements Inventory {
 	
 	public int GetLayer() {
 		return layer;
+	}
+	
+	public void SetLayer(int num) {
+		this.layer=num;
+		System.out.printf("Az Item osztály SetLayer(num:int):void hívódott meg \n");
 	}
 	
 	public void SetVisible(boolean b) {

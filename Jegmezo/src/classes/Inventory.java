@@ -34,6 +34,8 @@ public interface Inventory {
 	
 	public int GetLayer();
 	
+	public void SetLayer(int num);
+	
 	public void SetVisible(boolean b);
 =======
 	

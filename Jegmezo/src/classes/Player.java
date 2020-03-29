@@ -102,8 +102,12 @@ public class Player {
 	public void AddItem(Inventory i) {
 	}
 	
-	public void RemoveItem(Inventory i) {
+	public void RemoveItem(Inventory i,int tab) {
+		for(int j=0; j<tab; j++)
+			System.out.print("\t");
+		System.out.printf("Az Player osztály RemoveItem(i:Inventory):void hívódott meg \n");
 	}
+	
 	
 	public void StartTurn(int numOfAction) {
 	}

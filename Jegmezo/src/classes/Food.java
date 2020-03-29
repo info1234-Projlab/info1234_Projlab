@@ -13,6 +13,11 @@ package classes;
 
 
 public class Food extends Item {
+	
+	public Food(int layer,boolean visible) {
+		super(layer, visible);
+	}
+	
 	public boolean Eat(Player p) {
 		if (p.GetNumOfAction() <= 0)
 			return false;
