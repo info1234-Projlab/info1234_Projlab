@@ -98,6 +98,8 @@ public class Player {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Player osztaly Move(f: Field) fuggvenye hivodott meg.");
+		
+		this.field.isNeighour(f, tab);
 	}
 	
 	public void IncreaseHp() {
