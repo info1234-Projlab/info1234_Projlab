@@ -2,6 +2,9 @@
 //package classes;
 import java.util.Scanner;
 
+import classes.Explorer;
+import classes.Field;
+
 public class Main{
 	public static void main(String args[]) {
 		
@@ -74,6 +77,24 @@ public static void FieldNotNeighbour(){
 	explorer.Move(toField,4);
 	
 	System.out.println("Nem szomszedos a celmezo!");
+}
+
+public static void StepToNeighbourField(){
+	
+	System.out.println("Eskimo a szomszedos mezore lep:");
+	
+	Field toField = new Field(1,0,1);
+	Field fromField = new Field(1,0,2);
+	
+	Explorer explorer = new Explorer(fromField,3);
+	explorer.Move(toField,4);
+	
+	toField.AddPlayer(explorer, 6);
+	fromField.RemovePlayer(explorer,7);
+	toField.IsFall(8);
+	
+	System.out.println("Eskimo atlepett a szomszedos mezore!");
+	
 }
 
 }

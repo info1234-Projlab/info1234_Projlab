@@ -56,7 +56,11 @@ public class Field {
 	return neighbourFields;
 	}
 	
-	public boolean IsFall() {
+	public boolean IsFall(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Field osztaly IsFall() fuggvenye hivodott meg.");
+		return false;
 	}
 	
 	public void Fall() {
