@@ -13,10 +13,14 @@
 
 
 public class Board {
-	private Game board;
-	public void Storm() {
+	private ArrayList<Field> fields; // itt eredetileg egy Game board volt beincludeolva, ami nem j� mert ez Fieldeket t�rol
+	public void Storm(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Board osztaly Storm():void fuggvenye hivodott meg.");
+		Field hasnoiglu=fields[0];
 	}
 	
-	public void Init(Field [1..*] fields) {
-	}
+	/*public void Init(Field [1..*] fields) {
+	}*/
 }

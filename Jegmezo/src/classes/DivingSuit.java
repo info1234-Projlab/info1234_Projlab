@@ -6,6 +6,11 @@ import java.util.Scanner;
 public class DivingSuit extends Item {
 	private boolean isOn=false;
 	
+	public DivingSuit(int layer,boolean visible, boolean isOn) {
+		super(layer, visible);
+		this.isOn=isOn;
+	}
+	
 	public boolean PutOn(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -34,6 +39,11 @@ public class DivingSuit extends Item {
 		return false;
 	}
 	
-	public void Drop(Player p) {
+	public void Drop(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("A DivngSuit osztály Drop(p:Player):void hívódott meg\n");
+		p.RemoveItem(this,tab+1);
+		isOn=false;
 	}
 }

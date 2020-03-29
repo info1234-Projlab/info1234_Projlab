@@ -42,6 +42,28 @@ public static void UseAbilityExplorer() {
 	
 }
 
+public static void AddItemToField() {
+	System.out.printf("Add meg, hany reteg hó legyen a mezõn\n");
+	Scanner in = new Scanner(System.in);
+	int layer=in.nextInt();
+	Field f=new Field(1,layer);
+	Explorer e=new Explorer(f); 
+	System.out.printf("A tárgy búvárruha legyen (1) vagy egyéb (2)?\n");
+	Scanner in2 = new Scanner(System.in);
+	int itemkind=in2.nextInt();
+	if (itemkind==2) {
+		Food todropitem=new Food(0,true);
+		f.AddItem(todropitem,1);
+		todropitem.Drop(e,1);
+	}
+	if (itemkind==1) {
+		DivingSuit todropitem=new DivingSuit(0,true,true);
+		f.AddItem(todropitem,1);
+		todropitem.Drop(e,1);
+		}
+	
+}
+
 
 
 

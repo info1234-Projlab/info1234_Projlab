@@ -13,6 +13,11 @@ package classes;
 
 
 public class Shovel extends Item {
+	
+	public Shovel(int layer,boolean visible) {
+		super(layer, visible);
+	}
+	
 	public boolean Dig(Player p) {
 		if (p.GetNumOfAction() <= 0)
 			return false;
