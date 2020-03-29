@@ -42,7 +42,11 @@ public class Player {
 	 * @param maxHp	konstruktornak átadott maxHp érték
 	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
 	 */
-	public Player(int maxHp, Field field) {	
+	public Player(int maxHp, Field field, int tab) {	
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly konstruktor fuggvenye hivodott meg.");
+		
 		this.hp = maxHp;
 		this.maxHp = maxHp;
 		this.numberOfAction = 4;
