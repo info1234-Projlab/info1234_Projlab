@@ -19,8 +19,6 @@ import java.util.Scanner;
  *
  */
 
-
-
 public class Board {
 	private ArrayList<Field> fields; 
 	
