@@ -50,7 +50,7 @@ public static void UseAbilityExplorer() {
 public static void AddItemToField() {
 	Field f=new Field(1,0,1);
 	Explorer e=new Explorer(f,1);
-	Food food=new Food(0,true);
+	Food food=new Food(0,true,1);
 	DivingSuit dsuit=new DivingSuit(0,true,1);
 	System.out.printf("A targy amit eldobsz, buvarruha legyen (1) vagy egyeb (2)?\n");
 	Scanner in2 = new Scanner(System.in);
