@@ -13,4 +13,11 @@ package classes;
 
 
 public class Flare extends FlareGun implements Inventory {
+	
+	public Flare(int layer, boolean visible,int tab) {
+		super(layer,visible, tab+1);
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Flare osztaly konstruktora hivodott meg.");
+		}
 }

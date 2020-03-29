@@ -2,19 +2,30 @@ package classes;
 
 import java.util.ArrayList;
 
+
 public class Game {
-	public void Init(ArrayList<Player> players, Board board) {
+	private static Player currentPlayer;
+	private static ArrayList<Player> players;
+	private static Board board;
+	
+	public static Player GetCurrentPlayer(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("A Game osztály GetCurrentPlayer():Player hívódott meg \n");
+		return currentPlayer;
+	}
+	public static void Init(ArrayList<Player> players, Board board) {
 	}
 	
-	public void StartGame() {
+	public static void StartGame() {
 	}
 	
-	public boolean SomeoneDied() {
+	public static boolean SomeoneDied() {
 	}
 	
-	public void LoseGame() {
+	public static void LoseGame() {
 	}
 	
-	public boolean Win() {
+	public static boolean Win() {
 	}
 }
