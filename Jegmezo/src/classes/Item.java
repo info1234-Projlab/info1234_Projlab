@@ -29,11 +29,7 @@ public class Item implements Inventory {
 		return false;
 	}
 	
-<<<<<<< HEAD
-	public boolean Pull(Player p) {
-=======
 	public boolean Pull(Player p, Field to) {
->>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
 		return false;
 	}
 	
@@ -52,14 +48,13 @@ public class Item implements Inventory {
 	public void Drop(Player p,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("Az Item osztály Drop(p:Player):void hívódott meg \n");
+		System.out.printf("Az Item osztï¿½ly Drop(p:Player):void hï¿½vï¿½dott meg \n");
 		p.RemoveItem(this,tab+1);
 		
 		
 	}
 	
 	public void DecreaseLayer(int i) {
-<<<<<<< HEAD
 		layer -= 1;
 	}
 	
@@ -72,16 +67,17 @@ public class Item implements Inventory {
 	
 	public void SetLayer(int num) {
 		this.layer=num;
-		System.out.printf("Az Item osztály SetLayer(num:int):void hívódott meg \n");
+		System.out.printf("Az Item osztï¿½ly SetLayer(num:int):void hï¿½vï¿½dott meg \n");
 	}
 	
 	public void SetVisible(boolean b) {
 		visible = b;
-=======
-		layer=layer-i;
 	}
 	
-	public void PickUp(Player p) {
->>>>>>> 6b304ea47f1e11ad222afc7039790040533f41dc
+	public boolean Pull(Player p) {
+		return false;
+	}
+
+	public void Drop(Player p) {
 	}
 }

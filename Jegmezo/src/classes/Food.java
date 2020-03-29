@@ -18,14 +18,14 @@ public class Food extends Item {
 		super(layer, visible);
 	}
 	
-	public boolean Eat(Player p) {
-		if (p.GetNumOfAction() <= 0)
+	public boolean Eat(Player p, int tab) {
+		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		if (p.GetHP() == p.GetMaxHP()) {
 			return false;
 		}
-		p.SetNumOfAction(p.GetNumOfAction() - 1);
-		p.RemoveItem(this);
+		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);
+		p.RemoveItem(this, tab + 1);
 		return true;
 	}
 }

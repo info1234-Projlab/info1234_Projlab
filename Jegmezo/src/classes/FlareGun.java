@@ -19,8 +19,8 @@ public class FlareGun implements Inventory {
 	protected int layer;
 	protected boolean visible;
 	protected ArrayList<FlareGun> components;
-	public boolean Shoot(Player p) {
-		if (p.GetNumOfAction() <= 0)
+	public boolean Shoot(Player p, int tab) {
+		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		if (!(components.contains(new Gun()) && components.contains(new Flare()) && components.contains(new Cartridge()))) {
 			return false;
@@ -66,5 +66,20 @@ public class FlareGun implements Inventory {
 
 	public void SetVisible(boolean b) {
 		visible = b;
+	}
+
+	@Override
+	public boolean Pull(Player p, Field to) {
+		return false;
+	}
+
+	@Override
+	public boolean Shoot(Player p) {
+		return false;
+	}
+
+	@Override
+	public void SetLayer(int num) {
+		
 	}
 }

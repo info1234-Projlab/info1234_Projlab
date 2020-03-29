@@ -18,10 +18,12 @@ public class Shovel extends Item {
 		super(layer, visible);
 	}
 	
-	public boolean Dig(Player p) {
-		if (p.GetNumOfAction() <= 0)
+	public boolean Dig(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
-		p.SetNumOfAction(p.GetNumOfAction() - 1);
+		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);
 		p.DigPlayer(2);
 		return true;
 	}
