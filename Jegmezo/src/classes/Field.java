@@ -34,6 +34,7 @@ public class Field {
 	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
 	 */
 	public Field(int capacity, int snowLayer, int tab) {
+		players = new ArrayList<Player>();
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Field osztaly konstruktora hivodott meg.");
@@ -63,7 +64,14 @@ public class Field {
 		return false;
 	}
 	
-	public void Fall() {
+	public void Fall(int tab) {	
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az Field osztaly Fall() fuggvenye hivodott meg.");
+		for(Player p : players){
+			p.SwimPlayer(tab+1);
+		}
+
 	}
 	
 	public boolean CanBuildIglu(int tab) {
@@ -115,6 +123,7 @@ public class Field {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Field osztaly AddPlayer(p: Player) fuggvenye hivodott meg.");
+		players.add(p);
 	}
 	
 	public void RemovePlayer(Player p, int tab) {
@@ -146,7 +155,7 @@ public class Field {
 	public boolean isNeighour(Field f, int tab){
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.println("A Field osztaly isNeighbour(f: Field) fuggvenxe hivodott meg");
+		System.out.println("A Field osztaly isNeighbour(f: Field) fuggvenye hivodott meg.");
 		
 		return false;
 	}

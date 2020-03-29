@@ -130,7 +130,10 @@ public class Player {
 		field.DigItems(layers, tab + 1);
 	}
 	
-	public void SwimPlayer() {
+	public void SwimPlayer(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly SwimPlayer() fuggvenye hivodott meg");
 	}
 	
 	public void PullPlayer() {
@@ -156,5 +159,12 @@ public class Player {
 	}
 	public void SetWin(boolean b) {
 		win = b;
+	}
+	
+	public void SetHp(int hp, int tab){
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly SetHp(i: int) fuggvenye hivodott meg.");
+		this.hp = hp;
 	}
 }

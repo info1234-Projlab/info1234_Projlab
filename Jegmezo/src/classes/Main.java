@@ -2,12 +2,10 @@
 //package classes;
 import java.util.Scanner;
 
-import classes.Explorer;
-import classes.Field;
 
 public class Main{
 	public static void main(String args[]) {
-		
+		StepOnHoleButNoHelp();
 	}
 
 /**
@@ -81,7 +79,7 @@ public static void FieldNotNeighbour(){
 
 public static void StepToNeighbourField(){
 	
-	System.out.println("Eskimo a szomszedos mezore lep:");
+	System.out.println("Explorer a szomszedos mezore lep:");
 	
 	Field toField = new Field(1,0,1);
 	Field fromField = new Field(1,0,2);
@@ -93,8 +91,27 @@ public static void StepToNeighbourField(){
 	fromField.RemovePlayer(explorer,7);
 	toField.IsFall(8);
 	
-	System.out.println("Eskimo atlepett a szomszedos mezore!");
+	System.out.println("Explorer atlepett a szomszedos mezore!");
 	
+}
+
+public static void StepOnHoleButNoHelp(){
+	System.out.println("Eskimo egy lukba lep:");
+	
+	Field toField = new Field(1,0,1);
+	Field fromField = new Field(1,0,2);
+	
+	Eskimo eskimo = new Eskimo(fromField,3);
+	eskimo.Move(toField,4);
+	
+	toField.AddPlayer(eskimo, 6);
+	fromField.RemovePlayer(eskimo,7);
+	toField.IsFall(8);
+	
+	toField.Fall(9);
+	eskimo.SetHp(0,11);
+	
+	System.out.println("Eskimo belefulladt a vizbe");
 }
 
 }
