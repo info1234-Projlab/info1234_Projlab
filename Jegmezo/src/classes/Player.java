@@ -104,7 +104,8 @@ public class Player {
 		hp += 1;
 	}
 	
-	public void DecreaseHp() {
+	public void DecreaseHp(int tab) {
+		hp--;
 	}
 	
 	public void AddItem(Inventory i) {

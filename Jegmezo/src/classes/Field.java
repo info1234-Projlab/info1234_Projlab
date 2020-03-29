@@ -10,6 +10,7 @@ package classes;
 //
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * 
@@ -146,6 +147,34 @@ public class Field {
 		System.out.println("A Field osztaly SetVisibleCapacity(b: boolean) fuggvenye hivodott meg");
 		this.visibleCapacity = bool;
 		if(bool==true)	System.out.printf("A mező kapacitása: %d \n" , this.capacity);
+	}
+	
+	public void SetLayer(int layer, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly SetLayer(layer:int):void fuggvenye hivodott meg");
+		
+		snowLayer=layer;
+		
+		System.out.printf("Legyen iglu a mezon ahol allunk vagy ne? true/false\n");
+		Scanner in = new Scanner(System.in);
+		boolean hasiglu=in.hasNext();
+		if (hasiglu) {
+			hasiglu=true;
+			for(int i=0; i<items.size(); i++) {
+				items.get(i).SetVisible(false, tab+1);
+			}
+			for(int i=0; i<players.size(); i++)
+				players.get(i).DecreaseHp(tab+1);
+		}
+	}
+	
+	public int GetLayer(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly GetLayer():int fuggvenye hivodott meg");
+		
+		return snowLayer;
 	}
 	
 }

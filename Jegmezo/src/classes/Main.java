@@ -1,4 +1,5 @@
 package classes;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main{
@@ -43,12 +44,12 @@ public static void UseAbilityExplorer() {
 }
 
 public static void AddItemToField() {
-	System.out.printf("Add meg, hany reteg h� legyen a mez�n\n");
+	System.out.printf("Add meg, hany reteg ho legyen a mezon\n");
 	Scanner in = new Scanner(System.in);
 	int layer=in.nextInt();
 	Field f=new Field(1,layer,1);
 	Explorer e=new Explorer(f,1); 
-	System.out.printf("A t�rgy b�v�rruha legyen (1) vagy egy�b (2)?\n");
+	System.out.printf("A targy buvarruha legyen (1) vagy egyeb (2)?\n");
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
@@ -63,5 +64,16 @@ public static void AddItemToField() {
 		}
 	
 }
+
+public static void StormOnBoard() {
+	Field f=new Field(1,0,1);
+	Explorer e=new Explorer(f,1);
+	ArrayList<Field> fields=new ArrayList<>();
+	fields.add(f);
+	Board board=new Board(fields,1);
+	board.Storm(1);
+	
+}
+
 
 }
