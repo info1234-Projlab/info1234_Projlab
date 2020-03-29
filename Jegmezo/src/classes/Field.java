@@ -84,7 +84,12 @@ public class Field {
 		}
 	}
 	
-	public void AddItem(Inventory item) {
+	public void AddItem(Inventory item,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("A Field osztály AddItem(item:Inventory):void hívódott meg \n");
+		item.SetLayer(this.snowLayer);
+		items.add(item);
 	}
 	
 	public void RemoveItem(Player p) {

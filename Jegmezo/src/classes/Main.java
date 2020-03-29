@@ -46,8 +46,8 @@ public static void AddItemToField() {
 	System.out.printf("Add meg, hany reteg h� legyen a mez�n\n");
 	Scanner in = new Scanner(System.in);
 	int layer=in.nextInt();
-	Field f=new Field(1,layer);
-	Explorer e=new Explorer(f); 
+	Field f=new Field(1,layer,1);
+	Explorer e=new Explorer(f,1); 
 	System.out.printf("A t�rgy b�v�rruha legyen (1) vagy egy�b (2)?\n");
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
@@ -63,31 +63,5 @@ public static void AddItemToField() {
 		}
 	
 }
-
-public static void AddItemToField() {
-	System.out.printf("Add meg, hany reteg h� legyen a mez�n\n");
-	Scanner in = new Scanner(System.in);
-	int layer=in.nextInt();
-	Field f=new Field(1,layer);
-	Explorer e=new Explorer(f); 
-	System.out.printf("A t�rgy b�v�rruha legyen (1) vagy egy�b (2)?\n");
-	Scanner in2 = new Scanner(System.in);
-	int itemkind=in2.nextInt();
-	if (itemkind==2) {
-		Food todropitem=new Food(0,true);
-		f.AddItem(todropitem,1);
-		todropitem.Drop(e,1);
-	}
-	if (itemkind==1) {
-		DivingSuit todropitem=new DivingSuit(0,true,true);
-		f.AddItem(todropitem,1);
-		todropitem.Drop(e,1);
-		}
-	
-}
-
-
-
-
 
 }
