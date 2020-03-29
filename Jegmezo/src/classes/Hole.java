@@ -13,6 +13,14 @@
 
 
 public class Hole extends Field {
+	
+	public Hole(int tab) {
+		super(0, 0, tab);
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Hole osztaly konstruktora hivodott meg.");
+	}
+	
 	public boolean IsFall() {
 	}
 	

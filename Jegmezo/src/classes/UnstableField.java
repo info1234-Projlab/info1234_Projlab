@@ -13,4 +13,11 @@
 
 
 public class UnstableField extends Field {
+	
+	public UnstableField(int capacity, int snowLayer, int tab) {
+		super(capacity, snowLayer, tab);
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az UnstableField osztaly konstruktora hivodott meg.");
+	}
 }

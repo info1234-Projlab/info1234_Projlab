@@ -122,7 +122,29 @@ public static void StormOnBoard() {
 	fields.add(f);
 	Board board=new Board(fields,1);
 	board.Storm(1);
-	
+}
+
+public static void UsingRope() {
+	StableField to = new StableField(10, 2, 1);
+	Hole from = new Hole(1);
+	Eskimo rescuer = new Eskimo(to, 1);
+	Explorer inDanger = new Explorer(from, 1);
+	Rope r = new Rope(2, true, 1);
+	r.Pull(inDanger, to);
+}
+
+public static void PuttingOnDivingSuit() {
+	UnstableField field = new UnstableField(4, 2, 1);
+	Eskimo player = new Eskimo(field, 1);
+	DivingSuit suit = new DivingSuit(2, true, 1);
+	suit.PutOn(player, 1);
+}
+
+public static void Swimming() {
+	UnstableField field = new UnstableField(4, 2, 1);
+	Explorer player = new Explorer(field, 1);
+	DivingSuit suit = new DivingSuit(2, true, 1);
+	suit.Swim(player, 1);
 }
 
 
