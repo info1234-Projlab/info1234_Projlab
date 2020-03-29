@@ -73,12 +73,12 @@ public class DivingSuit extends Item {
 			UnstableField neighbour4 = new UnstableField(1, 2, tab+1);
 			UnstableField neighbour5 = new UnstableField(4, 4, tab+1);
 			UnstableField neighbour6 = new UnstableField(4, 2, tab+1);
-			from.AddNeighbour(neighbour1);
-			from.AddNeighbour(neighbour2);
-			from.AddNeighbour(neighbour3);
-			from.AddNeighbour(neighbour4);
-			from.AddNeighbour(neighbour5);
-			from.AddNeighbour(neighbour6);
+			from.AddNeighbour(neighbour1, tab+1);
+			from.AddNeighbour(neighbour2, tab+1);
+			from.AddNeighbour(neighbour3, tab+1);
+			from.AddNeighbour(neighbour4, tab+1);
+			from.AddNeighbour(neighbour5, tab+1);
+			from.AddNeighbour(neighbour6, tab+1);
 			ArrayList<Field> options = from.GetNeighbouringFields(tab+1);
 			System.out.println("Hanyas szamu mezore szeretne lepni? (1-6)");
 			Scanner  in2 = new Scanner(System.in);

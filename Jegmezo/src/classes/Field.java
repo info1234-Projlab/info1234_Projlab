@@ -46,7 +46,10 @@ public class Field {
 		this.numOfPlayers = 0;
 	}
 	
-	public void AddNeighbour(Field neighbour) {
+	public void AddNeighbour(Field neighbour, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly AddNeighbour() fuggvenye hivodott meg.");
 		neighbourFields.add(neighbour);
 	}
 	
