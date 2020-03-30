@@ -46,7 +46,10 @@ public class Field {
 		this.numOfPlayers = 0;
 	}
 	
-	public void AddNeighbour(Field neighbour) {
+	public void AddNeighbour(Field neighbour, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Field osztaly AddNeighbour() fuggvenye hivodott meg.");
 		neighbourFields.add(neighbour);
 	}
 	
@@ -88,15 +91,40 @@ public class Field {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param item egy eszk�z amit eldobunk a f�ldre
+	 * @param tab indent�l�s
+	 *  Hozz�adja az itemet a saj�t list�j�hoz �s be�ll�tja annak layer v�ltoz�j�t.
+	 *  majd megh�vja az eszk�zh�z tartoz� eldob� f�ggv�nyt
+	 */
 	public void AddItem(Inventory item,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.printf("A Field oszt�ly AddItem(item:Inventory):void h�v�dott meg \n");
 		item.SetLayer(this.snowLayer);
 		items.add(item);
+		Player player=Game.GetCurrentPlayer(tab+1);
+		item.Drop(player,tab+1);
 	}
 	
-	public void RemoveItem(Player p) {
+	/**
+	 * 
+	 * @param p az a j�t�kos aki a t�rgyat felveszi
+	 * @param tab indent�l�s
+	 * Kiveszi a list�j�b�l azokat az Inventorykat amik a felsz�nen vannak �s visszaadja azokat.
+	 * amik l�that�ak azokon megh�vja a felvev� f�ggv�nyt
+	 */
+	public void RemoveItem(Player p,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("A Field oszt�ly RemoveItem(p:Player):void h�v�dott meg \n");
+		for(int i=0; i<items.size(); i++) {
+			if(items.get(i).GetVisible(tab+1)) {
+				items.get(i).PickUp(p,tab+1);
+			}
+				
+		}
 	}
 	
 	/**
@@ -159,6 +187,13 @@ public class Field {
 		if(bool==true)	System.out.printf("A mező kapacitása: %d \n" , this.capacity);
 	}
 	
+	/**
+	 * 
+	 * @param layer h�ny r�teg h� ker�lt a mez�re
+	 * @param tab indent�l�s
+	 * Be�ll�tja a h�r�teget, ha van iglu akkor a t�rgyak l�that�s�ga nem sz�nik meg �s a j�t�kos s�rtetlen marad
+	 * Ha nincs akkor a j�t�kos �lete cs�kken �s rak�dik egy r�teg h� 
+	 */
 	public void SetLayer(int layer, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -169,16 +204,22 @@ public class Field {
 		System.out.printf("Legyen iglu a mezon ahol allunk vagy ne? true/false\n");
 		Scanner in = new Scanner(System.in);
 		boolean hasiglu=in.hasNext();
-		if (hasiglu) {
-			hasiglu=true;
+		if (!hasiglu) {
+			hasIglu=false;
 			for(int i=0; i<items.size(); i++) {
 				items.get(i).SetVisible(false, tab+1);
 			}
 			for(int i=0; i<players.size(); i++)
 				players.get(i).DecreaseHp(tab+1);
 		}
+		else
+			System.out.printf("Megmenek�lt�l a h�vihart�l, a mez�re sem ker�lt plusz h�\n");
 	}
 	
+	/**
+	 * @param tab indent�l�s
+	 * visszaadja a mez� aktu�lis h�r�teg�t
+	 */
 	public int GetLayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");

@@ -1,5 +1,5 @@
-
 package classes;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -44,27 +44,42 @@ public static void UseAbilityExplorer() {
 	
 }
 
+/**
+ * A Field AddItem függvényéhez tartozó forgatókönyv
+ */
 public static void AddItemToField() {
-	System.out.printf("Add meg, hany reteg ho legyen a mezon\n");
-	Scanner in = new Scanner(System.in);
-	int layer=in.nextInt();
-	Field f=new Field(1,layer,1);
-	Explorer e=new Explorer(f,1); 
-	System.out.printf("A targy buvarruha legyen (1) vagy egyeb (2)?\n");
+	Field f=new Field(1,0,1);
+	Explorer e=new Explorer(f,1);
+	Food food=new Food(0,true,1);
+	DivingSuit dsuit=new DivingSuit(0,true,1);
+	System.out.printf("A targy amit eldobsz, buvarruha legyen (1) vagy egyeb (2)?\n");
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
+<<<<<<< HEAD
 		Food todropitem=new Food(0,true, 0);
 		f.AddItem(todropitem,1);
 		todropitem.Drop(e,1);
+=======
+		f.AddItem(food,1);
+>>>>>>> 972866a3398ef074e8320578eec83929798683b1
 	}
 	if (itemkind==1) {
-		DivingSuit todropitem=new DivingSuit(0,true,true);
-		f.AddItem(todropitem,1);
-		todropitem.Drop(e,1);
+		
+		f.AddItem(dsuit,1);
 		}
-	
 }
+
+/**
+ * A Field RemoveItem függvényéhez tartozó forgatókönyv
+ */
+public static void RemoveItemFromFiled() {
+	Field f=new Field(1,0,1);
+	Explorer e=new Explorer(f,1);
+		f.RemoveItem(e,1);	
+}
+
+
 public static void FieldNotNeighbour(){
 	
 	System.out.println("Egy nem szomszedos mezore lepesi kiserlet:");
@@ -115,6 +130,9 @@ public static void StepOnHoleButNoHelp(){
 	System.out.println("Eskimo belefulladt a vizbe");
 }
 
+/**
+ * A Board Storm függvényéhez tartozó forgatókönyv
+ */
 public static void StormOnBoard() {
 	Field f=new Field(1,0,1);
 	Explorer e=new Explorer(f,1);
@@ -122,7 +140,41 @@ public static void StormOnBoard() {
 	fields.add(f);
 	Board board=new Board(fields,1);
 	board.Storm(1);
-	
+}
+
+/**
+ * Using a Rope forgatokonyv
+ */
+
+public static void UsingRope() {
+	StableField to = new StableField(10, 2, 1);
+	Hole from = new Hole(1);
+	Eskimo rescuer = new Eskimo(to, 1);
+	Explorer inDanger = new Explorer(from, 1);
+	Rope r = new Rope(2, true, 1);
+	r.Pull(inDanger, to);
+}
+
+/**
+ * Buvarruha felvetele forgatokonyv
+ */
+
+public static void PuttingOnDivingSuit() {
+	UnstableField field = new UnstableField(4, 2, 1);
+	Eskimo player = new Eskimo(field, 1);
+	DivingSuit suit = new DivingSuit(2, true, 1);
+	suit.PutOn(player, 1);
+}
+
+/**
+ * Uszas forgatokonyv
+ */
+
+public static void Swimming() {
+	UnstableField field = new UnstableField(4, 2, 1);
+	Explorer player = new Explorer(field, 1);
+	DivingSuit suit = new DivingSuit(2, true, 1);
+	suit.Swim(player, 1);
 }
 
 public static void Eat() {

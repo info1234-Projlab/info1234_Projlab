@@ -18,7 +18,7 @@ package classes;
 
 
 public class Food extends Item {
-	
+
 	public Food(int layer,boolean visible, int tab) {
 		super(layer, visible);
 		for(int i=0; i<tab; i++)

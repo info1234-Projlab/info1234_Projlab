@@ -13,12 +13,19 @@ import java.util.Scanner;
 //
 //
 
-
-
+/**A jégmezõ jégtáblákat tárol. Ez az osztály felelõs a hóviharokért, amely határozatlan idõközönként söpör végig a pályán.
+ *  Ez a jelenség a játékosok testhõjét egy egységgel csökkenti és egy réteg hó kerül arra mezõre ami felett elhaladt,
+ *  azonban az iglun nem hatol át így azok a jégtáblák védettek illetve a rajta lévõ játékosok is.
+ *
+ */
 
 public class Board {
 	private ArrayList<Field> fields; 
 	
+	/**
+	 * @param fields ezek a malyan levo jegtablak, amiket majd inicializalas soran megadunk
+	 * @param tab indentalashoz kell
+	 */
 	public Board(ArrayList<Field> fields, int tab) {
 		this.fields=fields;
 		for(int i=0; i<tab; i++)
@@ -26,15 +33,20 @@ public class Board {
 		System.out.println("Az Board osztaly konstruktora hivodott meg.");
 	}
 	
+	/**
+	 * A Storm() függvény felelõs a játéktáblán idõnként átvonuló viharért.
+	 */
 	public void Storm(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Board osztaly Storm():void fuggvenye hivodott meg.");
 		for(int i=0; i<tab; i++)
 			fields.get(i).SetLayer(fields.get(i).GetLayer(tab+1)+1,tab+2);
-		
 	}
 	
+	/**
+	 * A paraméterként kapott Field objektumokból létrehozza a játéktáblát. 
+	 */
 	/*public void Init(Field [1..*] fields) {
 	}*/
 }
