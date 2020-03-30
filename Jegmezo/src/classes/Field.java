@@ -274,7 +274,14 @@ public class Field {
 		
 		return snowLayer;
 	}
-
+	
+	
+	/**
+	 * Ellenorzi, hogy szomszedos e a kapott mezo.
+	 * @param f
+	 * @param tab
+	 * @return ture: szomszedos, false: nem szomszedos.
+	 */
 	public boolean isNeighour(Field f, int tab){
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
