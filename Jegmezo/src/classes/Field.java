@@ -87,19 +87,19 @@ public class Field {
 		
 		switch(answer){
 		case 1: {
-			StableField stableField = new StableField(2,0, tab+2);
-			Explorer explorer= new Explorer(stableField,tab+3);
-			Rope rope = new Rope(0,true,tab+4);
-			explorer.AddItem(rope, tab+5);
+			StableField stableField = new StableField(2,0, tab+1);
+			Explorer explorer= new Explorer(stableField,tab+1);
+			Rope rope = new Rope(0,true,tab+1);
+			explorer.AddItem(rope, tab+1);
 
 			for(Player p : players){
-				explorer.PullPlayer(tab+6, p);
+				explorer.PullPlayer(tab+1, p);
 			}
 			break;
 		}
 		case 0: {
 			for(Player p : players){
-				p.SetHp(0, tab+2);
+				p.SetHp(0, tab+1);
 			}
 			break;
 		}
