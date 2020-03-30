@@ -205,7 +205,7 @@ public static void Shoot() {
 public static void Menu() {
 	while (true) {
 		System.out.printf("Valasszon a kovetkezo forgatokonyvek kozul: \n");
-		System.out.printf("1: MoveToAnotherField \n 2: UseAbilityEskimo \n 3: UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromField \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
+		System.out.printf(" 1:MoveToAnotherField \n 2:UseAbilityEskimo \n 3:UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromField \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
 		Scanner in = new Scanner(System.in);
 		int n = in.nextInt();
 		switch(n) {
