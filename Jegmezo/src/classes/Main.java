@@ -142,7 +142,7 @@ public static void UsingRope() {
 	Eskimo rescuer = new Eskimo(to, 0);
 	Explorer inDanger = new Explorer(from, 0);
 	Rope r = new Rope(2, true, 0);
-	r.Pull(inDanger, to);
+	r.Pull(inDanger, to, 0);
 }
 
 /**
@@ -253,7 +253,6 @@ public static void Menu() {
 		try {
 			System.in.read();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
