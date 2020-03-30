@@ -47,7 +47,11 @@ public class Field {
 		this.items=new ArrayList<Inventory>();
 		this.neighbourFields=new ArrayList<Field>();
 	}
-	
+	/**
+	 * Hozzaad egy mezot a szomszedok listajahoz.
+	 * @param neighbour	Szomszedos mezo, amit beallitunk egy szomszednak.
+	 * @param tab	Indentalasra.
+	 */
 	public void AddNeighbour(Field neighbour, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -55,6 +59,11 @@ public class Field {
 		neighbourFields.add(neighbour);
 	}
 	
+	/**
+	 * A szomszedos mezok listajanak lekerdezesere.
+	 * @param tab
+	 * @return	Visszaadja a szomszedos mezok listajat.
+	 */
 	public ArrayList<Field> GetNeighbouringFields(int tab){
 	for(int i=0; i<tab; i++)
 		System.out.print("\t");
@@ -71,7 +80,7 @@ public class Field {
 	}
 	
 	/**
-	 * Egy barulas es tesztelese
+	 * Egy borulas es tesztelese
 	 * @param tab
 	 */
 	public void Fall(int tab) {	
