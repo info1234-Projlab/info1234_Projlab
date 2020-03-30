@@ -125,6 +125,7 @@ public static void RemoveItemFromField() {
 public static void StormOnBoard() {
 	Field f=new Field(1,0,0);
 	Explorer e=new Explorer(f,0);
+	f.AddPlayer(e, 0);
 	ArrayList<Field> fields=new ArrayList<>();
 	fields.add(f);
 	Board board=new Board(fields,0);
