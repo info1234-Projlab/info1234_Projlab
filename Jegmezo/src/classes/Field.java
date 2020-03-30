@@ -183,7 +183,7 @@ public class Field {
 	public void DigItems(int layers, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Field osztaly DigItems() fuggvenye hivodott meg");
+		System.out.println("A Field osztaly DigItems() fuggvenye hivodott meg");
 		for (Inventory i : items) {
 			if (snowLayer - i.GetLayer(tab + 1) == 2) {
 				i.SetVisible(true, tab + 1);
