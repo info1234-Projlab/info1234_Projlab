@@ -90,6 +90,7 @@ public static void AddItemToField() {
 	Field f=new Field(1,0,0);
 	Explorer e=new Explorer(f,0);
 	Food food=new Food(0,true,0);
+	Game.SetCurrentPlayer(e, 0);
 	DivingSuit dsuit=new DivingSuit(0,true,0);
 	System.out.printf("A targy amit eldobsz, buvarruha legyen (1) vagy egyeb (2)?\n");
 	Scanner in2 = new Scanner(System.in);

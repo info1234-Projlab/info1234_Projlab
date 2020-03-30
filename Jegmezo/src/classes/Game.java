@@ -30,6 +30,12 @@ public class Game {
 		System.out.printf("A Game osztály GetCurrentPlayer():Player hívódott meg \n");
 		return currentPlayer;
 	}
+	public static void SetCurrentPlayer(Player player,int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.printf("A Game osztály GetCurrentPlayer():Player hívódott meg \n");
+		currentPlayer=player;
+	}
 	/*public static void Init(ArrayList<Player> players, Board board) {
 	}
 	
