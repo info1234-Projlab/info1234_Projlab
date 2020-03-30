@@ -101,10 +101,8 @@ public static void AddItemToField() {
 		todropitem.Drop(e,0);
 
 		f.AddItem(food,0);
-
 	}
 	if (itemkind==1) {
-		
 		f.AddItem(dsuit,0);
 		}
 }
@@ -112,7 +110,7 @@ public static void AddItemToField() {
 /**
  * A Field RemoveItem f�ggv�ny�hez tartoz� forgat�k�nyv
  */
-public static void RemoveItemFromFiled() {
+public static void RemoveItemFromField() {
 	Field f=new Field(1,0,0);
 	Explorer e=new Explorer(f,0);
 		f.RemoveItem(e,0);	

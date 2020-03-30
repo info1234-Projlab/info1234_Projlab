@@ -44,6 +44,7 @@ public class Field {
 		this.hasIglu = false;
 		this.visibleCapacity = false;
 		this.numOfPlayers = 0;
+		this.items=new ArrayList<Inventory>();
 	}
 	
 	public void AddNeighbour(Field neighbour, int tab) {
