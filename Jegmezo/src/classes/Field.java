@@ -61,7 +61,7 @@ public class Field {
 	
 	/**
 	 * A szomszedos mezok listajanak lekerdezesere.
-	 * @param tab
+	 * @param tab	Indentalasra.
 	 * @return	Visszaadja a szomszedos mezok listajat.
 	 */
 	public ArrayList<Field> GetNeighbouringFields(int tab){
@@ -71,6 +71,7 @@ public class Field {
 	
 	return neighbourFields;
 	}
+	
 	
 	public boolean IsFall(int tab) {
 		for(int i=0; i<tab; i++)
@@ -119,6 +120,11 @@ public class Field {
 		}
 	}
 	
+	/**
+	 * Igluepites ellenorzesere hasznalatos fuggveny.
+	 * @param tab	Indentalasra
+	 * @return	Visszaadja, hogy lehet e iglut epiteni az adott mezore. 
+	 */
 	public boolean CanBuildIglu(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
