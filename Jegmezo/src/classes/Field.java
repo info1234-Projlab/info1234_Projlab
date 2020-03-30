@@ -155,6 +155,7 @@ public class Field {
 		item.Drop(player,tab+1);
 	}
 	
+	
 	/**
 	 * 
 	 * @param p az a jï¿½tï¿½kos aki a tï¿½rgyat felveszi
@@ -267,10 +268,13 @@ public class Field {
 		
 		snowLayer=layer;
 		
-		System.out.printf("Legyen iglu a mezon ahol allunk vagy ne? true/false\n");
+		Food food=new Food(0,true,tab+1);
+		items.add(food);
+		
+		System.out.printf("Legyen iglu a mezon ahol allunk (1) vagy ne (0)?\n");
 		Scanner in = new Scanner(System.in);
-		boolean hasiglu=in.hasNext();
-		if (!hasiglu) {
+		int hasiglu=in.nextInt();
+		if (hasiglu==0) {
 			hasIglu=false;
 			for(int i=0; i<items.size(); i++) {
 				items.get(i).SetVisible(false, tab+1);
@@ -278,8 +282,10 @@ public class Field {
 			for(int i=0; i<players.size(); i++)
 				players.get(i).DecreaseHp(tab+1);
 		}
-		else
-			System.out.printf("Megmenekï¿½ltï¿½l a hï¿½vihartï¿½l, a mezï¿½re sem kerï¿½lt plusz hï¿½\n");
+		if (hasiglu==1) {
+			hasIglu=true;
+			System.out.printf("Megmenekultel a hovihartol és nem vesztettél életet\n");
+		}
 	}
 	
 	/**

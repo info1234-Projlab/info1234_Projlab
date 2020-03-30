@@ -123,7 +123,7 @@ public class FlareGun implements Inventory {
 	public void SetVisible(boolean b, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("Az FlareGun osztaly SetVisible() fuggvenye hivodott meg");
+		System.out.print("Az FlareGun osztaly SetVisible() fuggvenye hivodott meg\n");
 		visible = b;
 		
 	}
@@ -131,7 +131,7 @@ public class FlareGun implements Inventory {
 	public boolean GetVisible(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A FlareGun osztaly GetVisible():boolean fuggvenye hivodott meg");
+		System.out.print("A FlareGun osztaly GetVisible():boolean fuggvenye hivodott meg\n");
 		return visible;
 	}
 

@@ -153,6 +153,9 @@ public class Player {
 	}
 	
 	public void DecreaseHp(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Player osztaly DecreaseHp():void fuggvenye hivodott meg");
 		hp--;
 	}
 	
