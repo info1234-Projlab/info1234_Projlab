@@ -47,7 +47,7 @@ public class FlareGun implements Inventory {
 		System.out.println("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
-		if (false/* itt lesz ellenőrízve, hogy megvan-e a 3 komponens*/) {
+		if (components.size() == 3) {
 			return false;
 		}
 		p.SetWin(true, tab + 1);
