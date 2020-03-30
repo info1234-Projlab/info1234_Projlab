@@ -33,7 +33,7 @@ public class Game {
 	public static void SetCurrentPlayer(Player player,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A Game osztály GetCurrentPlayer():Player hívódott meg \n");
+		System.out.printf("A Game osztály SetCurrentPlayer():Player hívódott meg \n");
 		currentPlayer=player;
 	}
 	/*public static void Init(ArrayList<Player> players, Board board) {
