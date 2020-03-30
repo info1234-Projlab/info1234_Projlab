@@ -231,7 +231,7 @@ public class Player {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		if(this.numberOfAction > 0)	this.numberOfAction--; // a feltétel lehet felesleges
-		System.out.printf("Akciók száma csökkent, így %d akció van hátra\n", this.numberOfAction);
+		System.out.printf("Akciok szama csokkent, így %d akcióovan hatra\n", this.numberOfAction);
 	}
 	
 	/**
