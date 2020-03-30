@@ -173,14 +173,10 @@ public class Player {
 	}
 	
 	/**
-<<<<<<< HEAD
-	 * 
 	 *  Eltávolít egy itemet a játékos inventoryjából.
 	 *  @param i az eltávolítandó item.
 	 *  @param tab	Indentálást jelzi. 
-=======
 	 * A kapott Inventory-t kiveszi az items list�j�b�l.
->>>>>>> 972866a3398ef074e8320578eec83929798683b1
 	 */
 	public void RemoveItem(Inventory i,int tab) {
 		for(int j=0; j<tab; j++)

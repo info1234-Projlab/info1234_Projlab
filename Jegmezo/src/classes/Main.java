@@ -87,35 +87,36 @@ public static void UseAbilityExplorer() {
  * A Field AddItem f�ggv�ny�hez tartoz� forgat�k�nyv
  */
 public static void AddItemToField() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
-	Food food=new Food(0,true,1);
-	DivingSuit dsuit=new DivingSuit(0,true,1);
+	Field f=new Field(1,0,0);
+	Explorer e=new Explorer(f,0);
+	Food food=new Food(0,true,0);
+	DivingSuit dsuit=new DivingSuit(0,true,0);
 	System.out.printf("A targy amit eldobsz, buvarruha legyen (1) vagy egyeb (2)?\n");
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
 
 		Food todropitem=new Food(0,true, 0);
-		f.AddItem(todropitem,1);
-		todropitem.Drop(e,1);
+		f.AddItem(todropitem,0);
+		todropitem.Drop(e,0);
 
-		f.AddItem(food,1);
+		f.AddItem(food,0);
 
 	}
 	if (itemkind==1) {
 		
-		f.AddItem(dsuit,1);
+		f.AddItem(dsuit,0);
 		}
 }
 
 /**
  * A Field RemoveItem f�ggv�ny�hez tartoz� forgat�k�nyv
  */
-public static void RemoveItemFromField() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
-		f.RemoveItem(e,1);	
+public static void RemoveItemFromFiled() {
+	Field f=new Field(1,0,0);
+	Explorer e=new Explorer(f,0);
+		f.RemoveItem(e,0);	
+
 }
 
 
@@ -123,12 +124,12 @@ public static void RemoveItemFromField() {
  * A Board Storm f�ggv�ny�hez tartoz� forgat�k�nyv
  */
 public static void StormOnBoard() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
+	Field f=new Field(1,0,0);
+	Explorer e=new Explorer(f,0);
 	ArrayList<Field> fields=new ArrayList<>();
 	fields.add(f);
-	Board board=new Board(fields,1);
-	board.Storm(1);
+	Board board=new Board(fields,0);
+	board.Storm(0);
 }
 
 /**
@@ -136,11 +137,11 @@ public static void StormOnBoard() {
  */
 
 public static void UsingRope() {
-	StableField to = new StableField(10, 2, 1);
-	Hole from = new Hole(1);
-	Eskimo rescuer = new Eskimo(to, 1);
-	Explorer inDanger = new Explorer(from, 1);
-	Rope r = new Rope(2, true, 1);
+	StableField to = new StableField(10, 2, 0);
+	Hole from = new Hole(0);
+	Eskimo rescuer = new Eskimo(to, 0);
+	Explorer inDanger = new Explorer(from, 0);
+	Rope r = new Rope(2, true, 0);
 	r.Pull(inDanger, to);
 }
 
@@ -149,10 +150,10 @@ public static void UsingRope() {
  */
 
 public static void PuttingOnDivingSuit() {
-	UnstableField field = new UnstableField(4, 2, 1);
-	Eskimo player = new Eskimo(field, 1);
-	DivingSuit suit = new DivingSuit(2, true, 1);
-	suit.PutOn(player, 1);
+	UnstableField field = new UnstableField(4, 2, 0);
+	Eskimo player = new Eskimo(field, 0);
+	DivingSuit suit = new DivingSuit(2, true, 0);
+	suit.PutOn(player, 0);
 }
 
 /**
@@ -160,10 +161,10 @@ public static void PuttingOnDivingSuit() {
  */
 
 public static void Swimming() {
-	UnstableField field = new UnstableField(4, 2, 1);
-	Explorer player = new Explorer(field, 1);
-	DivingSuit suit = new DivingSuit(2, true, 1);
-	suit.Swim(player, 1);
+	UnstableField field = new UnstableField(4, 2, 0);
+	Explorer player = new Explorer(field, 0);
+	DivingSuit suit = new DivingSuit(2, true, 0);
+	suit.Swim(player, 0);
 }
 
 public static void Eat() {
@@ -183,10 +184,10 @@ public static void Shovel() {
 public static void Shoot() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
-	Flare flare = new Flare();
+	Flare flare = new Flare(0, true, 0);
 	e.AddItem(flare, 0);
-	e.AddItem(new Gun(), 0);
-	e.AddItem(new Cartridge(), 0);
+	e.AddItem(new Gun(0, true, 0), 0);
+	e.AddItem(new Cartridge(0, true, 0), 0);
 	flare.Shoot(e, 0);
 }
 
