@@ -4,7 +4,7 @@ package classes;
 
 
 /**
- * Egy “lyukas” mezõt reprezentál, tehát egy játékost se bír el ez a mezõ.
+ * Egy lyukas mezot reprezental, tehet egy jatekost se bir el ez a mezo.
  *
  */
 public class Hole extends Field {
@@ -18,7 +18,7 @@ public class Hole extends Field {
 	
 	
 	/**
-	 * A luk mindig borul ezért isFall() true-al tér vissza.
+	 * A luk mindig borul ezert isFall() true-val ter vissza.
 	 */
 	public boolean IsFall(int tab) {
 		for(int i=0; i<tab; i++)

@@ -13,9 +13,9 @@ import java.util.Scanner;
 //
 //
 
-/**A jégmezõ jégtáblákat tárol. Ez az osztály felelõs a hóviharokért, amely határozatlan idõközönként söpör végig a pályán.
- *  Ez a jelenség a játékosok testhõjét egy egységgel csökkenti és egy réteg hó kerül arra mezõre ami felett elhaladt,
- *  azonban az iglun nem hatol át így azok a jégtáblák védettek illetve a rajta lévõ játékosok is.
+/**A jegmezo jegtablakat tarol. Ez az osztaly felelos a hoviharokert, amely hatarozatlan idokozonkent sopor vegig a palyan.
+ *  Ez a jelensï¿½g a jatakosok testhojet egy egyseggel csokkenti es egy reteg ho kerul arra mezore ami felett elhaladt,
+ *  azonban az iglun nem hatol at igy azok a jegtablak vedettek illetve a rajta levo jatekosok is.
  *
  */
 
@@ -34,7 +34,7 @@ public class Board {
 	}
 	
 	/**
-	 * A Storm() függvény felelõs a játéktáblán idõnként átvonuló viharért.
+	 * A Storm() fuggveny felelos a jatektablan idonkent atvonulo viharert.
 	 */
 	public void Storm(int tab) {
 		for(int i=0; i<tab; i++)
@@ -45,7 +45,7 @@ public class Board {
 	}
 	
 	/**
-	 * A paraméterként kapott Field objektumokból létrehozza a játéktáblát. 
+	 * A parameterkent kapott Field objektumokbol letrehozza a jatektablat. 
 	 */
 	/*public void Init(Field [1..*] fields) {
 	}*/

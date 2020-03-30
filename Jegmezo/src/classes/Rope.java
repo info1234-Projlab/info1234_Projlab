@@ -2,10 +2,10 @@ package classes;
 
 
 /**
- * Mindkét típusú játékos felveheti és el is dobhatja, hogy a másik felvehesse. 
- * Ennek segítségével vízbe esett bajtársakat lehet kimenteni. 
- * A kimentett játékos a kötéllel rendelkezõ játékos mezõjére lép ki a vízbõl. 
- * Felvétele egy egység munka.
+ * Mindket tipusu jatekos felveheti es el is dobhatja, hogy a masik felvehesse. 
+ * Ennek segetsegevel vizbe esett bajtarsakat lehet kimenteni. 
+ * A kimentett jatekos a kotellel rendelkezo jatekos mezojere lep ki a vizbol. 
+ * Felvetele egy egyseg munka.
  */
 public class Rope extends Item {
 	
