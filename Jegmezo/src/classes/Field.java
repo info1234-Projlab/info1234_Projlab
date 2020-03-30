@@ -181,8 +181,8 @@ public class Field {
 		}
 	}
 	
-	public boolean IsFull() {
-	}
+	/*public boolean IsFull() {
+	}*/
 	
 	public void AddPlayer(Player p, int tab) {
 		for(int i=0; i<tab; i++)

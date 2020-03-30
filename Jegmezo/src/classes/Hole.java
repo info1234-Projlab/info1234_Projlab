@@ -30,8 +30,8 @@ public class Hole extends Field {
 	public void DigItems(int layers) {
 	}
 	
-	public boolean IsFull() {
-	}
+	/*public boolean IsFull() {
+	}*/
 	
 	public void RemoveItem(Inventory item) {
 	}

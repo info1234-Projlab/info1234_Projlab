@@ -30,7 +30,7 @@ public class Game {
 		System.out.printf("A Game osztály GetCurrentPlayer():Player hívódott meg \n");
 		return currentPlayer;
 	}
-	public static void Init(ArrayList<Player> players, Board board) {
+	/*public static void Init(ArrayList<Player> players, Board board) {
 	}
 	
 	public static void StartGame() {
@@ -43,5 +43,5 @@ public class Game {
 	}
 	
 	public static boolean Win() {
-	}
+	}*/ //Inicializáláshoz kellenek
 }

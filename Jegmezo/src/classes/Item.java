@@ -119,4 +119,8 @@ public class Item implements Inventory {
 		return false;
 	}
 
+	public boolean Pull(Player p, Field to, int tab) {
+		return false;
+	}
+
 }

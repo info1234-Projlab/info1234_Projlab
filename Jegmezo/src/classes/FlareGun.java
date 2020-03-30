@@ -134,4 +134,9 @@ public class FlareGun implements Inventory {
 		System.out.print("A FlareGun osztaly GetVisible():boolean fuggvenye hivodott meg");
 		return visible;
 	}
+
+
+	public boolean Pull(Player p, Field to, int tab) {
+		return false;
+	}
 }
