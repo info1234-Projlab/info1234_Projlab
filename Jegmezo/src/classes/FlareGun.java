@@ -34,7 +34,7 @@ public class FlareGun implements Inventory {
 	public FlareGun(int layer, boolean visible, int tab) {
 		this.layer=layer;
 		this.visible=visible;
-		this.components=new ArrayList<>();
+		this.components=new ArrayList<FlareGun>();
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A FlareGun osztaly konstruktora hivodott meg.");
@@ -44,7 +44,7 @@ public class FlareGun implements Inventory {
 	public boolean Shoot(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
+		System.out.println("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		if (components.size() != 3) {
