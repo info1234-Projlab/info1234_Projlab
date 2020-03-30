@@ -231,6 +231,7 @@ public static void Menu() {
 		break;
 	case 12:
 		Shoot();
+		break;
 	default:
 		System.out.printf("Valasszon a megadott lehetosegek alapjan! \n");
 			
