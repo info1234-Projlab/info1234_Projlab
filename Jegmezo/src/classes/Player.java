@@ -201,6 +201,10 @@ public class Player {
 		field.DigItems(layers, tab + 1);
 	}
 	
+	/**
+	 * A player osztaly SwimPlayer() metodusa, akkor hivodik meg, amikor beleesik egy jatekos a vizbe.
+	 * @param tab
+	 */
 	public void SwimPlayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
