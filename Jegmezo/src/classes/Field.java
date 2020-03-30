@@ -1,4 +1,4 @@
-
+package classes;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -91,7 +91,7 @@ public class Field {
 	public void AddItem(Inventory item,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A Field oszt�ly AddItem(item:Inventory):void h�v�dott meg \n");
+		System.out.printf("A Field oszt�ly AddItem(item:Inventory):void h�v�dott meg \n");
 		item.SetLayer(this.snowLayer);
 		items.add(item);
 	}
@@ -99,6 +99,12 @@ public class Field {
 	public void RemoveItem(Player p) {
 	}
 	
+	/**
+	 * 
+	 *  Kiássa a mezőn lévő tárgyakat, és eltávolít pár hóréteget róla.
+	 *  @param layers A hórétegek száma.
+	 * @param tab	Indentálást jelzi. 
+	 */
 	public void DigItems(int layers, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");

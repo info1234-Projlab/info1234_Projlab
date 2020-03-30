@@ -12,23 +12,37 @@ import java.util.ArrayList;
 //
 //
 
+/**
+ * Az osztály felelőssége a jelzőfegyver menedzselése. Figyelnie kell, hogy felvették-e az alkatrészeket, 
+ * kigyűlt-e már mind a három és a fegyver elsütéséért is ez felelős.
+ *
+ */
 
 
 
 public class FlareGun implements Inventory {
 	protected int layer;
 	protected boolean visible;
-	protected ArrayList<FlareGun> components;
+	protected static ArrayList<FlareGun> components;
+	
+	/**
+	 * 
+	 * Ha a components tárolója tele van (azaz 3 elemet tartalmaz, így a játékosok kigyűjtötték az összes alkatrészt) 
+	 * és a kapott játékos mezőjén minden játékos rajta áll, akkor egy munka elhaszálásával el tudják sütni a játékosok, megnyerve ezzel a játékot.
+
+	 * @param p     Az a játékos, aki elsüti a fegyvert.
+	 * @param tab	Indentálást jelzi. 
+	 */
 	public boolean Shoot(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.print("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
-		if (!(components.contains(new Gun()) && components.contains(new Flare()) && components.contains(new Cartridge()))) {
+		if (components.size() != 3) {
 			return false;
 		}
-		p.SetWin(true);
+		p.SetWin(true, tab + 1);
 		return true;
 		
 	}

@@ -54,6 +54,12 @@ public class Item implements Inventory {
 		
 	}
 	
+	/**
+	 * 
+	 *  A hórétegeket csökkenti az itemen.
+	 *  @param i Mennyivel csökken a hórétegek száma.
+	 * @param tab	Indentálást jelzi. 
+	 */
 	public void DecreaseLayer(int i, int tab) {
 		for(int j=0; j<tab; j++)
 			System.out.print("\t");
@@ -64,6 +70,11 @@ public class Item implements Inventory {
 	public void PickUp(Player p) {
 	}
 	
+	/**
+	 * 
+	 *  A rétegek számát adja vissza.
+	 * @param tab	Indentálást jelzi. 
+	 */
 	public int GetLayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -76,6 +87,12 @@ public class Item implements Inventory {
 		System.out.printf("Az Item oszt�ly SetLayer(num:int):void h�v�dott meg \n");
 	}
 	
+	/**
+	 * 
+	 *  A tárgy láthatóságát allítja be.
+	 *  @param b A láthatósag.
+	 * @param tab	Indentálást jelzi. 
+	 */
 	public void SetVisible(boolean b, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");

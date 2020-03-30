@@ -10,14 +10,29 @@ package classes;
 //
 
 
+/**
+ * Felelőssége az ásó tárgy birtoklásának és elvesztésének következményeinek kezelése. 
+ * Ez annyit takar, hogy ha valaki használni szeretné az ásót akkor két réteg havat/jeget takaríthat el a jégtábláról.
+ *
+ */
+
 
 
 public class Shovel extends Item {
 	
-	public Shovel(int layer,boolean visible) {
+	public Shovel(int layer,boolean visible, int tab) {
 		super(layer, visible);
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.print("A Shovel osztaly konstruktora hivodott meg");
 	}
 	
+	/**
+	 * 
+	 *  A függvény meghívására a játékos két réteg havat/jeget takaríthat el a jégtábláról.
+	 * @param p     Az a játékos, aki ás az ésóval. 
+	 * @param tab	Indentálást jelzi. 
+	 */
 	public boolean Dig(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");

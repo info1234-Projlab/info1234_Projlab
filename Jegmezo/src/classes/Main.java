@@ -54,7 +54,7 @@ public static void AddItemToField() {
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
-		Food todropitem=new Food(0,true);
+		Food todropitem=new Food(0,true, 0);
 		f.AddItem(todropitem,1);
 		todropitem.Drop(e,1);
 	}
@@ -125,5 +125,28 @@ public static void StormOnBoard() {
 	
 }
 
+public static void Eat() {
+	Field f = new Field(3, 0, 0);
+	Eskimo e = new Eskimo(f, 0);
+	Food food = new Food(0, true, 0);
+	food.Eat(e,  0);
+}
+
+public static void Shovel() {
+	Field f = new Field(3, 0, 0);
+	Eskimo e = new Eskimo(f, 0);
+	Shovel shovel = new Shovel(0, true, 0);
+	shovel.Dig(e, 0);
+}
+
+public static void Shoot() {
+	Field f = new Field(3, 0, 0);
+	Eskimo e = new Eskimo(f, 0);
+	Flare flare = new Flare();
+	e.AddItem(flare, 0);
+	e.AddItem(new Gun(), 0);
+	e.AddItem(new Cartridge(), 0);
+	flare.Shoot(e, 0);
+}
 
 }
