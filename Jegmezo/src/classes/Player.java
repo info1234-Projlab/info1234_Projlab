@@ -94,7 +94,7 @@ public class Player {
 	public int GetMaxHP(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Player osztaly GetMaxHP() fuggvenye hivodott meg");
+		System.out.println("A Player osztaly GetMaxHP() fuggvenye hivodott meg");
 		return maxHp;
 	}
 	
