@@ -1,5 +1,6 @@
 package classes;
 
+
 /**
  * Mindkét típusú játékos felveheti és el is dobhatja, hogy a másik felvehesse. 
  * Ennek segítségével vízbe esett bajtársakat lehet kimenteni. 
@@ -12,7 +13,7 @@ public class Rope extends Item {
 		super(layer, visible);
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.println("A DivingSuit osztaly konstruktora hivodott meg.");
+		System.out.println("A Rope osztaly konstruktora hivodott meg.");
 	}
 	
 	/**

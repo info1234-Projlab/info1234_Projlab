@@ -68,6 +68,10 @@ public class Field {
 		return false;
 	}
 	
+	/**
+	 * Egy barulas es tesztelese
+	 * @param tab
+	 */
 	public void Fall(int tab) {	
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -75,7 +79,33 @@ public class Field {
 		for(Player p : players){
 			p.SwimPlayer(tab+1);
 		}
+		System.out.println("Mentse meg valaki a vizbeesett jatekost? 1: igen, 0: nem");
+		Scanner in = new Scanner(System.in);
+		int answer = in.nextInt();
+		
+		switch(answer){
+		case 1: {
+			StableField stableField = new StableField(2,0, tab+2);
+			Explorer explorer= new Explorer(stableField,tab+3);
+			Rope rope = new Rope(0,true,tab+4);
+			explorer.AddItem(rope, tab+5);
 
+			for(Player p : players){
+				explorer.PullPlayer(tab+6, p);
+			}
+			break;
+		}
+		case 0: {
+			for(Player p : players){
+				p.SetHp(0, tab+2);
+			}
+			break;
+		}
+		default: {
+			System.out.println("Ervenytelen valasz!");
+			return;
+		}
+		}
 	}
 	
 	public boolean CanBuildIglu(int tab) {
@@ -233,7 +263,15 @@ public class Field {
 			System.out.print("\t");
 		System.out.println("A Field osztaly isNeighbour(f: Field) fuggvenye hivodott meg.");
 		
-		return false;
+		System.out.println("Szomszedos legyen a mezo? 1: igen. 0: nem");
+		Scanner in = new Scanner(System.in);
+		int answer = in.nextInt();
+		
+		switch(answer){
+		case 1: return true;
+		case 0: return false;
+		default: return false;
+		}
 	}
 	
 }

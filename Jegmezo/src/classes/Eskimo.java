@@ -1,6 +1,7 @@
 package classes;
 
 
+
 /**
  * Az osztály felelőssége az eszkimó hős menedzselése. Ide tartozik az összes
 tevékenység (ásás, tárgy felvétele stb…), beleértve a különleges képességét

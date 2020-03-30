@@ -11,7 +11,11 @@ public class StableField extends Field {
 		System.out.println("A StableField osztaly konstruktora hivodott meg.");
 	}
 	
-	public boolean IsFall() {
+	public boolean IsFall(int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("Az StableField osztaly IsFall() fuggvenye hivodott meg.");
+		return false;
 	}
 	
 	public void Fall() {

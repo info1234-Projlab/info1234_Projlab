@@ -6,8 +6,47 @@ import java.util.Scanner;
 
 public class Main{
 	public static void main(String args[]) {
-		StepOnHoleButNoHelp();
+		MoveToAnotherField();
 	}
+
+	
+	/**
+	 * Egy lepes tesztelesere letrehozott fuggveny.
+	 */
+public static void MoveToAnotherField(){
+	
+	System.out.println("Stabil mezõre, vagy lukra lepjen az eszkimo? 1: Stabil, 0: Hole.");
+	Scanner in = new Scanner(System.in);
+	int answer = in.nextInt();
+	if( answer == 1){
+		StableField toSfield = new StableField(1,0,1);
+		StableField fromField = new StableField(1,0,2);
+		
+		Eskimo eskimo = new Eskimo(fromField,3);
+		eskimo.Move(toSfield,4);
+		
+		
+	}else{
+		if(answer == 0){
+			Hole hole = new Hole(1);
+			StableField fromField = new StableField(1,0,2);
+			
+			Eskimo eskimo = new Eskimo(fromField,3);
+			eskimo.Move(hole,4);
+			
+			if(eskimo.GetHP(5) == 0){
+				System.out.println("Az eszkimo a vizbe fulladt!");
+			}else{
+				System.out.println("A mentes sikeres");
+			}
+		}else{
+			System.out.println("Ervenytelen valaszt adtal meg");
+		}
+	}
+	System.out.println("A Scenario veget ert");
+}
+	
+	
 
 /**
  * Az eszkimo UseAbility fuggvenyenek tesztelesere, fuggvenyek futasi sorrendjenek ellenorzesere letrehozott fuggveny.
@@ -56,13 +95,13 @@ public static void AddItemToField() {
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
-<<<<<<< HEAD
+
 		Food todropitem=new Food(0,true, 0);
 		f.AddItem(todropitem,1);
 		todropitem.Drop(e,1);
-=======
+
 		f.AddItem(food,1);
->>>>>>> 972866a3398ef074e8320578eec83929798683b1
+
 	}
 	if (itemkind==1) {
 		
@@ -79,56 +118,6 @@ public static void RemoveItemFromFiled() {
 		f.RemoveItem(e,1);	
 }
 
-
-public static void FieldNotNeighbour(){
-	
-	System.out.println("Egy nem szomszedos mezore lepesi kiserlet:");
-	
-	Field toField = new Field(1,0,1);
-	Field fromField = new Field(1,0,2);
-	
-	Explorer explorer = new Explorer(fromField,3);
-	explorer.Move(toField,4);
-	
-	System.out.println("Nem szomszedos a celmezo!");
-}
-
-public static void StepToNeighbourField(){
-	
-	System.out.println("Explorer a szomszedos mezore lep:");
-	
-	Field toField = new Field(1,0,1);
-	Field fromField = new Field(1,0,2);
-	
-	Explorer explorer = new Explorer(fromField,3);
-	explorer.Move(toField,4);
-	
-	toField.AddPlayer(explorer, 6);
-	fromField.RemovePlayer(explorer,7);
-	toField.IsFall(8);
-	
-	System.out.println("Explorer atlepett a szomszedos mezore!");
-	
-}
-
-public static void StepOnHoleButNoHelp(){
-	System.out.println("Eskimo egy lukba lep:");
-	
-	Field toField = new Field(1,0,1);
-	Field fromField = new Field(1,0,2);
-	
-	Eskimo eskimo = new Eskimo(fromField,3);
-	eskimo.Move(toField,4);
-	
-	toField.AddPlayer(eskimo, 6);
-	fromField.RemovePlayer(eskimo,7);
-	toField.IsFall(8);
-	
-	toField.Fall(9);
-	eskimo.SetHp(0,11);
-	
-	System.out.println("Eskimo belefulladt a vizbe");
-}
 
 /**
  * A Board Storm függvényéhez tartozó forgatókönyv
