@@ -2,10 +2,16 @@ package classes;
 
 import java.util.ArrayList;
 /**
- * Egy “stabil” mezõt reprezentál, bármennyi játékost elbír.
+ * Egy ï¿½stabilï¿½ mezï¿½t reprezentï¿½l, bï¿½rmennyi jï¿½tï¿½kost elbï¿½r.
  */
 public class StableField extends Field {
 	
+	/**
+	 * Konstruktor
+	 * @param capacity
+	 * @param snowLayer
+	 * @param tab
+	 */
 	public StableField(int capacity, int snowLayer, int tab) {
 		super(capacity, snowLayer, tab);
 		for(int i=0; i<tab; i++)
@@ -14,7 +20,7 @@ public class StableField extends Field {
 	}
 	
 	/**
-	 * A stabil mezõ sose borul ezért isFall() fasle-al tér vissza
+	 * A stabil mezï¿½ sose borul ezï¿½rt isFall() fasle-al tï¿½r vissza
 	 */
 	public boolean IsFall(int tab) {
 		for(int i=0; i<tab; i++)

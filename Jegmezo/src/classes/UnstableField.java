@@ -13,11 +13,17 @@ package classes;
 
 
 /**
- * Egy “instabil” mezõt reprezentál, tehát néhány játékost bír el az adott mezõ, de nem
- * az összeset.
+ * Egy ï¿½instabilï¿½ mezï¿½t reprezentï¿½l, tehï¿½t nï¿½hï¿½ny jï¿½tï¿½kost bï¿½r el az adott mezï¿½, de nem
+ * az ï¿½sszeset.
  */
 public class UnstableField extends Field {
 	
+	/**
+	 * Konstruktor
+	 * @param capacity
+	 * @param snowLayer
+	 * @param tab
+	 */
 	public UnstableField(int capacity, int snowLayer, int tab) {
 		super(capacity, snowLayer, tab);
 		for(int i=0; i<tab; i++)
