@@ -15,7 +15,7 @@ public class Main{
 	 */
 public static void MoveToAnotherField(){
 	
-	System.out.println("Stabil mezõre, vagy lukra lepjen az eszkimo? 1: Stabil, 0: Hole.");
+	System.out.println("Stabil mezï¿½re, vagy lukra lepjen az eszkimo? 1: Stabil, 0: Hole.");
 	Scanner in = new Scanner(System.in);
 	int answer = in.nextInt();
 	if( answer == 1){
@@ -84,7 +84,7 @@ public static void UseAbilityExplorer() {
 }
 
 /**
- * A Field AddItem függvényéhez tartozó forgatókönyv
+ * A Field AddItem fï¿½ggvï¿½nyï¿½hez tartozï¿½ forgatï¿½kï¿½nyv
  */
 public static void AddItemToField() {
 	Field f=new Field(1,0,1);
@@ -110,7 +110,7 @@ public static void AddItemToField() {
 }
 
 /**
- * A Field RemoveItem függvényéhez tartozó forgatókönyv
+ * A Field RemoveItem fï¿½ggvï¿½nyï¿½hez tartozï¿½ forgatï¿½kï¿½nyv
  */
 public static void RemoveItemFromFiled() {
 	Field f=new Field(1,0,1);
@@ -120,7 +120,7 @@ public static void RemoveItemFromFiled() {
 
 
 /**
- * A Board Storm függvényéhez tartozó forgatókönyv
+ * A Board Storm fï¿½ggvï¿½nyï¿½hez tartozï¿½ forgatï¿½kï¿½nyv
  */
 public static void StormOnBoard() {
 	Field f=new Field(1,0,1);
@@ -188,6 +188,13 @@ public static void Shoot() {
 	e.AddItem(new Gun(), 0);
 	e.AddItem(new Cartridge(), 0);
 	flare.Shoot(e, 0);
+}
+
+public static void Menu() {
+	System.out.printf("Valasszon a kovetkezo forgatokonyvek kozul: \n");
+	System.out.printf("1: MoveToAnotherField \n 2: UseAbilityEskimo \n 3: UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromFiled \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
+	Scanner in = new Scanner(System.in);
+	int actions = in.nextInt();
 }
 
 }
