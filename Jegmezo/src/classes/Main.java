@@ -21,10 +21,10 @@ public static void MoveToAnotherField(){
 	int answer = in.nextInt();
 	if( answer == 1){
 		StableField toSfield = new StableField(1,0,1);
-		StableField fromField = new StableField(1,0,2);
+		StableField fromField = new StableField(1,0,1);
 		
-		Eskimo eskimo = new Eskimo(fromField,3);
-		eskimo.Move(toSfield,4);
+		Eskimo eskimo = new Eskimo(fromField,1);
+		eskimo.Move(toSfield,1);
 		
 		
 	}else{
