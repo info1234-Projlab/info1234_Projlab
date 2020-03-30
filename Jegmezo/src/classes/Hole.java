@@ -3,7 +3,10 @@ package classes;
 
 
 
-
+/**
+ * Egy “lyukas” mezõt reprezentál, tehát egy játékost se bír el ez a mezõ.
+ *
+ */
 public class Hole extends Field {
 	
 	public Hole(int tab) {
@@ -13,6 +16,10 @@ public class Hole extends Field {
 		System.out.println("A Hole osztaly konstruktora hivodott meg.");
 	}
 	
+	
+	/**
+	 * A luk mindig borul ezért isFall() true-al tér vissza.
+	 */
 	public boolean IsFall(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");

@@ -29,12 +29,12 @@ public static void MoveToAnotherField(){
 	}else{
 		if(answer == 0){
 			Hole hole = new Hole(1);
-			StableField fromField = new StableField(1,0,2);
+			StableField fromField = new StableField(1,0,1);
 			
-			Eskimo eskimo = new Eskimo(fromField,3);
-			eskimo.Move(hole,4);
+			Eskimo eskimo = new Eskimo(fromField,1);
+			eskimo.Move(hole,1);
 			
-			if(eskimo.GetHP(5) == 0){
+			if(eskimo.GetHP(1) == 0){
 				System.out.println("Az eszkimo a vizbe fulladt!");
 			}else{
 				System.out.println("A mentes sikeres");

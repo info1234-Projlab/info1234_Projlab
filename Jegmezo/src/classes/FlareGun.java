@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class FlareGun implements Inventory {
 	protected int layer;
 	protected boolean visible;
-	protected ArrayList<FlareGun> components;
+	protected static ArrayList<FlareGun> components;
 	
 	/**
 	 * 
@@ -47,7 +47,7 @@ public class FlareGun implements Inventory {
 		System.out.println("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
-		if (components.size() != 3) {
+		if (false/* itt lesz ellenőrízve, hogy megvan-e a 3 komponens*/) {
 			return false;
 		}
 		p.SetWin(true, tab + 1);

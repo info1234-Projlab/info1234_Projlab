@@ -12,7 +12,10 @@ package classes;
 
 
 
-
+/**
+ * Egy “instabil” mezõt reprezentál, tehát néhány játékost bír el az adott mezõ, de nem
+ * az összeset.
+ */
 public class UnstableField extends Field {
 	
 	public UnstableField(int capacity, int snowLayer, int tab) {

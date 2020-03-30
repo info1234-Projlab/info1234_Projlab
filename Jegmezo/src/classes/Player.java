@@ -119,12 +119,12 @@ public class Player {
 		
 		//Szomszedos a celmezo
 		if(this.field.isNeighour(f, tab+1)){
-			f.AddPlayer(this, tab+2);
-			this.field.RemovePlayer(this, tab+3);
+			f.AddPlayer(this, tab+1);
+			this.field.RemovePlayer(this, tab+1);
 			
 			//Lukba lepett e a jatekos
-			if(f.IsFall(tab+4)){
-				f.Fall(tab+5);
+			if(f.IsFall(tab+1)){
+				f.Fall(tab+1);
 				
 			}
 			//Ha nem, a lepes sikeres
@@ -217,7 +217,7 @@ public class Player {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Player osztaly PullPlayer() fuggvenye hivodott meg");
-		this.items.get(0).Pull(p,this.field,tab);
+		this.items.get(0).Pull(p,this.field,tab+1);
 	}
 	
 	public void DecreaseAction(int tab) {
