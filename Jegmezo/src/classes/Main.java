@@ -198,16 +198,42 @@ public static void Menu() {
 	switch(n) {
 	case 1:
 		MoveToAnotherField();
+		break;
 	case 2:
 		UseAbilityEskimo();
+		break;
 	case 3:
 		UseAbilityExplorer();
+		break;
 	case 4:
 		AddItemToField();
+		break;
 	case 5:
 		RemoveItemFromField();
+		break;
 	case 6:
-		
+		StormOnBoard();
+		break;
+	case 7:
+		UsingRope();
+		break;
+	case 8:
+		PuttingOnDivingSuit();
+		break;
+	case 9:
+		Swimming();
+		break;
+	case 10:
+		Eat();
+		break;
+	case 11: 
+		Shovel();
+		break;
+	case 12:
+		Shoot();
+	default:
+		System.out.printf("Valasszon a megadott lehetosegek alapjan! \n");
+			
 	}
 }
 
