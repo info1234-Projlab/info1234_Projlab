@@ -13,7 +13,7 @@ import java.util.ArrayList;
 //
 
 /**
- *Az oszt�ly felel�ss�ge a jelz�fegyver menedzsel�se.
+ * Az oszt�ly felel�ss�ge a jelz�fegyver menedzsel�se.
  * Figyelnie kell, hogy felvett�k-e az alkatr�szeket, kigy�lt-e m�r mind a h�rom �s a fegyver els�t�s��rt is ez felel�s.
  *
  */

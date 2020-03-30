@@ -200,7 +200,11 @@ public class Field {
 	
 	/*public boolean IsFull() {
 	}*/
-	
+	/**
+	 * Mezon tarolt jatekosok listajahoz hozzaad egy jatekos (aki eppen odament). 
+	 * @param p	Akit hozzaadunk a mezon levo jatekosok listajahoz.
+	 * @param tab	Indentalasra.
+	 */
 	public void AddPlayer(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -208,12 +212,22 @@ public class Field {
 		players.add(p);
 	}
 	
+	/**
+	 * Mezon levo jatekosok kozul torlunk valakit (elment onnan).
+	 * @param p	Mezot elhagyo jatekos.
+	 * @param tab	Indentalasra.
+	 */
 	public void RemovePlayer(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Field osztaly RemovePlayer(p: Player) fuggvenye hivodott meg.");
 	}
 	
+	/**
+	 * Mezo hasIglu valtozojanak valtoztatasara.
+	 * @param b	Amennyiben valtozott a mezo iglu szempontjabol (pl. lett epitve ra), akkor megvaltoztatja a hasIglut valtozot.
+	 * @param tab	Indentalasra.
+	 */
 	public void SetHasIglu(boolean b, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -226,6 +240,11 @@ public class Field {
 			System.out.printf("Jelenleg nincs rajta iglu! \n");
 	}
 	
+	/**
+	 * A kutato kepessege hasznalata utan lathato, hogy hany embert bir el az adott mezo.
+	 * @param bool	true, ha a kutato hasznalta kepesseget
+	 * @param tab	Indentalasra.
+	 */
 	public void SetVisibleCapacity(boolean bool, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
@@ -236,10 +255,10 @@ public class Field {
 	
 	/**
 	 * 
-	 * @param layer h�ny r�teg h� ker�lt a mez�re
+	 * @param layer hany reteg ho kerult a mezore
 	 * @param tab indent�l�s
-	 * Be�ll�tja a h�r�teget, ha van iglu akkor a t�rgyak l�that�s�ga nem sz�nik meg �s a j�t�kos s�rtetlen marad
-	 * Ha nincs akkor a j�t�kos �lete cs�kken �s rak�dik egy r�teg h� 
+	 * Beallitja a horeteget, ha van iglu akkor a targyak lathatosaga nem szunik meg es a jatekos sertetlen marad
+	 * Ha nincs akkor a jatekos elete csokken es rakodik egy reteg ho
 	 */
 	public void SetLayer(int layer, int tab) {
 		for(int i=0; i<tab; i++)
@@ -264,8 +283,8 @@ public class Field {
 	}
 	
 	/**
-	 * @param tab indent�l�s
-	 * visszaadja a mez� aktu�lis h�r�teg�t
+	 * @param tab indentalas
+	 * visszaadja a mezo aktualis horeteget
 	 */
 	public int GetLayer(int tab) {
 		for(int i=0; i<tab; i++)
