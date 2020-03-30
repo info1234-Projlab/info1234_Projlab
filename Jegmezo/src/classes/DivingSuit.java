@@ -82,7 +82,7 @@ public class DivingSuit extends Item {
 			System.out.println("Hanyas szamu mezore szeretne lepni? (1-6)");
 			Scanner in2 = new Scanner(System.in);
 	        a = in2.nextInt();
-	        p.Move(options.get(a), tab+1);
+	        p.Move(options.get(a - 1), tab+1);
 	        return true;
 		}
 		return false;
