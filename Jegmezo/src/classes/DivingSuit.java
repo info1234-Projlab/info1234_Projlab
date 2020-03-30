@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * Bármelyik típusú játékos felveheti vagy eldobhatja. 
- * Ha ezzel a tárggyal rendelkezik a játékos akkor vízbe esés esetén 
- * ki tud menekülni valamelyik szomszédos mezõre, legyen az akár egy lyuk is, 
- * így lehetséges a szigetekre való eljutás is. 
- * A játék során végig megvédi a gazdáját, többször felhasználható.
+ * Bï¿½rmelyik tï¿½pusï¿½ jï¿½tï¿½kos felveheti vagy eldobhatja. 
+ * Ha ezzel a tï¿½rggyal rendelkezik a jï¿½tï¿½kos akkor vï¿½zbe esï¿½s esetï¿½n 
+ * ki tud menekï¿½lni valamelyik szomszï¿½dos mezï¿½re, legyen az akï¿½r egy lyuk is, 
+ * ï¿½gy lehetsï¿½ges a szigetekre valï¿½ eljutï¿½s is. 
+ * A jï¿½tï¿½k sorï¿½n vï¿½gig megvï¿½di a gazdï¿½jï¿½t, tï¿½bbszï¿½r felhasznï¿½lhatï¿½.
  */
 
 public class DivingSuit extends Item {
@@ -52,14 +52,13 @@ public class DivingSuit extends Item {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A DivingSuit osztaly Swim(p: Player):boolean fuggvenye hivodott meg.");
-		System.out.println("Van a jatekoson búvárruha? Irjon be egy 1-est ha igen, 0-ast ha nem.");
+		System.out.println("Van a jatekoson bï¿½vï¿½rruha? Irjon be egy 1-est ha igen, 0-ast ha nem.");
 		Scanner  in = new Scanner(System.in);
 		int a = in.nextInt();
 		if(a==1)
 			isOn=true;
 		else
 			isOn=false;
-		in.close();
 		if(isOn==true) {
 			Field from = p.GetField(tab+1);
 			/**
@@ -81,10 +80,9 @@ public class DivingSuit extends Item {
 			from.AddNeighbour(neighbour6, tab+1);
 			ArrayList<Field> options = from.GetNeighbouringFields(tab+1);
 			System.out.println("Hanyas szamu mezore szeretne lepni? (1-6)");
-			Scanner  in2 = new Scanner(System.in);
+			Scanner in2 = new Scanner(System.in);
 	        a = in2.nextInt();
 	        p.Move(options.get(a), tab+1);
-	        in2.close();
 	        return true;
 		}
 		return false;
@@ -93,7 +91,7 @@ public class DivingSuit extends Item {
 	public void Drop(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A DivngSuit osztály Drop(p:Player):void hívódott meg\n");
+		System.out.printf("A DivngSuit osztï¿½ly Drop(p:Player):void hï¿½vï¿½dott meg\n");
 		p.RemoveItem(this,tab+1);
 		isOn=false;
 	}
