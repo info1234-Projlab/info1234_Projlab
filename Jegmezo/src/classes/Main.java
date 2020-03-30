@@ -87,25 +87,25 @@ public static void UseAbilityExplorer() {
  * A Field AddItem f�ggv�ny�hez tartoz� forgat�k�nyv
  */
 public static void AddItemToField() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
-	Food food=new Food(0,true,1);
-	DivingSuit dsuit=new DivingSuit(0,true,1);
+	Field f=new Field(1,0,0);
+	Explorer e=new Explorer(f,0);
+	Food food=new Food(0,true,0);
+	DivingSuit dsuit=new DivingSuit(0,true,0);
 	System.out.printf("A targy amit eldobsz, buvarruha legyen (1) vagy egyeb (2)?\n");
 	Scanner in2 = new Scanner(System.in);
 	int itemkind=in2.nextInt();
 	if (itemkind==2) {
 
 		Food todropitem=new Food(0,true, 0);
-		f.AddItem(todropitem,1);
-		todropitem.Drop(e,1);
+		f.AddItem(todropitem,0);
+		todropitem.Drop(e,0);
 
-		f.AddItem(food,1);
+		f.AddItem(food,0);
 
 	}
 	if (itemkind==1) {
 		
-		f.AddItem(dsuit,1);
+		f.AddItem(dsuit,0);
 		}
 }
 
@@ -113,9 +113,9 @@ public static void AddItemToField() {
  * A Field RemoveItem f�ggv�ny�hez tartoz� forgat�k�nyv
  */
 public static void RemoveItemFromFiled() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
-		f.RemoveItem(e,1);	
+	Field f=new Field(1,0,0);
+	Explorer e=new Explorer(f,0);
+		f.RemoveItem(e,0);	
 }
 
 
@@ -123,12 +123,12 @@ public static void RemoveItemFromFiled() {
  * A Board Storm f�ggv�ny�hez tartoz� forgat�k�nyv
  */
 public static void StormOnBoard() {
-	Field f=new Field(1,0,1);
-	Explorer e=new Explorer(f,1);
+	Field f=new Field(1,0,0);
+	Explorer e=new Explorer(f,0);
 	ArrayList<Field> fields=new ArrayList<>();
 	fields.add(f);
-	Board board=new Board(fields,1);
-	board.Storm(1);
+	Board board=new Board(fields,0);
+	board.Storm(0);
 }
 
 /**
