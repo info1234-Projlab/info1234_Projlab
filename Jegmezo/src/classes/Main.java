@@ -166,7 +166,9 @@ public static void Swimming() {
 	DivingSuit suit = new DivingSuit(2, true, 0);
 	suit.Swim(player, 0);
 }
-
+/**
+ * Food elfogyasztas (eves) forgatokonyv
+ */
 public static void Eat() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
@@ -174,6 +176,9 @@ public static void Eat() {
 	food.Eat(e,  0);
 }
 
+/**
+ * Asoval asas forgatokonyv
+ */
 public static void Shovel() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
@@ -181,6 +186,9 @@ public static void Shovel() {
 	shovel.Dig(e, 0);
 }
 
+/**
+ * Jelzofeny kiloves forgatokonyv
+ */
 public static void Shoot() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
@@ -191,6 +199,9 @@ public static void Shoot() {
 	flare.Shoot(e, 0);
 }
 
+/**
+ * Menu tesztelesre
+ */
 public static void Menu() {
 	while (true) {
 		System.out.printf("Valasszon a kovetkezo forgatokonyvek kozul: \n");
