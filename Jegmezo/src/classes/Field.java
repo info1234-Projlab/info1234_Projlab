@@ -45,6 +45,7 @@ public class Field {
 		this.visibleCapacity = false;
 		this.numOfPlayers = 0;
 		this.items=new ArrayList<Inventory>();
+		this.neighbourFields=new ArrayList<Field>();
 	}
 	
 	public void AddNeighbour(Field neighbour, int tab) {
