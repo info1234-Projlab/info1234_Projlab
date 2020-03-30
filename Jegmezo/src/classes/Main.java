@@ -1,5 +1,6 @@
 package classes;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,10 +21,10 @@ public static void MoveToAnotherField(){
 	int answer = in.nextInt();
 	if( answer == 1){
 		StableField toSfield = new StableField(1,0,1);
-		StableField fromField = new StableField(1,0,2);
+		StableField fromField = new StableField(1,0,1);
 		
-		Eskimo eskimo = new Eskimo(fromField,3);
-		eskimo.Move(toSfield,4);
+		Eskimo eskimo = new Eskimo(fromField,1);
+		eskimo.Move(toSfield,1);
 		
 		
 	}else{
@@ -142,7 +143,7 @@ public static void UsingRope() {
 	Eskimo rescuer = new Eskimo(to, 0);
 	Explorer inDanger = new Explorer(from, 0);
 	Rope r = new Rope(2, true, 0);
-	r.Pull(inDanger, to);
+	r.Pull(inDanger, to, 0);
 }
 
 /**
@@ -166,7 +167,9 @@ public static void Swimming() {
 	DivingSuit suit = new DivingSuit(2, true, 0);
 	suit.Swim(player, 0);
 }
-
+/**
+ * Food elfogyasztas (eves) forgatokonyv
+ */
 public static void Eat() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
@@ -174,6 +177,9 @@ public static void Eat() {
 	food.Eat(e,  0);
 }
 
+/**
+ * Asoval asas forgatokonyv
+ */
 public static void Shovel() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
@@ -181,6 +187,9 @@ public static void Shovel() {
 	shovel.Dig(e, 0);
 }
 
+/**
+ * Jelzofeny kiloves forgatokonyv
+ */
 public static void Shoot() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
@@ -191,50 +200,62 @@ public static void Shoot() {
 	flare.Shoot(e, 0);
 }
 
+/**
+ * Menu tesztelesre
+ */
 public static void Menu() {
-	System.out.printf("Valasszon a kovetkezo forgatokonyvek kozul: \n");
-	System.out.printf("1: MoveToAnotherField \n 2: UseAbilityEskimo \n 3: UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromField \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
-	Scanner in = new Scanner(System.in);
-	int n = in.nextInt();
-	switch(n) {
-	case 1:
-		MoveToAnotherField();
-		break;
-	case 2:
-		UseAbilityEskimo();
-		break;
-	case 3:
-		UseAbilityExplorer();
-		break;
-	case 4:
-		AddItemToField();
-		break;
-	case 5:
-		RemoveItemFromField();
-		break;
-	case 6:
-		StormOnBoard();
-		break;
-	case 7:
-		UsingRope();
-		break;
-	case 8:
-		PuttingOnDivingSuit();
-		break;
-	case 9:
-		Swimming();
-		break;
-	case 10:
-		Eat();
-		break;
-	case 11: 
-		Shovel();
-		break;
-	case 12:
-		Shoot();
-	default:
-		System.out.printf("Valasszon a megadott lehetosegek alapjan! \n");
-			
+	while (true) {
+		System.out.printf("Valasszon a kovetkezo forgatokonyvek kozul: \n");
+		System.out.printf(" 1:MoveToAnotherField \n 2:UseAbilityEskimo \n 3:UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromField \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+		switch(n) {
+		case 1:
+			MoveToAnotherField();
+			break;
+		case 2:
+			UseAbilityEskimo();
+			break;
+		case 3:
+			UseAbilityExplorer();
+			break;
+		case 4:
+			AddItemToField();
+			break;
+		case 5:
+			RemoveItemFromField();
+			break;
+		case 6:
+			StormOnBoard();
+			break;
+		case 7:
+			UsingRope();
+			break;
+		case 8:
+			PuttingOnDivingSuit();
+			break;
+		case 9:
+			Swimming();
+			break;
+		case 10:
+			Eat();
+			break;
+		case 11: 
+			Shovel();
+			break;
+		case 12:
+			Shoot();
+			break;
+		default:
+			System.out.printf("Valasszon a megadott lehetosegek alapjan! \n");
+		
+		}
+		System.out.printf("Nyomj meg egy gombot a menübe való visszatéréshez \n");
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }
 

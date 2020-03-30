@@ -23,7 +23,7 @@ public class Food extends Item {
 		super(layer, visible);
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Food osztály konstruktora hivodott meg");
+		System.out.println("A Food osztály konstruktora hivodott meg");
 		
 	}
 	
@@ -36,7 +36,7 @@ public class Food extends Item {
 	public boolean Eat(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Food osztály Eat(p: Player) fuggvenye hivodott meg");
+		System.out.println("A Food osztály Eat(p: Player) fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
 		if (p.GetHP(tab + 1) == p.GetMaxHP(tab + 1)) {
