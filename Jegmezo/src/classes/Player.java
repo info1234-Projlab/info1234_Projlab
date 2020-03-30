@@ -94,7 +94,7 @@ public class Player {
 	public int GetMaxHP(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Player osztaly GetMaxHP() fuggvenye hivodott meg");
+		System.out.println("A Player osztaly GetMaxHP() fuggvenye hivodott meg");
 		return maxHp;
 	}
 	
@@ -163,7 +163,7 @@ public class Player {
 		System.out.printf("Az Player osztaly AddItem(i:Inventory):void hivodott meg \n");
 */
 	/**
-	 * A kapott Inventory-t beteszi az items list�j�ba.
+	 * A kapott Inventory-t beteszi az items list�j�ba.
 	 */
 	public void AddItem(Inventory i,int tab) {
 		for(int j=0; j<tab; j++)
@@ -176,7 +176,7 @@ public class Player {
 	 *  Eltávolít egy itemet a játékos inventoryjából.
 	 *  @param i az eltávolítandó item.
 	 *  @param tab	Indentálást jelzi. 
-	 * A kapott Inventory-t kiveszi az items list�j�b�l.
+	 * A kapott Inventory-t kiveszi az items list�j�b�l.
 	 */
 	public void RemoveItem(Inventory i,int tab) {
 		for(int j=0; j<tab; j++)
@@ -197,7 +197,7 @@ public class Player {
 	public void DigPlayer(int layers, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A Player osztaly DigPlayer fuggvenye hivodott meg");
+		System.out.println("A Player osztaly DigPlayer fuggvenye hivodott meg");
 		field.DigItems(layers, tab + 1);
 	}
 	
@@ -205,7 +205,7 @@ public class Player {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Player osztaly SwimPlayer() fuggvenye hivodott meg");
-		System.out.println("Az eszkimo V�zbe esett");
+		System.out.println("Az eszkimo V�zbe esett");
 	}
 	
 	/**

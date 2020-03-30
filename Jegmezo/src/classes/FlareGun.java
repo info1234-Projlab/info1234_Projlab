@@ -13,7 +13,7 @@ import java.util.ArrayList;
 //
 
 /**
- *Az oszt�ly felel�ss�ge a jelz�fegyver menedzsel�se.
+ * Az oszt�ly felel�ss�ge a jelz�fegyver menedzsel�se.
  * Figyelnie kell, hogy felvett�k-e az alkatr�szeket, kigy�lt-e m�r mind a h�rom �s a fegyver els�t�s��rt is ez felel�s.
  *
  */
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class FlareGun implements Inventory {
 	protected int layer;
 	protected boolean visible;
-	protected ArrayList<FlareGun> components;
+	protected static ArrayList<FlareGun> components;
 	
 	/**
 	 * 
@@ -34,7 +34,7 @@ public class FlareGun implements Inventory {
 	public FlareGun(int layer, boolean visible, int tab) {
 		this.layer=layer;
 		this.visible=visible;
-		this.components=new ArrayList<>();
+		this.components=new ArrayList<FlareGun>();
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A FlareGun osztaly konstruktora hivodott meg.");
@@ -44,10 +44,10 @@ public class FlareGun implements Inventory {
 	public boolean Shoot(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.print("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
+		System.out.println("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
 		if (p.GetNumOfAction(tab + 1) <= 0)
 			return false;
-		if (components.size() != 3) {
+		if (components.size() == 3) {
 			return false;
 		}
 		p.SetWin(true, tab + 1);
