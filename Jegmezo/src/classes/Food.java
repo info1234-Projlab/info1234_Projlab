@@ -23,7 +23,7 @@ public class Food extends Item {
 		super(layer, visible);
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.println("A Food osztály konstruktora hivodott meg");
+		System.out.println("A Food osztaly konstruktora hivodott meg");
 		
 	}
 	

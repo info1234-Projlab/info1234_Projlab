@@ -13,10 +13,10 @@ import java.util.ArrayList;
 //
 //
 /**
- * Az osztály egy játék felépítéséért és lebonyolításáért felel. 
- * Statikusak a függvényei és a paraméterei is, így tettük lehetõvé, hogy ha a játék folyamán a
- * Game osztályt használjuk, ne kelljen példányosítani, a változtatások az elején létrehozott
- * Game-ben történjenek
+ * Az osztï¿½ly egy jï¿½tï¿½k felï¿½pï¿½tï¿½sï¿½ï¿½rt ï¿½s lebonyolï¿½tï¿½sï¿½ï¿½rt felel. 
+ * Statikusak a fï¿½ggvï¿½nyei ï¿½s a paramï¿½terei is, ï¿½gy tettï¿½k lehetï¿½vï¿½, hogy ha a jï¿½tï¿½k folyamï¿½n a
+ * Game osztï¿½lyt hasznï¿½ljuk, ne kelljen pï¿½ldï¿½nyosï¿½tani, a vï¿½ltoztatï¿½sok az elejï¿½n lï¿½trehozott
+ * Game-ben tï¿½rtï¿½njenek
  *
  */
 public class Game {
@@ -27,13 +27,13 @@ public class Game {
 	public static Player GetCurrentPlayer(int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A Game osztály GetCurrentPlayer():Player hívódott meg \n");
+		System.out.printf("A Game osztaly GetCurrentPlayer():Player hivodott meg \n");
 		return currentPlayer;
 	}
 	public static void SetCurrentPlayer(Player player,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A Game osztály SetCurrentPlayer():Player hívódott meg \n");
+		System.out.printf("A Game osztaly SetCurrentPlayer():Player hivodott meg \n");
 		currentPlayer=player;
 	}
 	/*public static void Init(ArrayList<Player> players, Board board) {
@@ -49,5 +49,5 @@ public class Game {
 	}
 	
 	public static boolean Win() {
-	}*/ //Inicializáláshoz kellenek
+	}*/ //Inicializï¿½lï¿½shoz kellenek
 }

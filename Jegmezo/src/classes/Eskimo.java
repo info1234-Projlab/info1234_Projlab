@@ -35,7 +35,7 @@ public class Eskimo extends Player {
 			System.out.print("\t");
 		System.out.println("Az Eskimo osztaly UseAbility() fuggvenye hivodott meg.");
 		int a = this.GetNumOfAction(tab+1);
-		if(a == 0 ) { System.out.printf("Nem tud akciót végrehajtani! \n");}
+		if(a == 0 ) { System.out.printf("Nem tud akciot vegrehajtani! \n");}
 		if(a > 0 ) {
 			if(this.GetField(tab+1).CanBuildIglu(tab+1)) {
 			this.GetField(tab+1).SetHasIglu(true,tab+1);

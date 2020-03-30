@@ -55,7 +55,7 @@ public static void MoveToAnotherField(){
 public static void UseAbilityEskimo() {
 	Field f = new Field(3, 3, 0);
 	Eskimo e = new Eskimo(f,0);
-	System.out.printf("Add meg, hány akciója van még hátra a játékosnak (0-4), van-e iglu már a mezőn (0-1). \n");
+	System.out.printf("Add meg, hany akcioja van meg hatra a jatekosnak (0-4), van-e iglu mar a mezon (0-1). \n");
 	Scanner in = new Scanner(System.in);
 	int actions = in.nextInt();
 	int b = in.nextInt();
@@ -73,7 +73,7 @@ public static void UseAbilityEskimo() {
  */
 public static void UseAbilityExplorer() {
 	
-	System.out.printf("Add meg, hány akciója van még hátra a játékosnak (0-4), mekkora legyen a mező kapacitása. \n");
+	System.out.printf("Add meg, hany akcioja van meg hatra a jatekosnak (0-4), mekkora legyen a mezo kapacitasa. \n");
 	Scanner in = new Scanner(System.in);
 	int actions = in.nextInt();
 	int cap = in.nextInt();
@@ -250,7 +250,7 @@ public static void Menu() {
 			System.out.printf("Valasszon a megadott lehetosegek alapjan! \n");
 		
 		}
-		System.out.printf("Nyomj meg egy gombot a menübe való visszatéréshez \n");
+		System.out.printf("Nyomj meg egy gombot a menube valo visszatereshez \n");
 		try {
 			System.in.read();
 		} catch (IOException e) {

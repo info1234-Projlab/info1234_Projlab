@@ -52,7 +52,7 @@ public class DivingSuit extends Item {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A DivingSuit osztaly Swim(p: Player):boolean fuggvenye hivodott meg.");
-		System.out.println("Van a jatekoson b�v�rruha? Irjon be egy 1-est ha igen, 0-ast ha nem.");
+		System.out.println("Van a jatekoson buvarruha? Irjon be egy 1-est ha igen, 0-ast ha nem.");
 		Scanner  in = new Scanner(System.in);
 		int a = in.nextInt();
 		if(a==1)
@@ -91,7 +91,7 @@ public class DivingSuit extends Item {
 	public void Drop(Player p, int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A DivngSuit oszt�ly Drop(p:Player):void h�v�dott meg\n");
+		System.out.printf("A DivngSuit osztaly Drop(p:Player):void hivodott meg\n");
 		p.RemoveItem(this,tab+1);
 		isOn=false;
 	}

@@ -148,7 +148,7 @@ public class Field {
 	public void AddItem(Inventory item,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A Field osztï¿½ly AddItem(item:Inventory):void hï¿½vï¿½dott meg \n");
+		System.out.printf("A Field osztaly AddItem(item:Inventory):void hivodott meg \n");
 		item.SetLayer(this.snowLayer);
 		items.add(item);
 		Player player=Game.GetCurrentPlayer(tab+1);
@@ -166,7 +166,7 @@ public class Field {
 	public void RemoveItem(Player p,int tab) {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
-		System.out.printf("A Field osztï¿½ly RemoveItem(p:Player):void hï¿½vï¿½dott meg \n");
+		System.out.printf("A Field osztaly RemoveItem(p:Player):void hivodott meg \n");
 		for(int i=0; i<items.size(); i++) {
 			if(items.get(i).GetVisible(tab+1)) {
 				items.get(i).PickUp(p,tab+1);
@@ -284,7 +284,7 @@ public class Field {
 		}
 		if (hasiglu==1) {
 			hasIglu=true;
-			System.out.printf("Megmenekultel a hovihartol és nem vesztettél életet\n");
+			System.out.printf("Megmenekultel a hovihartol es nem vesztettel eletet\n");
 		}
 	}
 	

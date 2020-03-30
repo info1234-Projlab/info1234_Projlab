@@ -2,9 +2,9 @@ package classes;
 
 
 /**
-Felelõssége a tárgyak használatának, elérhetõségének és 
-láthatóságának felügyelete. Ez az osztály felel azért, hogy az adott tárgy birtoklása 
-a játékosra milyen hatással van. 
+Felelï¿½ssï¿½ge a tï¿½rgyak hasznï¿½latï¿½nak, elï¿½rhetï¿½sï¿½gï¿½nek ï¿½s 
+lï¿½thatï¿½sï¿½gï¿½nak felï¿½gyelete. Ez az osztï¿½ly felel azï¿½rt, hogy az adott tï¿½rgy birtoklï¿½sa 
+a jï¿½tï¿½kosra milyen hatï¿½ssal van. 
  *
  */
 
@@ -43,9 +43,9 @@ public class Item implements Inventory {
 	}
 	
 	/**
-	 * Ha valaki el szeretne dobni egy tárgyat akkor hívódik ez a 
-	 * függvény. Ilyenkor, a paraméterül kapott Player items tárolójából kiveszi az adott tárgyat és
-	 *  “leteszi” a földre, azaz a Player field-jének az items tárolójába.
+	 * Ha valaki el szeretne dobni egy tï¿½rgyat akkor hï¿½vï¿½dik ez a 
+	 * fï¿½ggvï¿½ny. Ilyenkor, a paramï¿½terï¿½l kapott Player items tï¿½rolï¿½jï¿½bï¿½l kiveszi az adott tï¿½rgyat ï¿½s
+	 *  ï¿½letesziï¿½ a fï¿½ldre, azaz a Player field-jï¿½nek az items tï¿½rolï¿½jï¿½ba.
 	 */
 	public void Drop(Player p,int tab) {
 		for(int i=0; i<tab; i++)
@@ -68,8 +68,8 @@ public class Item implements Inventory {
 	}
 	
 	/**
-	 * Ez pedig a tárgyak felvételére szolgál. Tehát ha valaki felvesz egy tárgyat, 
-	 * a Field items tárolójából átkerül a Player items tárolójába.
+	 * Ez pedig a tï¿½rgyak felvï¿½telï¿½re szolgï¿½l. Tehï¿½t ha valaki felvesz egy tï¿½rgyat, 
+	 * a Field items tï¿½rolï¿½jï¿½bï¿½l ï¿½tkerï¿½l a Player items tï¿½rolï¿½jï¿½ba.
 	 */
 	public void PickUp(Player p, int tab) {
 		for(int i=0; i<tab; i++)
@@ -92,7 +92,7 @@ public class Item implements Inventory {
 	
 	public void SetLayer(int num) {
 		this.layer=num;
-		System.out.printf("Az Item osztï¿½ly SetLayer(num:int):void hï¿½vï¿½dott meg \n");
+		System.out.printf("Az Item osztaly SetLayer(num:int):void hivodott meg \n");
 	}
 	
 	/**
