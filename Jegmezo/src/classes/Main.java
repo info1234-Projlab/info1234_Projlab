@@ -116,6 +116,7 @@ public static void RemoveItemFromFiled() {
 	Field f=new Field(1,0,0);
 	Explorer e=new Explorer(f,0);
 		f.RemoveItem(e,0);	
+
 }
 
 
@@ -136,11 +137,11 @@ public static void StormOnBoard() {
  */
 
 public static void UsingRope() {
-	StableField to = new StableField(10, 2, 1);
-	Hole from = new Hole(1);
-	Eskimo rescuer = new Eskimo(to, 1);
-	Explorer inDanger = new Explorer(from, 1);
-	Rope r = new Rope(2, true, 1);
+	StableField to = new StableField(10, 2, 0);
+	Hole from = new Hole(0);
+	Eskimo rescuer = new Eskimo(to, 0);
+	Explorer inDanger = new Explorer(from, 0);
+	Rope r = new Rope(2, true, 0);
 	r.Pull(inDanger, to);
 }
 
@@ -149,10 +150,10 @@ public static void UsingRope() {
  */
 
 public static void PuttingOnDivingSuit() {
-	UnstableField field = new UnstableField(4, 2, 1);
-	Eskimo player = new Eskimo(field, 1);
-	DivingSuit suit = new DivingSuit(2, true, 1);
-	suit.PutOn(player, 1);
+	UnstableField field = new UnstableField(4, 2, 0);
+	Eskimo player = new Eskimo(field, 0);
+	DivingSuit suit = new DivingSuit(2, true, 0);
+	suit.PutOn(player, 0);
 }
 
 /**
@@ -160,10 +161,10 @@ public static void PuttingOnDivingSuit() {
  */
 
 public static void Swimming() {
-	UnstableField field = new UnstableField(4, 2, 1);
-	Explorer player = new Explorer(field, 1);
-	DivingSuit suit = new DivingSuit(2, true, 1);
-	suit.Swim(player, 1);
+	UnstableField field = new UnstableField(4, 2, 0);
+	Explorer player = new Explorer(field, 0);
+	DivingSuit suit = new DivingSuit(2, true, 0);
+	suit.Swim(player, 0);
 }
 
 public static void Eat() {
@@ -183,18 +184,58 @@ public static void Shovel() {
 public static void Shoot() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
-	Flare flare = new Flare();
+	Flare flare = new Flare(0, true, 0);
 	e.AddItem(flare, 0);
-	e.AddItem(new Gun(), 0);
-	e.AddItem(new Cartridge(), 0);
+	e.AddItem(new Gun(0, true, 0), 0);
+	e.AddItem(new Cartridge(0, true, 0), 0);
 	flare.Shoot(e, 0);
 }
 
 public static void Menu() {
 	System.out.printf("Valasszon a kovetkezo forgatokonyvek kozul: \n");
-	System.out.printf("1: MoveToAnotherField \n 2: UseAbilityEskimo \n 3: UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromFiled \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
+	System.out.printf("1: MoveToAnotherField \n 2: UseAbilityEskimo \n 3: UseAbilityExplorer\n 4:AddItemToField \n 5:RemoveItemFromField \n 6:StormOnBoard \n 7:UsingRope \n 8:PuttingOnDivingSuit \n 9:Swimming \n 10:Eat \n 11:Shovel \n 12:Shoot \n");  
 	Scanner in = new Scanner(System.in);
-	int actions = in.nextInt();
+	int n = in.nextInt();
+	switch(n) {
+	case 1:
+		MoveToAnotherField();
+		break;
+	case 2:
+		UseAbilityEskimo();
+		break;
+	case 3:
+		UseAbilityExplorer();
+		break;
+	case 4:
+		AddItemToField();
+		break;
+	case 5:
+		RemoveItemFromField();
+		break;
+	case 6:
+		StormOnBoard();
+		break;
+	case 7:
+		UsingRope();
+		break;
+	case 8:
+		PuttingOnDivingSuit();
+		break;
+	case 9:
+		Swimming();
+		break;
+	case 10:
+		Eat();
+		break;
+	case 11: 
+		Shovel();
+		break;
+	case 12:
+		Shoot();
+	default:
+		System.out.printf("Valasszon a megadott lehetosegek alapjan! \n");
+			
+	}
 }
 
 }
