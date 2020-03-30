@@ -183,10 +183,10 @@ public static void Shovel() {
 public static void Shoot() {
 	Field f = new Field(3, 0, 0);
 	Eskimo e = new Eskimo(f, 0);
-	Flare flare = new Flare();
+	Flare flare = new Flare(0, true, 0);
 	e.AddItem(flare, 0);
-	e.AddItem(new Gun(), 0);
-	e.AddItem(new Cartridge(), 0);
+	e.AddItem(new Gun(0, true, 0), 0);
+	e.AddItem(new Cartridge(0, true, 0), 0);
 	flare.Shoot(e, 0);
 }
 
