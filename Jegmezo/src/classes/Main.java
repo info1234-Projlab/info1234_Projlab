@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main{
-	private static HashMap<String,Field> fields = new HashMap<String, Field>();
+	private static HashMap<String,Field> fields = new HashMap<String,Field>();
+	private static HashMap<String,CanMove> creatures = new HashMap<String,CanMove>();
+	
 	public static void main(String args[]) {
 		String inputFileName = GetInputFile();
 	
@@ -34,14 +36,17 @@ public class Main{
 	
 	public static void RunCommand(String data) {
 		String[] command = data.split(" ");
+		String fieldName;
 		switch(command[0]) {
 		case "SetLayer":
-			String fieldName = command[1];
+			fieldName = command[1];
 			int layer = Integer.parseInt(command[2]);
 			fields.get(fieldName).SetLayer(layer);
 			break;
-		case " ":
-			
+		case "AddCharacter":
+			String creatureName = command[1];
+			fieldName = command[2];
+			fields.get(fieldName).AddCreature(creatures.get(creatureName));
 		}
 
 	}

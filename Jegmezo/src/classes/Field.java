@@ -26,7 +26,7 @@ public class Field {
 	protected boolean visibleCapacity;
 	protected int numOfPlayers;
 	protected ArrayList<Field> neighbourFields;
-	private ArrayList<Player> players;
+	private ArrayList<CanMove> creatures;
 	private ArrayList<Inventory> items;
 	private ArrayList<Shelter> shelter;
 	
@@ -207,11 +207,8 @@ public class Field {
 	 * @param p	Akit hozzaadunk a mezon levo jatekosok listajahoz.
 	 * @param tab	Indentalasra.
 	 */
-	public void AddPlayer(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly AddPlayer(p: Player) fuggvenye hivodott meg.");
-		players.add(p);
+	public void AddCreature(CanMove c) {
+		creatures.add(c);
 	}
 	
 	/**
