@@ -2,9 +2,11 @@ package classes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main{
+	private static HashMap<String,Field> fields = new HashMap<String, Field>();
 	public static void main(String args[]) {
 		String inputFileName = GetInputFile();
 	
@@ -30,8 +32,18 @@ public class Main{
 		return fileName;
 	}
 	
-	public static void RunCommand(String command) {
-		
+	public static void RunCommand(String data) {
+		String[] command = data.split(" ");
+		switch(command[0]) {
+		case "SetLayer":
+			String fieldName = command[1];
+			int layer = Integer.parseInt(command[2]);
+			fields.get(fieldName).SetLayer(layer);
+			break;
+		case "":
+			
+		}
+
 	}
 	
 }

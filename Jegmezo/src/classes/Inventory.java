@@ -23,11 +23,11 @@ public interface Inventory {
 	
 	public void PickUp(Player p,int tab);
 	
-	public int GetLayer(int tab);
+	public int GetLayer();
 	
 	public void SetLayer(int num);
 	
-	public void SetVisible(boolean b, int tab);
+	public void SetVisible(boolean b);
 	
 	public boolean GetVisible(int tab);
 }

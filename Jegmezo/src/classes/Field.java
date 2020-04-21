@@ -28,6 +28,7 @@ public class Field {
 	protected ArrayList<Field> neighbourFields;
 	private ArrayList<Player> players;
 	private ArrayList<Inventory> items;
+	private ArrayList<Shelter> shelter;
 	
 	/**
 	 * 
@@ -261,32 +262,29 @@ public class Field {
 	 * Beallitja a horeteget, ha van iglu akkor a targyak lathatosaga nem szunik meg es a jatekos sertetlen marad
 	 * Ha nincs akkor a jatekos elete csokken es rakodik egy reteg ho
 	 */
-	public void SetLayer(int layer, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly SetLayer(layer:int):void fuggvenye hivodott meg");
-		
+	public void SetLayer(int layer) {
 		snowLayer=layer;
-		
-		Food food=new Food(0,true,tab+1);
-		items.add(food);
-		
-		System.out.printf("Legyen iglu a mezon ahol allunk (1) vagy ne (0)?\n");
-		Scanner in = new Scanner(System.in);
-		int hasiglu=in.nextInt();
-		if (hasiglu==0) {
-			hasIglu=false;
+	}
+	
+	public void IncreaseLayer() {
+		if(shelter.size()==0) {
+			snowLayer = snowLayer+1;
 			for(int i=0; i<items.size(); i++) {
-				items.get(i).SetVisible(false, tab+1);
+				items.get(i).SetVisible(false);
 			}
-			for(int i=0; i<players.size(); i++)
-				players.get(i).DecreaseHp(tab+1);
 		}
-		if (hasiglu==1) {
-			hasIglu=true;
-			System.out.printf("Megmenekultel a hovihartol es nem vesztettel eletet\n");
+			
+	}
+	
+	public void DecreaseLayer() {
+		snowLayer = snowLayer+1;
+		for(int i=0; i<items.size(); i++) {
+			if(items.get(i).GetLayer()==snowLayer)
+				items.get(i).SetVisible(true);
 		}
 	}
+	
+	
 	
 	/**
 	 * @param tab indentalas

@@ -83,10 +83,7 @@ public class Item implements Inventory {
 	 *  A rétegek számát adja vissza.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public int GetLayer(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.print("Az Item osztaly GetLayer() fuggvenye hivodott meg");
+	public int GetLayer() {
 		return layer;
 	}
 	
@@ -101,10 +98,7 @@ public class Item implements Inventory {
 	 *  @param b A láthatósag.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void SetVisible(boolean b, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.print("Az Item osztaly SetVisible() fuggvenye hivodott meg\n");
+	public void SetVisible(boolean b) {
 		visible = b;
 	}
 	
