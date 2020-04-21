@@ -40,7 +40,7 @@ public class Main{
 			int layer = Integer.parseInt(command[2]);
 			fields.get(fieldName).SetLayer(layer);
 			break;
-		case "":
+		case " ":
 			
 		}
 
