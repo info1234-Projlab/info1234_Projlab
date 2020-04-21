@@ -47,6 +47,7 @@ public class Main{
 			String creatureName = command[1];
 			fieldName = command[2];
 			fields.get(fieldName).AddCreature(creatures.get(creatureName));
+			break;
 		}
 
 	}
