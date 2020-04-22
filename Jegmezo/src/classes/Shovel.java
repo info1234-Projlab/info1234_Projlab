@@ -20,11 +20,8 @@ package classes;
 
 public class Shovel extends Item {
 	
-	public Shovel(int layer,boolean visible, int tab) {
+	public Shovel(int layer,boolean visible) {
 		super(layer, visible);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Shovel osztaly konstruktora hivodott meg");
 	}
 	
 	/**
@@ -37,10 +34,10 @@ public class Shovel extends Item {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Shovel osztaly Dig() fuggvenye hivodott meg");
-		if (p.GetNumOfAction(tab + 1) <= 0)
+		if (p.GetNumOfAction() <= 0)
 			return false;
-		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);
-		p.DigPlayer(2, tab + 1);
+		p.SetNumOfAction(p.GetNumOfAction() - 1);
+		p.DigPlayer(2);
 		return true;
 	}
 }

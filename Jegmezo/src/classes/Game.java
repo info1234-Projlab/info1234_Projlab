@@ -25,16 +25,10 @@ public class Game {
 	private static Board board;
 	private static int turn;
 	
-	public static Player GetCurrentPlayer(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.printf("A Game osztaly GetCurrentPlayer():Player hivodott meg \n");
+	public static Player GetCurrentPlayer() {
 		return currentPlayer;
 	}
-	public static void SetCurrentPlayer(Player player,int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.printf("A Game osztaly SetCurrentPlayer():Player hivodott meg \n");
+	public static void SetCurrentPlayer(Player player) {
 		currentPlayer=player;
 	}
 	

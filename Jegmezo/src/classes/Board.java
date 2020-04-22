@@ -41,7 +41,7 @@ public class Board {
 			System.out.print("\t");
 		System.out.println("A Board osztaly Storm():void fuggvenye hivodott meg.");
 		for(int i=0; i<fields.size(); i++)
-			fields.get(i).SetLayer(fields.get(i).GetLayer(tab+1)+1,tab+2);
+			fields.get(i).SetLayer(fields.get(i).GetLayer()+1);
 	}
 	
 	/**

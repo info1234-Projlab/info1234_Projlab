@@ -96,13 +96,13 @@ public class Player implements CanMove{
 	
 		
 		//Szomszedos a celmezo
-		if(this.field.isNeighour(f, tab+1)){
-			f.AddPlayer(this, tab+1);
-			this.field.RemovePlayer(this, tab+1);
+		if(this.field.isNeighour(f)){
+			f.AddPlayer(this);
+			this.field.RemovePlayer(this);
 			
 			//Lukba lepett e a jatekos
-			if(f.IsFall(tab+1)){
-				f.Fall(tab+1);
+			if(f.IsFall()){
+				f.Fall();
 				
 			}
 			//Ha nem, a lepes sikeres
@@ -123,11 +123,11 @@ public class Player implements CanMove{
 	 *  A testhőt növeli
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void IncreaseHp(int tab) {
+	public void IncreaseHp() {
 		hp++;
 	}
 	
-	public void DecreaseHp(int tab) {
+	public void DecreaseHp() {
 		hp--;
 	}
 	

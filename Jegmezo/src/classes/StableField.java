@@ -12,20 +12,14 @@ public class StableField extends Field {
 	 * @param snowLayer
 	 * @param tab
 	 */
-	public StableField(int capacity, int snowLayer, int tab) {
-		super(capacity, snowLayer, tab);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A StableField osztaly konstruktora hivodott meg.");
+	public StableField(int capacity, int snowLayer) {
+		super(capacity, snowLayer);
 	}
 	
 	/**
 	 * A stabil mez� sose borul ez�rt isFall() fasle-al t�r vissza
 	 */
 	public boolean IsFall(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("Az StableField osztaly IsFall() fuggvenye hivodott meg.");
 		return false;
 	}
 	

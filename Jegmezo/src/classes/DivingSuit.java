@@ -42,9 +42,7 @@ public class DivingSuit extends Item {
 	 * sikerult hatha van a jatekosnal masik buvarruha ami rajta van igy tudja majd hasznalni
 	 */
 	
-	public boolean Swim(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
+	public boolean Swim(Player p) {
 		System.out.println("A DivingSuit osztaly Swim(p: Player):boolean fuggvenye hivodott meg.");
 		System.out.println("Van a jatekoson buvarruha? Irjon be egy 1-est ha igen, 0-ast ha nem.");
 		Scanner  in = new Scanner(System.in);
@@ -54,29 +52,29 @@ public class DivingSuit extends Item {
 		else
 			isOn=false;
 		if(isOn==true) {
-			Field from = p.GetField(tab+1);
+			Field from = p.GetField();
 			/**
 			 * Csunya sorok kovetkeznek. Ezt azert csinaltam, mert az inicializalast meg nem valositottuk meg, 
 			 * ami feltoltene mezokkel a Field osztaly neighbourFields attributumat, 
 			 * igy csunya modon most adok hozza random szomszedos mezoket.
 			 */
-			UnstableField neighbour1 = new UnstableField(4, 2, tab+1);
-			UnstableField neighbour2 = new UnstableField(5, 1, tab+1);
-			UnstableField neighbour3 = new UnstableField(3, 3, tab+1);
-			UnstableField neighbour4 = new UnstableField(1, 2, tab+1);
-			UnstableField neighbour5 = new UnstableField(4, 4, tab+1);
-			UnstableField neighbour6 = new UnstableField(4, 2, tab+1);
-			from.AddNeighbour(neighbour1, tab+1);
-			from.AddNeighbour(neighbour2, tab+1);
-			from.AddNeighbour(neighbour3, tab+1);
-			from.AddNeighbour(neighbour4, tab+1);
-			from.AddNeighbour(neighbour5, tab+1);
-			from.AddNeighbour(neighbour6, tab+1);
-			ArrayList<Field> options = from.GetNeighbouringFields(tab+1);
+			UnstableField neighbour1 = new UnstableField(4, 2);
+			UnstableField neighbour2 = new UnstableField(5, 1);
+			UnstableField neighbour3 = new UnstableField(3, 3);
+			UnstableField neighbour4 = new UnstableField(1, 2);
+			UnstableField neighbour5 = new UnstableField(4, 4);
+			UnstableField neighbour6 = new UnstableField(4, 2);
+			from.AddNeighbour(neighbour1);
+			from.AddNeighbour(neighbour2);
+			from.AddNeighbour(neighbour3);
+			from.AddNeighbour(neighbour4);
+			from.AddNeighbour(neighbour5);
+			from.AddNeighbour(neighbour6);
+			ArrayList<Field> options = from.GetNeighbouringFields();
 			System.out.println("Hanyas szamu mezore szeretne lepni? (1-6)");
 			Scanner in2 = new Scanner(System.in);
 	        a = in2.nextInt();
-	        p.Move(options.get(a - 1), tab+1);
+	        p.Move(options.get(a - 1));
 	        return true;
 		}
 		return false;
@@ -86,7 +84,7 @@ public class DivingSuit extends Item {
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.printf("A DivngSuit osztaly Drop(p:Player):void hivodott meg\n");
-		p.RemoveItem(this,tab+1);
+		p.RemoveItem(this);
 		isOn=false;
 	}
 }

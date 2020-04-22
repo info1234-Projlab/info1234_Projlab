@@ -9,19 +9,19 @@ public interface Inventory {
 	
 	public boolean Dig(Player p);
 	
-	public boolean Pull(Player p, Field to, int tab);
+	public boolean Pull(Player p, Field to);
 	
 	public boolean PutOn(Player p);
 	
-	public boolean Shoot(Player p, int tab);
+	public boolean Shoot(Player p);
 	
 	public boolean Swim(Player p);
 	
-	public void Drop(Player p, int tab);
+	public void Drop(Player p);
 	
-	public void DecreaseLayer(int i, int tab);
+	public void DecreaseLayer(int i);
 	
-	public void PickUp(Player p,int tab);
+	public void PickUp(Player p);
 	
 	public int GetLayer();
 	
@@ -29,5 +29,5 @@ public interface Inventory {
 	
 	public void SetVisible(boolean b);
 	
-	public boolean GetVisible(int tab);
+	public boolean GetVisible();
 }

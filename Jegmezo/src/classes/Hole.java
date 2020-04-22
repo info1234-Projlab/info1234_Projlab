@@ -9,26 +9,21 @@ package classes;
  */
 public class Hole extends Field {
 	
-	public Hole(int tab) {
-		super(0, 0, tab);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Hole osztaly konstruktora hivodott meg.");
+	public Hole() {
+		super(0, 0);
 	}
 	
 	
 	/**
 	 * A luk mindig borul ezert isFall() true-val ter vissza.
 	 */
-	public boolean IsFall(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("Az Hole osztaly IsFall() fuggvenye hivodott meg.");
+	public boolean IsFall() {
 		return true;
 	}
 	
 	
-	public void CanBuildIglu() {
+	public boolean CanBuildIglu() {
+		return false;
 	}
 	
 	public void AddItem(Inventory item) {

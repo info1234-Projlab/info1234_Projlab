@@ -48,7 +48,7 @@ public class Item implements Inventory {
 	 *  �leteszi� a f�ldre, azaz a Player field-j�nek az items t�rol�j�ba.
 	 */
 	public void Drop(Player p) {
-		p.RemoveItem(this,tab+1);
+		p.RemoveItem(this);
 	}
 	
 	/**
@@ -97,10 +97,6 @@ public class Item implements Inventory {
 	}
 	
 	public boolean Pull(Player p) {
-		return false;
-	}
-
-	public boolean Pull(Player p, Field to) {
 		return false;
 	}
 

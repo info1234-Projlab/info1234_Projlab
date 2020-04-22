@@ -26,9 +26,6 @@ public class Cartridge extends FlareGun implements Inventory {
 	 * @param tab indent�l�s
 	 */
 	public Cartridge(int layer, boolean visible,int tab) {
-		super(layer,visible, tab+1);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Cartridge osztaly konstruktora hivodott meg.");
+		super(layer,visible);
 		}
 }

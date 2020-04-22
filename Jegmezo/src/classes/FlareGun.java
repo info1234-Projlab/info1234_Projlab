@@ -28,29 +28,23 @@ public class FlareGun implements Inventory {
 	 * 
 	 * @param layer mennyi r�teg h� van a t�rgy felett
 	 * @param visible ez akkor igaz ha l�that�a t�rgy(nincs rajta h�
-	 * @param tab indent�l�s
+	 * @param  indent�l�s
 	 * m�g van egy ArrayList v�ltaz�ja is amiben a pisztolytartoz�kokat fogjuk pakolni, ha felvett�k
 	 */
-	public FlareGun(int layer, boolean visible, int tab) {
+	public FlareGun(int layer, boolean visible) {
 		this.layer=layer;
 		this.visible=visible;
 		this.components=new ArrayList<FlareGun>();
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A FlareGun osztaly konstruktora hivodott meg.");
 	}
 	
 	
-	public boolean Shoot(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A FlareGun osztaly Shoot() fuggvenye hivodott meg");
-		if (p.GetNumOfAction(tab + 1) <= 0)
+	public boolean Shoot(Player p) {
+		if (p.GetNumOfAction() <= 0)
 			return false;
 		if (components.size() == 3) {
 			return false;
 		}
-		p.SetWin(true, tab + 1);
+		p.SetWin(true);
 		return true;
 		
 	}
@@ -76,11 +70,8 @@ public class FlareGun implements Inventory {
 	 * Ilyenkor, a param�ter�l kapott Player items t�rol�j�b�l kiveszi az adott t�rgyat �s �leteszi� a f�ldre,
 	 *  azaz a Player field-j�nek az items t�rol�j�ba, ezen k�v�l a saj�t components t�rol�j�b�l is kiveszi mag�t.
 	 */
-	public void Drop(Player p,int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.printf("Az FlareGun osztaly Drop(p:Player):void hivodott meg \n");
-		p.RemoveItem(this,tab+1);
+	public void Drop(Player p) {
+		p.RemoveItem(this);
 	}
 	
 	/**
@@ -88,18 +79,12 @@ public class FlareGun implements Inventory {
 	 *   Teh�t, ha valaki felvesz egy t�rgyat, a Field items t�rol�j�b�l �tker�l a Player items t�rol�j�ba.
 	 *    Ezen k�v�l beteszi mag�t a saj�t components t�rol�j�ba is.
 	 */
-	public void PickUp(Player p,int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.print("Az FlareGun osztaly PickUp(p:Player) fuggvenye hivodott meg");
-		p.AddItem(this,tab+1);
+	public void PickUp(Player p) {
+		p.AddItem(this);
 		components.add(this);
 	}
 	
-	public void DecreaseLayer(int i, int tab) {
-		for(int j=0; j<tab; j++)
-			System.out.print("\t");
-		System.out.print("A Item osztaly DecreaseLayer() fuggvenye hivodott meg");
+	public void DecreaseLayer(int i) {
 		layer -= i;
 	}
 
@@ -110,33 +95,19 @@ public class FlareGun implements Inventory {
 
 	public void SetLayer(int num) {
 		this.layer=num;
-		System.out.printf("Az FlareGun oszt�ly SetLayer(num:int):void h�v�dott meg \n");
 	}
 
-	public int GetLayer(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.print("A FlareGun osztaly GetLayer() fuggvenye hivodott meg");
+	public int GetLayer() {
 		return layer;
 	}
 
-	public void SetVisible(boolean b, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.print("Az FlareGun osztaly SetVisible() fuggvenye hivodott meg\n");
+	public void SetVisible(boolean b) {
 		visible = b;
 		
 	}
 	
-	public boolean GetVisible(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.print("A FlareGun osztaly GetVisible():boolean fuggvenye hivodott meg\n");
+	public boolean GetVisible() {
 		return visible;
 	}
 
-
-	public boolean Pull(Player p, Field to, int tab) {
-		return false;
-	}
 }

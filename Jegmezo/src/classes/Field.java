@@ -35,10 +35,7 @@ public class Field {
 	 * @param capacity	Megadja hány embert bír el a mező.
 	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
 	 */
-	public Field(int capacity, int snowLayer, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly konstruktora hivodott meg.");
+	public Field(int capacity, int snowLayer) {
 		this.capacity = capacity;
 		this.snowLayer = snowLayer;
 		this.visibleCapacity = false;
@@ -53,10 +50,7 @@ public class Field {
 	 * @param neighbour	Szomszedos mezo, amit beallitunk egy szomszednak.
 	 * @param tab	Indentalasra.
 	 */
-	public void AddNeighbour(Field neighbour, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly AddNeighbour() fuggvenye hivodott meg.");
+	public void AddNeighbour(Field neighbour) {
 		neighbourFields.add(neighbour);
 	}
 	
@@ -65,19 +59,13 @@ public class Field {
 	 * @param tab	Indentalasra.
 	 * @return	Visszaadja a szomszedos mezok listajat.
 	 */
-	public ArrayList<Field> GetNeighbouringFields(int tab){
-	for(int i=0; i<tab; i++)
-		System.out.print("\t");
-	System.out.println("A Field osztaly GetNeighbouringFields() fuggvenye hivodott meg.");
+	public ArrayList<Field> GetNeighbouringFields(){
 	
 	return neighbourFields;
 	}
 	
 	
-	public boolean IsFall(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("Az Field osztaly IsFall() fuggvenye hivodott meg.");
+	public boolean IsFall() {
 		return false;
 	}
 	
@@ -85,12 +73,9 @@ public class Field {
 	 * Egy borulas es tesztelese
 	 * @param tab
 	 */
-	public void Fall(int tab) {	
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("Az Field osztaly Fall() fuggvenye hivodott meg.");
+	public void Fall() {
 		for(Player p : players){
-			p.SwimPlayer(tab+1);
+			p.SwimPlayer();
 		}
 		System.out.println("Mentse meg valaki a vizbeesett jatekost? 1: igen, 0: nem");
 		Scanner in = new Scanner(System.in);
@@ -98,19 +83,19 @@ public class Field {
 		
 		switch(answer){
 		case 1: {
-			StableField stableField = new StableField(2,0, tab+1);
-			Explorer explorer= new Explorer(stableField,tab+1);
-			Rope rope = new Rope(0,true,tab+1);
-			explorer.AddItem(rope, tab+1);
+			StableField stableField = new StableField(2,0);
+			Explorer explorer= new Explorer(stableField);
+			Rope rope = new Rope(0,true);
+			explorer.AddItem(rope);
 
 			for(Player p : players){
-				explorer.PullPlayer(tab+1, p);
+				explorer.PullPlayer(, p);
 			}
 			break;
 		}
 		case 0: {
 			for(Player p : players){
-				p.SetHp(0, tab+1);
+				p.SetHp(0);
 			}
 			break;
 		}
@@ -126,10 +111,7 @@ public class Field {
 	 * @param tab	Indentalasra
 	 * @return	Visszaadja, hogy lehet e iglut epiteni az adott mezore. 
 	 */
-	public boolean CanBuildIglu(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("Az Field osztaly CanBuildIglu() fuggvenye hivodott meg.");
+	public boolean CanBuildIglu() {
 		if(this.capacity > 0 && this.hasIglu == false) {
 			System.out.printf("Igen, lehet iglut építeni! \n");
 			return true;
@@ -146,14 +128,11 @@ public class Field {
 	 *  Hozz�adja az itemet a saj�t list�j�hoz �s be�ll�tja annak layer v�ltoz�j�t.
 	 *  majd megh�vja az eszk�zh�z tartoz� eldob� f�ggv�nyt
 	 */
-	public void AddItem(Inventory item,int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.printf("A Field osztaly AddItem(item:Inventory):void hivodott meg \n");
+	public void AddItem(Inventory item) {
 		item.SetLayer(this.snowLayer);
 		items.add(item);
-		Player player=Game.GetCurrentPlayer(tab+1);
-		item.Drop(player,tab+1);
+		Player player=Game.GetCurrentPlayer();
+		item.Drop(player);
 	}
 	
 	
@@ -164,13 +143,10 @@ public class Field {
 	 * Kiveszi a list�j�b�l azokat az Inventorykat amik a felsz�nen vannak �s visszaadja azokat.
 	 * amik l�that�ak azokon megh�vja a felvev� f�ggv�nyt
 	 */
-	public void RemoveItem(Player p,int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.printf("A Field osztaly RemoveItem(p:Player):void hivodott meg \n");
+	public void RemoveItem(Player p) {
 		for(int i=0; i<items.size(); i++) {
-			if(items.get(i).GetVisible(tab+1)) {
-				items.get(i).PickUp(p,tab+1);
+			if(items.get(i).GetVisible()) {
+				items.get(i).PickUp(p);
 			}
 				
 		}
@@ -182,20 +158,17 @@ public class Field {
 	 *  @param layers A hórétegek száma.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void DigItems(int layers, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly DigItems() fuggvenye hivodott meg");
+	public void DigItems(int layers) {
 		for (Inventory i : items) {
-			if (snowLayer - i.GetLayer(tab + 1) == 2) {
-				i.SetVisible(true, tab + 1);
+			if (snowLayer - i.GetLayer() == 2) {
+				i.SetVisible(true);
 			}
-			else if (snowLayer - i.GetLayer(tab + 1) == 1) {
-				i.SetVisible(true, tab + 1);
-				i.DecreaseLayer(1, tab + 1);
+			else if (snowLayer - i.GetLayer() == 1) {
+				i.SetVisible(true);
+				i.DecreaseLayer(1);
 			}
-			else if (snowLayer - i.GetLayer(tab + 1) == 0) {
-				i.DecreaseLayer(2, tab + 1);
+			else if (snowLayer - i.GetLayer() == 0) {
+				i.DecreaseLayer(2);
 			}
 		}
 	}
@@ -216,10 +189,7 @@ public class Field {
 	 * @param p	Mezot elhagyo jatekos.
 	 * @param tab	Indentalasra.
 	 */
-	public void RemovePlayer(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly RemovePlayer(p: Player) fuggvenye hivodott meg.");
+	public void RemovePlayer(Player p) {
 	}
 	
 	/**
@@ -227,10 +197,7 @@ public class Field {
 	 * @param b	Amennyiben valtozott a mezo iglu szempontjabol (pl. lett epitve ra), akkor megvaltoztatja a hasIglut valtozot.
 	 * @param tab	Indentalasra.
 	 */
-	public void SetHasIglu(boolean b, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly SetHasIglu(b: boolean) fuggvenye hivodott meg");
+	public void SetHasIglu(boolean b) {
 		this.hasIglu = b ;
 		if(b == true) {
 			System.out.printf("Jelenleg van rajta iglu! \n");
@@ -244,10 +211,7 @@ public class Field {
 	 * @param bool	true, ha a kutato hasznalta kepesseget
 	 * @param tab	Indentalasra.
 	 */
-	public void SetVisibleCapacity(boolean bool, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly SetVisibleCapacity(b: boolean) fuggvenye hivodott meg");
+	public void SetVisibleCapacity(boolean bool) {
 		this.visibleCapacity = bool;
 		if(bool==true)	System.out.printf("A mező kapacitása: %d \n" , this.capacity);
 	}
@@ -287,11 +251,7 @@ public class Field {
 	 * @param tab indentalas
 	 * visszaadja a mezo aktualis horeteget
 	 */
-	public int GetLayer(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly GetLayer():int fuggvenye hivodott meg");
-		
+	public int GetLayer() {		
 		return snowLayer;
 	}
 	
@@ -302,10 +262,7 @@ public class Field {
 	 * @param tab
 	 * @return ture: szomszedos, false: nem szomszedos.
 	 */
-	public boolean isNeighour(Field f, int tab){
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Field osztaly isNeighbour(f: Field) fuggvenye hivodott meg.");
+	public boolean isNeighour(Field f){
 		
 		System.out.println("Szomszedos legyen a mezo? 1: igen. 0: nem");
 		Scanner in = new Scanner(System.in);
