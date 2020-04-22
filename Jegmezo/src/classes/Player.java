@@ -32,7 +32,7 @@ import java.util.ArrayList;
  *
  */
 
-public class Player {
+public class Player implements CanMove{
 	protected int hp;
 	protected int numberOfAction;
 	protected int maxHp;
@@ -277,4 +277,13 @@ public class Player {
 		System.out.println("A Player osztaly SetHp(i: int) fuggvenye hivodott meg.");
 		this.hp = hp;
 	}
+
+
+	@Override
+	public void StepOnBear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 }

@@ -21,8 +21,9 @@ import java.util.ArrayList;
  */
 public class Game {
 	private static Player currentPlayer;
-	private static ArrayList<Player> players;
+	private static ArrayList<CanMove> cM;
 	private static Board board;
+	private static int turn;
 	
 	public static Player GetCurrentPlayer(int tab) {
 		for(int i=0; i<tab; i++)
@@ -36,7 +37,11 @@ public class Game {
 		System.out.printf("A Game osztaly SetCurrentPlayer():Player hivodott meg \n");
 		currentPlayer=player;
 	}
-	/*public static void Init(ArrayList<Player> players, Board board) {
+	
+	public static int GetTurn() {
+		return turn;
+	}
+	/*public static void Init(ArrayList<CanMove> players, Board board) {
 	}
 	
 	public static void StartGame() {

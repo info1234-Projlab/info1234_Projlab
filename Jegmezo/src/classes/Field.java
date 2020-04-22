@@ -36,17 +36,17 @@ public class Field {
 	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
 	 */
 	public Field(int capacity, int snowLayer, int tab) {
-		players = new ArrayList<Player>();
 		for(int i=0; i<tab; i++)
 			System.out.print("\t");
 		System.out.println("A Field osztaly konstruktora hivodott meg.");
 		this.capacity = capacity;
 		this.snowLayer = snowLayer;
-		this.hasIglu = false;
 		this.visibleCapacity = false;
 		this.numOfPlayers = 0;
 		this.items=new ArrayList<Inventory>();
 		this.neighbourFields=new ArrayList<Field>();
+		this.creatures=new ArrayList<CanMove>();
+		this.shelter=new ArrayList<Shelter>();
 	}
 	/**
 	 * Hozzaad egy mezot a szomszedok listajahoz.
@@ -316,6 +316,10 @@ public class Field {
 		case 0: return false;
 		default: return false;
 		}
+	}
+	
+	public void RemoveShelter() {
+		shelter.remove(0);
 	}
 	
 }
