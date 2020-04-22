@@ -14,11 +14,8 @@ import java.util.Scanner;
 public class DivingSuit extends Item {
 	private boolean isOn=false;
 	
-	public DivingSuit(int layer, boolean visible, int tab) {
+	public DivingSuit(int layer, boolean visible) {
 		super(layer, visible);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A DivingSuit osztaly konstruktora hivodott meg.");
 	}
 	
 	/**
@@ -28,14 +25,11 @@ public class DivingSuit extends Item {
 	 * @return mindig igazzal terunk vissza, ezzel jelezve, hogy meghivodott a DivingSuit PutOn() fuggvenye
 	 */
 	
-	public boolean PutOn(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A DivingSuit osztaly PutOn(p: Player) fuggvenye hivodott meg.");
-		int nActions= p.GetNumOfAction(tab+1);
+	public boolean PutOn(Player p) {
+		int nActions= p.GetNumOfAction();
 		if(nActions>0 && isOn==false) {
 			isOn=true;
-			p.SetNumOfAction(nActions-1, tab+1);
+			p.SetNumOfAction(nActions-1);
 		}
 		return true;
 	}

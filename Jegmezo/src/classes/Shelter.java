@@ -2,7 +2,7 @@ package classes;
 
 public interface Shelter {
 
-public boolean DefendFromBear();
+	public boolean DefendFromBear();
 
-public void DestroyTent(int num);
+	public void DestroyTent(int num);
 }
