@@ -46,11 +46,7 @@ public class Player implements CanMove{
 	 * @param maxHp	konstruktornak átadott maxHp érték
 	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
 	 */
-	public Player(int maxHp, Field field, int tab) {	
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly konstruktor fuggvenye hivodott meg.");
-		
+	public Player(int maxHp, Field field) {	
 		this.hp = maxHp;
 		this.maxHp = maxHp;
 		this.numberOfAction = 4;
@@ -59,17 +55,11 @@ public class Player implements CanMove{
 		items = new ArrayList<Inventory>();
 	}
 	
-	public Field GetField(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly GetField():Field fuggvenye hivodott meg.");
+	public Field GetField() {
 		return field;
 	}
 	
-	public void SetField(Field f, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly SetField(f: Field) fuggvenye hivodott meg.");
+	public void SetField(Field f) {
 		this.field=f;
 	}
 	
@@ -79,10 +69,7 @@ public class Player implements CanMove{
 	 *  A jelenlegi testhőt adja vissza
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public int GetHP(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly GetHP() fuggvenye hivodott meg.");
+	public int GetHP() {
 		return hp;
 	}
 	
@@ -91,31 +78,22 @@ public class Player implements CanMove{
 	 *  A maximális testhőt adja vissza
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public int GetMaxHP(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly GetMaxHP() fuggvenye hivodott meg");
+	public int GetMaxHP() {
 		return maxHp;
 	}
 	
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
-	public void UseAbility(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly UseAbility() fuggvenye hivodott meg.");
-
+	public void UseAbility() {
 	}
 	/**
 	 * Egy helyvaltoztatas es abbol adodo vizbeeses tesztelese
 	 * @param f
 	 * @param tab
 	 */
-	public void Move(Field f, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly Move(f: Field) fuggvenye hivodott meg.");
+	public void Move(Field f) {
+	
 		
 		//Szomszedos a celmezo
 		if(this.field.isNeighour(f, tab+1)){
@@ -146,16 +124,10 @@ public class Player implements CanMove{
 	 * @param tab	Indentálást jelzi. 
 	 */
 	public void IncreaseHp(int tab) {
-		for(int j=0; j<tab; j++)
-			System.out.print("\t");
-		System.out.printf("Az Player osztaly IncreaseHp fuggvenye hivodott meg \n");
 		hp++;
 	}
 	
 	public void DecreaseHp(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly DecreaseHp():void fuggvenye hivodott meg");
 		hp--;
 	}
 	
@@ -168,10 +140,7 @@ public class Player implements CanMove{
 	/**
 	 * A kapott Inventory-t beteszi az items list�j�ba.
 	 */
-	public void AddItem(Inventory i,int tab) {
-		for(int j=0; j<tab; j++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly AddItem(i:Inventory) fuggvenye hivodott meg.");
+	public void AddItem(Inventory i) {
 		items.add(i);
 	}
 	
@@ -181,10 +150,8 @@ public class Player implements CanMove{
 	 *  @param tab	Indentálást jelzi. 
 	 * A kapott Inventory-t kiveszi az items list�j�b�l.
 	 */
-	public void RemoveItem(Inventory i,int tab) {
-		for(int j=0; j<tab; j++)
-			System.out.print("\t");
-		System.out.printf("Az Player osztaly RemoveItem(i:Inventory):void hivodott meg \n");
+	public void RemoveItem(Inventory i) {
+		items.remove(i);
 	}
 	
 	
@@ -197,22 +164,15 @@ public class Player implements CanMove{
 	 *  @param layers A hórétegek száma.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void DigPlayer(int layers, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly DigPlayer fuggvenye hivodott meg");
-		field.DigItems(layers, tab + 1);
+	public void DigPlayer(int layers) {
+		field.DigItems(layers);
 	}
 	
 	/**
 	 * A player osztaly SwimPlayer() metodusa, akkor hivodik meg, amikor beleesik egy jatekos a vizbe.
 	 * @param tab
 	 */
-	public void SwimPlayer(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly SwimPlayer() fuggvenye hivodott meg");
-		System.out.println("Az eszkimo V�zbe esett");
+	public void SwimPlayer() {
 	}
 	
 	/**
@@ -220,18 +180,13 @@ public class Player implements CanMove{
 	 * @param tab
 	 * @param p
 	 */
-	public void PullPlayer(int tab, Player p) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly PullPlayer() fuggvenye hivodott meg");
-		this.items.get(0).Pull(p,this.field,tab+1);
+	public void PullPlayer(Player p) {
+		this.items.get(0).Pull(p,this.field);
 	}
 	
-	public void DecreaseAction(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		if(this.numberOfAction > 0)	this.numberOfAction--; // a feltétel lehet felesleges
-		System.out.printf("Akciok szama csokkent, így %d akcióovan hatra\n", this.numberOfAction);
+	public void DecreaseAction() {
+		if(this.numberOfAction > 0)	
+			this.numberOfAction--; // a feltétel lehet felesleges
 	}
 	
 	/**
@@ -239,10 +194,7 @@ public class Player implements CanMove{
 	 *  Visszaadja a hátralévő lépések számát.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public int GetNumOfAction(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly GetNumOfAction() fuggvenye hivodott meg.");
+	public int GetNumOfAction() {
 		return this.numberOfAction;
 	}
 	/**
@@ -251,10 +203,7 @@ public class Player implements CanMove{
 	 *  @param n a lépések száma.
 	 *  @param tab	Indentálást jelzi. 
 	 */
-	public void SetNumOfAction(int n, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly SetNumOfAction(n: int) fuggvenye hivodott meg.");
+	public void SetNumOfAction(int n) {
 		this.numberOfAction = n ;
 	}
 	
@@ -264,17 +213,11 @@ public class Player implements CanMove{
 	 *  @param b Megnyerte-e a játékos a játékot.	
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void SetWin(boolean b, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly SetWin(b: boolean) fuggvenye hivodott meg.");
+	public void SetWin(boolean b) {
 		win = b;
 	}
 	
-	public void SetHp(int hp, int tab){
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Player osztaly SetHp(i: int) fuggvenye hivodott meg.");
+	public void SetHp(int hp){
 		this.hp = hp;
 	}
 
@@ -288,6 +231,12 @@ public class Player implements CanMove{
 	public void PutOnDivingSuit() {
 		for(int i=0; i<items.size();i++) {
 			items.get(i).PutOn(this);
+		}
+	}
+	
+	public void Eat() {
+		for(int i=0; i<items.size();i++) {
+			items.get(i).Eat(this);
 		}
 	}
 

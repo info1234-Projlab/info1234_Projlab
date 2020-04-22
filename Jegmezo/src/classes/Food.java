@@ -33,18 +33,15 @@ public class Food extends Item {
 	 * @param p     Az a játékos, aki megeszi az ételt. 
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public boolean Eat(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Food osztály Eat(p: Player) fuggvenye hivodott meg");
-		if (p.GetNumOfAction(tab + 1) <= 0)
+	public boolean Eat(Player p) {
+		if (p.GetNumOfAction() <= 0)
 			return false;
-		if (p.GetHP(tab + 1) == p.GetMaxHP(tab + 1)) {
+		if (p.GetHP() == p.GetMaxHP()) {
 			return false;
 		}
-		p.IncreaseHp(tab + 1);
-		p.SetNumOfAction(p.GetNumOfAction(tab + 1) - 1, tab + 1);
-		p.RemoveItem(this, tab + 1);
+		p.IncreaseHp();
+		p.SetNumOfAction(p.GetNumOfAction() - 1);
+		p.RemoveItem(this);
 		return true;
 	}
 }
