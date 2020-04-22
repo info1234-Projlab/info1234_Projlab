@@ -12,19 +12,8 @@ public class Main{
 	
 	public static void main(String args[]) {
 		String inputFileName = GetInputFile();
-	
-		try {
-		   File inputFile = new File(inputFileName);
-		   Scanner myReader = new Scanner(inputFile);
-		   while (myReader.hasNextLine()) {
-		      String command = myReader.nextLine();
-		      RunCommand(command);
-		   }
-		   myReader.close();
-		}catch (FileNotFoundException e) {
-		    System.out.println("A fajl nem talalhato.");
-		    e.printStackTrace();
-		}
+		File inputFile = new File(inputFileName);
+		ReadFromFile(inputFile);
 	}
 	
 	public static String GetInputFile() {
@@ -33,6 +22,20 @@ public class Main{
 		String fileName = in.nextLine();
 		in.close();
 		return fileName;
+	}
+	
+	public static void ReadFromFile(File file) {
+		try {
+			Scanner myReader = new Scanner(file);
+			while (myReader.hasNextLine()) {
+			    String command = myReader.nextLine();
+			    RunCommand(command);
+			}
+			myReader.close();
+		}catch (FileNotFoundException e) {
+			System.out.println("A fajl nem talalhato.");
+			e.printStackTrace();
+		}
 	}
 	
 	public static void RunCommand(String data) {
@@ -61,8 +64,8 @@ public class Main{
 			creatureName = command[1];
 			players.get(creatureName).Eat();
 			break;
-	}
-
-	}
-	
+		case "SomeoneDied":
+			
+		}
+	}	
 }
