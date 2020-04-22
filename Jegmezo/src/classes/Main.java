@@ -56,7 +56,12 @@ public class Main{
 		case "PutOnDivingSuit":
 			creatureName = command[1];
 			players.get(creatureName).PutOnDivingSuit();
-		}
+			break;
+		case "EatFood":
+			creatureName = command[1];
+			players.get(creatureName).Eat();
+			break;
+	}
 
 	}
 	
