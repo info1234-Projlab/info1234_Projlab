@@ -7,5 +7,6 @@ public void StepOnBear();
 public void DecreaseHp();
 public void StartTurn(int numOfAction);
 public void SetHp(int num);
+public boolean IsDead();
 
 }

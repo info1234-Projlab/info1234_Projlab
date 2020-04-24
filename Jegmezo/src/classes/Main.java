@@ -2,6 +2,8 @@ package classes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -38,6 +40,17 @@ public class Main{
 		}
 	}
 	
+	public static void WriteToFile(String result) {
+		 try {
+			 FileWriter myWriter = new FileWriter("test_results.txt");
+			 myWriter.write(result);
+			 myWriter.close();
+		 } catch (IOException e) {
+			 System.out.println("A kimeneti fajlal problema van.");
+			 e.printStackTrace();
+		 }
+	}
+	
 	public static void RunCommand(String data) {
 		String[] command = data.split(" ");
 		String fieldName;
@@ -65,7 +78,16 @@ public class Main{
 			players.get(creatureName).Eat();
 			break;
 		case "SomeoneDied":
-			
+			if(Game.SomeoneDied()) {
+				String deadPlayer = "nobody";
+				for (String i : players.keySet()) {
+				      if(players.get(i).IsDead())
+				    	  deadPlayer = i;
+				}
+				WriteToFile("true " + deadPlayer);
+			}
+			else
+				WriteToFile("false");
 		}
-	}	
+	}
 }

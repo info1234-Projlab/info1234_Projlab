@@ -35,18 +35,23 @@ public class Game {
 	public static int GetTurn() {
 		return turn;
 	}
-	/*public static void Init(ArrayList<CanMove> players, Board board) {
+	public static void Init(ArrayList<CanMove> players, Board board) {
 	}
 	
 	public static void StartGame() {
 	}
 	
 	public static boolean SomeoneDied() {
+		for(int i=0; i<cM.size();i++) {
+			if(cM.IsDead())
+				return true;
+		}
+		return false;
 	}
 	
 	public static void LoseGame() {
 	}
 	
 	public static boolean Win() {
-	}*/ //Inicializ�l�shoz kellenek
+	}
 }

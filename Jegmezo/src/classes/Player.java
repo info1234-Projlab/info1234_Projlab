@@ -63,6 +63,12 @@ public class Player implements CanMove{
 		this.field=f;
 	}
 	
+	public boolean IsDead() {
+		if(hp==0)
+			return true;
+		return false;
+	}
+	
 	
 	/**
 	 * 

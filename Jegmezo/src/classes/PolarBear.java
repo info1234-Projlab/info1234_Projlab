@@ -15,6 +15,10 @@ public class PolarBear implements CanMove {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public boolean IsDead() {
+		return false;
+	}
 
 
 	public void DecreaseHp() {
