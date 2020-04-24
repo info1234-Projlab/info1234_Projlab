@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 public class Game {
 	private static Player currentPlayer;
-	private static ArrayList<CanMove> cM;
+	private static ArrayList<CanMove> cM = new ArrayList<CanMove>();
 	private static Board board;
 	private static int turn;
 	
@@ -30,6 +30,12 @@ public class Game {
 	}
 	public static void SetCurrentPlayer(Player player) {
 		currentPlayer=player;
+	}
+	
+	public static void Clear() {
+		currentPlayer= null;
+		cM.clear();
+		board = null;
 	}
 	
 	public static int GetTurn() {

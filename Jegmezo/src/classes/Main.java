@@ -51,6 +51,13 @@ public class Main{
 		 }
 	}
 	
+	public static void Clear() {
+		Game.Clear();
+		fields.clear();
+		players.clear();
+		polarBears.clear();
+	}
+	
 	public static void RunCommand(String data) {
 		String[] command = data.split(" ");
 		String fieldName;
@@ -88,6 +95,10 @@ public class Main{
 			}
 			else
 				WriteToFile("false");
+			break;
+		case "Clear":
+			Clear();
+			break;
 		}
 	}
 }
