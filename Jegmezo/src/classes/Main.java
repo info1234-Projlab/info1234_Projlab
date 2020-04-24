@@ -99,6 +99,11 @@ public class Main{
 		case "Clear":
 			Clear();
 			break;
+		case "MoveCharacter": 
+			creatureName = command[1];
+			fieldName = command[2];
+			if(players.containsKey(creatureName))
+				players.get(creatureName).Move(fieldName);
 		}
 	}
 }
