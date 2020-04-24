@@ -11,6 +11,7 @@ public class Main{
 	private static HashMap<String,Field> fields = new HashMap<String,Field>();
 	private static HashMap<String,Player> players = new HashMap<String,Player>();
 	private static HashMap<String,PolarBear> polarBears = new HashMap<String,PolarBear>();
+	private static HashMap<String,Inventory> items = new HashMap<String,Inventory>();
 	
 	public static void main(String args[]) {
 		String inputFileName = GetInputFile();
@@ -113,8 +114,12 @@ public class Main{
 		case "PickUpItem":
 			creatureName = command[1];
 			String item = command[2];
-			players.get(creatureName).AddItem(item);
-			players.get(creatureName).field.RemoveItem(item);
+			if(players.containsKey(creatureName) && items.containsKey(item)){
+				if(players.get(creatureName).field.hasItem(items.get(item))){
+					players.get(creatureName).AddItem(items.get(item));
+					players.get(creatureName).field.RemoveItem(items.get(item));
+				}
+			}
 		}
 	}
 }

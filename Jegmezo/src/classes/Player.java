@@ -98,13 +98,12 @@ public class Player implements CanMove{
 	 * @param f
 	 * @param tab
 	 */
-	public void Move(Field f) {
-	
-		
+	public void Move(Field f) {	
 		//Szomszedos a celmezo
 		if(this.field.isNeighour(f)){
-			f.AddCreature(this);
 			this.field.RemovePlayer(this);
+			f.AddCreature(this);
+			this.field = f;
 			
 			//Lukba lepett e a jatekos
 			if(f.IsFall()){
@@ -179,7 +178,9 @@ public class Player implements CanMove{
 	 * @param tab
 	 */
 	public void SwimPlayer() {
+		
 	}
+	
 	
 	/**
 	 * Egy jatekos kiment egy masik jatekost a vizbol.
@@ -187,7 +188,8 @@ public class Player implements CanMove{
 	 * @param p
 	 */
 	public void PullPlayer(Player p) {
-		this.items.get(0).Pull(p,this.field);
+		for(Inventory i : items)
+			i.Pull(p, this.field);
 	}
 	
 	public void DecreaseAction() {

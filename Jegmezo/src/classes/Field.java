@@ -29,6 +29,7 @@ public class Field {
 	private ArrayList<CanMove> creatures;
 	private ArrayList<Inventory> items;
 	private ArrayList<Shelter> shelter;
+	private ArrayList<Player> players;
 	
 	/**
 	 * 
@@ -44,6 +45,7 @@ public class Field {
 		this.neighbourFields=new ArrayList<Field>();
 		this.creatures=new ArrayList<CanMove>();
 		this.shelter=new ArrayList<Shelter>();
+		this.players=new ArrayList<Player>();
 	}
 	/**
 	 * Hozzaad egy mezot a szomszedok listajahoz.
@@ -77,34 +79,15 @@ public class Field {
 		for(CanMove p : creatures){
 			p.SwimPlayer();
 		}
-		///Itt Folytatás
-		System.out.println("Mentse meg valaki a vizbeesett jatekost? 1: igen, 0: nem");
-		Scanner in = new Scanner(System.in);
-		int answer = in.nextInt();
 		
-		switch(answer){
-		case 1: {
-			StableField stableField = new StableField(2,0);
-			Explorer explorer= new Explorer(stableField);
-			Rope rope = new Rope(0,true);
-			explorer.AddItem(rope);
-
-			for(Player p : players){
-				explorer.PullPlayer(, p);
+		for(Field f : neighbourFields){
+			for(Player p : f.players){
+				for(Player resP : players){
+					p.PullPlayer(resP);
+				}
 			}
-			break;
 		}
-		case 0: {
-			for(Player p : players){
-				p.SetHp(0);
-			}
-			break;
-		}
-		default: {
-			System.out.println("Ervenytelen valasz!");
-			return;
-		}
-		}
+		
 	}
 	
 	/**
@@ -149,8 +132,11 @@ public class Field {
 			if(items.get(i).GetVisible()) {
 				items.get(i).PickUp(p);
 			}
-				
 		}
+	}
+	
+	public void RemoveItem(Inventory i){
+		items.remove(i);
 	}
 	
 	/**
@@ -274,5 +260,11 @@ public class Field {
 	public void RemoveShelter() {
 		shelter.remove(0);
 	}
+	
+	public boolean hasItem(Inventory i){
+		return items.contains(i);
+	}
+	
+
 	
 }
