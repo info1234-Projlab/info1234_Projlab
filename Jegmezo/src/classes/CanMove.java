@@ -8,5 +8,6 @@ public void DecreaseHp();
 public void StartTurn(int numOfAction);
 public void SetHp(int num);
 public boolean IsDead();
+public void SwimPlayer();
 
 }

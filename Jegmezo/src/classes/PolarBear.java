@@ -41,6 +41,10 @@ public class PolarBear implements CanMove {
 		
 	}
 	
+	public void SwimPlayer() {
+		
+	}
+	
 
 
 }
