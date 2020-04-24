@@ -103,7 +103,7 @@ public class Main{
 			creatureName = command[1];
 			fieldName = command[2];
 			if(players.containsKey(creatureName))
-				players.get(creatureName).Move(fieldName);
+				players.get(creatureName).Move(fields.get(fieldName));
 		}
 	}
 }
