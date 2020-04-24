@@ -27,4 +27,13 @@ public class UnstableField extends Field {
 	public UnstableField(int capacity, int snowLayer, int tab) {
 		super(capacity, snowLayer);
 	}
+	
+	public boolean isFall(){
+		if(numOfPlayers >= capacity){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 }

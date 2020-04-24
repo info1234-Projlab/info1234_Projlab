@@ -103,7 +103,7 @@ public class Player implements CanMove{
 		
 		//Szomszedos a celmezo
 		if(this.field.isNeighour(f)){
-			f.AddPlayer(this);
+			f.AddCreature(this);
 			this.field.RemovePlayer(this);
 			
 			//Lukba lepett e a jatekos

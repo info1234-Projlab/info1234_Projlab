@@ -70,11 +70,11 @@ public class Field {
 	}
 	
 	/**
-	 * Egy borulas es tesztelese
+	 * Egy borulas  tesztelese
 	 * @param tab
 	 */
 	public void Fall() {
-		for(Player p : players){
+		for(CanMove p : creatures){
 			p.SwimPlayer();
 		}
 		System.out.println("Mentse meg valaki a vizbeesett jatekost? 1: igen, 0: nem");
@@ -182,6 +182,8 @@ public class Field {
 	 */
 	public void AddCreature(CanMove c) {
 		creatures.add(c);
+		///Itt még variálni kell
+		++numOfPlayers;
 	}
 	
 	/**
@@ -190,6 +192,8 @@ public class Field {
 	 * @param tab	Indentalasra.
 	 */
 	public void RemovePlayer(Player p) {
+		creatures.remove(p);
+		--numOfPlayers;
 	}
 	
 	/**
@@ -263,16 +267,7 @@ public class Field {
 	 * @return ture: szomszedos, false: nem szomszedos.
 	 */
 	public boolean isNeighour(Field f){
-		
-		System.out.println("Szomszedos legyen a mezo? 1: igen. 0: nem");
-		Scanner in = new Scanner(System.in);
-		int answer = in.nextInt();
-		
-		switch(answer){
-		case 1: return true;
-		case 0: return false;
-		default: return false;
-		}
+		return neighbourFields.contains(f);
 	}
 	
 	public void RemoveShelter() {
