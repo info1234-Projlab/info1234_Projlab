@@ -133,7 +133,9 @@ public class Main{
 			fieldName = command[2];
 			int layerlevel = Integer.parseInt(command[3]);
 			fields.get(fieldName).AddItem(items.get(item));
+			break;
 		case "Dig":
+			creatureName = command[1];
 		case "SetPlayerHp":
 		}
 	}
