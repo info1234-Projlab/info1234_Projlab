@@ -150,7 +150,7 @@ public class Field {
 	 */
 	public void DigItems(int layers) {
 		for (Inventory i : items) {
-			if (snowLayer - i.GetLayer() == 2) {
+			if (snowLayer - i.GetLayer() == 2) {   // - layer nem hianyzik?
 				i.SetVisible(true);
 			}
 			else if (snowLayer - i.GetLayer() == 1) {
@@ -172,7 +172,7 @@ public class Field {
 	 */
 	public void AddCreature(CanMove c) {
 		creatures.add(c);
-		///Itt még variálni kell
+		///Itt mï¿½g variï¿½lni kell
 		++numOfPlayers;
 	}
 	
