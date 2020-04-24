@@ -77,6 +77,7 @@ public class Field {
 		for(CanMove p : creatures){
 			p.SwimPlayer();
 		}
+		///Itt Folytatás
 		System.out.println("Mentse meg valaki a vizbeesett jatekost? 1: igen, 0: nem");
 		Scanner in = new Scanner(System.in);
 		int answer = in.nextInt();

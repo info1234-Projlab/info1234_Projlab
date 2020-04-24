@@ -104,6 +104,17 @@ public class Main{
 			fieldName = command[2];
 			if(players.containsKey(creatureName))
 				players.get(creatureName).Move(fields.get(fieldName));
+			break;
+		case "SetNumOfAction":
+			creatureName = command[1];
+			int actionNum = Integer.parseInt(command[2]);
+			players.get(creatureName).SetNumOfAction(actionNum);
+			break;
+		case "PickUpItem":
+			creatureName = command[1];
+			String item = command[2];
+			players.get(creatureName).AddItem(item);
+			players.get(creatureName).field.RemoveItem(item);
 		}
 	}
 }
