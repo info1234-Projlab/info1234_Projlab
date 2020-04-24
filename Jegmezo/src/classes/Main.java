@@ -59,6 +59,12 @@ public class Main{
 		polarBears.clear();
 	}
 	
+	/**
+	 * @param data
+	 */
+	/**
+	 * @param data
+	 */
 	public static void RunCommand(String data) {
 		String[] command = data.split(" ");
 		String fieldName;

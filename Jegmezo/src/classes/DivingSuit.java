@@ -43,40 +43,13 @@ public class DivingSuit extends Item {
 	 */
 	
 	public boolean Swim(Player p) {
-		System.out.println("A DivingSuit osztaly Swim(p: Player):boolean fuggvenye hivodott meg.");
-		System.out.println("Van a jatekoson buvarruha? Irjon be egy 1-est ha igen, 0-ast ha nem.");
-		Scanner  in = new Scanner(System.in);
-		int a = in.nextInt();
-		if(a==1)
-			isOn=true;
-		else
-			isOn=false;
-		if(isOn==true) {
-			Field from = p.GetField();
-			/**
-			 * Csunya sorok kovetkeznek. Ezt azert csinaltam, mert az inicializalast meg nem valositottuk meg, 
-			 * ami feltoltene mezokkel a Field osztaly neighbourFields attributumat, 
-			 * igy csunya modon most adok hozza random szomszedos mezoket.
-			 */
-			UnstableField neighbour1 = new UnstableField(4, 2);
-			UnstableField neighbour2 = new UnstableField(5, 1);
-			UnstableField neighbour3 = new UnstableField(3, 3);
-			UnstableField neighbour4 = new UnstableField(1, 2);
-			UnstableField neighbour5 = new UnstableField(4, 4);
-			UnstableField neighbour6 = new UnstableField(4, 2);
-			from.AddNeighbour(neighbour1);
-			from.AddNeighbour(neighbour2);
-			from.AddNeighbour(neighbour3);
-			from.AddNeighbour(neighbour4);
-			from.AddNeighbour(neighbour5);
-			from.AddNeighbour(neighbour6);
-			ArrayList<Field> options = from.GetNeighbouringFields();
-			System.out.println("Hanyas szamu mezore szeretne lepni? (1-6)");
-			Scanner in2 = new Scanner(System.in);
-	        a = in2.nextInt();
-	        p.Move(options.get(a - 1));
-	        return true;
-		}
+			if(this.isOn){
+				p.field.neighbourFields.get(0).AddCreature(p);
+				p.field.RemovePlayer(p);
+				p.SetField(p.field.neighbourFields.get(0));				
+				return true;
+			}
+			else
 		return false;
 	}
 	

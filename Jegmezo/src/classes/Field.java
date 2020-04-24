@@ -88,6 +88,9 @@ public class Field {
 			}
 		}
 		
+		for(Player p : players){
+			p.SetHp(0);
+		}
 	}
 	
 	/**

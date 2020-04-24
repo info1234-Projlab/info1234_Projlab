@@ -178,7 +178,9 @@ public class Player implements CanMove{
 	 * @param tab
 	 */
 	public void SwimPlayer() {
-		
+		for(Inventory i : items){
+			i.Swim(this);
+		}
 	}
 	
 	
