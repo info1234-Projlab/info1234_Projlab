@@ -10,4 +10,5 @@ public void SetHp(int num);
 public boolean IsDead();
 public void SwimPlayer();
 public void PullPlayer(CanMove p);
+public void UseAbility();
 }

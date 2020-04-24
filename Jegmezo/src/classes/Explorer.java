@@ -16,7 +16,7 @@ jégmezőn tartózkodik, illetve az elérhető maximális testő értékét (4).
 public class Explorer extends Player {
 	
 	public Explorer(Field field) {
-		System.out.println("Az Explorer osztaly konstruktora hivodott meg.");
+		super(4,field);
 		
 	}
 	

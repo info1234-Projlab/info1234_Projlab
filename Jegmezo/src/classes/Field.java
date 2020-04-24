@@ -172,7 +172,7 @@ public class Field {
 	 */
 	public void AddCreature(CanMove c) {
 		creatures.add(c);
-		///Itt még variálni kell
+		///Itt mï¿½g variï¿½lni kell
 		++numOfPlayers;
 	}
 	
@@ -268,6 +268,9 @@ public class Field {
 		return items.contains(i);
 	}
 	
+	public void SetCapacity(int num) {
+		this.capacity=num;
+	}
 
 	
 }

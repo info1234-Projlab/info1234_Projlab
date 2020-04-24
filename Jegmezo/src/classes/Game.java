@@ -60,4 +60,12 @@ public class Game {
 	
 	public static boolean Win() {
 	}
+	
+	public static void SetBoard(Board b) {
+		board=b;
+	}
+	
+	public static void SetCanMove(ArrayList<CanMove> cMove) {
+		cM=cMove;
+	}
 }

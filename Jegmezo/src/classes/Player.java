@@ -250,5 +250,11 @@ public class Player implements CanMove{
 		}
 	}
 
+	@Override
+	public void PullPlayer(CanMove p) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }

@@ -25,7 +25,7 @@ public class Cartridge extends FlareGun implements Inventory {
 	 * @param visible ez akkor igaz ha l�that�a t�rgy(nincs rajta h�
 	 * @param tab indent�l�s
 	 */
-	public Cartridge(int layer, boolean visible,int tab) {
+	public Cartridge(int layer, boolean visible) {
 		super(layer,visible);
 		}
 }
