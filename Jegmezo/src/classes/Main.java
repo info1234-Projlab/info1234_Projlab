@@ -120,8 +120,12 @@ public class Main{
 		case "PickUpItem":
 			creatureName = command[1];
 			String item = command[2];
-			players.get(creatureName).AddItem(item);
-			players.get(creatureName).field.RemoveItem(item);
+			if(players.containsKey(creatureName) && items.containsKey(item)){
+				if(players.get(creatureName).field.hasItem(items.get(item))){
+					players.get(creatureName).AddItem(items.get(item));
+					players.get(creatureName).field.RemoveItem(items.get(item));
+				}
+			}
 		case "FieldAddItem":
 			String item = command[1];
 			fieldName = command[2];
