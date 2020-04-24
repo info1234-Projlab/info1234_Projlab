@@ -144,7 +144,7 @@ public class Main{
 				items.put(itemName, new Cartridge(layer,true));
 				break;
 			case "flare":
-				items.put(itemName, new Cartridge(layer,true));
+				items.put(itemName, new Flare(layer,true));
 				break;	
 			}
 		case "UseAbility":
