@@ -150,7 +150,7 @@ public class Field {
 	 */
 	public void DigItems(int layers) {
 		for (Inventory i : items) {
-			if (snowLayer - i.GetLayer() == 2) {
+			if (snowLayer - i.GetLayer() == 2) {   // - layer nem hianyzik?
 				i.SetVisible(true);
 			}
 			else if (snowLayer - i.GetLayer() == 1) {

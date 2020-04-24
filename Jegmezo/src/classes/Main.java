@@ -70,6 +70,7 @@ public class Main{
 		String[] command = data.split(" ");
 		String fieldName;
 		String creatureName;
+		String item;
 		switch(command[0]) {
 		case "SetLayer":
 			fieldName = command[1];
@@ -144,8 +145,7 @@ public class Main{
 				break;
 			case "flare":
 				items.put(itemName, new Cartridge(layer,true));
-				break;
-				
+				break;	
 			}
 		case "UseAbility":
 			String cName=command[1];
@@ -159,11 +159,24 @@ public class Main{
 			Game.SetCanMove(cMove);
 			break;
 			
+			//ez itt em tudom, hogy micsoda nekem ez conflict
+
+/*			item = command[2];
+			if(players.containsKey(creatureName) && items.containsKey(item)){
+				if(players.get(creatureName).field.hasItem(items.get(item))){
+					players.get(creatureName).AddItem(items.get(item));
+					players.get(creatureName).field.RemoveItem(items.get(item));
+				}
+			}
+			break;*/ //
 		case "FieldAddItem":
-			String item = command[1];
+			item = command[1];
 			fieldName = command[2];
 			int layerlevel = Integer.parseInt(command[3]);
+			fields.get(fieldName).AddItem(items.get(item));
+			break;
 		case "Dig":
+			creatureName = command[1];
 		case "SetPlayerHp":
 			
 		
