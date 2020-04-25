@@ -33,12 +33,11 @@ public class Board {
 	/**
 	 * A Storm() fuggveny felelos a jatektablan idonkent atvonulo viharert.
 	 */
-	public void Storm(int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Board osztaly Storm():void fuggvenye hivodott meg.");
-		for(int i=0; i<fields.size(); i++)
-			fields.get(i).SetLayer(fields.get(i).GetLayer()+1);
+	public void Storm() {
+		for(int i=0; i<fields.size(); i++) {
+			fields.get(i).Storm();			
+		}
+			
 	}
 	
 	/**

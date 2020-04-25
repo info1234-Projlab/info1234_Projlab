@@ -65,7 +65,15 @@ public class Game {
 		board=b;
 	}
 	
+	public static Board GetBoard() {
+		return board;
+	}
+	
 	public static void SetCanMove(ArrayList<CanMove> cMove) {
 		cM=cMove;
+	}
+	
+	public static void AddCreature(CanMove cm) {
+		cM.add(cm);
 	}
 }

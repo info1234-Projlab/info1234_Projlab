@@ -11,5 +11,9 @@ public boolean IsDead();
 public void SwimPlayer();
 public void PullPlayer(CanMove p);
 public void UseAbility();
+public void RemoveItem(Inventory i);
+public void AddItem(Inventory i);
+public Field GetField();
+public void FireGun();
 
 }

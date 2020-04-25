@@ -60,5 +60,20 @@ public class PolarBear implements CanMove {
 	}
 	
 
+	public void RemoveItem(Inventory i) {
+		
+	}
+	
+	public void AddItem(Inventory i) {
+		
+	}
+	
+	public Field GetField() {
+		return field;
+	}
+	
+	public void FireGun() {
+		
+	}
 
 }

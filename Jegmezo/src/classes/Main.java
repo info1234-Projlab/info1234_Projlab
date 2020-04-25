@@ -191,8 +191,48 @@ public class Main{
 			String object = command[1];
 			if(players.containsKey(object))	{players.get(object).list();}
 			else if(fields.containsKey(object)) {fields.get(object).list();}
-		}
-		
+			break;
+		case "CreateCharacter":
+			String name = command[1];
+			String type = command[2];
+			switch(command[2]) {
+				case "eskimo":
+					Eskimo esk = new Eskimo();
+					Game.AddCreature(esk);
+					players.put(name, esk);
+					break;
+				case "explorer":
+					Explorer exp = new Explorer();
+					Game.AddCreature(exp);
+					players.put(name, exp);
+					break;
+				case "polarbear":
+					PolarBear pb = new PolarBear();
+					Game.AddCreature(pb);
+					players.put(name, pb);
+					break;
+				}
+			break;
+		case "StartStorm":
+			String field = command[1];
+			fields.get(field).Storm();
+			break;
+		case "ThrowItem":
+			String playerName = command[1];
+			String itemname = command[2];
+			CanMove cm = players.get(playerName);
+			Inventory i = items.get(itemname);
+			cm.RemoveItem(i);
+			cm.GetField().AddItem(i);
+			break;
+		case "SetCurrentPlayer":
+			String player = command[1];
+			Game.SetCurrentPlayer(players.get(player));
+			break;
+		case "FireGun":
+			String p = command[1];
+			players.get(p).FireGun();
+			break;
 		}
 	}
 }

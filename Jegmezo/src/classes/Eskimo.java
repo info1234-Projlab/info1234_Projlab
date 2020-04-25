@@ -19,8 +19,8 @@ public class Eskimo extends Player {
 	 * @param field	Ahova az eszkimót ledobjuk a pályán. 
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public Eskimo(Field field) {
-		super(5,field);
+	public Eskimo() {
+		super(5);
 	}
 	
 	/**

@@ -66,6 +66,9 @@ public class Field {
 	return neighbourFields;
 	}
 	
+	public ArrayList<CanMove> GetCreatures(){
+		return creatures;
+	}
 	
 	public boolean IsFall() {
 		return false;
@@ -200,6 +203,10 @@ public class Field {
 			System.out.printf("Jelenleg nincs rajta iglu! \n");
 	}
 	
+	public boolean GetHasIglu() {
+		return hasIglu;
+	}
+	
 	/**
 	 * A kutato kepessege hasznalata utan lathato, hogy hany embert bir el az adott mezo.
 	 * @param bool	true, ha a kutato hasznalta kepesseget
@@ -264,12 +271,23 @@ public class Field {
 		shelter.remove(0);
 	}
 	
+	public boolean hasShelter() {
+		return shelter.size() != 0;
+	}
+	
 	public boolean hasItem(Inventory i){
 		return items.contains(i);
 	}
 	
 	public void SetCapacity(int num) {
 		this.capacity=num;
+	}
+	
+	public void Storm() {
+		snowLayer += 1;
+		for (int i = 0; i < creatures.size(); i++) {
+			creatures.get(i).DecreaseHp();
+		}
 	}
 	
 	public void list(String name) {

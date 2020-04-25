@@ -46,12 +46,12 @@ public class Player implements CanMove{
 	 * @param maxHp	konstruktornak átadott maxHp érték
 	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
 	 */
-	public Player(int maxHp, Field field) {	
+	public Player(int maxHp) {	
 		this.hp = maxHp;
 		this.maxHp = maxHp;
 		this.numberOfAction = 4;
 		this.win = false;
-		this.field = field;
+		//this.field = field;
 		items = new ArrayList<Inventory>();
 	}
 	
@@ -254,6 +254,12 @@ public class Player implements CanMove{
 	public void PullPlayer(CanMove p) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void FireGun() {
+		for(Inventory i : items) {
+			i.Shoot(this);
+		}
 	}
 	
 	public void list(String name) {
