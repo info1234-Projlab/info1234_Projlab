@@ -24,7 +24,7 @@ public class UnstableField extends Field {
 	 * @param snowLayer
 	 * @param tab
 	 */
-	public UnstableField(int capacity, int snowLayer, int tab) {
+	public UnstableField(int capacity, int snowLayer) {
 		super(capacity, snowLayer);
 	}
 	

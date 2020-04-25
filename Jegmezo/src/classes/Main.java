@@ -73,6 +73,21 @@ public class Main{
 		String itemName;
 		String outputFileName;
 		switch(command[0]) {
+			case "CreateField":
+				String fiName = command[1];
+				String fType = command[2];
+				switch(fType) {
+					case "hole":
+						fields.put(fiName, new Hole());
+						break;
+					case "unstable":
+						fields.put(fiName, new UnstableField(0, 0));
+						break;
+					case "stable":
+						fields.put(fiName, new StableField(0, 0));
+						break;
+				}
+				break;
 			case "SetLayer":
 				fieldName = command[1];
 				int layer = Integer.parseInt(command[2]);
