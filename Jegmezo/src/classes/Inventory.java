@@ -17,7 +17,7 @@ public interface Inventory {
 	
 	public boolean Swim(Player p);
 	
-	public void Drop(Player p);
+	public void Drop(CanMove p);
 	
 	public void DecreaseLayer(int i);
 	

@@ -22,7 +22,7 @@ public class Item implements Inventory {
 		return false;
 	}
 	
-	public boolean Dig(Player p) {
+	public boolean Dig(CanMove p) {
 		return false;
 	}
 	
@@ -47,7 +47,7 @@ public class Item implements Inventory {
 	 * f�ggv�ny. Ilyenkor, a param�ter�l kapott Player items t�rol�j�b�l kiveszi az adott t�rgyat �s
 	 *  �leteszi� a f�ldre, azaz a Player field-j�nek az items t�rol�j�ba.
 	 */
-	public void Drop(Player p) {
+	public void Drop(CanMove p) {
 		p.RemoveItem(this);
 	}
 	

@@ -121,7 +121,7 @@ public class Field {
 	public void AddItem(Inventory item) {
 		item.SetLayer(this.snowLayer);
 		items.add(item);
-		Player player=Game.GetCurrentPlayer();
+		CanMove player= Game.GetCurrentPlayer();
 		item.Drop(player);
 	}
 	
