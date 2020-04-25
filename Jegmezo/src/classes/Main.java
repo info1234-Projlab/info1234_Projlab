@@ -35,7 +35,7 @@ public class Main{
 			while (myReader.hasNextLine()) {
 			    String command = myReader.nextLine();
 			    RunCommand(command);
-			    System.out.println(i++);
+			    //System.out.println(i++);
 			}
 			myReader.close();
 		}catch (FileNotFoundException e) {
@@ -150,6 +150,14 @@ public class Main{
 				int capacity=Integer.parseInt(command[2]);
 				fields.get(fName).SetCapacity(capacity);
 				break;
+			case "CreateGame":
+				System.out.println("Item");
+				ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
+				Board board=new Board(boardfield);
+				ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
+				Game.SetBoard(board);
+				Game.SetCanMove(cMove);
+				break;
 			case"CreateItem":
 				
 				itemName=command[1];
@@ -166,18 +174,14 @@ public class Main{
 					break;
 				case "flare":
 					items.put(itemName, new Flare(layer,true));
-					break;	
+					break;
+				}
+				break;
 			case "UseAbility":
 				creatureName=command[1];
 				creatures.get(creatureName).UseAbility();
 				break;
-			case "CreateGame":
-				ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
-				Board board=new Board(boardfield);
-				ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
-				Game.SetBoard(board);
-				Game.SetCanMove(cMove);
-				break;
+			
 				
 				//ez itt em tudom, hogy micsoda nekem ez conflict
 	
@@ -188,9 +192,9 @@ public class Main{
 						creatures.get(creatureName).field.RemoveItem(items.get(item));
 					}
 				}
-				break;*/ //
+				break;*/ 
 			case "FieldAddItem":
-				
+				System.out.println("Item");
 				itemName = command[1];
 				fieldName = command[2];
 				int layerlevel = Integer.parseInt(command[3]);
@@ -328,8 +332,17 @@ public class Main{
 				String p = command[1];
 				creatures.get(p).FireGun();
 				break;
-			
+			case "matrix":
+				int numberOfFields = Integer.parseInt(command[1]);
+				String matrix = command[2];
+				ArrayList<Field> f=(ArrayList<Field>) fields.values();
+				for(int i1 =1;i1<numberOfFields+1;i1++) {
+					for(int j=1;j<numberOfFields+1;j++) {
+						if(matrix.charAt(i1*j)=='1')
+							f.get(i1-1).AddNeighbour(f.get(j-1));    	 
+					}
+				}
+				break;
 			}
 		}
 	}
-}
