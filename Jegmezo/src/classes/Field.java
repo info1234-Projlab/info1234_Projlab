@@ -156,16 +156,8 @@ public class Field {
 	 */
 	public void DigItems(int layers) {
 		for (Inventory i : items) {
-			if (snowLayer - i.GetLayer() == 2) {   // - layer nem hianyzik?
-				i.SetVisible(true);
-			}
-			else if (snowLayer - i.GetLayer() == 1) {
-				i.SetVisible(true);
-				i.DecreaseLayer(1);
-			}
-			else if (snowLayer - i.GetLayer() == 0) {
-				i.DecreaseLayer(2);
-			}
+			i.SetLayer(i.GetLayer()-layers);
+			if(i.GetLayer() == 0)	i.SetVisible(true);
 		}
 	}
 	
