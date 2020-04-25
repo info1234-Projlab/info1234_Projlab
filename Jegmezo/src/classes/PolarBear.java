@@ -100,16 +100,6 @@ public class PolarBear implements CanMove {
 		return false;
 	}
 
-	@Override
-	public String GetName() {
-		return name;
-	}
-
-	@Override
-	public String List() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public boolean GetWin() {
