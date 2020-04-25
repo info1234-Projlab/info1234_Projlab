@@ -20,4 +20,5 @@ public interface CanMove {
 	public void SetNumOfAction(int num);
 	public String List();
 	public boolean Win();
+	public String GetName();
 }

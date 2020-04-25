@@ -257,6 +257,11 @@ public class Player implements CanMove{
 		
 	}
 	
+	@Override
+	public String GetName() {
+		return name;
+	}
+	
 	public void FireGun() {
 		for(Inventory i : items) {
 			i.Shoot(this);

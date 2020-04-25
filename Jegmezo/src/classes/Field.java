@@ -292,13 +292,41 @@ public class Field {
 		}
 	}
 	
-	public void List(String name) {
-		System.out.println(name + " attributes:");
-		System.out.println("capacity: " + capacity);
-		System.out.println("snowLayer: " + snowLayer);
+	public String List() {
+		String result = null; 
 		String s ;
 		if(visibleCapacity)	s="true";
 		else	s="false";
+		
+	
+		String neigh = "";
+		for(int i = 0 ; i < neighbourFields.size() ; i++) {
+			neigh.concat(neighbourFields.get(i).GetName());
+			if(i != neighbourFields.size())	neigh.concat(",");
+		}
+		String canmoves = "";
+		for(int i = 0 ; i < creatures.size() ; i++) {
+			canmoves.concat(creatures.get(i).GetName());
+			if(i != creatures.size())	canmoves.concat(",");
+		}
+		String itemstring = "";
+		for(int i = 0 ; i < items.size() ; i++) {
+			itemstring.concat(items.get(i).GetName());
+			if(i != items.size())	itemstring.concat(",");
+		}
+		String shelters = "";
+		for(int i = 0 ; i < shelter.size() ; i++) {
+			shelters.concat(shelter.get(i).GetName());
+			if(i != shelter.size())	shelters.concat(",");
+		}
+		result = name + " attributes:\n" + "capacity: " + capacity + "\n" + "snowLayer: " + snowLayer + "\n"
+				+ "visibleCapacity: " + s + "\n" +"numOfPlayers: " + players.size() + "\n" +
+				"neighbourFields: " + neigh + "\n" + "canmoves: " + canmoves + "\n" + "items: " + itemstring + "\n" +
+				
+		System.out.println(name + " attributes:");
+		System.out.println("capacity: " + capacity);
+		System.out.println("snowLayer: " + snowLayer);
+		
 		System.out.println("visibleCapacity: " + s);
 		System.out.println("numOfPlayers: " + numOfPlayers);
 		System.out.println("neighbourfields: " + );  //TBD
@@ -306,6 +334,10 @@ public class Field {
 		System.out.println("items: " + );			//TBD	
 		System.out.println("shelter: " + );			//TBD
 		
+	}
+	private String GetName() {
+		
+		return name;
 	}
 
 	

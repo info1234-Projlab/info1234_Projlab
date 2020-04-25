@@ -3,6 +3,12 @@ package classes;
 public class PolarBear implements CanMove {
 	
 	private Field field;
+	private String name; 
+	
+	public PolarBear(Field f , String n) {
+		this.field = f;
+		this.name = n ;
+	}
 
 	@Override
 	public void Move(Field f) {
@@ -91,5 +97,17 @@ public class PolarBear implements CanMove {
 	public boolean Win() {
 		return false;
 	}
+
+	@Override
+	public String GetName() {
+		return name;
+	}
+
+	@Override
+	public String List() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
