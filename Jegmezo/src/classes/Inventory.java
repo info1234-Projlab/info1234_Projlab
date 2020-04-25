@@ -7,7 +7,7 @@ package classes;
 public interface Inventory {
 	public boolean Eat(Player p);
 	
-	public boolean Dig(Player p);
+	public boolean Dig(CanMove canMove);
 	
 	public boolean Pull(Player p, Field to);
 	

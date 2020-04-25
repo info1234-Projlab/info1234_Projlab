@@ -177,8 +177,17 @@ public class Main{
 			break;
 		case "Dig":
 			creatureName = command[1];
-		case "SetPlayerHp":
+			item = command[2];
+			if(items.containsKey(item) && players.containsKey(creatureName))
+				items.get(item).Dig(players.get(creatureName));
+			break;
 			
+		case "SetPlayerHp":
+			creatureName = command[1];
+			int hp = Integer.parseInt(command[2]);
+			if(players.containsKey(creatureName))	players.get(creatureName).SetHp(hp);
+			break;
+		}
 		
 		}
 	}
