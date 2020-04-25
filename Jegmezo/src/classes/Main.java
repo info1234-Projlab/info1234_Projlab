@@ -340,9 +340,7 @@ public class Main{
 					for(int j=1;j<numberOfFields+1;j++) {
 						if(matrix.charAt((i1-1)*numberOfFields+j-1)=='1') {
 							f.get(i1-1).AddNeighbour(f.get(j-1));
-							int a = i1-1;
-							int b = j-1;
-							System.out.println( a+ " es " + b + "szomszedos");
+						
 						}
 							
 					}
