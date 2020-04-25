@@ -254,8 +254,9 @@ public class Main{
 						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utolsó akkor nincs vessző 
 						c++;
 					}
-					
-					String shelters = "TBD";
+					String shelters;
+					if(f.hasIglu)	shelters = "iglu";
+					else	shelters= "";
 					
 					
 					String result = object + " attributes:\n" + "capacity: " + f.capacity + "\n" + "snowLayer: " + f.GetLayer() + "\n"
