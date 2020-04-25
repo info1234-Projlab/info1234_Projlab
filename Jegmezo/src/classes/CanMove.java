@@ -28,5 +28,6 @@ public interface CanMove {
 	public int GetHP();
 	public int GetNumOfAction();
 	public int GetMaxHP();
+	public void setField(Field f);
 
 }

@@ -307,6 +307,10 @@ public class Player implements CanMove{
 	public ArrayList<Inventory> GetItems(){
 		return items;
 	}
+	
+	public void setField(Field f) {
+		this.field = f ;
+	}
 
 
 }

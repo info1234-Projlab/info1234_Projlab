@@ -1,19 +1,3 @@
-matrix 13x13
-
-0 1 1 0 0 0 0 0 0 0 0 0 0
-1 0 1 0 0 1 1 0 0 0 0 0 0 
-1 1 0 1 1 1 0 0 0 0 0 0 0
-0 0 1 0 1 0 0 0 0 0 0 1 0
-0 0 1 1 0 1 0 1 0 0 1 1 0
-0 1 1 0 1 0 1 1 0 0 0 0 0 
-0 1 0 0 0 1 0 1 1 0 0 0 0  
-0 0 0 0 1 1 1 0 1 1 1 0 0 
-0 0 0 0 0 0 1 1 0 1 0 0 0 
-0 0 0 0 0 0 0 1 1 0 1 0 1
-0 0 0 0 1 0 0 1 0 1 0 1 1
-0 0 0 1 1 0 0 0 0 0 1 0 1
-0 0 0 0 0 0 0 0 0 1 1 1 0
-
 CreateGame game
 CreateBoard board
 CreateField f1 hole
@@ -29,18 +13,20 @@ CreateField f10 stable
 CreateField f11 hole
 CreateField f12 stable
 CreateField f13 unstable
+matrix 13 0110000000000101001100000011011100000000010100000010001101010011001101011000000100010110000000011101110000000011010000000000110101000010010101100011000001010000000001110
+CreateCharacter e1 eskimo
+CreateCharacter k1 explorer                
+CreateCharacter k2 explorer             
+CreateCharacter m1 polarbear
+SetCurrentPlayer e1
 CreateItem s shovel 2
 CreateItem r1 gun 2
 CreateItem r2 flare 2
 CreateItem r3 cartridge 2
-FieldAddItem shovel f8 2 
-FieldAddItem gun f10 2
-FieldAddItem flare f5 2
-FieldAddItem cartridge f13 2
-CreateCharacter e1 eskimo
-CreateCharacter k1 explorer                
-CreateCharacter k2 explorer             
-CreateCharacter m1 polarbear          
+FieldAddItem s f8 2 
+FieldAddItem r1 f10 2
+FieldAddItem r2 f5 2
+FieldAddItem r3 f13 2
 AddCharacter e1 f3
 AddCharacter k1 f2
 AddCharacter k2 f7
@@ -65,5 +51,3 @@ SetCapacity f3 1
 MoveCharacter k1 f3 
 list k1 test1out.txt
 list e1 test1out.txt
-
-

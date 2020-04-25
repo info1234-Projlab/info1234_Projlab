@@ -170,6 +170,7 @@ public class Field {
 	 */
 	public void AddCreature(CanMove c) {
 		creatures.add(c);
+		c.setField(this);
 		///Itt m�g vari�lni kell
 		++numOfPlayers;
 	}
