@@ -14,10 +14,10 @@ public class Item implements Inventory {
 	protected boolean visible;
 	protected String name;
 	
-	public Item(int layer, boolean visible, String s) {
+	public Item(int layer, boolean visible) {
 		this.layer=layer;
 		this.visible=visible;
-		this.name = s ;
+		
 	}
 	
 	public boolean Eat(Player p) {
