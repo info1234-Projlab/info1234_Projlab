@@ -38,7 +38,7 @@ public class Field {
 	 * @param capacity	Megadja hány embert bír el a mező.
 	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
 	 */
-	public Field(int capacity, int snowLayer, String name) {
+	public Field(int capacity, int snowLayer) {
 		this.capacity = capacity;
 		this.snowLayer = snowLayer;
 		this.visibleCapacity = false;
@@ -285,7 +285,7 @@ public class Field {
 		}
 	}
 	
-	public String List() {
+	/*public String List() {
 		
 		String s ;
 		if(visibleCapacity)	s="true";
@@ -327,13 +327,10 @@ public class Field {
 		System.out.println("items: " + );			//TBD	
 		System.out.println("shelter: " + );			//TBD*/ 
 		
-		return result;
+	//	return result;
 		
-	}
-	private String GetName() {
-		
-		return name;
-	}
+	//}
+	
 	public ArrayList<Inventory> GetItems() {
 		return items;
 		

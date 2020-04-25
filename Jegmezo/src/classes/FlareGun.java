@@ -110,4 +110,11 @@ public class FlareGun implements Inventory {
 		return visible;
 	}
 
+
+	@Override
+	public String GetName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
