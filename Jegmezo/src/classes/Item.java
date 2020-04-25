@@ -12,10 +12,12 @@ a j�t�kosra milyen hat�ssal van.
 public class Item implements Inventory {
 	protected int layer;
 	protected boolean visible;
+	protected String name;
 	
-	public Item(int layer, boolean visible) {
+	public Item(int layer, boolean visible, String s) {
 		this.layer=layer;
 		this.visible=visible;
+		this.name = s ;
 	}
 	
 	public boolean Eat(Player p) {
@@ -98,6 +100,10 @@ public class Item implements Inventory {
 	
 	public boolean Pull(Player p) {
 		return false;
+	}
+	
+	public String GetName() {
+		return name;
 	}
 
 }

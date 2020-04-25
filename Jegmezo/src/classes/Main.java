@@ -189,8 +189,9 @@ public class Main{
 				break;
 			case "list":
 				String object = command[1];
-				if(creatures.containsKey(object))	{creatures.get(object).List();}
-				else if(fields.containsKey(object)) {fields.get(object).List();}
+				File outFile = command[2];
+				if(creatures.containsKey(object))	{WriteToFile(creatures.get(creatureName).List(), outFile);}
+				else if(fields.containsKey(object)) {WriteToFile(fields.get(creatureName).List(), outFile);}
 				break;
 			case "CreateCharacter":
 				String name = command[1];

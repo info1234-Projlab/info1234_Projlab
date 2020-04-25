@@ -30,13 +30,14 @@ public class Field {
 	private ArrayList<Inventory> items;
 	private ArrayList<Shelter> shelter;
 	private ArrayList<Player> players;
+	protected String name;
 	
 	/**
 	 * 
 	 * @param capacity	Megadja hány embert bír el a mező.
 	 * @param snowLayer	Megadja hány réteg hó van a mezőn. 
 	 */
-	public Field(int capacity, int snowLayer) {
+	public Field(int capacity, int snowLayer, String name) {
 		this.capacity = capacity;
 		this.snowLayer = snowLayer;
 		this.visibleCapacity = false;
@@ -46,6 +47,7 @@ public class Field {
 		this.creatures=new ArrayList<CanMove>();
 		this.shelter=new ArrayList<Shelter>();
 		this.players=new ArrayList<Player>();
+		this.name = name;
 	}
 	/**
 	 * Hozzaad egy mezot a szomszedok listajahoz.

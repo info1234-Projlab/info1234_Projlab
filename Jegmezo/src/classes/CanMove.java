@@ -18,6 +18,6 @@ public interface CanMove {
 	public void PutOnDivingSuit();
 	public void Eat();
 	public void SetNumOfAction(int num);
-	public void List();
+	public String List();
 	public boolean Win();
 }

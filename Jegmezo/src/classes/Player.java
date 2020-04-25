@@ -39,20 +39,21 @@ public class Player implements CanMove{
 	protected boolean win;
 	protected Field field;				//ez eredetileg private volt de az szerintem hülyeség
 	protected ArrayList<Inventory> items;	//ez is
-
+	protected String name;
 	
 	/**
 	 * 
 	 * @param maxHp	konstruktornak átadott maxHp érték
 	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
 	 */
-	public Player(int maxHp) {	
+	public Player(int maxHp, String name) {	
 		this.hp = maxHp;
 		this.maxHp = maxHp;
 		this.numberOfAction = 4;
 		this.win = false;
 		//this.field = field;
 		items = new ArrayList<Inventory>();
+		this.name = name;
 	}
 	
 	public Field GetField() {
@@ -262,17 +263,27 @@ public class Player implements CanMove{
 		}
 	}
 	
-	public void List(String name) {
-		System.out.println(name + " attributes:");
-		System.out.println("hp: " + hp);
-		System.out.println("numberOfAction: " + numberOfAction);
-		System.out.println("maxHp: " + maxHp);
-		System.out.println("maxHp: " + maxHp);
+	public String List() {
 		String s ;
 		if(win)	s="true";
 		else	s="false";
+		String itemstring=null;
+		for(int i = 0 ; i < items.size() ; i++) {
+			itemstring.concat(items.get(i).GetName());
+			if(i != items.size())
+				itemstring.concat(",");
+		}
+		String result;
+		result = name + " attributes:\n" + "hp: " + hp + "\n" + "numberOfAction: " + numberOfAction
+				+ "\n" + "maxHp: " + maxHp + "\n" + "win: " + s + "\n" + "items: " + itemstring + "\n";
+		/*System.out.println(name + " attributes:");
+		System.out.println("hp: " + hp);
+		System.out.println("numberOfAction: " + numberOfAction);
+		System.out.println("maxHp: " + maxHp);
+
 		System.out.println("win: " + s);
-		System.out.println("items: " + );
+		System.out.println("items: " + );*/
+		return result;
 	}
 	
 	public boolean Win() {
