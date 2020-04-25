@@ -73,166 +73,167 @@ public class Main{
 		String itemName;
 		String outputFileName;
 		switch(command[0]) {
-		case "SetLayer":
-			fieldName = command[1];
-			int layer = Integer.parseInt(command[2]);
-			fields.get(fieldName).SetLayer(layer);
-			break;
-		case "AddCharacter":
-			creatureName = command[1];
-			fieldName = command[2];
-			if(creatures.containsKey(creatureName))
-				fields.get(fieldName).AddCreature(creatures.get(creatureName));
-			break;
-		case "PutOnDivingSuit":
-			creatureName = command[1];
-			creatures.get(creatureName).PutOnDivingSuit();
-			break;
-		case "EatFood":
-			creatureName = command[1];
-			creatures.get(creatureName).Eat();
-			break;
-		case "SomeoneDied":
-			outputFileName = command[1];
-			File outputFile = new File(outputFileName);
-			if(Game.SomeoneDied()) {
-				String deadPlayer = "nobody";
-				for (String i : creatures.keySet()) {
-				      if(creatures.get(i).IsDead())
-				    	  deadPlayer = i;
+			case "SetLayer":
+				fieldName = command[1];
+				int layer = Integer.parseInt(command[2]);
+				fields.get(fieldName).SetLayer(layer);
+				break;
+			case "AddCharacter":
+				creatureName = command[1];
+				fieldName = command[2];
+				if(creatures.containsKey(creatureName))
+					fields.get(fieldName).AddCreature(creatures.get(creatureName));
+				break;
+			case "PutOnDivingSuit":
+				creatureName = command[1];
+				creatures.get(creatureName).PutOnDivingSuit();
+				break;
+			case "EatFood":
+				creatureName = command[1];
+				creatures.get(creatureName).Eat();
+				break;
+			case "SomeoneDied":
+				outputFileName = command[1];
+				File outputFile = new File(outputFileName);
+				if(Game.SomeoneDied()) {
+					String deadPlayer = "nobody";
+					for (String i : creatures.keySet()) {
+					      if(creatures.get(i).IsDead())
+					    	  deadPlayer = i;
+					}
+					WriteToFile("true " + deadPlayer, outputFile);
 				}
-				WriteToFile("true " + deadPlayer, outputFile);
+				else
+					WriteToFile("false", outputFile);
+				break;
+			/*case "Clear":
+				Clear();
+				break;*/
+			case "MoveCharacter": 
+				creatureName = command[1];
+				fieldName = command[2];
+				if(creatures.containsKey(creatureName))
+					creatures.get(creatureName).Move(fields.get(fieldName));
+				break;
+			case "SetNumOfAction":
+				creatureName = command[1];
+				int actionNum = Integer.parseInt(command[2]);
+				creatures.get(creatureName).SetNumOfAction(actionNum);
+				break;
+			case "PickUpItem":
+				creatureName = command[1];
+				itemName = command[2];
+				creatures.get(creatureName).AddItem(items.get(itemName));
+				Field field = creatures.get(creatureName).GetField();
+				field.RemoveItem(items.get(itemName));
+				break;
+			case "SetCapacity":
+				String fName=command[1];
+				int capacity=Integer.parseInt(command[2]);
+				fields.get(fName).SetCapacity(capacity);
+				break;
+			case"CreateItem":
+				itemName=command[1];
+				layer=Integer.parseInt(command[3]);
+				switch(command[2]) {
+				case "shovel":
+					items.put(itemName, new Shovel(layer,true));
+					break;
+				case "gun":
+					items.put(itemName, new Gun(layer,true));
+					break;
+				case "cartridge":
+					items.put(itemName, new Cartridge(layer,true));
+					break;
+				case "flare":
+					items.put(itemName, new Flare(layer,true));
+					break;	
+			case "UseAbility":
+				creatureName=command[1];
+				creatures.get(creatureName).UseAbility();
+				break;
+			case "createGame":
+				ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
+				Board board=new Board(boardfield);
+				ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
+				Game.SetBoard(board);
+				Game.SetCanMove(cMove);
+				break;
+				
+				//ez itt em tudom, hogy micsoda nekem ez conflict
+	
+	/*			item = command[2];
+				if(creatures.containsKey(creatureName) && items.containsKey(item)){
+					if(creatures.get(creatureName).field.hasItem(items.get(item))){
+						creatures.get(creatureName).AddItem(items.get(item));
+						creatures.get(creatureName).field.RemoveItem(items.get(item));
+					}
+				}
+				break;*/ //
+			case "FieldAddItem":
+				itemName = command[1];
+				fieldName = command[2];
+				int layerlevel = Integer.parseInt(command[3]);
+				fields.get(fieldName).AddItem(items.get(itemName));
+				break;
+			case "Dig":
+				creatureName = command[1];
+				itemName = command[2];
+				if(items.containsKey(itemName) && creatures.containsKey(creatureName))
+					items.get(itemName).Dig(creatures.get(creatureName));
+				break;
+			case "SetPlayerHp":
+				creatureName = command[1];
+				int hp = Integer.parseInt(command[2]);
+				if(creatures.containsKey(creatureName))	creatures.get(creatureName).SetHp(hp);
+				break;
+			case "list":
+				String object = command[1];
+				if(creatures.containsKey(object))	{creatures.get(object).List();}
+				else if(fields.containsKey(object)) {fields.get(object).List();}
+				break;
+			case "CreateCharacter":
+				String name = command[1];
+				String type = command[2];
+				switch(command[2]) {
+					case "eskimo":
+						Eskimo esk = new Eskimo();
+						Game.AddCreature(esk);
+						creatures.put(name, esk);
+						break;
+					case "explorer":
+						Explorer exp = new Explorer();
+						Game.AddCreature(exp);
+						creatures.put(name, exp);
+						break;
+					case "polarbear":
+						PolarBear pb = new PolarBear();
+						Game.AddCreature(pb);
+						creatures.put(name, pb);
+						break;
+					}
+				break;
+			case "StartStorm":
+				fieldName = command[1];
+				fields.get(fieldName).Storm();
+				break;
+			case "ThrowItem":
+				creatureName = command[1];
+				itemName = command[2];
+				CanMove cm = creatures.get(creatureName);
+				Inventory i = items.get(itemName);
+				cm.RemoveItem(i);
+				cm.GetField().AddItem(i);
+				break;
+			case "SetCurrentPlayer":
+				creatureName = command[1];
+				Game.SetCurrentPlayer(creatures.get(creatureName));
+				break;
+			case "FireGun":
+				String p = command[1];
+				creatures.get(p).FireGun();
+				break;
 			}
-			else
-				WriteToFile("false", outputFile);
-			break;
-		/*case "Clear":
-			Clear();
-			break;*/
-		case "MoveCharacter": 
-			creatureName = command[1];
-			fieldName = command[2];
-			if(creatures.containsKey(creatureName))
-				creatures.get(creatureName).Move(fields.get(fieldName));
-			break;
-		case "SetNumOfAction":
-			creatureName = command[1];
-			int actionNum = Integer.parseInt(command[2]);
-			creatures.get(creatureName).SetNumOfAction(actionNum);
-			break;
-		case "PickUpItem":
-			creatureName = command[1];
-			itemName = command[2];
-			creatures.get(creatureName).AddItem(items.get(itemName));
-			Field field = creatures.get(creatureName).GetField();
-			field.RemoveItem(items.get(itemName));
-			break;
-		case "SetCapacity":
-			String fName=command[1];
-			int capacity=Integer.parseInt(command[2]);
-			fields.get(fName).SetCapacity(capacity);
-			break;
-		case"CreateItem":
-			itemName=command[1];
-			layer=Integer.parseInt(command[3]);
-			switch(command[2]) {
-			case "shovel":
-				items.put(itemName, new Shovel(layer,true));
-				break;
-			case "gun":
-				items.put(itemName, new Gun(layer,true));
-				break;
-			case "cartridge":
-				items.put(itemName, new Cartridge(layer,true));
-				break;
-			case "flare":
-				items.put(itemName, new Flare(layer,true));
-				break;	
-		case "UseAbility":
-			creatureName=command[1];
-			creatures.get(creatureName).UseAbility();
-			break;
-		case "createGame":
-			ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
-			Board board=new Board(boardfield);
-			ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
-			Game.SetBoard(board);
-			Game.SetCanMove(cMove);
-			break;
-			
-			//ez itt em tudom, hogy micsoda nekem ez conflict
-
-/*			item = command[2];
-			if(creatures.containsKey(creatureName) && items.containsKey(item)){
-				if(creatures.get(creatureName).field.hasItem(items.get(item))){
-					creatures.get(creatureName).AddItem(items.get(item));
-					creatures.get(creatureName).field.RemoveItem(items.get(item));
-				}
-			}
-			break;*/ //
-		case "FieldAddItem":
-			itemName = command[1];
-			fieldName = command[2];
-			int layerlevel = Integer.parseInt(command[3]);
-			fields.get(fieldName).AddItem(items.get(itemName));
-			break;
-		case "Dig":
-			creatureName = command[1];
-			itemName = command[2];
-			if(items.containsKey(itemName) && creatures.containsKey(creatureName))
-				items.get(itemName).Dig(creatures.get(creatureName));
-			break;
-		case "SetPlayerHp":
-			creatureName = command[1];
-			int hp = Integer.parseInt(command[2]);
-			if(creatures.containsKey(creatureName))	creatures.get(creatureName).SetHp(hp);
-			break;
-		case "list":
-			String object = command[1];
-			if(creatures.containsKey(object))	{creatures.get(object).List();}
-			else if(fields.containsKey(object)) {fields.get(object).List();}
-			break;
-		case "CreateCharacter":
-			String name = command[1];
-			String type = command[2];
-			switch(command[2]) {
-				case "eskimo":
-					Eskimo esk = new Eskimo();
-					Game.AddCreature(esk);
-					creatures.put(name, esk);
-					break;
-				case "explorer":
-					Explorer exp = new Explorer();
-					Game.AddCreature(exp);
-					creatures.put(name, exp);
-					break;
-				case "polarbear":
-					PolarBear pb = new PolarBear();
-					Game.AddCreature(pb);
-					creatures.put(name, pb);
-					break;
-				}
-			break;
-		case "StartStorm":
-			fieldName = command[1];
-			fields.get(fieldName).Storm();
-			break;
-		case "ThrowItem":
-			creatureName = command[1];
-			itemName = command[2];
-			CanMove cm = creatures.get(creatureName);
-			Inventory i = items.get(itemName);
-			cm.RemoveItem(i);
-			cm.GetField().AddItem(i);
-			break;
-		case "SetCurrentPlayer":
-			creatureName = command[1];
-			Game.SetCurrentPlayer(creatures.get(creatureName));
-			break;
-		case "FireGun":
-			String p = command[1];
-			creatures.get(p).FireGun();
-			break;
 		}
 	}
 }

@@ -19,4 +19,5 @@ public interface CanMove {
 	public void Eat();
 	public void SetNumOfAction(int num);
 	public void List();
+	public boolean Win();
 }

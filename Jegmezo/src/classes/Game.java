@@ -49,7 +49,7 @@ public class Game {
 	
 	public static boolean SomeoneDied() {
 		for(int i=0; i<cM.size();i++) {
-			if(cM.IsDead())
+			if(cM.get(i).IsDead())
 				return true;
 		}
 		return false;
@@ -60,8 +60,10 @@ public class Game {
 	
 	public static boolean Win() {
 		for(int i=0; i<cM.size(); i++) {
-			
+			if(cM.get(i).Win())
+				return true;
 		}
+		return false;
 	}
 	
 	public static void SetBoard(Board b) {

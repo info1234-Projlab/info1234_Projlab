@@ -87,5 +87,9 @@ public class PolarBear implements CanMove {
 	public void SetNumOfAction(int num) {
 		
 	}
+	
+	public boolean Win() {
+		return false;
+	}
 
 }

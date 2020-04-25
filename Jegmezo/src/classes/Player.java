@@ -274,6 +274,12 @@ public class Player implements CanMove{
 		System.out.println("win: " + s);
 		System.out.println("items: " + );
 	}
+	
+	public boolean Win() {
+		if(win==true)
+			return true;
+		return false;
+	}
 
 
 }
