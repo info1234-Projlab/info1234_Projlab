@@ -75,5 +75,17 @@ public class PolarBear implements CanMove {
 	public void FireGun() {
 		
 	}
+	
+	public void PutOnDivingSuit() {
+		
+	}
+	
+	public void Eat() {
+		
+	}
+	
+	public void SetNumOfAction(int num) {
+		
+	}
 
 }

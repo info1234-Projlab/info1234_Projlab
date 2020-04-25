@@ -122,9 +122,10 @@ public class Main{
 			break;
 		case "PickUpItem":
 			creatureName = command[1];
-			String item = command[2];
-			creatures.get(creatureName).AddItem(item);
-			creatures.get(creatureName).field.RemoveItem(item);
+			itemName = command[2];
+			creatures.get(creatureName).AddItem(items.get(itemName));
+			Field field = creatures.get(creatureName).GetField();
+			field.RemoveItem(items.get(itemName));
 			break;
 		case "SetCapacity":
 			String fName=command[1];
@@ -132,7 +133,7 @@ public class Main{
 			fields.get(fName).SetCapacity(capacity);
 			break;
 		case"CreateItem":
-			String itemName=command[1];
+			itemName=command[1];
 			layer=Integer.parseInt(command[3]);
 			switch(command[2]) {
 			case "shovel":
@@ -149,8 +150,8 @@ public class Main{
 				break;	
 			}
 		case "UseAbility":
-			String cName=command[1];
-			creatures.get(cName).UseAbility();
+			creatureName=command[1];
+			creatures.get(creatureName).UseAbility();
 			break;
 		case "createGame":
 			ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
@@ -171,10 +172,10 @@ public class Main{
 			}
 			break;*/ //
 		case "FieldAddItem":
-			item = command[1];
+			itemName = command[1];
 			fieldName = command[2];
 			int layerlevel = Integer.parseInt(command[3]);
-			fields.get(fieldName).AddItem(items.get(item));
+			fields.get(fieldName).AddItem(items.get(itemName));
 			break;
 		case "Dig":
 			creatureName = command[1];
