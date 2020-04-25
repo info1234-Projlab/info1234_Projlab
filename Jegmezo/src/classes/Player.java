@@ -262,7 +262,7 @@ public class Player implements CanMove{
 		}
 	}
 	
-	public void list(String name) {
+	public void List(String name) {
 		System.out.println(name + " attributes:");
 		System.out.println("hp: " + hp);
 		System.out.println("numberOfAction: " + numberOfAction);

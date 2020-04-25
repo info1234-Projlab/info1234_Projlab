@@ -20,15 +20,15 @@ import java.util.ArrayList;
  *
  */
 public class Game {
-	private static Player currentPlayer;
+	private static CanMove currentPlayer;
 	private static ArrayList<CanMove> cM = new ArrayList<CanMove>();
 	private static Board board;
 	private static int turn;
 	
-	public static Player GetCurrentPlayer() {
+	public static CanMove GetCurrentPlayer() {
 		return currentPlayer;
 	}
-	public static void SetCurrentPlayer(Player player) {
+	public static void SetCurrentPlayer(CanMove player) {
 		currentPlayer=player;
 	}
 	
@@ -59,6 +59,9 @@ public class Game {
 	}
 	
 	public static boolean Win() {
+		for(int i=0; i<cM.size(); i++) {
+			
+		}
 	}
 	
 	public static void SetBoard(Board b) {

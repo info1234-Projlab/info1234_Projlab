@@ -148,7 +148,6 @@ public class Main{
 			case "flare":
 				items.put(itemName, new Flare(layer,true));
 				break;	
-			}
 		case "UseAbility":
 			creatureName=command[1];
 			creatures.get(creatureName).UseAbility();
@@ -179,11 +178,10 @@ public class Main{
 			break;
 		case "Dig":
 			creatureName = command[1];
-			item = command[2];
-			if(items.containsKey(item) && creatures.containsKey(creatureName))
-				items.get(item).Dig(creatures.get(creatureName));
+			itemName = command[2];
+			if(items.containsKey(itemName) && creatures.containsKey(creatureName))
+				items.get(itemName).Dig(creatures.get(creatureName));
 			break;
-			
 		case "SetPlayerHp":
 			creatureName = command[1];
 			int hp = Integer.parseInt(command[2]);
@@ -191,8 +189,8 @@ public class Main{
 			break;
 		case "list":
 			String object = command[1];
-			if(creatures.containsKey(object))	{creatures.get(object).list();}
-			else if(fields.containsKey(object)) {fields.get(object).list();}
+			if(creatures.containsKey(object))	{creatures.get(object).List();}
+			else if(fields.containsKey(object)) {fields.get(object).List();}
 			break;
 		case "CreateCharacter":
 			String name = command[1];
@@ -216,20 +214,20 @@ public class Main{
 				}
 			break;
 		case "StartStorm":
-			String field = command[1];
-			fields.get(field).Storm();
+			fieldName = command[1];
+			fields.get(fieldName).Storm();
 			break;
 		case "ThrowItem":
-			String playerName = command[1];
-			String itemname = command[2];
-			CanMove cm = creatures.get(playerName);
-			Inventory i = items.get(itemname);
+			creatureName = command[1];
+			itemName = command[2];
+			CanMove cm = creatures.get(creatureName);
+			Inventory i = items.get(itemName);
 			cm.RemoveItem(i);
 			cm.GetField().AddItem(i);
 			break;
 		case "SetCurrentPlayer":
-			String player = command[1];
-			Game.SetCurrentPlayer(creatures.get(player));
+			creatureName = command[1];
+			Game.SetCurrentPlayer(creatures.get(creatureName));
 			break;
 		case "FireGun":
 			String p = command[1];

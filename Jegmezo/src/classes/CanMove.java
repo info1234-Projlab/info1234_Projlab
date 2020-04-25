@@ -18,5 +18,5 @@ public interface CanMove {
 	public void PutOnDivingSuit();
 	public void Eat();
 	public void SetNumOfAction(int num);
-	
+	public void List();
 }

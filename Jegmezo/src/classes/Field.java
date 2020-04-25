@@ -290,7 +290,7 @@ public class Field {
 		}
 	}
 	
-	public void list(String name) {
+	public void List(String name) {
 		System.out.println(name + " attributes:");
 		System.out.println("capacity: " + capacity);
 		System.out.println("snowLayer: " + snowLayer);
