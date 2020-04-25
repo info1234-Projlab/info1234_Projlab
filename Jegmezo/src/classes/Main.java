@@ -212,17 +212,58 @@ public class Main{
 								if(i != itemFromPlayer.size())	itemstring.concat(",");
 							}
 					}
-					
-					
-
-					
 					String result;
 					result = object + " attributes:\n" + "hp: " + m.GetHP() + "\n" + "numberOfAction: " + m.GetNumOfAction()
 							+ "\n" + "maxHp: " + m.GetMaxHP() + "\n" + "win: " + winstring + "\n" + "items: " + itemstring + "\n";
-					WriteToFile(creatures.get(creatureName).List(), outFile);
+					WriteToFile(result, outFile);
 					
 				}
-				else if(fields.containsKey(object)) {WriteToFile(fields.get(creatureName).List(), outFile);}
+				else if(fields.containsKey(object)) {
+					Field f = fields.get(object);
+					String visible ;
+					if(f.visibleCapacity)	visible="true";
+					else	visible="false";
+					
+					String itemstring = "";
+					int c = 0 ;
+					for(String s : items.keySet()) {
+						
+						if(f.hasItem(items.get(s)))	itemstring.concat(s); 
+							if(f.GetItems().size()-1 != c )	itemstring.concat(",");
+						
+						c++;
+					}
+				
+					String canmovestring = "";
+					c = 0 ;
+					ArrayList<CanMove> canmoves = f.GetCreatures();
+					for(String s : creatures.keySet()) {
+						if(creatures.get(s).GetField() == f )	canmovestring.concat(s);
+						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utolsó akkor nincs vessző 
+						c++;
+					}
+					
+					String neighbourString = "";
+					c = 0 ;
+					ArrayList<Field> neighbourfields = f.GetNeighbouringFields();
+					for(String s : fields.keySet()) {
+						for(int i = 0 ; i < neighbourfields.size() ; i++) {
+							if(fields.get(s) == neighbourfields.get(i) )	neighbourString.concat(s);
+						}
+						
+						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utolsó akkor nincs vessző 
+						c++;
+					}
+					
+					String shelters = "TBD";
+					
+					
+					String result = object + " attributes:\n" + "capacity: " + f.capacity + "\n" + "snowLayer: " + f.GetLayer() + "\n"
+							+ "visibleCapacity: " + visible + "\n" +"numOfPlayers: " + f.numOfPlayers + "\n" +
+							"neighbourFields: " + neighbourString + "\n" + "canmoves: " + canmovestring + "\n" + "items: " + itemstring + "\n" +
+							"shelter: " + shelters;
+					WriteToFile(result, outFile);
+					}
 				break;
 			case "CreateCharacter":
 				String name = command[1];
