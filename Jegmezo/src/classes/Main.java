@@ -192,7 +192,36 @@ public class Main{
 				String outFileName = command[2];
 				File outFile = new File(outFileName);
 				
-				if(creatures.containsKey(object))	{WriteToFile(creatures.get(creatureName).List(), outFile);}
+				if(creatures.containsKey(object))	{
+	
+				/*	for (String i : creatures.keySet()) {
+					      if(creatures.get(i).IsDead())
+						    	  deadPlayer = i;
+					}*/
+					
+					CanMove m = creatures.get(object);
+					String winstring ;
+					if(m.GetWin())	winstring="true";
+					else	winstring="false";
+					String itemstring="";
+					ArrayList<Inventory> itemFromPlayer = m.GetItems();
+					for(int i = 0 ; i < itemFromPlayer.size() ; i++) {
+						if(items.containsValue(itemFromPlayer.get(i)))
+							for(String s : items.keySet()) {
+								if(items.get(s) == itemFromPlayer.get(i))	itemstring.concat(s); 
+								if(i != itemFromPlayer.size())	itemstring.concat(",");
+							}
+					}
+					
+					
+
+					
+					String result;
+					result = object + " attributes:\n" + "hp: " + m.GetHP() + "\n" + "numberOfAction: " + m.GetNumOfAction()
+							+ "\n" + "maxHp: " + m.GetMaxHP() + "\n" + "win: " + winstring + "\n" + "items: " + itemstring + "\n";
+					WriteToFile(creatures.get(creatureName).List(), outFile);
+					
+				}
 				else if(fields.containsKey(object)) {WriteToFile(fields.get(creatureName).List(), outFile);}
 				break;
 			case "CreateCharacter":

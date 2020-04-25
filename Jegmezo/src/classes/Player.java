@@ -76,6 +76,7 @@ public class Player implements CanMove{
 	 *  A jelenlegi testhőt adja vissza
 	 * @param tab	Indentálást jelzi. 
 	 */
+	@Override
 	public int GetHP() {
 		return hp;
 	}
@@ -85,6 +86,7 @@ public class Player implements CanMove{
 	 *  A maximális testhőt adja vissza
 	 * @param tab	Indentálást jelzi. 
 	 */
+	@Override
 	public int GetMaxHP() {
 		return maxHp;
 	}
@@ -205,6 +207,7 @@ public class Player implements CanMove{
 	 *  Visszaadja a hátralévő lépések számát.
 	 * @param tab	Indentálást jelzi. 
 	 */
+	@Override
 	public int GetNumOfAction() {
 		return this.numberOfAction;
 	}
@@ -295,6 +298,10 @@ public class Player implements CanMove{
 		if(win==true)
 			return true;
 		return false;
+	}
+	
+	public ArrayList<Inventory> getItems(){
+		return items;
 	}
 
 
