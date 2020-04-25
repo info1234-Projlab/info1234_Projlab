@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main{
 	private static HashMap<String,Field> fields = new HashMap<String,Field>();
-	private static HashMap<String,CanMove> players = new HashMap<String,CanMove>();
+	private static HashMap<String,CanMove> creatures = new HashMap<String,CanMove>();
 	//private static HashMap<String,PolarBear> polarBears = new HashMap<String,PolarBear>();
 	private static HashMap<String,Inventory> items = new HashMap<String,Inventory>();
 	
@@ -42,9 +42,9 @@ public class Main{
 		}
 	}
 	
-	public static void WriteToFile(String result) {
+	public static void WriteToFile(String result, File file) {
 		 try {
-			 FileWriter myWriter = new FileWriter("test_results.txt");
+			 FileWriter myWriter = new FileWriter(file);
 			 myWriter.write(result);
 			 myWriter.close();
 		 } catch (IOException e) {
@@ -53,12 +53,12 @@ public class Main{
 		 }
 	}
 	
-	public static void Clear() {
+	/*public static void Clear() {
 		Game.Clear();
 		fields.clear();
-		players.clear();
+		creatures.clear();
 		polarBears.clear();
-	}
+	}*/
 	
 	/**
 	 * @param data
@@ -70,7 +70,8 @@ public class Main{
 		String[] command = data.split(" ");
 		String fieldName;
 		String creatureName;
-		String item;
+		String itemName;
+		String outputFileName;
 		switch(command[0]) {
 		case "SetLayer":
 			fieldName = command[1];
@@ -80,50 +81,50 @@ public class Main{
 		case "AddCharacter":
 			creatureName = command[1];
 			fieldName = command[2];
-			if(players.containsKey(creatureName))
-				fields.get(fieldName).AddCreature(players.get(creatureName));
-			else if(polarBears.containsKey(creatureName))
-				fields.get(fieldName).AddCreature(polarBears.get(creatureName));
+			if(creatures.containsKey(creatureName))
+				fields.get(fieldName).AddCreature(creatures.get(creatureName));
 			break;
 		case "PutOnDivingSuit":
 			creatureName = command[1];
-			players.get(creatureName).PutOnDivingSuit();
+			creatures.get(creatureName).PutOnDivingSuit();
 			break;
 		case "EatFood":
 			creatureName = command[1];
-			players.get(creatureName).Eat();
+			creatures.get(creatureName).Eat();
 			break;
 		case "SomeoneDied":
+			outputFileName = command[1];
+			File outputFile = new File(outputFileName);
 			if(Game.SomeoneDied()) {
 				String deadPlayer = "nobody";
-				for (String i : players.keySet()) {
-				      if(players.get(i).IsDead())
+				for (String i : creatures.keySet()) {
+				      if(creatures.get(i).IsDead())
 				    	  deadPlayer = i;
 				}
-				WriteToFile("true " + deadPlayer);
+				WriteToFile("true " + deadPlayer, outputFile);
 			}
 			else
-				WriteToFile("false");
+				WriteToFile("false", outputFile);
 			break;
-		case "Clear":
+		/*case "Clear":
 			Clear();
-			break;
+			break;*/
 		case "MoveCharacter": 
 			creatureName = command[1];
 			fieldName = command[2];
-			if(players.containsKey(creatureName))
-				players.get(creatureName).Move(fields.get(fieldName));
+			if(creatures.containsKey(creatureName))
+				creatures.get(creatureName).Move(fields.get(fieldName));
 			break;
 		case "SetNumOfAction":
 			creatureName = command[1];
 			int actionNum = Integer.parseInt(command[2]);
-			players.get(creatureName).SetNumOfAction(actionNum);
+			creatures.get(creatureName).SetNumOfAction(actionNum);
 			break;
 		case "PickUpItem":
 			creatureName = command[1];
 			String item = command[2];
-			players.get(creatureName).AddItem(item);
-			players.get(creatureName).field.RemoveItem(item);
+			creatures.get(creatureName).AddItem(item);
+			creatures.get(creatureName).field.RemoveItem(item);
 			break;
 		case "SetCapacity":
 			String fName=command[1];
@@ -149,12 +150,12 @@ public class Main{
 			}
 		case "UseAbility":
 			String cName=command[1];
-			players.get(cName).UseAbility();
+			creatures.get(cName).UseAbility();
 			break;
 		case "createGame":
 			ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
 			Board board=new Board(boardfield);
-			ArrayList<CanMove> cMove=(ArrayList<CanMove>) players.values();
+			ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
 			Game.SetBoard(board);
 			Game.SetCanMove(cMove);
 			break;
@@ -162,10 +163,10 @@ public class Main{
 			//ez itt em tudom, hogy micsoda nekem ez conflict
 
 /*			item = command[2];
-			if(players.containsKey(creatureName) && items.containsKey(item)){
-				if(players.get(creatureName).field.hasItem(items.get(item))){
-					players.get(creatureName).AddItem(items.get(item));
-					players.get(creatureName).field.RemoveItem(items.get(item));
+			if(creatures.containsKey(creatureName) && items.containsKey(item)){
+				if(creatures.get(creatureName).field.hasItem(items.get(item))){
+					creatures.get(creatureName).AddItem(items.get(item));
+					creatures.get(creatureName).field.RemoveItem(items.get(item));
 				}
 			}
 			break;*/ //
@@ -178,18 +179,18 @@ public class Main{
 		case "Dig":
 			creatureName = command[1];
 			item = command[2];
-			if(items.containsKey(item) && players.containsKey(creatureName))
-				items.get(item).Dig(players.get(creatureName));
+			if(items.containsKey(item) && creatures.containsKey(creatureName))
+				items.get(item).Dig(creatures.get(creatureName));
 			break;
 			
 		case "SetPlayerHp":
 			creatureName = command[1];
 			int hp = Integer.parseInt(command[2]);
-			if(players.containsKey(creatureName))	players.get(creatureName).SetHp(hp);
+			if(creatures.containsKey(creatureName))	creatures.get(creatureName).SetHp(hp);
 			break;
 		case "list":
 			String object = command[1];
-			if(players.containsKey(object))	{players.get(object).list();}
+			if(creatures.containsKey(object))	{creatures.get(object).list();}
 			else if(fields.containsKey(object)) {fields.get(object).list();}
 			break;
 		case "CreateCharacter":
@@ -199,17 +200,17 @@ public class Main{
 				case "eskimo":
 					Eskimo esk = new Eskimo();
 					Game.AddCreature(esk);
-					players.put(name, esk);
+					creatures.put(name, esk);
 					break;
 				case "explorer":
 					Explorer exp = new Explorer();
 					Game.AddCreature(exp);
-					players.put(name, exp);
+					creatures.put(name, exp);
 					break;
 				case "polarbear":
 					PolarBear pb = new PolarBear();
 					Game.AddCreature(pb);
-					players.put(name, pb);
+					creatures.put(name, pb);
 					break;
 				}
 			break;
@@ -220,18 +221,18 @@ public class Main{
 		case "ThrowItem":
 			String playerName = command[1];
 			String itemname = command[2];
-			CanMove cm = players.get(playerName);
+			CanMove cm = creatures.get(playerName);
 			Inventory i = items.get(itemname);
 			cm.RemoveItem(i);
 			cm.GetField().AddItem(i);
 			break;
 		case "SetCurrentPlayer":
 			String player = command[1];
-			Game.SetCurrentPlayer(players.get(player));
+			Game.SetCurrentPlayer(creatures.get(player));
 			break;
 		case "FireGun":
 			String p = command[1];
-			players.get(p).FireGun();
+			creatures.get(p).FireGun();
 			break;
 		}
 	}
