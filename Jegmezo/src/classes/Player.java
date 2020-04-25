@@ -171,7 +171,8 @@ public class Player implements CanMove{
 	 *  @param layers A hórétegek száma.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void DigPlayer(int layers) {
+	public void DigPlayer(int layers) {    //csökkenti a field layerét
+		field.SetLayer(field.GetLayer()-layers);
 		field.DigItems(layers);
 	}
 	

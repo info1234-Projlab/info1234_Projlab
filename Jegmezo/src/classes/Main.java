@@ -307,6 +307,7 @@ public class Main{
 				String p = command[1];
 				creatures.get(p).FireGun();
 				break;
+			
 			}
 		}
 	}
