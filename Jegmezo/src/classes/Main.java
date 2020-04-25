@@ -189,7 +189,9 @@ public class Main{
 				break;
 			case "list":
 				String object = command[1];
-				File outFile = command[2];
+				String outFileName = command[2];
+				File outFile = new File(outFileName);
+				
 				if(creatures.containsKey(object))	{WriteToFile(creatures.get(creatureName).List(), outFile);}
 				else if(fields.containsKey(object)) {WriteToFile(fields.get(creatureName).List(), outFile);}
 				break;
