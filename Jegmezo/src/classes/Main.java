@@ -31,9 +31,11 @@ public class Main{
 	public static void ReadFromFile(File file) {
 		try {
 			Scanner myReader = new Scanner(file);
+			int i = 0;
 			while (myReader.hasNextLine()) {
 			    String command = myReader.nextLine();
 			    RunCommand(command);
+			    System.out.println(i++);
 			}
 			myReader.close();
 		}catch (FileNotFoundException e) {
@@ -76,6 +78,7 @@ public class Main{
 			case "CreateField":
 				String fiName = command[1];
 				String fType = command[2];
+				
 				switch(fType) {
 					case "hole":
 						fields.put(fiName, new Hole());
@@ -148,6 +151,7 @@ public class Main{
 				fields.get(fName).SetCapacity(capacity);
 				break;
 			case"CreateItem":
+				
 				itemName=command[1];
 				layer=Integer.parseInt(command[3]);
 				switch(command[2]) {
@@ -167,7 +171,7 @@ public class Main{
 				creatureName=command[1];
 				creatures.get(creatureName).UseAbility();
 				break;
-			case "createGame":
+			case "CreateGame":
 				ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
 				Board board=new Board(boardfield);
 				ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
@@ -186,6 +190,7 @@ public class Main{
 				}
 				break;*/ //
 			case "FieldAddItem":
+				
 				itemName = command[1];
 				fieldName = command[2];
 				int layerlevel = Integer.parseInt(command[3]);
@@ -282,6 +287,7 @@ public class Main{
 					}
 				break;
 			case "CreateCharacter":
+				
 				String name = command[1];
 				String type = command[2];
 				switch(command[2]) {
