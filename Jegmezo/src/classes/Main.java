@@ -262,7 +262,7 @@ public class Main{
 					String result = object + " attributes:\n" + "capacity: " + f.capacity + "\n" + "snowLayer: " + f.GetLayer() + "\n"
 							+ "visibleCapacity: " + visible + "\n" +"numOfPlayers: " + f.numOfPlayers + "\n" +
 							"neighbourFields: " + neighbourString + "\n" + "canmoves: " + canmovestring + "\n" + "items: " + itemstring + "\n" +
-							"shelter: " + shelters;
+							"shelter: " + shelters + "\n";
 					WriteToFile(result, outFile);
 					}
 				break;
