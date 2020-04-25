@@ -336,10 +336,13 @@ public class Main{
 				int numberOfFields = Integer.parseInt(command[1]);
 				String matrix = command[2];
 				ArrayList<Field> f=new ArrayList<Field>(fields.values());
-				for(int i1 =1;i1<numberOfFields;i1++) {
-					for(int j=1;j<numberOfFields;j++) {
-						if(matrix.charAt(i1*j)=='1')
-							f.get(i1-1).AddNeighbour(f.get(j-1));    	 
+				for(int i1 =1;i1<numberOfFields+1;i1++) {
+					for(int j=1;j<numberOfFields+1;j++) {
+						if(matrix.charAt(i1*j-1)=='1') {
+							f.get(i1-1).AddNeighbour(f.get(j-1));
+							System.out.println(i1 + " es " + j + "szomszedos");
+						}
+							
 					}
 				}
 				break;
