@@ -26,11 +26,8 @@ public class Board {
 	 * @param fields ezek a malyan levo jegtablak, amiket majd inicializalas soran megadunk
 	 * @param tab indentalashoz kell
 	 */
-	public Board(ArrayList<Field> fields, int tab) {
+	public Board(ArrayList<Field> fields) {
 		this.fields=fields;
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("Az Board osztaly konstruktora hivodott meg.");
 	}
 	
 	/**

@@ -44,6 +44,20 @@ public class PolarBear implements CanMove {
 	public void SwimPlayer() {
 		
 	}
+
+
+	@Override
+	public void PullPlayer(CanMove p) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void UseAbility() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 

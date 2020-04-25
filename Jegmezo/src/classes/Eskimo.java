@@ -20,7 +20,7 @@ public class Eskimo extends Player {
 	 * @param tab	Indentálást jelzi. 
 	 */
 	public Eskimo(Field field) {
-		System.out.println("Az Eskimo osztaly konstruktora hivodott meg.");
+		super(5,field);
 	}
 	
 	/**

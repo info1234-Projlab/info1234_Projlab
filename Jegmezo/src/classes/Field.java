@@ -268,6 +268,9 @@ public class Field {
 		return items.contains(i);
 	}
 	
+	public void SetCapacity(int num) {
+		this.capacity=num;
+	}
 
 	
 }
