@@ -187,6 +187,10 @@ public class Main{
 			int hp = Integer.parseInt(command[2]);
 			if(players.containsKey(creatureName))	players.get(creatureName).SetHp(hp);
 			break;
+		case "list":
+			String object = command[1];
+			if(players.containsKey(object))	{players.get(object).list();}
+			else if(fields.containsKey(object)) {fields.get(object).list();}
 		}
 		
 		}

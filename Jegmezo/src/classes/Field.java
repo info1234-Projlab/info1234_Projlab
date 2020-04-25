@@ -271,6 +271,22 @@ public class Field {
 	public void SetCapacity(int num) {
 		this.capacity=num;
 	}
+	
+	public void list(String name) {
+		System.out.println(name + " attributes:");
+		System.out.println("capacity: " + capacity);
+		System.out.println("snowLayer: " + snowLayer);
+		String s ;
+		if(visibleCapacity)	s="true";
+		else	s="false";
+		System.out.println("visibleCapacity: " + s);
+		System.out.println("numOfPlayers: " + numOfPlayers);
+		System.out.println("neighbourfields: " + );  //TBD
+		System.out.println("canoves: " + );			//TBD
+		System.out.println("items: " + );			//TBD	
+		System.out.println("shelter: " + );			//TBD
+		
+	}
 
 	
 }

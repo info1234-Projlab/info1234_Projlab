@@ -11,4 +11,5 @@ public boolean IsDead();
 public void SwimPlayer();
 public void PullPlayer(CanMove p);
 public void UseAbility();
+
 }

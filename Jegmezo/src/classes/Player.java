@@ -255,6 +255,19 @@ public class Player implements CanMove{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void list(String name) {
+		System.out.println(name + " attributes:");
+		System.out.println("hp: " + hp);
+		System.out.println("numberOfAction: " + numberOfAction);
+		System.out.println("maxHp: " + maxHp);
+		System.out.println("maxHp: " + maxHp);
+		String s ;
+		if(win)	s="true";
+		else	s="false";
+		System.out.println("win: " + s);
+		System.out.println("items: " + );
+	}
 
 
 }
