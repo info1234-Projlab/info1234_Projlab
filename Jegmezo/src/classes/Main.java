@@ -131,20 +131,12 @@ public class Main{
 		case "FieldAddItem":
 			item = command[1];
 			fieldName = command[2];
-			
-			if(fields.containsKey(fieldName) && items.containsKey(item))
-				fields.get(fieldName).AddItem(items.get(item));
+			int layerlevel = Integer.parseInt(command[3]);
+			fields.get(fieldName).AddItem(items.get(item));
 			break;
 		case "Dig":
 			creatureName = command[1];
-			item = command[2];
-			if(items.containsKey(item) && players.containsKey(creatureName))
-				items.get(item).Dig(players.get(creatureName));
-			
 		case "SetPlayerHp":
-			creatureName = command[1];
-			int hp = Integer.parseInt(command[2]);
-			if(players.containsKey(creatureName))	players.get(creatureName).SetHp(hp);
 		}
 	}
 }

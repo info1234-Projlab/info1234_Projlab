@@ -30,12 +30,13 @@ public class Shovel extends Item {
 	 * @param p     Az a játékos, aki ás az ésóval. 
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public boolean Dig(Player p) {
-
+	public boolean Dig(Player p, int tab) {
+		for(int i=0; i<tab; i++)
+			System.out.print("\t");
+		System.out.println("A Shovel osztaly Dig() fuggvenye hivodott meg");
 		if (p.GetNumOfAction() <= 0)
 			return false;
 		p.SetNumOfAction(p.GetNumOfAction() - 1);
-		
 		p.DigPlayer(2);
 		return true;
 	}
