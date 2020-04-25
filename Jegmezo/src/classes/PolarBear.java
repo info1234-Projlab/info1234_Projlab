@@ -133,8 +133,7 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public void setField(Field f) {
-		// TODO Auto-generated method stub
-		
+		this.field=f;	
 	}
 
 
