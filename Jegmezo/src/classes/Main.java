@@ -6,10 +6,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Scanner;
 
 public class Main{
-	private static HashMap<String,Field> fields = new HashMap<String,Field>();
+	private static LinkedHashMap<String,Field> fields = new LinkedHashMap<String,Field>();
 	private static HashMap<String,CanMove> creatures = new HashMap<String,CanMove>();
 	//private static HashMap<String,PolarBear> polarBears = new HashMap<String,PolarBear>();
 	private static HashMap<String,Inventory> items = new HashMap<String,Inventory>();
@@ -152,9 +153,9 @@ public class Main{
 				break;
 			case "CreateGame":
 				System.out.println("Item");
-				ArrayList<Field> boardfield=(ArrayList<Field>) fields.values();
+				ArrayList<Field> boardfield=new ArrayList<Field>(fields.values());
 				Board board=new Board(boardfield);
-				ArrayList<CanMove> cMove=(ArrayList<CanMove>) creatures.values();
+				ArrayList<CanMove> cMove=new ArrayList<CanMove>(creatures.values());
 				Game.SetBoard(board);
 				Game.SetCanMove(cMove);
 				break;
@@ -334,9 +335,9 @@ public class Main{
 			case "matrix":
 				int numberOfFields = Integer.parseInt(command[1]);
 				String matrix = command[2];
-				ArrayList<Field> f=(ArrayList<Field>) fields.values();
-				for(int i1 =1;i1<numberOfFields+1;i1++) {
-					for(int j=1;j<numberOfFields+1;j++) {
+				ArrayList<Field> f=new ArrayList<Field>(fields.values());
+				for(int i1 =1;i1<numberOfFields;i1++) {
+					for(int j=1;j<numberOfFields;j++) {
 						if(matrix.charAt(i1*j)=='1')
 							f.get(i1-1).AddNeighbour(f.get(j-1));    	 
 					}
