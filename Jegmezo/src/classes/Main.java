@@ -197,7 +197,6 @@ public class Main{
 				System.out.println("Item");
 				itemName = command[1];
 				fieldName = command[2];
-				int layerlevel = Integer.parseInt(command[3]);
 				fields.get(fieldName).AddItem(items.get(itemName));
 				break;
 			case "Dig":
