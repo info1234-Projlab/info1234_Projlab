@@ -293,7 +293,7 @@ public class Field {
 	}
 	
 	public String List() {
-		String result = null; 
+		
 		String s ;
 		if(visibleCapacity)	s="true";
 		else	s="false";
@@ -319,11 +319,11 @@ public class Field {
 			shelters.concat(shelter.get(i).GetName());
 			if(i != shelter.size())	shelters.concat(",");
 		}
-		result = name + " attributes:\n" + "capacity: " + capacity + "\n" + "snowLayer: " + snowLayer + "\n"
+		String result = name + " attributes:\n" + "capacity: " + capacity + "\n" + "snowLayer: " + snowLayer + "\n"
 				+ "visibleCapacity: " + s + "\n" +"numOfPlayers: " + players.size() + "\n" +
 				"neighbourFields: " + neigh + "\n" + "canmoves: " + canmoves + "\n" + "items: " + itemstring + "\n" +
-				
-		System.out.println(name + " attributes:");
+				"shelter: " + shelters;
+		/*System.out.println(name + " attributes:");
 		System.out.println("capacity: " + capacity);
 		System.out.println("snowLayer: " + snowLayer);
 		
@@ -332,7 +332,9 @@ public class Field {
 		System.out.println("neighbourfields: " + );  //TBD
 		System.out.println("canoves: " + );			//TBD
 		System.out.println("items: " + );			//TBD	
-		System.out.println("shelter: " + );			//TBD
+		System.out.println("shelter: " + );			//TBD*/ 
+		
+		return result;
 		
 	}
 	private String GetName() {

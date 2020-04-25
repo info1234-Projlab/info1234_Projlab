@@ -15,6 +15,7 @@ public boolean DefendFromBear() {
 public void DestroyTent(int num) {
 	return;
 }
+
 @Override
 public String GetName() {
 	return name;
