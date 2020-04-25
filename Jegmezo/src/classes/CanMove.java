@@ -20,9 +20,9 @@ public interface CanMove {
 	public void PutOnDivingSuit();
 	public void Eat();
 	public void SetNumOfAction(int num);
-	public String List();
+//	public String List();
 	public boolean Win();
-	public String GetName();
+//	public String GetName();
 	public boolean GetWin();
 	public ArrayList<Inventory> GetItems();
 	public int GetHP();

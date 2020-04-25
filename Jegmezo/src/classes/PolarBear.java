@@ -1,13 +1,15 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class PolarBear implements CanMove {
 	
 	private Field field;
 	private String name; 
 	
-	public PolarBear(Field f , String n) {
-		this.field = f;
-		this.name = n ;
+	public PolarBear() {
+		
+		
 	}
 
 	@Override
@@ -107,6 +109,36 @@ public class PolarBear implements CanMove {
 	public String List() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean GetWin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ArrayList<Inventory> GetItems() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int GetHP() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int GetNumOfAction() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int GetMaxHP() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

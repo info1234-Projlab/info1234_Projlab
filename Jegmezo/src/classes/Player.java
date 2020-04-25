@@ -39,21 +39,20 @@ public class Player implements CanMove{
 	protected boolean win;
 	protected Field field;				//ez eredetileg private volt de az szerintem hülyeség
 	protected ArrayList<Inventory> items;	//ez is
-	protected String name;
 	
 	/**
 	 * 
 	 * @param maxHp	konstruktornak átadott maxHp érték
 	 * @param field	konstruktornak átadott field, ide rakjuk le a játékost
 	 */
-	public Player(int maxHp, String name) {	
+	public Player(int maxHp) {	
 		this.hp = maxHp;
 		this.maxHp = maxHp;
 		this.numberOfAction = 4;
 		this.win = false;
 		//this.field = field;
 		items = new ArrayList<Inventory>();
-		this.name = name;
+
 	}
 	
 	public Field GetField() {
@@ -260,10 +259,7 @@ public class Player implements CanMove{
 		
 	}
 	
-	@Override
-	public String GetName() {
-		return name;
-	}
+
 	
 	public void FireGun() {
 		for(Inventory i : items) {
@@ -271,7 +267,7 @@ public class Player implements CanMove{
 		}
 	}
 	
-	public String List() {
+	/*public String List() {
 		String s ;
 		if(win)	s="true";
 		else	s="false";
@@ -291,8 +287,8 @@ public class Player implements CanMove{
 
 		System.out.println("win: " + s);
 		System.out.println("items: " + );*/
-		return result;
-	}
+		/*return result;
+	}*/
 	
 	public boolean Win() {
 		if(win==true)
@@ -300,7 +296,14 @@ public class Player implements CanMove{
 		return false;
 	}
 	
-	public ArrayList<Inventory> getItems(){
+	@Override
+	public boolean GetWin() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ArrayList<Inventory> GetItems(){
 		return items;
 	}
 
