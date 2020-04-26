@@ -16,8 +16,7 @@ jégmezőn tartózkodik, illetve az elérhető maximális testő értékét (5).
 public class Eskimo extends Player {
 	/**
 	 * 
-	 * @param field	Ahova az eszkimót ledobjuk a pályán. 
-	 * @param tab	Indentálást jelzi. 
+	 * @param field	Ahova az eszkimót ledobjuk a pályán.
 	 */
 	public Eskimo() {
 		super(5);
@@ -25,7 +24,6 @@ public class Eskimo extends Player {
 	
 	/**
 	 * Az eszkimo UseAbility fuggvenye egy iglut epit a mezore, amennyiben azon meg nincsen. Ez egy munkaba kerul.
-	 * @param tab	Az indentalast jelzi.
 	 */
 	public void UseAbility() {
 		int a = this.GetNumOfAction();

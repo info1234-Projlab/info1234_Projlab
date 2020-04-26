@@ -1,0 +1,16 @@
+e1 attributes:
+hp: 4
+numberOfAction: 4
+maxHp: 5
+win: false
+field: f3
+items: 
+f3 attributes:
+capacity: 2
+snowLayer: 2
+visibleCapacity: false
+numOfPlayers: 1
+neighbourFields: f1, f2, f4, f5, f6
+canmoves: e1
+items: 
+shelter: 

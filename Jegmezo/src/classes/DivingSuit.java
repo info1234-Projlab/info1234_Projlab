@@ -53,6 +53,9 @@ public class DivingSuit extends Item {
 		return false;
 	}
 	
+/**
+ * Ha nincs szukseg buvaruhara akkor lehetoseg van eldobni, hogy mas jatekos felvehesse
+ */
 	public void Drop(Player p) {
 		p.RemoveItem(this);
 		isOn=false;

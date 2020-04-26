@@ -2,6 +2,16 @@ package classes;
 
 import java.util.ArrayList;
 
+/**
+ * Mivel az uj szereplonk, a jegesmedve is egy mozgo szeplo azonban
+ *  nem ugyan olyan tulajdonsaggal rendelkezik mint a tobbi karakter,
+ *   hiszen csak move fuggvenye van. Ezert a kozos tulajdonsagaikat 
+ *   ezzel az interfesszel foglaljuk ossze, de igy nem kell a 
+ *   jegesmedvet karakternek tekintenunk, mint egy eszkimot vagy egy
+ *    sakkutatot.
+ *
+ */
+
 public interface CanMove {
 	
 	public void Move(Field f);
@@ -20,9 +30,7 @@ public interface CanMove {
 	public void PutOnDivingSuit();
 	public void Eat();
 	public void SetNumOfAction(int num);
-//	public String List();
 	public boolean Win();
-//	public String GetName();
 	public boolean GetWin();
 	public ArrayList<Inventory> GetItems();
 	public int GetHP();

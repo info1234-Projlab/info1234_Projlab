@@ -2,30 +2,47 @@ package classes;
 
 import java.util.ArrayList;
 
+/**
+ * Ugyan olyan szereplő mint a player azonban a jegesmedve véletlen 
+ * szerűen mozog a pályán, körönként egyet lép. Ha egy mezőn tartózkodik 
+ * egy játékossal akkor akkor elkapja és vége a játéknak. Az iglu megvédi 
+ * ellene a játékosokat, de a sátorba be tud sétálni.  A jegesmedve bárhova 
+ * léphet (bármilyen mezőfajtára), nem jelent többlet súlyt ha rálép egy mezőre. 
+ *
+ */
+
 public class PolarBear implements CanMove {
 	
 	private Field field;
 	
-	public PolarBear() {
-		
-		
+	public PolarBear() {	
 	}
 
+	/**
+	 * A jegesmedve mozgásáért felelős egyik mezőről a másikra lépés 
+	 * során. A maci bármilyen mezőre léphet, úszni is tud. Illetve 
+	 * a mackó nem jelent többlet súlyt egy mezőn, így miatta nem borulhat fel egy mező.
+
+	 */
 	@Override
 	public void Move(Field f) {
 		if(this.field.isNeighour(f)){
 			this.field.RemoveCreature(this);
 			f.AddCreature(this);
 			for (CanMove cm : f.GetCreatures()) {
-				if(!cm.GetField().DefendFromBear())	cm.SetHp(0);
+				if(!cm.GetField().GetShelter().DefendFromBear())
+					cm.SetHp(0);
 			}
 		}
 		
 	}
 
-
+/**
+ * true-val ter vissza jegesmacira lepes eseteben
+ */
 	public void StepOn(CanMove cm) {
-		if(!cm.GetField().DefendFromBear())	cm.SetHp(0);
+		if(!cm.GetField().GetShelter().DefendFromBear())
+			cm.SetHp(0);
 		
 	}
 	
@@ -47,10 +64,6 @@ public class PolarBear implements CanMove {
 
 	public void SetHp(int num) {
 		return;
-		
-	}
-	
-	public void Die() {
 		
 	}
 	
@@ -130,13 +143,18 @@ public class PolarBear implements CanMove {
 		return 0;
 	}
 
-	@Override
+/**
+ * A mackonak nem foglalkozunk az eletevel, nullara allitjuk
+ */
 	public int GetMaxHP() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
+/**
+ *Beallitja a maci mezojet a kapott mezore
+ * 
+ */
 	public void setField(Field f) {
 		this.field=f;	
 	}

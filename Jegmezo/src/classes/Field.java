@@ -21,8 +21,6 @@ igénybe.
  *
  */
 
-
-
 public class Field {
 	protected int capacity;
 	protected int snowLayer;
@@ -65,8 +63,7 @@ public class Field {
 	 * @return	Visszaadja a szomszedos mezok listajat.
 	 */
 	public ArrayList<Field> GetNeighbouringFields(){
-	
-	return neighbourFields;
+		return neighbourFields;
 	}
 	
 	public ArrayList<CanMove> GetCreatures(){
@@ -141,6 +138,10 @@ public class Field {
 		p.SetNumOfAction(p.GetNumOfAction()-1);
 	}
 	
+	/**
+	 * Kiveszi a field tarolojabol a parameterkent kapott targyat
+	 * @param i
+	 */
 	public void RemoveItem(Inventory i){
 		
 		items.remove(i);
@@ -160,8 +161,7 @@ public class Field {
 		}
 	}
 	
-	/*public boolean IsFull() {
-	}*/
+	
 	/**
 	 * Mezon tarolt jatekosok listajahoz hozzaad egy jatekos (aki eppen odament). 
 	 * @param p	Akit hozzaadunk a mezon levo jatekosok listajahoz.
@@ -170,7 +170,6 @@ public class Field {
 	public void AddCreature(CanMove c) {
 		creatures.add(c);
 		c.setField(this);
-		///Itt m�g vari�lni kell
 		++numOfPlayers;
 	}
 	
@@ -229,9 +228,13 @@ public class Field {
 		}
 			
 	}
-	
+	/**
+	 * Csokkenti a mezo horeteget egyel és ha 
+	 * targyak lathatova valtak akkor beallitja a 
+	 * lathatosagukat true-ra
+	 */
 	public void DecreaseLayer() {
-		snowLayer = snowLayer+1;
+		snowLayer = snowLayer-1;
 		for(int i=0; i<items.size(); i++) {
 			if(items.get(i).GetLayer()==snowLayer)
 				items.get(i).SetVisible(true);
@@ -252,13 +255,15 @@ public class Field {
 	/**
 	 * Ellenorzi, hogy szomszedos e a kapott mezo.
 	 * @param f
-	 * @param tab
 	 * @return ture: szomszedos, false: nem szomszedos.
 	 */
 	public boolean isNeighour(Field f){
 		return neighbourFields.contains(f);
 	}
 	
+	/**
+	 * Eltavolitja a menedekhelyet a mezorol
+	 */
 	public void RemoveShelter() {
 		shelter = null;
 	}
@@ -267,6 +272,12 @@ public class Field {
 		return shelter != null;
 	}
 	
+	/**
+	 * Ha a parameterul kapott item benne van a field tarolojaban
+	 * akkor igazzal ter vissza
+	 * @param i
+	 * @return
+	 */
 	public boolean hasItem(Inventory i){
 		return items.contains(i);
 	}
@@ -275,6 +286,10 @@ public class Field {
 		this.capacity=num;
 	}
 	
+	/**
+	 * A vihar megnöveli a horeteget egyel, ha nincs menedek akkor a mezon allo jatekosoknak
+	 * csokkenti az eletet egyel, ha van menedek akkor nem
+	 */
 	public void Storm() {
 		snowLayer += 1;
 		if(!this.hasShelter()){
@@ -284,67 +299,25 @@ public class Field {
 		}
 	}
 	
-	/*public String List() {
-		
-		String s ;
-		if(visibleCapacity)	s="true";
-		else	s="false";
-		
-	
-		String neigh = "";
-		for(int i = 0 ; i < neighbourFields.size() ; i++) {
-			neigh.concat(neighbourFields.get(i).GetName());
-			if(i != neighbourFields.size())	neigh.concat(",");
-		}
-		String canmoves = "";
-		for(int i = 0 ; i < creatures.size() ; i++) {
-			canmoves.concat(creatures.get(i).GetName());
-			if(i != creatures.size())	canmoves.concat(",");
-		}
-		String itemstring = "";
-		for(int i = 0 ; i < items.size() ; i++) {
-			itemstring.concat(items.get(i).GetName());
-			if(i != items.size())	itemstring.concat(",");
-		}
-		String shelters = "";
-		for(int i = 0 ; i < shelter.size() ; i++) {
-			shelters.concat(shelter.get(i).GetName());
-			if(i != shelter.size())	shelters.concat(",");
-		}
-		String result = name + " attributes:\n" + "capacity: " + capacity + "\n" + "snowLayer: " + snowLayer + "\n"
-				+ "visibleCapacity: " + s + "\n" +"numOfPlayers: " + players.size() + "\n" +
-				"neighbourFields: " + neigh + "\n" + "canmoves: " + canmoves + "\n" + "items: " + itemstring + "\n" +
-				"shelter: " + shelters;
-		/*System.out.println(name + " attributes:");
-		System.out.println("capacity: " + capacity);
-		System.out.println("snowLayer: " + snowLayer);
-		
-		System.out.println("visibleCapacity: " + s);
-		System.out.println("numOfPlayers: " + numOfPlayers);
-		System.out.println("neighbourfields: " + );  //TBD
-		System.out.println("canoves: " + );			//TBD
-		System.out.println("items: " + );			//TBD	
-		System.out.println("shelter: " + );			//TBD*/ 
-		
-	//	return result;
-		
-	//}
 	
 	public ArrayList<Inventory> GetItems() {
 		return items;
 		
 	}
 	
-	public boolean DefendFromBear() {		
-		return hasShelter();
-	}
-
+/**
+ * A vizbe esett jatekost eltavolitjuk a Hole-bol
+ */
 	public void PullFromHole(){
 		Iterator it = creatures.iterator();
 		while(it.hasNext()){
 				it.next();
 				it.remove();
 		}
+	}
+	
+	public Shelter GetShelter() {
+		return shelter;
 	}
 	
 }

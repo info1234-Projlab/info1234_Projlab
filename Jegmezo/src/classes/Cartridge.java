@@ -23,7 +23,6 @@ public class Cartridge extends FlareGun implements Inventory {
 	 * 
 	 * @param layer mennyi r�teg h� van a t�rgy felett
 	 * @param visible ez akkor igaz ha l�that�a t�rgy(nincs rajta h�
-	 * @param tab indent�l�s
 	 */
 	public Cartridge(int layer, boolean visible) {
 		super(layer,visible);
