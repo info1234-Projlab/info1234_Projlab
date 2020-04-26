@@ -187,8 +187,9 @@ public class Field {
 	 * @param tab	Indentalasra.
 	 */
 	public void AddShelter(Shelter s) {
-		if(CanBuildShelter())
+		if(CanBuildShelter()) {
 			shelter = s;
+		}
 		else
 			System.out.printf("Mar van rajta menedek! \n");
 	}
@@ -329,6 +330,11 @@ public class Field {
 		return items;
 		
 	}
+	
+	public boolean DefendFromBear() {		
+		return hasShelter();
+	}
+
 
 	
 }
