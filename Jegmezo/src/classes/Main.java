@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Main{
 	private static LinkedHashMap<String,Field> fields = new LinkedHashMap<String,Field>();
 	private static HashMap<String,CanMove> creatures = new HashMap<String,CanMove>();
-	//private static HashMap<String,PolarBear> polarBears = new HashMap<String,PolarBear>();
 	private static HashMap<String,Inventory> items = new HashMap<String,Inventory>();
 	
 	public static void main(String args[]) {
@@ -36,7 +35,6 @@ public class Main{
 			while (myReader.hasNextLine()) {
 			    String command = myReader.nextLine();
 			    RunCommand(command);
-			    //System.out.println(i++);
 			}
 			myReader.close();
 		}catch (FileNotFoundException e) {
@@ -55,13 +53,6 @@ public class Main{
 			 e.printStackTrace();
 		 }
 	}
-	
-	/*public static void Clear() {
-		Game.Clear();
-		fields.clear();
-		creatures.clear();
-		polarBears.clear();
-	}*/
 	
 	/**
 	 * @param data
@@ -125,9 +116,6 @@ public class Main{
 				else
 					WriteToFile("false: ", outputFile);
 				break;
-			/*case "Clear":
-				Clear();
-				break;*/
 			case "MoveCharacter": 
 				creatureName = command[1];
 				fieldName = command[2];
@@ -141,7 +129,6 @@ public class Main{
 				break;
 			case "PickUpItem":
 				creatureName = command[1];
-			//	Field field = creatures.get(creatureName).GetField();
 				creatures.get(creatureName).GetField().RemoveItem(creatures.get(creatureName));
 				break;
 			case "SetCapacity":
@@ -196,16 +183,6 @@ public class Main{
 				break;
 			
 				
-				//ez itt em tudom, hogy micsoda nekem ez conflict
-	
-	/*			item = command[2];
-				if(creatures.containsKey(creatureName) && items.containsKey(item)){
-					if(creatures.get(creatureName).field.hasItem(items.get(item))){
-						creatures.get(creatureName).AddItem(items.get(item));
-						creatures.get(creatureName).field.RemoveItem(items.get(item));
-					}
-				}
-				break;*/ 
 			case "FieldAddItem":
 				itemName = command[1];
 				fieldName = command[2];
@@ -242,10 +219,7 @@ public class Main{
 				
 				if(creatures.containsKey(object))	{
 	
-				/*	for (String i : creatures.keySet()) {
-					      if(creatures.get(i).IsDead())
-						    	  deadPlayer = i;
-					}*/
+
 					String comma = ", ";
 					
 					CanMove m = creatures.get(object);
@@ -303,7 +277,7 @@ public class Main{
 					ArrayList<CanMove> canmoves = f.GetCreatures();
 					for(String s : creatures.keySet()) {
 						if(creatures.get(s).GetField() == f ) {	canmovestring+=s;
-						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utols� akkor nincs vessz� 
+						if(canmoves.size()-1 != c )	{canmovestring+=comma;   
 							c++;
 						}
 						}
@@ -320,7 +294,7 @@ public class Main{
 						for(int i = 0 ; i < neighbourfields.size() ; i++) {
 							if(fields.get(s) == neighbourfields.get(i)) {
 								neighbourString+=s;
-								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utols� akkor nincs vessz� 
+								if(neighbourfields.size()-1 != c )	neighbourString+=comma;    
 								c++;
 							}
 							
