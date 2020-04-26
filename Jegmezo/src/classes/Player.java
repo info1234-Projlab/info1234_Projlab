@@ -103,8 +103,11 @@ public class Player implements CanMove{
 	public void Move(Field f) {	
 		//Szomszedos a celmezo
 		if(this.field.isNeighour(f)){
-			this.field.RemovePlayer(this);
+			this.field.RemoveCreature(this);
 			f.AddCreature(this);
+			for (CanMove cm : f.GetCreatures()) {
+				cm.StepOn(this);
+			}
 			this.field = f;
 			
 			//Lukba lepett e a jatekos
@@ -237,8 +240,7 @@ public class Player implements CanMove{
 
 
 	@Override
-	public void StepOnBear() {
-		// TODO Auto-generated method stub
+	public void StepOn(CanMove cm) {
 		
 	}
 	

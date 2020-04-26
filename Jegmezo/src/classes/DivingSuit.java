@@ -45,7 +45,7 @@ public class DivingSuit extends Item {
 	public boolean Swim(Player p) {
 			if(this.isOn){
 				p.field.neighbourFields.get(0).AddCreature(p);
-				p.field.RemovePlayer(p);
+				p.field.RemoveCreature(p);
 				p.SetField(p.field.neighbourFields.get(0));				
 				return true;
 			}

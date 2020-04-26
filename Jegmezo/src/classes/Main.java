@@ -120,10 +120,10 @@ public class Main{
 					      if(creatures.get(i).IsDead())
 					    	  deadPlayer = i;
 					}
-					WriteToFile("true " + deadPlayer, outputFile);
+					WriteToFile("true: " + deadPlayer, outputFile);
 				}
 				else
-					WriteToFile("false", outputFile);
+					WriteToFile("false: ", outputFile);
 				break;
 			/*case "Clear":
 				Clear();

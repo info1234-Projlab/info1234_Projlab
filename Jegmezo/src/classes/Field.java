@@ -180,8 +180,8 @@ public class Field {
 	 * @param p	Mezot elhagyo jatekos.
 	 * @param tab	Indentalasra.
 	 */
-	public void RemovePlayer(Player p) {
-		creatures.remove(p);
+	public void RemoveCreature(CanMove cm) {
+		creatures.remove(cm);
 		--numOfPlayers;
 	}
 	
