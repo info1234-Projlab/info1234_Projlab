@@ -102,7 +102,7 @@ public class Player implements CanMove{
 	 */
 	public void Move(Field f) {	
 		//Szomszedos a celmezo
-		if(this.field.isNeighour(f)){
+		if(this.field.isNeighour(f)&&this.GetNumOfAction()>0){
 			this.field.RemoveCreature(this);
 			f.AddCreature(this);
 			for (CanMove cm : f.GetCreatures()) {
