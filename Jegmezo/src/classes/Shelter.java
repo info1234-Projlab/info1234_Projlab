@@ -1,13 +1,19 @@
 package classes;
-
+/**
+ * Ez az interfész egységbe foglalja a menedék tárgyak vizsgálandó tulajdonságait.
+ *
+ */
 public interface Shelter {
+
 	/**
-	 * Visszaadja, hogy a jelenlegi menedék véd-e a jegesmedve ellen.
+	 * A menedékeket vizsgálatáért felelős, hogy
+védelmet nyújtanak-e a jegesmacitól.
+	 * 
 	 */
 	public boolean DefendFromBear();
 	/**
-	 * Megsemmisíti a menedéket, ha az egy sátor.
-	 * @param num a kör száma
+	 * Egy kör után a ShelterTent megszüntetésére szolgál.
+Iglu esetében nem történik semmi.
 	 */
 	public void DestroyTent(int num);
 

@@ -37,7 +37,9 @@ public class FlareGun implements Inventory {
 		this.components=new ArrayList<FlareGun>();
 	}
 	
-	
+	/**
+	 * Elsuti a fegyvert. 
+	 */
 	public boolean Shoot(Player p) {
 		if (p.GetNumOfAction() <= 0)
 			return false;
