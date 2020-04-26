@@ -1,7 +1,0 @@
-e1 attributes:
-hp: 5
-numberOfAction: 1
-maxHp: 5
-win: false
-field: f1
-items: 

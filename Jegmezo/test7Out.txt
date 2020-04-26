@@ -1,9 +1,0 @@
-f5 attributes:
-capacity: 8
-snowLayer: 1
-visibleCapacity: false
-numOfPlayers: 1
-neighbourFields: f3,f4,f6,f8,f11,f12
-canmoves: e1
-items: r2
-shelter: 

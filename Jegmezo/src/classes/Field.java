@@ -45,7 +45,6 @@ public class Field {
 		this.items=new ArrayList<Inventory>();
 		this.neighbourFields=new ArrayList<Field>();
 		this.creatures=new ArrayList<CanMove>();
-		this.players=new ArrayList<Player>();
 		this.name = name;
 	}
 	/**
@@ -92,7 +91,7 @@ public class Field {
 			}
 		}
 		
-		for(Player p : players){
+		for(CanMove p : creatures){
 			p.SetHp(0);
 		}
 	}
@@ -104,10 +103,8 @@ public class Field {
 	 */
 	public boolean CanBuildShelter() {
 		if(this.capacity > 0 && this.shelter == null) {
-			System.out.printf("Igen, lehet iglut építeni! \n");
 			return true;
 		}else {
-			System.out.printf("Nem, sajnos ide nem lehet iglut építeni! \n");
 			return false;	
 		}
 	}

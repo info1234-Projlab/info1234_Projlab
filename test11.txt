@@ -50,6 +50,6 @@ SetLayer f13 1
 SetCapacity f3 1
 CharacterAddItem rope k1
 MoveCharacter e1 f1
-list f2 test9out.txt
-list e1 test9out.txt
-list k1 test9out.txt
+list f2 test11out.txt
+list e1 test11out.txt
+list k1 test11out.txt

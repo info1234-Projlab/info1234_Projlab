@@ -108,7 +108,7 @@ public class Player implements CanMove{
 			for (CanMove cm : f.GetCreatures()) {
 				cm.StepOn(this);
 			}
-			this.field = f;
+			//this.field = f;
 			numberOfAction--;
 			
 			//Lukba lepett e a jatekos
