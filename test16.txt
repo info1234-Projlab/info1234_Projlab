@@ -51,8 +51,8 @@ SetLayer f3 8
 CreateItem fs fragileshovel 1
 FieldAddItem fs f3 1
 PickUpItem e1
-Dig e1
-Dig e1
-Dig e1
+Dig e1 fs 
+Dig e1 fs
+Dig e1 fs
 list e1 test16out.txt
 list f3 test16out.txt

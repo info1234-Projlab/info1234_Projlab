@@ -141,7 +141,9 @@ public class Field {
 	}
 	
 	public void RemoveItem(Inventory i){
+		
 		items.remove(i);
+		
 	}
 	
 	/**

@@ -70,6 +70,7 @@ public class Item implements Inventory {
 	public void PickUp(CanMove p) {
 		p.AddItem(this);
 		p.GetField().RemoveItem(this);
+		
 	}
 	
 	/**

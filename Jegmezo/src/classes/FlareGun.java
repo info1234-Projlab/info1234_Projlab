@@ -83,6 +83,7 @@ public class FlareGun implements Inventory {
 	 */
 	public void PickUp(CanMove p) {
 		p.AddItem(this);
+		p.GetField().RemoveItem(this);
 		components.add(this);
 	}
 	

@@ -141,8 +141,8 @@ public class Main{
 				break;
 			case "PickUpItem":
 				creatureName = command[1];
-				Field field = creatures.get(creatureName).GetField();
-				field.RemoveItem(creatures.get(creatureName));
+			//	Field field = creatures.get(creatureName).GetField();
+				creatures.get(creatureName).GetField().RemoveItem(creatures.get(creatureName));
 				break;
 			case "SetCapacity":
 				String fName=command[1];
@@ -243,7 +243,7 @@ public class Main{
 					      if(creatures.get(i).IsDead())
 						    	  deadPlayer = i;
 					}*/
-					String comma = ",";
+					String comma = ", ";
 					
 					CanMove m = creatures.get(object);
 					String winstring ;
@@ -275,7 +275,7 @@ public class Main{
 					
 				}
 				else if(fields.containsKey(object)) {
-					String comma = ",";
+					String comma = ", ";
 					Field f = fields.get(object);
 					String visible ;
 					if(f.visibleCapacity)	visible="true";
