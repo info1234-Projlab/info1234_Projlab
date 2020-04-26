@@ -45,7 +45,6 @@ public class Field {
 		this.items=new ArrayList<Inventory>();
 		this.neighbourFields=new ArrayList<Field>();
 		this.creatures=new ArrayList<CanMove>();
-		this.shelter=new ArrayList<Shelter>();
 		this.players=new ArrayList<Player>();
 		this.name = name;
 	}
@@ -104,7 +103,7 @@ public class Field {
 	 * @return	Visszaadja, hogy lehet e iglut epiteni az adott mezore. 
 	 */
 	public boolean CanBuildIglu() {
-		if(this.capacity > 0 && this.hasIglu == false) {
+		if(this.capacity > 0 && this.shelter == null) {
 			System.out.printf("Igen, lehet iglut építeni! \n");
 			return true;
 		}else {

@@ -6,5 +6,4 @@ public interface Shelter {
 
 	public void DestroyTent(int num);
 
-	public String GetName();
 }
