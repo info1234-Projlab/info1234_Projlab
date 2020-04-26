@@ -13,6 +13,7 @@ public class Tent extends Item {
 		p.GetField().AddShelter(tent);
 		p.SetNumOfAction(p.GetNumOfAction()-1);
 		p.RemoveItem(this);
+		return true;
 	}
 
 }

@@ -141,7 +141,6 @@ public class Main{
 				break;
 			case "PickUpItem":
 				creatureName = command[1];
-				itemName = command[2];	
 				Field field = creatures.get(creatureName).GetField();
 				field.RemoveItem(creatures.get(creatureName));
 				break;
@@ -177,7 +176,6 @@ public class Main{
 				case "divingsuit":
 					items.put(itemName, new DivingSuit(layer,true));
 					break;
-<<<<<<< HEAD
 				case "food":
 					items.put(itemName, new Food(layer,true));
 					break;
@@ -190,17 +188,6 @@ public class Main{
 				case "fragileshovel":
 					items.put(itemName, new FragileShovel(layer,true));
 					break;
-=======
-				case "rope":
-					items.put(itemName, new Rope(layer,true));
-					break;
-				case "food":
-					items.put(itemName, new Food(layer,true));
-					break;
-				/*case "fragileshovel":
-					items.put(itemName, new FragileShovel(layer,true));
-					break;*/
->>>>>>> refs/remotes/origin/master
 				}
 				break;
 			case "UseAbility":
