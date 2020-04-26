@@ -83,7 +83,9 @@ public class Field {
 	 */
 	public void Fall() {
 		for(CanMove p : creatures){
-			p.SwimPlayer();
+			if (p.SwimPlayer()) {
+				return;
+			}
 		}
 		
 		for(Field f : neighbourFields){

@@ -184,10 +184,13 @@ public class Player implements CanMove{
 	 * A player osztaly SwimPlayer() metodusa, akkor hivodik meg, amikor beleesik egy jatekos a vizbe.
 	 * @param tab
 	 */
-	public void SwimPlayer() {
+	public boolean SwimPlayer() {
 		for(Inventory i : items){
-			i.Swim(this);
+			if(i.Swim(this)) {
+				return true;
+			}
 		}
+		return true;
 	}
 	
 	

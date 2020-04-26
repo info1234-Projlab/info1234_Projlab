@@ -10,7 +10,7 @@ public interface CanMove {
 	public void StartTurn(int numOfAction);
 	public void SetHp(int num);
 	public boolean IsDead();
-	public void SwimPlayer();
+	public boolean SwimPlayer();
 	public void PullPlayer(CanMove p);
 	public void UseAbility();
 	public void RemoveItem(Inventory i);

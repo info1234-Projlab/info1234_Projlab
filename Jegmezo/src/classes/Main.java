@@ -249,7 +249,7 @@ public class Main{
 					String comma = ", ";
 					
 					CanMove m = creatures.get(object);
-					String winstring ;
+					String winstring;
 					if(m.GetWin())	winstring="true";
 					else	winstring="false";
 					String itemstring="";
