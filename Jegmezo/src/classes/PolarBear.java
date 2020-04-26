@@ -30,8 +30,13 @@ public class PolarBear implements CanMove {
 			this.field.RemoveCreature(this);
 			f.AddCreature(this);
 			for (CanMove cm : f.GetCreatures()) {
-				if(!cm.GetField().GetShelter().DefendFromBear())
+				if(cm.GetField().GetShelter() != null) {
+					if (!cm.GetField().GetShelter().DefendFromBear())
+						cm.SetHp(0);
+				}
+				else
 					cm.SetHp(0);
+					
 			}
 		}
 		

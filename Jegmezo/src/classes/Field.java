@@ -80,7 +80,9 @@ public class Field {
 	 */
 	public void Fall() {
 		for(CanMove p : creatures){
-			p.SwimPlayer();
+			if (p.SwimPlayer())
+				return;
+			
 		}
 		Field iterF;
 		for(Field f : neighbourFields){
@@ -205,7 +207,6 @@ public class Field {
 	 */
 	public void SetVisibleCapacity(boolean bool) {
 		this.visibleCapacity = bool;
-		if(bool==true)	System.out.printf("A mező kapacitása: %d \n" , this.capacity);
 	}
 	
 	/**
