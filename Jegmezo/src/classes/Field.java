@@ -102,7 +102,7 @@ public class Field {
 	 * @param tab	Indentalasra
 	 * @return	Visszaadja, hogy lehet e iglut epiteni az adott mezore. 
 	 */
-	public boolean CanBuildIglu() {
+	public boolean CanBuildShelter() {
 		if(this.capacity > 0 && this.shelter == null) {
 			System.out.printf("Igen, lehet iglut építeni! \n");
 			return true;
@@ -188,13 +188,11 @@ public class Field {
 	 * @param b	Amennyiben valtozott a mezo iglu szempontjabol (pl. lett epitve ra), akkor megvaltoztatja a hasIglut valtozot.
 	 * @param tab	Indentalasra.
 	 */
-	public void SetHasIglu(boolean b) {
-		this.hasIglu = b ;
-		if(b == true) {
-			System.out.printf("Jelenleg van rajta iglu! \n");
-		}
+	public void AddShelter(Shelter s) {
+		if(CanBuildShelter())
+			shelter = s;
 		else
-			System.out.printf("Jelenleg nincs rajta iglu! \n");
+			System.out.printf("Mar van rajta menedek! \n");
 	}
 	
 	public boolean GetHasIglu() {
