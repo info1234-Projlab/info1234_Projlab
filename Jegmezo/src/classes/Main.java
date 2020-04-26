@@ -47,7 +47,7 @@ public class Main{
 	
 	public static void WriteToFile(String result, File file) {
 		 try {
-			 FileWriter myWriter = new FileWriter(file);
+			 FileWriter myWriter = new FileWriter(file,true);
 			 myWriter.write(result);
 			 myWriter.close();
 		 } catch (IOException e) {

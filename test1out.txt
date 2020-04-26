@@ -5,3 +5,10 @@ maxHp: 4
 win: false
 field: f3
 items: 
+k1 attributes:
+hp: 4
+numberOfAction: 3
+maxHp: 4
+win: false
+field: f3
+items: 
