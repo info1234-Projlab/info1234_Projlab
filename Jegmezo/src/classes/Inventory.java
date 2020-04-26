@@ -31,5 +31,5 @@ public interface Inventory {
 	
 	public boolean GetVisible();
 
-	public String GetName();
+//	public String GetName();
 }

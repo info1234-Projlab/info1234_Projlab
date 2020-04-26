@@ -115,9 +115,9 @@ public class FlareGun implements Inventory {
 
 
 	@Override
-	public String GetName() {
+	public boolean Pull(CanMove p, Field to) {
 		// TODO Auto-generated method stub
-		return null;
+		return false;
 	}
 
 }

@@ -100,12 +100,12 @@ public class Item implements Inventory {
 		return visible;
 	}
 	
-	public boolean Pull(Player p) {
+
+	@Override
+	public boolean Pull(CanMove p, Field to) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 	
-	public String GetName() {
-		return name;
-	}
 
 }
