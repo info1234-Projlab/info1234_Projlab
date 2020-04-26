@@ -23,7 +23,6 @@ igénybe.
 public class Field {
 	protected int capacity;
 	protected int snowLayer;
-	protected boolean hasIglu;
 	protected boolean visibleCapacity;
 	protected int numOfPlayers;
 	protected ArrayList<Field> neighbourFields;
