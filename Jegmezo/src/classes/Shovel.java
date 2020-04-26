@@ -30,7 +30,7 @@ public class Shovel extends Item {
 	 * @param p     Az a játékos, aki ás az ésóval. 
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public boolean Dig(Player p) {
+	public boolean Dig(CanMove p) {
 		if (p.GetNumOfAction() <= 0)
 			return false;
 		p.SetNumOfAction(p.GetNumOfAction() - 1);
