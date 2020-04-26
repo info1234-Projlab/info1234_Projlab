@@ -48,7 +48,6 @@ SetLayer f11 1
 SetLayer f12 1 
 SetLayer f13 1 
 SetCapacity f3 1
-
 UseAbility e1
 StartStorm f3
-list e1 test13out_explorer.txt
+list e1 test13out.txt

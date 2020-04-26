@@ -50,3 +50,4 @@ SetLayer f13 1
 SetCapacity f3 1
 MoveCharacter k1 f3 
 list k1 test1out.txt
+list e1 test1out.txt

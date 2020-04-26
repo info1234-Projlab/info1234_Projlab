@@ -48,7 +48,6 @@ SetLayer f11 1
 SetLayer f12 1 
 SetLayer f13 1 
 SetCapacity f3 1
-
 UseAbility k1
-list f2 test9out_kutato.txt
-list k1 test9out_field.txt
+list f2 test9out.txt
+list k1 test9out.txt
