@@ -152,7 +152,6 @@ public class Main{
 				fields.get(fName).SetCapacity(capacity);
 				break;
 			case "CreateGame":
-				System.out.println("Item");
 				ArrayList<Field> boardfield=new ArrayList<Field>(fields.values());
 				Board board=new Board(boardfield);
 				ArrayList<CanMove> cMove=new ArrayList<CanMove>(creatures.values());
@@ -195,7 +194,6 @@ public class Main{
 				}
 				break;*/ 
 			case "FieldAddItem":
-				System.out.println("Item");
 				itemName = command[1];
 				fieldName = command[2];
 				fields.get(fieldName).AddItem(items.get(itemName));
@@ -237,8 +235,13 @@ public class Main{
 							}
 					}
 					String result;
+					String fieldstring="";
+					for(String i : fields.keySet()) {
+						if(m.GetField() == fields.get(i))	fieldstring = i ;
+					}
 					result = object + " attributes:\n" + "hp: " + m.GetHP() + "\n" + "numberOfAction: " + m.GetNumOfAction()
-							+ "\n" + "maxHp: " + m.GetMaxHP() + "\n" + "win: " + winstring + "\n" + "items: " + itemstring + "\n";
+							+ "\n" + "maxHp: " + m.GetMaxHP() + "\n" + "win: " + winstring + "\n" + "field: " + fieldstring + 
+							"\n" + "items: "+ itemstring + "\n";
 					WriteToFile(result, outFile);
 					
 				}

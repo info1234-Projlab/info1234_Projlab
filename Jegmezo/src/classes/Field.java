@@ -57,7 +57,6 @@ public class Field {
 	 */
 	public void AddNeighbour(Field neighbour) {
 		neighbourFields.add(neighbour);
-		System.out.println("added");
 	}
 	
 	/**

@@ -3,4 +3,5 @@ hp: 5
 numberOfAction: 4
 maxHp: 5
 win: false
+field: f3
 items: 
