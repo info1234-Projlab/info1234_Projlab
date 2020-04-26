@@ -142,5 +142,11 @@ public class PolarBear implements CanMove {
 		this.field=f;	
 	}
 
+	@Override
+	public void DigPlayer(int layers) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
