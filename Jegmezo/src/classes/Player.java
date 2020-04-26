@@ -190,7 +190,7 @@ public class Player implements CanMove{
 				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 	
