@@ -222,9 +222,12 @@ public class Main{
 					}
 				}
 				else 	{
+					
 					itemName = command[2];
-					if(items.containsKey(itemName) && creatures.containsKey(creatureName))
+					if(items.containsKey(itemName) && creatures.containsKey(creatureName)) {
 						items.get(itemName).Dig(creatures.get(creatureName));
+						System.out.println("digshovel");	
+					}
 					break;
 				}
 			case "SetPlayerHp":
