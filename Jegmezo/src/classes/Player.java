@@ -178,7 +178,6 @@ public class Player implements CanMove{
 	public void DigPlayer(int layers) {    //csökkenti a field layerét
 		field.SetLayer(field.GetLayer()-layers);
 		field.DigItems(layers);
-		System.out.println("digplayer");
 	}
 	
 	/**
