@@ -28,7 +28,7 @@ public class Field {
 	protected ArrayList<Field> neighbourFields;
 	private ArrayList<CanMove> creatures;
 	private ArrayList<Inventory> items;
-	private ArrayList<Shelter> shelter;
+	private Shelter shelter;
 	private ArrayList<Player> players;
 	protected String name;
 	
