@@ -19,11 +19,11 @@ CreateCharacter k1 explorer
 CreateCharacter k2 explorer             
 CreateCharacter m1 polarbear
 SetCurrentPlayer e1
-CreateItem s shovel 2
+CreateItem shovel shovel 2
 CreateItem r1 gun 2
 CreateItem r2 flare 2
 CreateItem r3 cartridge 2
-FieldAddItem s f8 1 
+FieldAddItem shovel f8 1 
 FieldAddItem r1 f10 1
 FieldAddItem r2 f5 1
 FieldAddItem r3 f13 1
