@@ -101,6 +101,7 @@ public class Player implements CanMove{
 	 * @param tab
 	 */
 	public void Move(Field f) {	
+
 		//Szomszedos a celmezo
 		if(this.field.isNeighour(f)&&this.GetNumOfAction()>0){
 			this.field.RemoveCreature(this);
@@ -114,8 +115,9 @@ public class Player implements CanMove{
 			//Lukba lepett e a jatekos
 			if(f.IsFall()){
 				f.Fall();
-				
+				this.field.AddCreature(this);
 			}
+			
 			//Ha nem, a lepes sikeres
 			else{
 				//System.out.println("A jatekos atlepett a mezore");
@@ -199,9 +201,9 @@ public class Player implements CanMove{
 	 * @param tab
 	 * @param p
 	 */
-	public void PullPlayer(CanMove p) {
+	public void PullPlayer(Field from) {
 		for(Inventory i : items)
-			i.Pull(p, this.field);
+			i.Pull(from, this.field);
 	}
 	
 	public void DecreaseAction() {

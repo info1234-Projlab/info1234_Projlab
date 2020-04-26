@@ -1,4 +1,6 @@
 package classes;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -21,12 +23,14 @@ public class Rope extends Item {
 	 * @return mindig igazzal ter vissza, ezzel jelezzuk, hogy meghivodott egy Rope osztalybeli Pull fuggveny
 	 */
 	
-	public boolean Pull(CanMove p, Field to) {
-		
-		p.GetField().RemoveCreature(p);
-		
-		p.setField(to);
-		
+	public boolean Pull(Field from, Field to) {
+
+		for(Iterator it = from.GetCreatures().iterator();it.hasNext(); ){
+			CanMove cm = (CanMove)it.next();
+			cm.setField(to);
+			//to.AddCreature(cm);
+		}
+		from.PullFromHole();
 		return true;
 	}
 }

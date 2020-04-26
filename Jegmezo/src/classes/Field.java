@@ -83,21 +83,12 @@ public class Field {
 	 */
 	public void Fall() {
 		for(CanMove p : creatures){
-			if (p.SwimPlayer()) {
-				return;
-			}
+			p.SwimPlayer();
 		}
-		
+		Field iterF;
 		for(Field f : neighbourFields){
 			for(CanMove p : f.creatures){
-				Iterator<CanMove> itr = creatures.iterator();
-				while (itr.hasNext()){
-					CanMove cm = (CanMove)itr.next();
-					p.PullPlayer(cm);
-				}
-				/*for(CanMove resP : creatures){
-					p.PullPlayer(resP);
-				}*/
+				p.PullPlayer(this);
 			}
 		}
 		
@@ -348,6 +339,12 @@ public class Field {
 		return hasShelter();
 	}
 
-
+	public void PullFromHole(){
+		Iterator it = creatures.iterator();
+		while(it.hasNext()){
+				it.next();
+				it.remove();
+		}
+	}
 	
 }
