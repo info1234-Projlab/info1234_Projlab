@@ -53,10 +53,7 @@ public class DivingSuit extends Item {
 		return false;
 	}
 	
-	public void Drop(Player p, int tab) {
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.printf("A DivngSuit osztaly Drop(p:Player):void hivodott meg\n");
+	public void Drop(Player p) {
 		p.RemoveItem(this);
 		isOn=false;
 	}

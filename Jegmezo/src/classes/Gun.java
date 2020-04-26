@@ -27,6 +27,6 @@ public class Gun extends FlareGun implements Inventory {
 	 * @param tab indentalas
 	 */
 	public Gun(int layer, boolean visible) {
-	super(layer,visible);
+		super(layer,visible);
 	}
 }

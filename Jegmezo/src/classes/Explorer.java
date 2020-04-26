@@ -26,7 +26,6 @@ public class Explorer extends Player {
 	 */
 	public void UseAbility() {
 		int a = this.GetNumOfAction();
-		if(a == 0 ) { System.out.printf("Nem tud akciót végrehajtani! \n");}
 		if(a > 0 ) {
 			this.GetField().SetVisibleCapacity(true);
 			this.DecreaseAction();

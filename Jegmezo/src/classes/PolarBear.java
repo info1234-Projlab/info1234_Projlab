@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class PolarBear implements CanMove {
 	
 	private Field field;
-	private String name; 
 	
 	public PolarBear() {
 		

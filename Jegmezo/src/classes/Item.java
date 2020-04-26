@@ -103,7 +103,6 @@ public class Item implements Inventory {
 
 	@Override
 	public boolean Pull(CanMove p, Field to) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	

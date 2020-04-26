@@ -9,7 +9,7 @@ public interface Inventory {
 	
 	public boolean Dig(CanMove canMove);
 	
-	public boolean Pull(Field f, Field to);
+	public boolean Pull(CanMove p, Field to);
 	
 	public boolean PutOn(Player p);
 	
@@ -30,6 +30,4 @@ public interface Inventory {
 	public void SetVisible(boolean b);
 	
 	public boolean GetVisible();
-
-//	public String GetName();
 }
