@@ -1,4 +1,11 @@
 package classes;
+/**
+ * A törékeny ásó tárgy birtoklásának és elvesztésének következményeinek kezelése.
+Ha valaki használja akkor két réteg havat takarít el a mezőről azonban három
+használat után eltörik és nem lehet használni. Megjegyzés: ezt az ásót akkor
+használja a játékos ha nincs nála rendes ásó.
+ *
+ */
 
 public class FragileShovel extends Item{
 	
@@ -9,6 +16,12 @@ public class FragileShovel extends Item{
 		lifetime = 3;
 	}
 	
+	/**
+	 * A függvény meghívására, ha a törékeny
+ásónknak még nem nulla a lifetime értéke, akkor a játékos két réteg
+havat/jeget takaríthat el a mezőről. Ezen kívül a lifetime értéke eggyel
+csökken. (a többi item esetében false-al tér vissza).
+	 */
 	public boolean Dig(CanMove p) {
 			if (p.GetNumOfAction() <= 0)
 				return false;
@@ -19,7 +32,10 @@ public class FragileShovel extends Item{
 				p.RemoveItem(this);
 			return true;
 	}
-		
+	/**
+	 * eggyel csökkenti a lifetime attribútumának értékét.
+	 *	Többit lásd Item ősosztálynál	
+	 */
 	public void DeceaseLifeTime() {
 		lifetime--;
 	}

@@ -28,7 +28,6 @@ public class Food extends Item {
 	 * 
 	 * A függvény meghívására a játékosnak egyel megnő a testhője, hogyha ez lehetséges (nem érte még el a maximumot).
 	 * @param p     Az a játékos, aki megeszi az ételt. 
-	 * @param tab	Indentálást jelzi. 
 	 */
 	public boolean Eat(Player p) {
 		if (p.GetNumOfAction() <= 0)
