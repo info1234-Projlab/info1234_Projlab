@@ -196,9 +196,6 @@ public class Field {
 			System.out.printf("Mar van rajta menedek! \n");
 	}
 	
-	public boolean GetHasIglu() {
-		return hasIglu;
-	}
 	
 	/**
 	 * A kutato kepessege hasznalata utan lathato, hogy hany embert bir el az adott mezo.
@@ -222,7 +219,7 @@ public class Field {
 	}
 	
 	public void IncreaseLayer() {
-		if(shelter.size()==0) {
+		if(shelter != null) {
 			snowLayer = snowLayer+1;
 			for(int i=0; i<items.size(); i++) {
 				items.get(i).SetVisible(false);
@@ -261,11 +258,11 @@ public class Field {
 	}
 	
 	public void RemoveShelter() {
-		shelter.remove(0);
+		shelter = null;
 	}
 	
 	public boolean hasShelter() {
-		return shelter.size() != 0;
+		return shelter != null;
 	}
 	
 	public boolean hasItem(Inventory i){

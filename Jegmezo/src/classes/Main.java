@@ -183,9 +183,9 @@ public class Main{
 				case "food":
 					items.put(itemName, new Food(layer,true));
 					break;
-				case "fragileshovel":
+				/*case "fragileshovel":
 					items.put(itemName, new FragileShovel(layer,true));
-					break;
+					break;*/
 				}
 				break;
 			case "UseAbility":
@@ -308,7 +308,7 @@ public class Main{
 						
 					}
 					String shelters;
-					if(f.hasIglu)	shelters = "iglu";
+					if(f.hasShelter())	shelters = "iglu";
 					else	shelters= "";
 					
 					
