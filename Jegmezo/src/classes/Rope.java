@@ -9,11 +9,8 @@ package classes;
  */
 public class Rope extends Item {
 	
-	public Rope(int layer, boolean visible, int tab) {
+	public Rope(int layer, boolean visible) {
 		super(layer, visible);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Rope osztaly konstruktora hivodott meg.");
 	}
 	
 	/**

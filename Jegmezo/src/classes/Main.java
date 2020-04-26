@@ -174,6 +174,18 @@ public class Main{
 				case "flare":
 					items.put(itemName, new Flare(layer,true));
 					break;
+				case "divingsuit":
+					items.put(itemName, new DivingSuit(layer,true));
+					break;
+				case "rope":
+					items.put(itemName, new Rope(layer,true));
+					break;
+				case "food":
+					items.put(itemName, new Food(layer,true));
+					break;
+				case "fragileshovel":
+					items.put(itemName, new FragileShovel(layer,true));
+					break;
 				}
 				break;
 			case "UseAbility":
@@ -270,7 +282,7 @@ public class Main{
 					ArrayList<CanMove> canmoves = f.GetCreatures();
 					for(String s : creatures.keySet()) {
 						if(creatures.get(s).GetField() == f ) {	canmovestring+=s;
-						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utolsó akkor nincs vesszõ 
+						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utolsï¿½ akkor nincs vesszï¿½ 
 							c++;
 						}
 						}
@@ -287,7 +299,7 @@ public class Main{
 						for(int i = 0 ; i < neighbourfields.size() ; i++) {
 							if(fields.get(s) == neighbourfields.get(i)) {
 								neighbourString+=s;
-								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utolsó akkor nincs vesszõ 
+								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utolsï¿½ akkor nincs vesszï¿½ 
 								c++;
 							}
 							
