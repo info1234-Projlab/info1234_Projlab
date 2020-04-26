@@ -1,0 +1,14 @@
+k1 attributes:
+hp: 0
+numberOfAction: 3
+maxHp: 4
+win: false
+field: f3
+items: 
+e1 attributes:
+hp: 0
+numberOfAction: 4
+maxHp: 5
+win: false
+field: f3
+items: 

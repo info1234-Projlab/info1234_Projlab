@@ -1,5 +1,4 @@
-CreateGame game
-CreateBoard board
+CreateGame
 CreateField f1 hole
 CreateField f2 stable
 CreateField f3 unstable 

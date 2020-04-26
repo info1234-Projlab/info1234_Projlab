@@ -1,0 +1,7 @@
+e1 attributes:
+hp: 5
+numberOfAction: 0
+maxHp: 5
+win: true
+field: f13
+items: r2, r1, r3

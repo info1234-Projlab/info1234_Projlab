@@ -1,0 +1,9 @@
+f3 attributes:
+capacity: 2
+snowLayer: 1
+visibleCapacity: false
+numOfPlayers: 1
+neighbourFields: f1, f2, f4, f5, f6
+canmoves: e1
+items: 
+shelter: iglu
