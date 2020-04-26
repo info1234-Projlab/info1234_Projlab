@@ -84,7 +84,6 @@ public class FlareGun implements Inventory {
 	public void PickUp(CanMove p) {
 		p.AddItem(this);
 		components.add(this);
-		System.out.println(components.size());
 	}
 	
 	public void DecreaseLayer(int i) {

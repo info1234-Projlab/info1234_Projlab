@@ -5,3 +5,31 @@ maxHp: 5
 win: false
 field: f13
 items: 
+e1 attributes:
+hp: 2
+numberOfAction: 1
+maxHp: 5
+win: false
+field: f13
+items: 
+e1 attributes:
+hp: 2
+numberOfAction: 1
+maxHp: 5
+win: false
+field: f13
+items: r2,,,,,,,r1,,r3,,,
+e1 attributes:
+hp: 2
+numberOfAction: 1
+maxHp: 5
+win: false
+field: f13
+items: r2,r1,r3,
+e1 attributes:
+hp: 2
+numberOfAction: 1
+maxHp: 5
+win: false
+field: f13
+items: r2,r1,r3

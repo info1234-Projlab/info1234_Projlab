@@ -47,7 +47,9 @@ SetLayer f10 1
 SetLayer f11 1 
 SetLayer f12 1 
 SetLayer f13 1 
-SetLayer f3 6
+SetLayer f3 8
+CreateItem fs fragileshovel 1
+FieldAddItem fs f3 1
 PickUpItem e1
 Dig e1
 Dig e1

@@ -243,6 +243,7 @@ public class Main{
 					      if(creatures.get(i).IsDead())
 						    	  deadPlayer = i;
 					}*/
+					String comma = ",";
 					
 					CanMove m = creatures.get(object);
 					String winstring ;
@@ -254,8 +255,11 @@ public class Main{
 					for(int i = 0 ; i < itemFromPlayer.size() ; i++) {
 						if(items.containsValue(itemFromPlayer.get(i)))
 							for(String s : items.keySet()) {
-								if(items.get(s) == itemFromPlayer.get(i))	itemstring.concat(s); 
-								if(i != itemFromPlayer.size())	itemstring.concat(",");
+								if(items.get(s) == itemFromPlayer.get(i)) {
+									itemstring+=s; 
+									if(i != itemFromPlayer.size()-1)	itemstring+=comma;
+								}
+								
 							}
 					}
 					}

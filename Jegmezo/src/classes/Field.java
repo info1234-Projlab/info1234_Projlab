@@ -187,8 +187,9 @@ public class Field {
 	 * @param tab	Indentalasra.
 	 */
 	public void AddShelter(Shelter s) {
-		if(CanBuildShelter())
+		if(CanBuildShelter()) {
 			shelter = s;
+		}
 		else
 			System.out.printf("Mar van rajta menedek! \n");
 	}
@@ -272,8 +273,10 @@ public class Field {
 	
 	public void Storm() {
 		snowLayer += 1;
-		for (int i = 0; i < creatures.size(); i++) {
-			creatures.get(i).DecreaseHp();
+		if(!this.hasShelter()){
+			for (int i = 0; i < creatures.size(); i++) {
+				creatures.get(i).DecreaseHp();
+			}
 		}
 	}
 	
@@ -327,6 +330,11 @@ public class Field {
 		return items;
 		
 	}
+	
+	public boolean DefendFromBear() {		
+		return hasShelter();
+	}
+
 
 	
 }

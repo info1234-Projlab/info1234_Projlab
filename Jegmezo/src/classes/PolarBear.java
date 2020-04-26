@@ -18,7 +18,7 @@ public class PolarBear implements CanMove {
 			this.field.RemoveCreature(this);
 			f.AddCreature(this);
 			for (CanMove cm : f.GetCreatures()) {
-				cm.SetHp(0);
+				if(!cm.GetField().DefendFromBear())	cm.SetHp(0);
 			}
 		}
 		
@@ -26,7 +26,7 @@ public class PolarBear implements CanMove {
 
 
 	public void StepOn(CanMove cm) {
-		cm.SetHp(0);
+		if(!cm.GetField().DefendFromBear())	cm.SetHp(0);
 		
 	}
 	
