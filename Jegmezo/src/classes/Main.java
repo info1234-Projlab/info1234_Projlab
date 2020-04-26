@@ -211,10 +211,18 @@ public class Main{
 				break;
 			case "Dig":
 				creatureName = command[1];
-				itemName = command[2];
-				if(items.containsKey(itemName) && creatures.containsKey(creatureName))
-					items.get(itemName).Dig(creatures.get(creatureName));
-				break;
+				if(command.length == 2) {
+					if(creatures.containsKey(creatureName)) {
+						creatures.get(creatureName).DigPlayer(1);
+						break;
+					}
+				}
+				else 	{
+					itemName = command[2];
+					if(items.containsKey(itemName) && creatures.containsKey(creatureName))
+						items.get(itemName).Dig(creatures.get(creatureName));
+					break;
+				}
 			case "SetPlayerHp":
 				creatureName = command[1];
 				int hp = Integer.parseInt(command[2]);
