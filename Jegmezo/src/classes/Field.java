@@ -272,8 +272,10 @@ public class Field {
 	
 	public void Storm() {
 		snowLayer += 1;
-		for (int i = 0; i < creatures.size(); i++) {
-			creatures.get(i).DecreaseHp();
+		if(!this.hasShelter()){
+			for (int i = 0; i < creatures.size(); i++) {
+				creatures.get(i).DecreaseHp();
+			}
 		}
 	}
 	
