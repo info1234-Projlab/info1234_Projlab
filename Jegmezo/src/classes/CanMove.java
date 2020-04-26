@@ -29,5 +29,6 @@ public interface CanMove {
 	public int GetNumOfAction();
 	public int GetMaxHP();
 	public void setField(Field f);
+	public void DigPlayer(int layers);
 
 }

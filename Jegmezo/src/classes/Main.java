@@ -199,10 +199,18 @@ public class Main{
 				break;
 			case "Dig":
 				creatureName = command[1];
-				itemName = command[2];
-				if(items.containsKey(itemName) && creatures.containsKey(creatureName))
-					items.get(itemName).Dig(creatures.get(creatureName));
-				break;
+				if(command.length == 2) {
+					if(creatures.containsKey(creatureName)) {
+						creatures.get(creatureName).DigPlayer(1);
+						break;
+					}
+				}
+				else 	{
+					itemName = command[2];
+					if(items.containsKey(itemName) && creatures.containsKey(creatureName))
+						items.get(itemName).Dig(creatures.get(creatureName));
+					break;
+				}
 			case "SetPlayerHp":
 				creatureName = command[1];
 				int hp = Integer.parseInt(command[2]);
@@ -270,7 +278,7 @@ public class Main{
 					ArrayList<CanMove> canmoves = f.GetCreatures();
 					for(String s : creatures.keySet()) {
 						if(creatures.get(s).GetField() == f ) {	canmovestring+=s;
-						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utolsó akkor nincs vesszõ 
+						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utolsï¿½ akkor nincs vesszï¿½ 
 							c++;
 						}
 						}
@@ -287,7 +295,7 @@ public class Main{
 						for(int i = 0 ; i < neighbourfields.size() ; i++) {
 							if(fields.get(s) == neighbourfields.get(i)) {
 								neighbourString+=s;
-								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utolsó akkor nincs vesszõ 
+								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utolsï¿½ akkor nincs vesszï¿½ 
 								c++;
 							}
 							
