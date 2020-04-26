@@ -3,6 +3,9 @@ package classes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Iterator;
+
+
 
 /**
  * 
@@ -84,10 +87,15 @@ public class Field {
 		}
 		
 		for(Field f : neighbourFields){
-			for(Player p : f.players){
-				for(Player resP : players){
-					p.PullPlayer(resP);
+			for(CanMove p : f.creatures){
+				Iterator<CanMove> itr = creatures.iterator();
+				while (itr.hasNext()){
+					CanMove cm = (CanMove)itr.next();
+					p.PullPlayer(cm);
 				}
+				/*for(CanMove resP : creatures){
+					p.PullPlayer(resP);
+				}*/
 			}
 		}
 		
@@ -178,9 +186,10 @@ public class Field {
 	 * @param p	Mezot elhagyo jatekos.
 	 * @param tab	Indentalasra.
 	 */
-	public void RemoveCreature(CanMove cm) {
+	public void RemoveCreature(CanMove cm) {		
 		creatures.remove(cm);
 		--numOfPlayers;
+		
 	}
 	
 	/**

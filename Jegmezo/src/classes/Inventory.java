@@ -9,7 +9,7 @@ public interface Inventory {
 	
 	public boolean Dig(CanMove canMove);
 	
-	public boolean Pull(Player p, Field to);
+	public boolean Pull(CanMove p, Field to);
 	
 	public boolean PutOn(Player p);
 	

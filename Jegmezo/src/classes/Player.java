@@ -197,7 +197,7 @@ public class Player implements CanMove{
 	 * @param tab
 	 * @param p
 	 */
-	public void PullPlayer(Player p) {
+	public void PullPlayer(CanMove p) {
 		for(Inventory i : items)
 			i.Pull(p, this.field);
 	}
@@ -257,14 +257,6 @@ public class Player implements CanMove{
 			items.get(i).Eat(this);
 		}
 	}
-
-	@Override
-	public void PullPlayer(CanMove p) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-
 	
 	public void FireGun() {
 		this.numberOfAction--;

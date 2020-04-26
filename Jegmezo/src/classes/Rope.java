@@ -21,9 +21,12 @@ public class Rope extends Item {
 	 * @return mindig igazzal ter vissza, ezzel jelezzuk, hogy meghivodott egy Rope osztalybeli Pull fuggveny
 	 */
 	
-	public boolean Pull(Player p, Field to, int tab) {
-		p.field.RemoveCreature(p);
-		p.SetField(to);
+	public boolean Pull(CanMove p, Field to) {
+		
+		p.GetField().RemoveCreature(p);
+		
+		p.setField(to);
+		
 		return true;
 	}
 }
