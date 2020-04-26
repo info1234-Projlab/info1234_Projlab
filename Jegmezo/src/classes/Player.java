@@ -109,6 +109,7 @@ public class Player implements CanMove{
 				cm.StepOn(this);
 			}
 			this.field = f;
+			numberOfAction--;
 			
 			//Lukba lepett e a jatekos
 			if(f.IsFall()){
@@ -117,13 +118,13 @@ public class Player implements CanMove{
 			}
 			//Ha nem, a lepes sikeres
 			else{
-				System.out.println("A jatekos atlepett a mezore");
+				//System.out.println("A jatekos atlepett a mezore");
 				return;
 			}
 		}
 		//Ha nem szomszedos a celmezo
 		else{
-			System.out.println("Nem szomszedos mezore probalsz lepni.");
+			// System.out.println("Nem szomszedos mezore probalsz lepni.");
 			return;
 		}
 	}
