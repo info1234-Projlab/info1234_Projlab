@@ -49,4 +49,4 @@ SetLayer f12 1
 SetLayer f13 1 
 
 MoveCharacter e1 f5
-list f5 test7Out.txt
+list f5 test7out.txt
