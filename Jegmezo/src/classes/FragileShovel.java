@@ -6,6 +6,7 @@ public class FragileShovel extends Item{
 
 	public FragileShovel(int layer, boolean visible) {
 		super(layer, visible);
+		lifetime = 3;
 	}
 	
 	public boolean Dig(CanMove p) {

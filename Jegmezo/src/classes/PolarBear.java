@@ -60,7 +60,7 @@ public class PolarBear implements CanMove {
 
 
 	@Override
-	public void PullPlayer(CanMove p) {
+	public void PullPlayer(Field from) {
 		// TODO Auto-generated method stub
 		
 	}
