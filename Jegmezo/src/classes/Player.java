@@ -266,6 +266,7 @@ public class Player implements CanMove{
 
 	
 	public void FireGun() {
+		this.numberOfAction--;
 		for(Inventory i : items) {
 			i.Shoot(this);
 		}
@@ -303,7 +304,7 @@ public class Player implements CanMove{
 	@Override
 	public boolean GetWin() {
 		// TODO Auto-generated method stub
-		return false;
+		return win;
 	}
 
 	@Override

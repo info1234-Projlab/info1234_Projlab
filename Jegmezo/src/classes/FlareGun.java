@@ -44,7 +44,7 @@ public class FlareGun implements Inventory {
 		if (components.size() != 3) {
 			return false;
 		}
-		p.DecreaseHp();
+		p.SetNumOfAction(p.GetNumOfAction() - 1);
 		p.SetWin(true);
 		return true;
 		
@@ -84,6 +84,7 @@ public class FlareGun implements Inventory {
 	public void PickUp(CanMove p) {
 		p.AddItem(this);
 		components.add(this);
+		System.out.println(components.size());
 	}
 	
 	public void DecreaseLayer(int i) {
