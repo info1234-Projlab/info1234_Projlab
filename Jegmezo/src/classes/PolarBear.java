@@ -14,13 +14,19 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public void Move(Field f) {
-		// TODO Auto-generated method stub
+		if(this.field.isNeighour(f)){
+			this.field.RemoveCreature(this);
+			f.AddCreature(this);
+			for (CanMove cm : f.GetCreatures()) {
+				cm.SetHp(0);
+			}
+		}
 		
 	}
 
 
-	public void StepOnBear() {
-		// TODO Auto-generated method stub
+	public void StepOn(CanMove cm) {
+		cm.SetHp(0);
 		
 	}
 	
@@ -134,6 +140,12 @@ public class PolarBear implements CanMove {
 	@Override
 	public void setField(Field f) {
 		this.field=f;	
+	}
+
+	@Override
+	public void DigPlayer(int layers) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

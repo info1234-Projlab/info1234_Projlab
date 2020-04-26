@@ -22,7 +22,7 @@ public class Rope extends Item {
 	 */
 	
 	public boolean Pull(Player p, Field to, int tab) {
-		p.field.RemovePlayer(p);
+		p.field.RemoveCreature(p);
 		p.SetField(to);
 		return true;
 	}

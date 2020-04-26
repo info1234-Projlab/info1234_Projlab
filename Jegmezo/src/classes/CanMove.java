@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public interface CanMove {
 	
 	public void Move(Field f);
-	public void StepOnBear();
+	public void StepOn(CanMove cm);
 	public void DecreaseHp();
 	public void StartTurn(int numOfAction);
 	public void SetHp(int num);
@@ -29,5 +29,6 @@ public interface CanMove {
 	public int GetNumOfAction();
 	public int GetMaxHP();
 	public void setField(Field f);
+	public void DigPlayer(int layers);
 
 }

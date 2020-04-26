@@ -21,7 +21,7 @@ public interface Inventory {
 	
 	public void DecreaseLayer(int i);
 	
-	public void PickUp(Player p);
+	public void PickUp(CanMove p);
 	
 	public int GetLayer();
 	

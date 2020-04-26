@@ -23,13 +23,12 @@ igénybe.
 public class Field {
 	protected int capacity;
 	protected int snowLayer;
-	protected boolean hasIglu;
 	protected boolean visibleCapacity;
 	protected int numOfPlayers;
 	protected ArrayList<Field> neighbourFields;
 	private ArrayList<CanMove> creatures;
 	private ArrayList<Inventory> items;
-	private ArrayList<Shelter> shelter;
+	private Shelter shelter;
 	private ArrayList<Player> players;
 	protected String name;
 	
@@ -46,7 +45,6 @@ public class Field {
 		this.items=new ArrayList<Inventory>();
 		this.neighbourFields=new ArrayList<Field>();
 		this.creatures=new ArrayList<CanMove>();
-		this.shelter=new ArrayList<Shelter>();
 		this.players=new ArrayList<Player>();
 		this.name = name;
 	}
@@ -104,8 +102,8 @@ public class Field {
 	 * @param tab	Indentalasra
 	 * @return	Visszaadja, hogy lehet e iglut epiteni az adott mezore. 
 	 */
-	public boolean CanBuildIglu() {
-		if(this.capacity > 0 && this.hasIglu == false) {
+	public boolean CanBuildShelter() {
+		if(this.capacity > 0 && this.shelter == null) {
 			System.out.printf("Igen, lehet iglut építeni! \n");
 			return true;
 		}else {
@@ -136,12 +134,13 @@ public class Field {
 	 * Kiveszi a list�j�b�l azokat az Inventorykat amik a felsz�nen vannak �s visszaadja azokat.
 	 * amik l�that�ak azokon megh�vja a felvev� f�ggv�nyt
 	 */
-	public void RemoveItem(Player p) {
+	public void RemoveItem(CanMove p) {
 		for(int i=0; i<items.size(); i++) {
 			if(items.get(i).GetVisible()) {
 				items.get(i).PickUp(p);
 			}
 		}
+		p.SetNumOfAction(p.GetNumOfAction()-1);
 	}
 	
 	public void RemoveItem(Inventory i){
@@ -180,8 +179,8 @@ public class Field {
 	 * @param p	Mezot elhagyo jatekos.
 	 * @param tab	Indentalasra.
 	 */
-	public void RemovePlayer(Player p) {
-		creatures.remove(p);
+	public void RemoveCreature(CanMove cm) {
+		creatures.remove(cm);
 		--numOfPlayers;
 	}
 	
@@ -190,18 +189,13 @@ public class Field {
 	 * @param b	Amennyiben valtozott a mezo iglu szempontjabol (pl. lett epitve ra), akkor megvaltoztatja a hasIglut valtozot.
 	 * @param tab	Indentalasra.
 	 */
-	public void SetHasIglu(boolean b) {
-		this.hasIglu = b ;
-		if(b == true) {
-			System.out.printf("Jelenleg van rajta iglu! \n");
-		}
+	public void AddShelter(Shelter s) {
+		if(CanBuildShelter())
+			shelter = s;
 		else
-			System.out.printf("Jelenleg nincs rajta iglu! \n");
+			System.out.printf("Mar van rajta menedek! \n");
 	}
 	
-	public boolean GetHasIglu() {
-		return hasIglu;
-	}
 	
 	/**
 	 * A kutato kepessege hasznalata utan lathato, hogy hany embert bir el az adott mezo.
@@ -225,7 +219,7 @@ public class Field {
 	}
 	
 	public void IncreaseLayer() {
-		if(shelter.size()==0) {
+		if(shelter != null) {
 			snowLayer = snowLayer+1;
 			for(int i=0; i<items.size(); i++) {
 				items.get(i).SetVisible(false);
@@ -264,11 +258,11 @@ public class Field {
 	}
 	
 	public void RemoveShelter() {
-		shelter.remove(0);
+		shelter = null;
 	}
 	
 	public boolean hasShelter() {
-		return shelter.size() != 0;
+		return shelter != null;
 	}
 	
 	public boolean hasItem(Inventory i){

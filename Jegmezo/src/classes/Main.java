@@ -88,7 +88,7 @@ public class Main{
 						fields.put(fiName, new UnstableField(0, 0));
 						break;
 					case "stable":
-						fields.put(fiName, new StableField(0, 0));
+						fields.put(fiName, new StableField(8, 0));
 						break;
 				}
 				break;
@@ -120,10 +120,10 @@ public class Main{
 					      if(creatures.get(i).IsDead())
 					    	  deadPlayer = i;
 					}
-					WriteToFile("true " + deadPlayer, outputFile);
+					WriteToFile("true: " + deadPlayer, outputFile);
 				}
 				else
-					WriteToFile("false", outputFile);
+					WriteToFile("false: ", outputFile);
 				break;
 			/*case "Clear":
 				Clear();
@@ -141,10 +141,9 @@ public class Main{
 				break;
 			case "PickUpItem":
 				creatureName = command[1];
-				itemName = command[2];
-				creatures.get(creatureName).AddItem(items.get(itemName));
+				itemName = command[2];	
 				Field field = creatures.get(creatureName).GetField();
-				field.RemoveItem(items.get(itemName));
+				field.RemoveItem(creatures.get(creatureName));
 				break;
 			case "SetCapacity":
 				String fName=command[1];
@@ -178,6 +177,7 @@ public class Main{
 				case "divingsuit":
 					items.put(itemName, new DivingSuit(layer,true));
 					break;
+<<<<<<< HEAD
 				case "food":
 					items.put(itemName, new Food(layer,true));
 					break;
@@ -190,6 +190,17 @@ public class Main{
 				case "fragileshovel":
 					items.put(itemName, new FragileShovel(layer,true));
 					break;
+=======
+				case "rope":
+					items.put(itemName, new Rope(layer,true));
+					break;
+				case "food":
+					items.put(itemName, new Food(layer,true));
+					break;
+				/*case "fragileshovel":
+					items.put(itemName, new FragileShovel(layer,true));
+					break;*/
+>>>>>>> refs/remotes/origin/master
 				}
 				break;
 			case "UseAbility":
@@ -215,10 +226,18 @@ public class Main{
 				break;
 			case "Dig":
 				creatureName = command[1];
-				itemName = command[2];
-				if(items.containsKey(itemName) && creatures.containsKey(creatureName))
-					items.get(itemName).Dig(creatures.get(creatureName));
-				break;
+				if(command.length == 2) {
+					if(creatures.containsKey(creatureName)) {
+						creatures.get(creatureName).DigPlayer(1);
+						break;
+					}
+				}
+				else 	{
+					itemName = command[2];
+					if(items.containsKey(itemName) && creatures.containsKey(creatureName))
+						items.get(itemName).Dig(creatures.get(creatureName));
+					break;
+				}
 			case "SetPlayerHp":
 				creatureName = command[1];
 				int hp = Integer.parseInt(command[2]);
@@ -261,6 +280,7 @@ public class Main{
 					
 				}
 				else if(fields.containsKey(object)) {
+					String comma = ",";
 					Field f = fields.get(object);
 					String visible ;
 					if(f.visibleCapacity)	visible="true";
@@ -270,34 +290,48 @@ public class Main{
 					int c = 0 ;
 					for(String s : items.keySet()) {
 						
-						if(f.hasItem(items.get(s)))	itemstring.concat(s); 
-							if(f.GetItems().size()-1 != c )	itemstring.concat(",");
+						if(f.hasItem(items.get(s))) {	itemstring+=s; 
+							if(f.GetItems().size()-1 != c ) {	
+								itemstring+=comma;
+								c++;
+							}
 						
-						c++;
+						
+							}
 					}
 				
 					String canmovestring = "";
 					c = 0 ;
 					ArrayList<CanMove> canmoves = f.GetCreatures();
 					for(String s : creatures.keySet()) {
-						if(creatures.get(s).GetField() == f )	canmovestring.concat(s);
-						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utolsó akkor nincs vessző 
-						c++;
+						if(creatures.get(s).GetField() == f ) {	canmovestring+=s;
+						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utols� akkor nincs vessz� 
+							c++;
+						}
+						}
+						
+						
 					}
 					
 					String neighbourString = "";
+					
 					c = 0 ;
 					ArrayList<Field> neighbourfields = f.GetNeighbouringFields();
+					
 					for(String s : fields.keySet()) {
 						for(int i = 0 ; i < neighbourfields.size() ; i++) {
-							if(fields.get(s) == neighbourfields.get(i) )	neighbourString.concat(s);
+							if(fields.get(s) == neighbourfields.get(i)) {
+								neighbourString+=s;
+								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utols� akkor nincs vessz� 
+								c++;
+							}
+							
 						}
 						
-						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utolsó akkor nincs vessző 
-						c++;
+						
 					}
 					String shelters;
-					if(f.hasIglu)	shelters = "iglu";
+					if(f.hasShelter())	shelters = "iglu";
 					else	shelters= "";
 					
 					

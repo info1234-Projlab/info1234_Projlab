@@ -67,7 +67,7 @@ public class Item implements Inventory {
 	 * Ez pedig a t�rgyak felv�tel�re szolg�l. Teh�t ha valaki felvesz egy t�rgyat, 
 	 * a Field items t�rol�j�b�l �tker�l a Player items t�rol�j�ba.
 	 */
-	public void PickUp(Player p) {
+	public void PickUp(CanMove p) {
 		p.AddItem(this);
 	}
 	
