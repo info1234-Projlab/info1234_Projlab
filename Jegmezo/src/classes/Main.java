@@ -141,10 +141,9 @@ public class Main{
 				break;
 			case "PickUpItem":
 				creatureName = command[1];
-				itemName = command[2];
-				creatures.get(creatureName).AddItem(items.get(itemName));
+				itemName = command[2];	
 				Field field = creatures.get(creatureName).GetField();
-				field.RemoveItem(items.get(itemName));
+				field.RemoveItem(creatures.get(creatureName));
 				break;
 			case "SetCapacity":
 				String fName=command[1];
@@ -246,6 +245,7 @@ public class Main{
 					
 				}
 				else if(fields.containsKey(object)) {
+					String comma = ",";
 					Field f = fields.get(object);
 					String visible ;
 					if(f.visibleCapacity)	visible="true";
@@ -255,31 +255,45 @@ public class Main{
 					int c = 0 ;
 					for(String s : items.keySet()) {
 						
-						if(f.hasItem(items.get(s)))	itemstring.concat(s); 
-							if(f.GetItems().size()-1 != c )	itemstring.concat(",");
+						if(f.hasItem(items.get(s))) {	itemstring+=s; 
+							if(f.GetItems().size()-1 != c ) {	
+								itemstring+=comma;
+								c++;
+							}
 						
-						c++;
+						
+							}
 					}
 				
 					String canmovestring = "";
 					c = 0 ;
 					ArrayList<CanMove> canmoves = f.GetCreatures();
 					for(String s : creatures.keySet()) {
-						if(creatures.get(s).GetField() == f )	canmovestring.concat(s);
-						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utols√≥ akkor nincs vessz≈ë 
-						c++;
+						if(creatures.get(s).GetField() == f ) {	canmovestring+=s;
+						if(canmoves.size()-1 != c )	{canmovestring+=comma;   //ha utolsÛ akkor nincs vesszı 
+							c++;
+						}
+						}
+						
+						
 					}
 					
 					String neighbourString = "";
+					
 					c = 0 ;
 					ArrayList<Field> neighbourfields = f.GetNeighbouringFields();
+					
 					for(String s : fields.keySet()) {
 						for(int i = 0 ; i < neighbourfields.size() ; i++) {
-							if(fields.get(s) == neighbourfields.get(i) )	neighbourString.concat(s);
+							if(fields.get(s) == neighbourfields.get(i)) {
+								neighbourString+=s;
+								if(neighbourfields.size()-1 != c )	neighbourString+=comma;   //ha utolsÛ akkor nincs vesszı 
+								c++;
+							}
+							
 						}
 						
-						if(canmoves.size()-1 != c )	itemstring.concat(",");   //ha utols√≥ akkor nincs vessz≈ë 
-						c++;
+						
 					}
 					String shelters;
 					if(f.hasIglu)	shelters = "iglu";

@@ -134,12 +134,13 @@ public class Field {
 	 * Kiveszi a list�j�b�l azokat az Inventorykat amik a felsz�nen vannak �s visszaadja azokat.
 	 * amik l�that�ak azokon megh�vja a felvev� f�ggv�nyt
 	 */
-	public void RemoveItem(Player p) {
+	public void RemoveItem(CanMove p) {
 		for(int i=0; i<items.size(); i++) {
 			if(items.get(i).GetVisible()) {
 				items.get(i).PickUp(p);
 			}
 		}
+		p.SetNumOfAction(p.GetNumOfAction()-1);
 	}
 	
 	public void RemoveItem(Inventory i){

@@ -79,7 +79,7 @@ public class FlareGun implements Inventory {
 	 *   Teh�t, ha valaki felvesz egy t�rgyat, a Field items t�rol�j�b�l �tker�l a Player items t�rol�j�ba.
 	 *    Ezen k�v�l beteszi mag�t a saj�t components t�rol�j�ba is.
 	 */
-	public void PickUp(Player p) {
+	public void PickUp(CanMove p) {
 		p.AddItem(this);
 		components.add(this);
 	}
