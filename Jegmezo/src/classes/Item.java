@@ -28,7 +28,7 @@ public class Item implements Inventory {
 		return false;
 	}
 	
-	public boolean Pull(Player p, Field to) {
+	public boolean Pull(Field from, Field to) {
 		return false;
 	}
 	
@@ -101,11 +101,6 @@ public class Item implements Inventory {
 	}
 	
 
-	@Override
-	public boolean Pull(CanMove p, Field to) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 	
 
 }
