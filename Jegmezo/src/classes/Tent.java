@@ -15,9 +15,14 @@ public class Tent extends Item {
 	}
 	
 	/**
-	 * 
-	 * @param p
-	 * @return
+	 A sátor használata azt foglalja magába,
+hogy a játékos leteheti a mezőre ahol éppen áll. A felállításával védelmet nyújt
+a hóvihar ellen, de a jegesmedve támadással szemben nem.(A Többi item
+esetében false-al tér vissza). Ha felépítettük a sátrat akkor kivesszük a player
+items tárolójából. Majd létrehozunk egy ShelterTent (menedéksátor objektum
+példányt) és azt beletesszük annak a mezőnek a shelter tárolójába ahol
+éppen a játékos áll, természetesen akkor, ha a shelter tároló üres. Tehát nincs
+rajta sem sátor sem iglu.
 	 */
 	public boolean PutOnField(Player p) {
 		if(p.GetNumOfAction()<=0)

@@ -8,9 +8,8 @@ public class StableField extends Field {
 	
 	/**
 	 * Konstruktor
-	 * @param capacity
-	 * @param snowLayer
-	 * @param tab
+	 * @param capacity : mezo kapacitasa
+	 * @param snowLayer : mezon levo horeteg
 	 */
 	public StableField(int capacity, int snowLayer) {
 		super(capacity, snowLayer);
@@ -22,7 +21,9 @@ public class StableField extends Field {
 	public boolean IsFall(int tab) {
 		return false;
 	}
-	
+	/**
+	 * Nem valositjuk meg, stabilon soha nem esunk vizbe. 
+	 */
 	public void Fall() {
 	}
 }
