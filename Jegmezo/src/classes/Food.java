@@ -19,11 +19,8 @@ package classes;
 
 public class Food extends Item {
 
-	public Food(int layer,boolean visible, int tab) {
+	public Food(int layer,boolean visible) {
 		super(layer, visible);
-		for(int i=0; i<tab; i++)
-			System.out.print("\t");
-		System.out.println("A Food osztaly konstruktora hivodott meg");
 		
 	}
 	

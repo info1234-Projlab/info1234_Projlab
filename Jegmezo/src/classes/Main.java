@@ -175,6 +175,21 @@ public class Main{
 				case "flare":
 					items.put(itemName, new Flare(layer,true));
 					break;
+				case "divingsuit":
+					items.put(itemName, new DivingSuit(layer,true));
+					break;
+				case "food":
+					items.put(itemName, new Food(layer,true));
+					break;
+				case "rope":
+					items.put(itemName, new Rope(layer,true));
+					break;
+				case "tent":
+					items.put(itemName, new Tent(layer,true));
+					break;
+				case "fragileshovel":
+					items.put(itemName, new FragileShovel(layer,true));
+					break;
 				}
 				break;
 			case "UseAbility":

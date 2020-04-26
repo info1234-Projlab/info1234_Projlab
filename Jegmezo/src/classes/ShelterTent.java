@@ -6,9 +6,8 @@ private int round;
 private Field field;
 private String name;
 
-public ShelterTent(Field f, String s ) {
+public ShelterTent(Field f) {
 	this.field = f;
-	this.name = s;
 }
 
 public boolean DefendFromBear() {

@@ -41,11 +41,13 @@ public class FlareGun implements Inventory {
 	public boolean Shoot(Player p) {
 		if (p.GetNumOfAction() <= 0)
 			return false;
-		if (components.size() == 3) {
+		if (components.size() != 3) {
 			return false;
 		}
+		p.DecreaseHp();
 		p.SetWin(true);
 		return true;
+		
 		
 	}
 	
