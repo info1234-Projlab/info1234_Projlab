@@ -13,21 +13,23 @@ package classes;
 
 
 /**
- * Egy �instabil� mez�t reprezent�l, teh�t n�h�ny j�t�kost b�r el az adott mez�, de nem
- * az �sszeset.
+ * Egy instabil mezot reprezental, tehat nehany jatekost bir el az adott mezo, de nem
+ * az osszeset.
  */
 public class UnstableField extends Field {
 	
 	/**
 	 * Konstruktor
-	 * @param capacity
-	 * @param snowLayer
-	 * @param tab
+	 * @param capacity : megmondja, hany jatekost bir el 
+	 * @param snowLayer : a mezon levo ho retegeinek szama
+	 * 
 	 */
 	public UnstableField(int capacity, int snowLayer) {
 		super(capacity, snowLayer);
 	}
-	
+	/**
+	 * Ha tobben vannak a mezon, mint ahany jatekost elbir, akkor beleesnek a vizbe. 
+	 */
 	public boolean IsFall(){
 		if(numOfPlayers >= capacity){
 			return true;

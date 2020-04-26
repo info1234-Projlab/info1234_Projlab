@@ -62,7 +62,10 @@ public class Player implements CanMove{
 	public void SetField(Field f) {
 		this.field=f;
 	}
-	
+
+	/**
+	 *Ha a testhőnk 0 igaz értékkel tér vissza.
+	 */
 	public boolean IsDead() {
 		if(hp==0)
 			return true;
@@ -73,7 +76,6 @@ public class Player implements CanMove{
 	/**
 	 * 
 	 *  A jelenlegi testhőt adja vissza
-	 * @param tab	Indentálást jelzi. 
 	 */
 	@Override
 	public int GetHP() {
@@ -83,7 +85,6 @@ public class Player implements CanMove{
 	/**
 	 * 
 	 *  A maximális testhőt adja vissza
-	 * @param tab	Indentálást jelzi. 
 	 */
 	@Override
 	public int GetMaxHP() {
@@ -97,22 +98,21 @@ public class Player implements CanMove{
 	}
 	/**
 	 * Egy helyvaltoztatas es abbol adodo vizbeeses tesztelese
-	 * @param f
-	 * @param tab
+	 * @param f Az a mező, amire lépni szeretnénk
 	 */
 	public void Move(Field f) {	
 
-		//Szomszedos a celmezo
+		
 		if(this.field.isNeighour(f)&&this.GetNumOfAction()>0){
 			this.field.RemoveCreature(this);
 			f.AddCreature(this);
 			for (CanMove cm : f.GetCreatures()) {
 				cm.StepOn(this);
 			}
-			//this.field = f;
+			
 			numberOfAction--;
 			
-			//Lukba lepett e a jatekos
+			
 			if(f.IsFall()){
 				f.Fall();
 				this.field.AddCreature(this);
@@ -120,13 +120,11 @@ public class Player implements CanMove{
 			
 			//Ha nem, a lepes sikeres
 			else{
-				//System.out.println("A jatekos atlepett a mezore");
 				return;
 			}
 		}
 		//Ha nem szomszedos a celmezo
 		else{
-			// System.out.println("Nem szomszedos mezore probalsz lepni.");
 			return;
 		}
 	}
@@ -134,22 +132,19 @@ public class Player implements CanMove{
 	/**
 	 * 
 	 *  A testhőt növeli
-	 * @param tab	Indentálást jelzi. 
 	 */
 	public void IncreaseHp() {
 		hp++;
 	}
 	
+	/**
+	 * 
+	 *  A testhőt csökkenti
+	 */
 	public void DecreaseHp() {
 		hp--;
 	}
 	
-/*
-	public void AddItem(Inventory i, int tab) {
-		for(int j=0; j<tab; j++)
-			System.out.print("\t");
-		System.out.printf("Az Player osztaly AddItem(i:Inventory):void hivodott meg \n");
-*/
 	/**
 	 * A kapott Inventory-t beteszi az items list�j�ba.
 	 */
@@ -160,7 +155,6 @@ public class Player implements CanMove{
 	/**
 	 *  Eltávolít egy itemet a játékos inventoryjából.
 	 *  @param i az eltávolítandó item.
-	 *  @param tab	Indentálást jelzi. 
 	 * A kapott Inventory-t kiveszi az items list�j�b�l.
 	 */
 	public void RemoveItem(Inventory i) {
@@ -208,13 +202,12 @@ public class Player implements CanMove{
 	
 	public void DecreaseAction() {
 		if(this.numberOfAction > 0)	
-			this.numberOfAction--; // a feltétel lehet felesleges
+			this.numberOfAction--;
 	}
 	
 	/**
 	 * 
 	 *  Visszaadja a hátralévő lépések számát.
-	 * @param tab	Indentálást jelzi. 
 	 */
 	@Override
 	public int GetNumOfAction() {
@@ -249,19 +242,25 @@ public class Player implements CanMove{
 	public void StepOn(CanMove cm) {
 		
 	}
-	
+	/**
+	 * Felveszi a buvarruhat a jatekos
+	 */
 	public void PutOnDivingSuit() {
 		for(int i=0; i<items.size();i++) {
 			items.get(i).PutOn(this);
 		}
 	}
-	
+	/**
+	 * A jatekos megeszi az etelt ami nala van 
+	 */
 	public void Eat() {
 		for(int i=0; i<items.size();i++) {
 			items.get(i).Eat(this);
 		}
 	}
-	
+	/**
+	 * A jatekos elsuti a fegyvert
+	 */
 	public void FireGun() {
 		this.numberOfAction--;
 		for(Inventory i : items) {
@@ -269,29 +268,10 @@ public class Player implements CanMove{
 		}
 	}
 	
-	/*public String List() {
-		String s ;
-		if(win)	s="true";
-		else	s="false";
-		String itemstring=null;
-		for(int i = 0 ; i < items.size() ; i++) {
-			itemstring.concat(items.get(i).GetName());
-			if(i != items.size())
-				itemstring.concat(",");
-		}
-		String result;
-		result = name + " attributes:\n" + "hp: " + hp + "\n" + "numberOfAction: " + numberOfAction
-				+ "\n" + "maxHp: " + maxHp + "\n" + "win: " + s + "\n" + "items: " + itemstring + "\n";
-		/*System.out.println(name + " attributes:");
-		System.out.println("hp: " + hp);
-		System.out.println("numberOfAction: " + numberOfAction);
-		System.out.println("maxHp: " + maxHp);
 
-		System.out.println("win: " + s);
-		System.out.println("items: " + );*/
-		/*return result;
-	}*/
-	
+	/**
+	 * Megadja, nyert e a jatekos. 
+	 */
 	public boolean Win() {
 		if(win==true)
 			return true;
@@ -300,10 +280,12 @@ public class Player implements CanMove{
 	
 	@Override
 	public boolean GetWin() {
-		// TODO Auto-generated method stub
 		return win;
 	}
 
+	/**
+	 * Visszaadja a jatekosnal levo itemeket. 
+	 */
 	@Override
 	public ArrayList<Inventory> GetItems(){
 		return items;

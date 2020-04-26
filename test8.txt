@@ -53,4 +53,4 @@ FieldAddItem d1 f3 1
 PickUpItem e1 
 PutOnDivingSuit e1
 MoveCharacter e1 f4
-list e1 test8Out.txt
+list e1 test8out.txt

@@ -49,5 +49,5 @@ SetLayer f12 1
 SetLayer f13 1 
 MoveCharacter e1 f5
 MoveCharacter m1 f5
-SomeoneDied test3Out.txt
+SomeoneDied test3out.txt
 

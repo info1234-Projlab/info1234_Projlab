@@ -24,20 +24,21 @@ public class Game {
 	private static ArrayList<CanMove> cM = new ArrayList<CanMove>();
 	private static Board board;
 	private static int turn;
-	
+	/**
+	 * Visszaadja a jelenlegi játékost.
+	 */
 	public static CanMove GetCurrentPlayer() {
 		return currentPlayer;
 	}
+	/**
+	 * Beállítja a jelenlegi játékost.
+	 */
 	public static void SetCurrentPlayer(CanMove player) {
 		currentPlayer=player;
 	}
-	
-	public static void Clear() {
-		currentPlayer= null;
-		cM.clear();
-		board = null;
-	}
-	
+	/**
+	 * Visszaadja a mostani kör számát.
+	 */
 	public static int GetTurn() {
 		return turn;
 	}
@@ -47,6 +48,9 @@ public class Game {
 	public static void StartGame() {
 	}
 	
+	/**
+	 * Igazzal tér vissza, ha valakinek az élete 0-ra csökkent.
+	 */
 	public static boolean SomeoneDied() {
 		for(int i=0; i<cM.size();i++) {
 			if(cM.get(i).IsDead())
@@ -58,6 +62,9 @@ public class Game {
 	public static void LoseGame() {
 	}
 	
+	/**
+	 * Minden játékos win attribútumot igazra állítja.
+	 */
 	public static boolean Win() {
 		for(int i=0; i<cM.size(); i++) {
 			if(cM.get(i).Win())
@@ -77,7 +84,10 @@ public class Game {
 	public static void SetCanMove(ArrayList<CanMove> cMove) {
 		cM=cMove;
 	}
-	
+	/**
+	 * Hozzáad egy CanMove-ot a listába.
+	 * @param cm a hozzáadot CanMove.
+	 */
 	public static void AddCreature(CanMove cm) {
 		cM.add(cm);
 	}

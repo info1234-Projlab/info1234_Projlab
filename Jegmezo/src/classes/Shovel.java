@@ -19,7 +19,11 @@ package classes;
 
 
 public class Shovel extends Item {
-	
+	/**
+	 * Konstruktor
+	 * @param layer : ezen a retegen van a targy 
+	 * @param visible : lathato e a targy
+	 */
 	public Shovel(int layer,boolean visible) {
 		super(layer, visible);
 	}
