@@ -23,10 +23,10 @@ CreateItem s shovel 2
 CreateItem r1 gun 2
 CreateItem r2 flare 2
 CreateItem r3 cartridge 2
-FieldAddItem s f8 2 
-FieldAddItem r1 f10 2
-FieldAddItem r2 f5 2
-FieldAddItem r3 f13 2
+FieldAddItem s f8 1 
+FieldAddItem r1 f10 1
+FieldAddItem r2 f5 1
+FieldAddItem r3 f13 1
 AddCharacter e1 f3
 AddCharacter k1 f2
 AddCharacter k2 f7
@@ -49,6 +49,8 @@ SetLayer f12 1
 SetLayer f13 1 
 SetPlayerHp e1 4
 list e1 test14out.txt
+CreateItem f food 2
+FieldAddItem f f3 1
 PickUpItem e1
 EatFood e1
 list e1 test14out.txt

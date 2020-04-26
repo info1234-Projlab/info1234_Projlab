@@ -209,7 +209,9 @@ public class Main{
 			case "FieldAddItem":
 				itemName = command[1];
 				fieldName = command[2];
+				int l= Integer.parseInt(command[3]);
 				fields.get(fieldName).AddItem(items.get(itemName));
+				items.get(itemName).SetLayer(l);
 				break;
 			case "Dig":
 				creatureName = command[1];
@@ -247,6 +249,7 @@ public class Main{
 					if(m.GetWin())	winstring="true";
 					else	winstring="false";
 					String itemstring="";
+					if(m.GetItems() != null ) {
 					ArrayList<Inventory> itemFromPlayer = m.GetItems();
 					for(int i = 0 ; i < itemFromPlayer.size() ; i++) {
 						if(items.containsValue(itemFromPlayer.get(i)))
@@ -254,6 +257,7 @@ public class Main{
 								if(items.get(s) == itemFromPlayer.get(i))	itemstring.concat(s); 
 								if(i != itemFromPlayer.size())	itemstring.concat(",");
 							}
+					}
 					}
 					String result;
 					String fieldstring="";
