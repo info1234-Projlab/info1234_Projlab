@@ -15,13 +15,15 @@ public class Hole extends Field {
 	
 	
 	/**
-	 * A luk mindig borul ezert isFall() true-val ter vissza.
+	 * A lyuk mindig borul ezert isFall() true-val ter vissza.
 	 */
 	public boolean IsFall() {
 		return true;
 	}
 	
-	
+	/**
+	 * Visszaadja tudunk-e iglut építeni, mivel lyuk-ról van szó ezért nem.
+	 */
 	public boolean CanBuildIglu() {
 		return false;
 	}

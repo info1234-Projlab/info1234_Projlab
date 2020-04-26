@@ -63,6 +63,9 @@ public class Player implements CanMove{
 		this.field=f;
 	}
 	
+	/**
+	 *Ha a testhőnk 0 igaz értékkel tér vissza.
+	 */
 	public boolean IsDead() {
 		if(hp==0)
 			return true;
@@ -97,8 +100,7 @@ public class Player implements CanMove{
 	}
 	/**
 	 * Egy helyvaltoztatas es abbol adodo vizbeeses tesztelese
-	 * @param f
-	 * @param tab
+	 * @param f Az a mező, amire lépni szeretnénk
 	 */
 	public void Move(Field f) {	
 
@@ -120,13 +122,11 @@ public class Player implements CanMove{
 			
 			//Ha nem, a lepes sikeres
 			else{
-				//System.out.println("A jatekos atlepett a mezore");
 				return;
 			}
 		}
 		//Ha nem szomszedos a celmezo
 		else{
-			// System.out.println("Nem szomszedos mezore probalsz lepni.");
 			return;
 		}
 	}
@@ -134,12 +134,15 @@ public class Player implements CanMove{
 	/**
 	 * 
 	 *  A testhőt növeli
-	 * @param tab	Indentálást jelzi. 
 	 */
 	public void IncreaseHp() {
 		hp++;
 	}
 	
+	/**
+	 * 
+	 *  A testhőt csökkenti
+	 */
 	public void DecreaseHp() {
 		hp--;
 	}

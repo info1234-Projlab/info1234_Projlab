@@ -20,6 +20,9 @@ public class Item implements Inventory {
 		
 	}
 	
+	 //  Ezeket a függvényeket majd a gyerek osztályok valósítják meg.
+	 
+	
 	public boolean Eat(Player p) {
 		return false;
 	}
@@ -75,13 +78,16 @@ public class Item implements Inventory {
 	
 	/**
 	 * 
-	 *  A rétegek számát adja vissza.
-	 * @param tab	Indentálást jelzi. 
+	 *  A rétegek számát adja vissza. 
 	 */
 	public int GetLayer() {
 		return layer;
 	}
 	
+	/**
+	 * 
+	 *  A rétegek számát állítja be. 
+	 */
 	public void SetLayer(int num) {
 		this.layer=num;
 	}
@@ -90,12 +96,15 @@ public class Item implements Inventory {
 	 * 
 	 *  A tárgy láthatóságát allítja be.
 	 *  @param b A láthatósag.
-	 * @param tab	Indentálást jelzi. 
 	 */
 	public void SetVisible(boolean b) {
 		visible = b;
 	}
 	
+	/**
+	 * 
+	 *  A tárgy láthatóságát adja vissza.
+	 */
 	public boolean GetVisible() {
 		return visible;
 	}
