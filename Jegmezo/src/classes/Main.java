@@ -88,7 +88,7 @@ public class Main{
 						fields.put(fiName, new UnstableField(0, 0));
 						break;
 					case "stable":
-						fields.put(fiName, new StableField(0, 0));
+						fields.put(fiName, new StableField(8, 0));
 						break;
 				}
 				break;
