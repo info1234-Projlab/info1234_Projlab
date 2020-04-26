@@ -52,4 +52,3 @@ PickUpItem k1
 Dig k1 shovel
 list k1 test19out.txt
 list f2 test19out.txt
- 
