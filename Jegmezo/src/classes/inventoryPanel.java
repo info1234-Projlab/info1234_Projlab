@@ -1,4 +1,4 @@
-package iceField;
+package classes;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,7 +32,7 @@ public class inventoryPanel extends JPanel{
 			
 		}
 		
-		playerLabel = new JLabel("XY Játékos");
+		playerLabel = new JLabel("XY JÃ¡tÃ©kos");
 		playerLabel.setBounds(10, 20, 250, 50);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
