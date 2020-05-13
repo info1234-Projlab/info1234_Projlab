@@ -14,9 +14,10 @@ jégmezőn tartózkodik, illetve az elérhető maximális testő értékét (4).
 
 
 public class Explorer extends Player {
-	
+	private ExplorerView view;
 	public Explorer() {
 		super(4);
+		view = new ExplorerView();
 		
 	}
 	

@@ -12,10 +12,11 @@ import java.util.ArrayList;
  */
 
 public class PolarBear implements CanMove {
-	
+	private PolarBearView view;
 	private Field field;
 	
 	public PolarBear() {	
+		view = new PolarBearView();
 	}
 
 	/**

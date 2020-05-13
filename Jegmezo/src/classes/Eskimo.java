@@ -18,8 +18,10 @@ public class Eskimo extends Player {
 	 * 
 	 * @param field	Ahova az eszkimót ledobjuk a pályán.
 	 */
+	private EskimoView view;
 	public Eskimo() {
 		super(5);
+		this.view = new EskimoView();
 	}
 	
 	/**
