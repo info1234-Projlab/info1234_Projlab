@@ -36,4 +36,9 @@ public class Eskimo extends Player {
 			}	
 		}
 	}
+	
+	@Override
+	public CanMoveView GetCanMoveView() {
+		return view;
+	}
 }

@@ -31,6 +31,7 @@ public class Field {
 	private ArrayList<Inventory> items;
 	private Shelter shelter;
 	private ArrayList<Player> players;
+	protected FieldView view;
 	protected String name;
 	
 	/**
@@ -319,6 +320,10 @@ public class Field {
 	
 	public Shelter GetShelter() {
 		return shelter;
+	}
+	
+	public FieldView GetFieldView() {
+		return view;
 	}
 	
 }

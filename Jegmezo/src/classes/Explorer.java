@@ -32,7 +32,11 @@ public class Explorer extends Player {
 			this.DecreaseAction();
 			}
 	}
-		
+	
+	@Override
+	public CanMoveView GetCanMoveView() {
+		return view;
+	}
 	
 }
 

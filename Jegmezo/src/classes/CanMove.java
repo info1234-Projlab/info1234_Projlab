@@ -38,5 +38,6 @@ public interface CanMove {
 	public int GetMaxHP();
 	public void setField(Field f);
 	public void DigPlayer(int layers);
+	public CanMoveView GetCanMoveView();
 
 }

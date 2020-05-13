@@ -171,5 +171,10 @@ public class PolarBear implements CanMove {
 		
 	}
 
+	@Override
+	public CanMoveView GetCanMoveView() {
+		return view;
+	}
+
 
 }

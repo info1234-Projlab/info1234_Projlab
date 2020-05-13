@@ -16,5 +16,6 @@ védelmet nyújtanak-e a jegesmacitól.
 Iglu esetében nem történik semmi.
 	 */
 	public void DestroyTent(int num);
+	public ShelterView GetShelterView();
 
 }

@@ -1,7 +1,7 @@
 package classes;
 
 public class Iglu implements Shelter{
-	
+	private IgluView view;
 	/**
 	 * Visszaadja, hogy a jelenlegi menedék véd-e a jegesmedve ellen, ez mindig igaz lesz, mert igluról van szó.
 	 */
@@ -14,5 +14,10 @@ public class Iglu implements Shelter{
 	 */
 	public void DestroyTent(int num) {
 		return;
+	}
+
+	@Override
+	public ShelterView GetShelterView() {
+		return view;
 	}
 }

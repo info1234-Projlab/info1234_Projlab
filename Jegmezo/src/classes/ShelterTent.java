@@ -9,6 +9,7 @@ public class ShelterTent implements Shelter {
 
 private int round;
 private Field field;
+private ShelterTentView view;
 /**
  * 
  * @param f : erre a mezőre rakjuk le a fieldet
@@ -29,5 +30,9 @@ public boolean DefendFromBear() {
 public void DestroyTent(int num) {
 	if(round+1==num)
 		field.RemoveShelter();
+}
+@Override
+public ShelterView GetShelterView() {
+	return view;
 }
 }

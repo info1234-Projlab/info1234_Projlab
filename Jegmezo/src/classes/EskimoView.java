@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class EskimoView {
+public class EskimoView extends CanMoveView{
 private Image img ;
 
 public EskimoView() {

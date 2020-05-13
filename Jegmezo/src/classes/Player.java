@@ -295,5 +295,9 @@ public class Player implements CanMove{
 		this.field = f ;
 	}
 
+	public CanMoveView GetCanMoveView() {
+		return null;
+	}
+	
 
 }
