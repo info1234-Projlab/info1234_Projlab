@@ -1,4 +1,4 @@
-package iceField;
+package classes;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -53,10 +53,10 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
         
         //g.drawImage(background, 0, 0, null);
         for(int i = 0; i < num_of_player;i++){
-        	JLabel playerL = new JLabel(Integer.toString(i) + ". Játékos");
+        	JLabel playerL = new JLabel(Integer.toString(i) + ". JÃ¡tÃ©kos");
         	playerL.setPreferredSize(new Dimension(100,50));
         	this.add(playerL);
-        	g.drawString(Integer.toString(i+1) + ". Játékos", 400, 20+i*100);
+        	g.drawString(Integer.toString(i+1) + ". JÃ¡tÃ©kos", 400, 20+i*100);
         	g.drawImage(eskimo, 500, 20+i*100,100,100, this);
         	g.drawImage(explorer, 600, 20+i*100,100,100, this);
         	if(character.get(i)){
