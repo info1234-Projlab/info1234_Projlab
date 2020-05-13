@@ -1,4 +1,4 @@
-package iceField;
+package classes;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
@@ -16,7 +16,7 @@ import java.awt.*;
 
 public class MenuPanel extends JPanel implements ActionListener{
 	
-	private JLabel jL= new JLabel("H·ny j·tÈkos j·tszik: ");
+	private JLabel jL= new JLabel("H√°ny j√°t√©kos j√°tszik: ");
 	private JComboBox<String> setPlayer = new JComboBox<String>();
 	private JButton start = new JButton("START");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
@@ -32,7 +32,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 		setPlayer.setPreferredSize(new Dimension(200,30));
 		
 		for(int i = 1; i <= 5; i++){
-			setPlayer.addItem(Integer.toString(i) + " J·tÈkos");
+			setPlayer.addItem(Integer.toString(i) + " J√°t√©kos");
 		}
 		setPlayer.addActionListener(this);
 		JPanel setPlayerPanel = new JPanel();
