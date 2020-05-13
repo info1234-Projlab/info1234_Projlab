@@ -1,4 +1,4 @@
-package iceField;
+package classes;
 import java.awt.Dimension;
 
 import javax.swing.*;
