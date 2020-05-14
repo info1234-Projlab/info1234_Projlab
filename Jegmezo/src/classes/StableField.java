@@ -13,6 +13,7 @@ public class StableField extends Field {
 	 */
 	public StableField(int capacity, int snowLayer) {
 		super(capacity, snowLayer);
+		view = new StableFieldView(this);
 	}
 	
 	/**

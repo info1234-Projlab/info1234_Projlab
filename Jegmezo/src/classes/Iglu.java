@@ -2,6 +2,10 @@ package classes;
 
 public class Iglu implements Shelter{
 	private IgluView view;
+	
+	public Iglu() {
+		view = new IgluView();
+	}
 	/**
 	 * Visszaadja, hogy a jelenlegi menedék véd-e a jegesmedve ellen, ez mindig igaz lesz, mert igluról van szó.
 	 */

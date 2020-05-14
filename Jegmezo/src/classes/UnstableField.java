@@ -26,6 +26,7 @@ public class UnstableField extends Field {
 	 */
 	public UnstableField(int capacity, int snowLayer) {
 		super(capacity, snowLayer);
+		view = new UnstableFieldView(this);
 	}
 	/**
 	 * Ha tobben vannak a mezon, mint ahany jatekost elbir, akkor beleesnek a vizbe. 

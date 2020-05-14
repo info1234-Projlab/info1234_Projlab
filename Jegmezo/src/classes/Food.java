@@ -21,7 +21,7 @@ public class Food extends Item {
 
 	public Food(int layer,boolean visible) {
 		super(layer, visible);
-		
+		view = new ItemView("food.png");
 	}
 	
 	/**

@@ -27,5 +27,6 @@ public class Flare extends FlareGun implements Inventory {
 	 */
 	public Flare(int layer, boolean visible) {
 		super(layer,visible);
+		view = new ItemView("flare.png");
 		}
 }

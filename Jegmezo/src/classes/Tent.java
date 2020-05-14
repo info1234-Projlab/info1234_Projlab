@@ -12,6 +12,7 @@ public class Tent extends Item {
 
 	public Tent(int layer, boolean visible) {
 		super(layer, visible);
+		view = new ItemView("tent.png");
 	}
 	
 	/**

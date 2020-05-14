@@ -16,6 +16,7 @@ public class DivingSuit extends Item {
 	
 	public DivingSuit(int layer, boolean visible) {
 		super(layer, visible);
+		view = new ItemView("divingsuit.png");
 	}
 	
 	/**

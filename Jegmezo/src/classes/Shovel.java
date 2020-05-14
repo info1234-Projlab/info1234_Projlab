@@ -26,6 +26,7 @@ public class Shovel extends Item {
 	 */
 	public Shovel(int layer,boolean visible) {
 		super(layer, visible);
+		view = new ItemView("shovel.png");
 	}
 	
 	/**

@@ -12,6 +12,7 @@ a j�t�kosra milyen hat�ssal van.
 public class Item implements Inventory {
 	protected int layer;
 	protected boolean visible;
+	protected ItemView view;
 	
 	public Item(int layer, boolean visible) {
 		this.layer=layer;

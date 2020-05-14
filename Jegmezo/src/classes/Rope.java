@@ -13,6 +13,7 @@ public class Rope extends Item {
 	
 	public Rope(int layer, boolean visible) {
 		super(layer, visible);
+		view = new ItemView("rope.png");
 	}
 	
 	/**

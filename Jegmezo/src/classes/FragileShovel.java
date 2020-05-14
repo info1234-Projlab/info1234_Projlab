@@ -14,6 +14,7 @@ public class FragileShovel extends Item{
 	public FragileShovel(int layer, boolean visible) {
 		super(layer, visible);
 		lifetime = 3;
+		view = new ItemView("Fragileshovel.png");
 	}
 	
 	/**

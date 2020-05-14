@@ -11,6 +11,7 @@ public class Hole extends Field {
 	
 	public Hole() {
 		super(0, 0);
+		view = new HoleView(this);
 	}
 	
 	

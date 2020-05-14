@@ -16,6 +16,7 @@ private ShelterTentView view;
  */
 public ShelterTent(Field f) {
 	this.field = f;
+	view = new ShelterTentView();
 }
 /**
  * Mivel sátor, ezért nem jelent védelmet a medve ellen. 

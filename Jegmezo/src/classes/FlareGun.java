@@ -23,6 +23,7 @@ public class FlareGun implements Inventory {
 	protected int layer;
 	protected boolean visible;
 	protected static ArrayList<FlareGun> components;
+	protected ItemView view;
 	
 	/**
 	 * 
