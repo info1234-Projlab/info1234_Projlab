@@ -41,9 +41,9 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
 		numOfPlayers = n;
 		System.out.println(numOfPlayers);
 		images.clear();
-		Point p = new Point(100,100);
+		Point p = new Point(450,100);
 		for(int i = 1; i <= numOfPlayers; i++){
-        	images.add(new Images(p,i));
+        	images.add(new Images(new Point(p.x,p.y),i));
         	p.y+=100;
         }
 	}
