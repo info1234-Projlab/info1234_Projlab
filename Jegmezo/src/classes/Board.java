@@ -29,6 +29,11 @@ public class Board {
 	 */
 	public Board(ArrayList<Field> fields) {
 		this.fields=fields;
+		ArrayList<FieldView> fw = new ArrayList<FieldView>();
+		for(int i = 0; i < fields.size(); i++) {
+			fw.add(fields.get(i).GetFieldView());
+		}
+		this.boardView = new BoardView(fw);
 	}
 	
 	/**
