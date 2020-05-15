@@ -26,6 +26,6 @@ public class Cartridge extends FlareGun implements Inventory {
 	 */
 	public Cartridge(int layer, boolean visible) {
 		super(layer,visible);
-		view = new ItemView("cartridge.png");
+		view = new CartridgeView("cartridge.png");
 	}
 }

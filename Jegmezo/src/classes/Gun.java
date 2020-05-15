@@ -28,6 +28,6 @@ public class Gun extends FlareGun implements Inventory {
 	 */
 	public Gun(int layer, boolean visible) {
 		super(layer,visible);
-		view = new ItemView("gun.png");
+		view = new GunView("gun.png");
 	}
 }

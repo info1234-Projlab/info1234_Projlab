@@ -30,5 +30,8 @@ abstract public class FieldView {
 			cm.GetCanMoveView().Draw(coordinates, g);
 			cm.GetCanMoveView().DrawInformation(coordinates);
 		}
+		if (field.GetShelter() != null) {
+			field.GetShelter().GetShelterView().Draw(coordinates, g);
+		}
 	}
 }
