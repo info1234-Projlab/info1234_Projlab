@@ -33,11 +33,12 @@ public class Images {
 		g.drawImage(eskimo, coordinates.x, coordinates.y, null);
 		g.drawImage(explorer, explorerCoord.x, explorerCoord.y, null);
 		g.drawString(Integer.toString(num) + ". Játékos", coordinates.x-40, coordinates.y -5);
-		
-		if(click.x >= coordinates.x && click.x <= (coordinates.x+eskimo.getWidth()) && click.y >= coordinates.y && click.y <= (coordinates.y+eskimo.getHeight()))
-			g.drawRect(coordinates.x, coordinates.y, eskimo.getWidth(), eskimo.getHeight());
-		if(click.x >= explorerCoord.x && click.x <= (explorerCoord.x+explorer.getWidth()) && click.y >= explorerCoord.y && click.y <= (explorerCoord.y+explorer.getHeight()))
-			g.drawRect(explorerCoord.x, explorerCoord.y, explorer.getWidth(), explorer.getHeight());
+		if(click!=null) {
+			if(click.x >= coordinates.x && click.x <= (coordinates.x+eskimo.getWidth()) && click.y >= coordinates.y && click.y <= (coordinates.y+eskimo.getHeight()))
+				g.drawRect(coordinates.x, coordinates.y, eskimo.getWidth(), eskimo.getHeight());
+			if(click.x >= explorerCoord.x && click.x <= (explorerCoord.x+explorer.getWidth()) && click.y >= explorerCoord.y && click.y <= (explorerCoord.y+explorer.getHeight()))
+				g.drawRect(explorerCoord.x, explorerCoord.y, explorer.getWidth(), explorer.getHeight());
+		}
 		System.out.println("---------------------------------");
 		System.out.println(coordinates.x);
 		System.out.println(coordinates.y);

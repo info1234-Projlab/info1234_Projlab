@@ -18,7 +18,7 @@ import java.awt.*;
 
 public class PlayerSelectPanel extends JPanel implements MouseListener {
 	
-	private int numOfPlayers;
+	private int numOfPlayers = 0;
 	private ArrayList<Images> images = new ArrayList<Images>();
 	private Point click;
 	
