@@ -43,6 +43,10 @@ public class Board {
 			
 	}
 	
+	public void Init(int rows, int columns) {
+		
+	}
+	
 	public ArrayList<FieldView> GetFieldViews(){
 		ArrayList<FieldView> fw = new ArrayList<FieldView>();
 		for(int i = 0; i < fields.size(); i++) {

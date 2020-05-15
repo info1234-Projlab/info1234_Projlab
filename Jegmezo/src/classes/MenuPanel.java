@@ -21,12 +21,15 @@ public class MenuPanel extends JPanel implements ActionListener{
 	private JLabel columnsLabel = new JLabel("Hány oszlopból álljon a pálya: ");
 	private JButton startButton = new JButton("Start");
 	private JButton numOfPlayersButton = new JButton("Ok");
-	private JButton rowsButton = new JButton("Ok");
-	private JButton columnsButton = new JButton("Ok");
+	private JButton rowsButton = new JButton("Mehet");
+	private JButton columnsButton = new JButton("Rendben");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
 	JTextField numOfPlayersText = new JTextField();
 	JTextField rowsText = new JTextField();
 	JTextField columnsText = new JTextField();
+	
+	private int rows = 0;
+	private int columns = 0;
 	
 	
 	public MenuPanel(){
@@ -86,6 +89,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 		for(int i = 0; i<numOfPolarBears; i++)
 			g.AddCreature(new PolarBear());
 		g.MixCanMoves();
+		g.InitBoard(rows, columns);
 	}
 
 
@@ -103,6 +107,12 @@ public class MenuPanel extends JPanel implements ActionListener{
 		case "Ok":
 			psP.setNum_of_player(Integer.parseInt(numOfPlayersText.getText()));
 			psP.repaint();
+			break;
+		case "Mehet":
+			rows = Integer.parseInt(rowsText.getText());
+			break;
+		case "Rendben":
+			columns = Integer.parseInt(columnsText.getText());
 			break;
 		}
 	}

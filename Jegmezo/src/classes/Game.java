@@ -46,6 +46,10 @@ public class Game {
 	public static void Init(ArrayList<CanMove> players, Board board) {
 	}
 	
+	public void InitBoard(int rows, int columns) {
+		board.Init(rows, columns);
+	}
+	
 	public static void StartGame() {
 	}
 	
