@@ -20,7 +20,8 @@ import java.util.Scanner;
  */
 
 public class Board {
-	private ArrayList<Field> fields; 
+	private ArrayList<Field> fields;
+	private BoardView boardView;
 	
 	/**
 	 * @param fields ezek a malyan levo jegtablak, amiket majd inicializalas soran megadunk
