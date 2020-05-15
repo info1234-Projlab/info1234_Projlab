@@ -26,5 +26,5 @@ public class Cartridge extends FlareGun implements Inventory {
 	 */
 	public Cartridge(int layer, boolean visible) {
 		super(layer,visible);
-		}
+	}
 }
