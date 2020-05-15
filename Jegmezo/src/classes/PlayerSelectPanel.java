@@ -22,8 +22,13 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
 	private ArrayList<Images> images = new ArrayList<Images>();
 	private Point click;
 	
-	public PlayerSelectPanel(){
-		
+	public PlayerSelectPanel(int num){
+		numOfPlayers = num;
+		Point p = new Point(450,100);
+		for(int i = 1; i <= numOfPlayers; i++){
+        	images.add(new Images(new Point(p.x,p.y),i));
+        	p.y+=100;
+        }
 		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		addMouseListener(this);	
 	}
@@ -47,8 +52,16 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
         	p.y+=100;
         }
 	}
+	
+	public int GetNumOfPlayers() {
+		return numOfPlayers;
+	}
+	
+	public void AddPlayersToGame(Game g) {
+		for(int i=0; i<images.size(); i++)
+			images.get(i).AddPlayerToGame(g);
+	}
 
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		click = e.getPoint();
 		System.out.println(click.x);

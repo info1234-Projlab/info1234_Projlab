@@ -14,7 +14,7 @@ public class Images {
 	BufferedImage eskimo;
 	private Point coordinates;
 	int num;
-	boolean esk = false;
+	boolean esk = true;
 	boolean exp = false;
 	
 	public Images(Point _coordinates, int n) {
@@ -26,6 +26,13 @@ public class Images {
 		}
 		coordinates = _coordinates;
 		num = n;
+	}
+	
+	public void AddPlayerToGame(Game g) {
+		if(esk==true)
+			g.AddCreature(new Eskimo());
+		else
+			g.AddCreature(new Explorer());
 	}
 	
 	public void Draw(Graphics g, Point click) {
@@ -52,8 +59,7 @@ public class Images {
 					g.drawRect(explorerCoord.x, explorerCoord.y, explorer.getWidth(), explorer.getHeight());
 				if(esk)
 					g.drawRect(coordinates.x, coordinates.y, eskimo.getWidth(), eskimo.getHeight());
-			}
-			
+			}	
 		}
 	}
 }

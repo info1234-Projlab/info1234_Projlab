@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 //
@@ -83,6 +84,10 @@ public class Game {
 	
 	public static void SetCanMove(ArrayList<CanMove> cMove) {
 		cM=cMove;
+	}
+	
+	public static void MixCanMoves() {
+		Collections.shuffle(cM);
 	}
 	/**
 	 * Hozzáad egy CanMove-ot a listába.
