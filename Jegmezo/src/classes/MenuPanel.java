@@ -16,23 +16,20 @@ import java.awt.*;
 
 public class MenuPanel extends JPanel implements ActionListener{
 	
-	private JLabel jL= new JLabel("H√°ny j√°t√©kos j√°tszik: ");
+	private JLabel jL= new JLabel("H·ny j·tÈkos j·ttszik: ");
 	private JComboBox<String> setPlayer = new JComboBox<String>();
 	private JButton start = new JButton("START");
-	PlayerSelectPanel psP = new PlayerSelectPanel(1);
+	PlayerSelectPanel psP = new PlayerSelectPanel();
 	
 	public MenuPanel(){
 		super(new BorderLayout());
 		
 		this.setSize(1000, 680);
 		
-		
-		
-		setPlayer = new JComboBox();
 		setPlayer.setPreferredSize(new Dimension(200,30));
 		
 		for(int i = 1; i <= 5; i++){
-			setPlayer.addItem(Integer.toString(i) + " J√°t√©kos");
+			setPlayer.addItem(Integer.toString(i) + " J·tÈkos");
 		}
 		setPlayer.addActionListener(this);
 		JPanel setPlayerPanel = new JPanel();
@@ -64,13 +61,10 @@ public class MenuPanel extends JPanel implements ActionListener{
 			break;
 		default: JComboBox cb = (JComboBox)e.getSource();
 				int playerNum = (Integer) cb.getSelectedIndex() +1;
-				psP.setNum_of_player(playerNum);
-				psP.repaint();
+			psP.setNum_of_player(playerNum);
+			psP.repaint();
 			break;
 		}
-		
-		
-
 	}
 		
 }

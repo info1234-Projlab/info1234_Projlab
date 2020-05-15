@@ -1,18 +1,30 @@
 package classes;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Scanner;
-
 public class Main{
+
+	
+	public static void main(String args[]) {
+		myFrame jF = new myFrame();
+		
+		MenuPanel mP= new MenuPanel();
+	
+		jF.add(mP);
+		jF.pack();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
+	
 	private static LinkedHashMap<String,Field> fields = new LinkedHashMap<String,Field>();
 	private static HashMap<String,CanMove> creatures = new HashMap<String,CanMove>();
 	private static HashMap<String,Inventory> items = new HashMap<String,Inventory>();
+	
 	
 	public static void main(String args[]) {
 		String inputFileName = GetInputFile();
@@ -60,6 +72,9 @@ public class Main{
 	/**
 	 * @param data
 	 */
+	
+	/*
+	
 	public static void RunCommand(String data) {
 		String[] command = data.split(" ");
 		String fieldName;
@@ -372,4 +387,6 @@ public class Main{
 				break;
 			}
 		}
+		
+		*/
 	}
