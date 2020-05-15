@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class BoardView extends JPanel{
-	private ArrayList<FieldView> fieldViews = new ArrayList<FieldView>();
+	private Board board;
 	
-	public BoardView(ArrayList<FieldView> fw) {
+	public BoardView(Board b) {
 		this.setBounds(300, 0, 700, 680);
-		fieldViews = fw;
+		board = b;
 	}
 	
 	 protected void paintComponent(Graphics g) {
@@ -20,8 +20,9 @@ public class BoardView extends JPanel{
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(new Color(51,204,255));
         g2d.fillRect(0,0,700,680);
-        for(int i=0; i< fieldViews.size();i++) {
-        	fieldViews.get(i).Draw(g);
+        ArrayList<FieldView> fw = board.GetFieldViews();
+        for(int i=0; i < fw.size(); i++) {
+        	fw.get(i).Draw(g);
         }
 	 }
 }
