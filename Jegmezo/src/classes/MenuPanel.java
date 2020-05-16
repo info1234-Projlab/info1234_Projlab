@@ -11,6 +11,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 	private JLabel rowsLabel = new JLabel("H�ny sorb�l �lljon a p�lya: ");
 	private JLabel columnsLabel = new JLabel("H�ny oszlopb�l �lljon a p�lya: ");
 	private JButton startButton = new JButton("Start");
+	private JButton playerSelectButton = new JButton("Ok");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
 	JTextField numOfPlayersText = new JTextField();
 	JTextField rowsText = new JTextField();
@@ -29,6 +30,7 @@ public class MenuPanel extends JPanel implements ActionListener{
 		numOfPlayersText.setPreferredSize(new Dimension(80,30));
 		setPlayerPanel.add(numOfPlayersLabel);
 		setPlayerPanel.add(numOfPlayersText);
+		setPlayerPanel.add(playerSelectButton);
 		
 		JPanel setRowsPanel = new JPanel();
 		rowsText.setPreferredSize(new Dimension(80,30));
@@ -91,11 +93,9 @@ public class MenuPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
-		case "Start" :
-			if(numOfPlayersText.getText()!=null)
+		case "Ok":
 				psP.SetNumOfPlayer(Integer.parseInt(numOfPlayersText.getText()));
-			else
-				psP.SetNumOfPlayer(1);
+		case "Start" :
 			if(rowsText.getText()!=null)
 				rows = Integer.parseInt(rowsText.getText());
 			else
