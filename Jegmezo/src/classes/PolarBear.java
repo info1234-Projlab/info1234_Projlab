@@ -64,7 +64,7 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public void StartTurn(int numOfAction) {
-		// TODO Auto-generated method stub
+		return;
 		
 	}
 

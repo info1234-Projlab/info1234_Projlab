@@ -31,8 +31,8 @@ public class Eskimo extends Player {
 		int a = this.GetNumOfAction();
 		if(a > 0 ) {
 			if(this.GetField().CanBuildShelter()) {
-			this.GetField().AddShelter(new Iglu());
-			this.DecreaseAction();
+				this.GetField().AddShelter(new Iglu());
+				this.DecreaseAction();
 			}	
 		}
 	}

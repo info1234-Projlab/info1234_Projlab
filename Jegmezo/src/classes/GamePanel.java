@@ -15,11 +15,11 @@ public class GamePanel extends JPanel{
 	private BoardView board;
 	
 	public GamePanel(BoardView b){
-		actionButton = new JButton("Use Ability");
+		/*actionButton = new JButton("Use Ability");
 		actionButton.setBounds(330, 600, 100, 30);
-		this.setLayout(null);
-		this.add(actionButton);
+		this.add(actionButton);*/
 		
+		this.setLayout(null);
 		iP = new inventoryPanel();
 		iP.setBounds(0, 0, 300, 680);
 		this.add(iP);

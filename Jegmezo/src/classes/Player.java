@@ -95,6 +95,7 @@ public class Player implements CanMove{
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
 	public void UseAbility() {
+		System.out.println("player useability");
 	}
 	/**
 	 * Egy helyvaltoztatas es abbol adodo vizbeeses tesztelese

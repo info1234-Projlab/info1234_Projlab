@@ -27,6 +27,13 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		actionButton = new JButton("Use Ability");
 		actionButton.setBounds(30, 600, 100, 30);
 		this.add(actionButton);
+		actionButton.addActionListener(new ActionListener(){  
+			public void actionPerformed(ActionEvent e){  
+	            Game.GetCurrentPlayer().UseAbility();
+	            System.out.println(Game.GetCurrentPlayer());
+	            System.out.println("asd");
+	        }  
+	    });
 		
 		endTurnButton = new JButton("End Turn");
 		endTurnButton.setBounds(160,600,100,30);
