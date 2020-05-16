@@ -27,6 +27,5 @@ public class GamePanel extends JPanel{
 		board=b;
 		//bP = new BoardPanel();
 		this.add(board);
-		
 	}
 }

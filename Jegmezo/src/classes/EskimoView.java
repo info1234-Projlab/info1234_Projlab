@@ -9,20 +9,18 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class EskimoView extends CanMoveView{
-private Image img ;
 
 public EskimoView() {
 	try {
 		img = ImageIO.read(new File("eskimo.png"));
 	} catch (IOException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
 }
 
-	public void Draw(Point coordinates, Graphics g) {
+	/*public void Draw(Point coordinates, Graphics g, double resize) {
 		g.drawImage(img, coordinates.x, coordinates.y, null);
-	}
+	}*/
 	public void DrawInformation(Point coordinates) {
 		
 	}

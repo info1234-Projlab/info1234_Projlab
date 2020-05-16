@@ -30,12 +30,30 @@ public class FieldView {
 	
 	public void Draw(Graphics g) {
 		g.drawImage(img, coordinates.x, coordinates.y, null);
+		int shift = 0;
+		int numberOfCreatures = field.GetCreatures().size();
 		for (CanMove cm : field.GetCreatures()) {
-			cm.GetCanMoveView().Draw(coordinates, g);
+			cm.GetCanMoveView().Draw(new Point(coordinates.x + shift, coordinates.y), g,(double) 1 / numberOfCreatures);
 			cm.GetCanMoveView().DrawInformation(coordinates);
+			shift += 50 / numberOfCreatures;
 		}
 		if (field.GetShelter() != null) {
 			field.GetShelter().GetShelterView().Draw(coordinates, g);
 		}
+	}
+	
+	public boolean CheckClicked(Point p) {
+		Point center = new Point(coordinates.x + 25, coordinates.y + 25);
+		double a = (p.x-center.x) * (p.x-center.x);
+        double b = (p.y-center.y) * (p.y-center.y);
+        double cp = 22 * 22;
+        if(a + b < cp ){
+        	return true;
+        }
+        return false;
+	}
+	
+	public Field GetField() {
+		return field;
 	}
 }

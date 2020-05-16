@@ -9,7 +9,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class PolarBearView extends CanMoveView {
-	private Image img ;
 	
 	
 public PolarBearView() {
@@ -20,9 +19,9 @@ public PolarBearView() {
 		e.printStackTrace();
 	}
 }
-public void Draw(Point coordinates, Graphics g) {
+/*public void Draw(Point coordinates, Graphics g, double resize) {
 	g.drawImage(img, coordinates.x, coordinates.y, null);
-}
+}*/
 public void DrawInformation(Point coordinates) {
 		
 }

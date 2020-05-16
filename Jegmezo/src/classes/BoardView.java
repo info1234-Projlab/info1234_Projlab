@@ -3,16 +3,20 @@ package classes;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
-public class BoardView extends JPanel{
+public class BoardView extends JPanel implements MouseListener{
 	private Board board;
 	
 	public BoardView(Board b) {
 		this.setBounds(300, 0, 700, 680);
 		board = b;
+		this.addMouseListener(this);
 	}
 	
 	 protected void paintComponent(Graphics g) {
@@ -25,4 +29,46 @@ public class BoardView extends JPanel{
         	fw.get(i).Draw(g);
         }
 	 }
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println(e.getPoint().x + ", " + e.getPoint().y);
+		if (SwingUtilities.isRightMouseButton(e)) {
+			for (FieldView fv : board.GetFieldViews()) {
+				if (fv.CheckClicked(e.getPoint())) {
+					Game.GetCurrentPlayer().Move(fv.GetField());
+					System.out.println(Game.GetCurrentPlayer().toString());
+					System.out.println("akart mozogni");
+					this.repaint();
+					break;
+				}
+			}
+		}
+		
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

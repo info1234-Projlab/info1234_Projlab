@@ -9,7 +9,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class ExplorerView extends CanMoveView{
-	private Image img;
 	
 public ExplorerView(){
 	try {
@@ -21,9 +20,9 @@ public ExplorerView(){
 }
 
 	
-public void Draw(Point coordinates, Graphics g) {
+/*public void Draw(Point coordinates, Graphics g, double resize) {
 	g.drawImage(img, coordinates.x, coordinates.y, null);
-}
+}*/
 public void DrawInformation(Point coordinates) {
 		
 }
