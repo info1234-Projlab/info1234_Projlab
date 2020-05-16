@@ -1,4 +1,5 @@
 package classes;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -67,6 +68,62 @@ public class Board {
 		        	fields.get(fields.size()-1).SetFieldView(25+50*j, 43*i);
 			}
 		}
+		for(int i = 0; i < fields.size(); i++) {
+			Point fieldCoordinate = fields.get(i).GetFieldView().GetCoordinates();
+			for(int j = 0; j < fields.size(); j++) {
+				Point neighbourCoordinate = fields.get(i).GetFieldView().GetCoordinates();
+				if(IsNeighbour(fieldCoordinate, neighbourCoordinate))
+					fields.get(i).AddNeighbour(fields.get(j));
+			}
+		}
+		InitInventory(numOfPlayers);
+	}
+	
+	public boolean IsNeighbour(Point fieldCoord, Point neighbourCoord) {
+		if(fieldCoord.y == neighbourCoord.y && Math.abs(neighbourCoord.x - fieldCoord.x) == 50)
+			return true;
+		if(Math.abs(neighbourCoord.x - fieldCoord.x) == 25 && Math.abs(neighbourCoord.y - fieldCoord.y) == 43)
+			return true;
+		return false;
+	}
+	
+	public void InitInventory(int numOfPlayers) {
+		Random random = new Random();
+		int randFieldIndex;
+		randFieldIndex = random.nextInt(fields.size());
+		fields.get(randFieldIndex).InitInventory(new Flare(0, false));
+		randFieldIndex = random.nextInt(fields.size());
+		fields.get(randFieldIndex).InitInventory(new Cartridge(0, false));
+		randFieldIndex = random.nextInt(fields.size());
+		fields.get(randFieldIndex).InitInventory(new Gun(0, false));
+		int numOfFood = numOfPlayers * 3;
+		for(int i = 0; i < numOfFood; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).InitInventory(new Food(0, false));
+		}
+		int numOfShovels = numOfPlayers - 1;
+		for(int i = 0; i < numOfShovels; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).InitInventory(new Shovel(0, false));
+		}
+		int numOfFragileShovels = numOfPlayers - 1;
+		for(int i = 0; i < numOfFragileShovels; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).InitInventory(new FragileShovel(0, false));
+		}
+		int numOfRopes = numOfPlayers - 2;
+		if(numOfRopes < 1)
+			numOfRopes = 1;
+		for(int i = 0; i < numOfRopes; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).InitInventory(new Rope(0, false));
+		}
+		int numOfDivingSuits = numOfPlayers - 1;
+		for(int i = 0; i < numOfDivingSuits; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).InitInventory(new DivingSuit(0, false));
+		}
+			
 	}
 	
 	public void AddCreatures(ArrayList<CanMove> cM) {
