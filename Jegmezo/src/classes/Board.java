@@ -80,7 +80,11 @@ public class Board {
 	}
 	
 	public boolean IsNeighbour(Point fieldCoord, Point neighbourCoord) {
-		if()
+		if(fieldCoord.y == neighbourCoord.y && Math.abs(neighbourCoord.x - fieldCoord.x) == 50)
+			return true;
+		if(Math.abs(neighbourCoord.x - fieldCoord.x) == 25 && Math.abs(neighbourCoord.y - fieldCoord.y) == 43)
+			return true;
+		return false;
 	}
 	
 	public void InitInventory(int numOfPlayers) {
