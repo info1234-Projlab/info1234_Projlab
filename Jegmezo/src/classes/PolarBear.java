@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Ugyan olyan szereplő mint a player azonban a jegesmedve véletlen 
@@ -65,6 +66,10 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public boolean StartTurn() {
+		ArrayList<Field> neighbours = field.GetNeighbouringFields();
+		Random rand = new Random();
+		int indexOfRandNeighbour = rand.nextInt(neighbours.size());
+		Move(neighbours.get(indexOfRandNeighbour));
 		return false;
 		
 	}
