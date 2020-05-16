@@ -71,7 +71,7 @@ public class Board {
 		for(int i = 0; i < fields.size(); i++) {
 			Point fieldCoordinate = fields.get(i).GetFieldView().GetCoordinates();
 			for(int j = 0; j < fields.size(); j++) {
-				Point neighbourCoordinate = fields.get(i).GetFieldView().GetCoordinates();
+				Point neighbourCoordinate = fields.get(j).GetFieldView().GetCoordinates();
 				if(IsNeighbour(fieldCoordinate, neighbourCoordinate))
 					fields.get(i).AddNeighbour(fields.get(j));
 			}
