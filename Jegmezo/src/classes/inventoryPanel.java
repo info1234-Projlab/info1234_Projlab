@@ -21,6 +21,7 @@ public class inventoryPanel extends JPanel{
 	private JLabel playerLabel;
 	private JLabel fieldLabel;
 	private JLabel snowLayer;
+	private Field currentField;
 	
 	public inventoryPanel(){
 		this.setPreferredSize(new Dimension(300,680));
@@ -74,14 +75,9 @@ public class inventoryPanel extends JPanel{
 				g.fillRect(30+j*90, 100+i*90, 56, 56);
 				g.setColor(new Color(97, 61, 30));
 				g.fillRect(33+j*90, 103+i*90, 50, 50);
-				if (Game.GetCurrentPlayer() != null) {
-					if (Game.GetCurrentPlayer().GetItems() != null) {
-						if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-								Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
-							}
-					}
+				if(Game.GetCurrentPlayer().GetItems().size() > i+j){
+					Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
 				}
-				
 				
 			}
 		}
@@ -94,10 +90,19 @@ public class inventoryPanel extends JPanel{
 				g.setColor(new Color(97, 61, 30));
 				g.fillRect(33+j*90, 423+i*90, 50, 50);
 				
-				if(Game.GetCurrentPlayer().GetField().GetItems().size() > i+j){
-					Game.GetCurrentPlayer().GetField().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 423+i*90), g);
+				if(currentField == null) {
+					if(Game.GetCurrentPlayer().GetItems().size() > i+j){
+						Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
+					}
+				}else if(currentField.GetItems().size() > i+j){
+					currentField.GetItems().get(i+j).getView().Draw(new Point(33+j*90, 423+i*90), g);
 				}
 			}
 		}
+	}
+
+	public void SetCurrentField(Field f) {
+		// TODO Auto-generated method stub
+		this.currentField = f ;
 	}
 }
