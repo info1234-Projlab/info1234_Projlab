@@ -102,7 +102,6 @@ public class Player implements CanMove{
 	 * @param f Az a mező, amire lépni szeretnénk
 	 */
 	public void Move(Field f) {	
-
 		
 		if(this.field.isNeighour(f)&&this.GetNumOfAction()>0){
 			this.field.RemoveCreature(this);
@@ -118,15 +117,9 @@ public class Player implements CanMove{
 				f.Fall();
 				//this.field.AddCreature(this);
 			}
-			
-			//Ha nem, a lepes sikeres
-			else{
-				return;
-			}
 		}
-		//Ha nem szomszedos a celmezo
-		else{
-			return;
+		if (numberOfAction == 0) {
+			Game.NextPlayer();
 		}
 	}
 	
@@ -163,8 +156,8 @@ public class Player implements CanMove{
 	}
 	
 	
-	public void StartTurn(int numOfAction) {
-		numberOfAction = numOfAction;
+	public boolean StartTurn() {
+		return true;
 		
 	}
 	

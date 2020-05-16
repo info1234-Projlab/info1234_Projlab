@@ -37,6 +37,28 @@ public class Game {
 	public static void SetCurrentPlayer(CanMove player) {
 		currentPlayer=player;
 	}
+	
+	public static void NextPlayer() {
+		boolean nemMaci = true;
+		int index = cM.indexOf(currentPlayer);
+		currentPlayer.SetNumOfAction(4);
+		while(nemMaci) {
+			if (cM.size() == index + 1) {
+				index = -1;
+			}
+			if (cM.get(index + 1).StartTurn()) {
+				nemMaci = false;
+			}
+			else {
+				index++;
+			}
+			if (cM.size() == index + 1) {
+				index = -1;
+			}
+			currentPlayer = cM.get(index + 1);
+		}
+	}
+		
 	/**
 	 * Visszaadja a mostani kör számát.
 	 */
@@ -53,12 +75,12 @@ public class Game {
 	}
 	
 	public static void StartGame() {
-		currentPlayer.StartTurn(4);
+		/*currentPlayer.StartTurn(4);
 		int indexOfCurrentPlayer = cM.indexOf(currentPlayer);
 		if(indexOfCurrentPlayer == cM.size()-1)
 			currentPlayer= cM.get(0);
 		else
-			currentPlayer = cM.get(indexOfCurrentPlayer+1);
+			currentPlayer = cM.get(indexOfCurrentPlayer+1);*/
 	}
 	
 	/**

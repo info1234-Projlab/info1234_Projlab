@@ -17,7 +17,7 @@ public interface CanMove {
 	public void Move(Field f);
 	public void StepOn(CanMove cm);
 	public void DecreaseHp();
-	public void StartTurn(int numOfAction);
+	public boolean StartTurn();
 	public void SetHp(int num);
 	public boolean IsDead();
 	public boolean SwimPlayer();

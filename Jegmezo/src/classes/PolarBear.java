@@ -27,6 +27,7 @@ public class PolarBear implements CanMove {
 	 */
 	@Override
 	public void Move(Field f) {
+		System.out.println(Game.GetCurrentPlayer().toString());
 		if(this.field.isNeighour(f)){
 			this.field.RemoveCreature(this);
 			f.AddCreature(this);
@@ -63,8 +64,8 @@ public class PolarBear implements CanMove {
 	}
 
 	@Override
-	public void StartTurn(int numOfAction) {
-		return;
+	public boolean StartTurn() {
+		return false;
 		
 	}
 

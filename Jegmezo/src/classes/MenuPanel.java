@@ -16,9 +16,9 @@ import java.awt.*;
 
 public class MenuPanel extends JPanel implements ActionListener{
 	
-	private JLabel numOfPlayersLabel = new JLabel("Hány játékos játtszik: ");
-	private JLabel rowsLabel = new JLabel("Hány sorból álljon a pálya: ");
-	private JLabel columnsLabel = new JLabel("Hány oszlopból álljon a pálya: ");
+	private JLabel numOfPlayersLabel = new JLabel("Hï¿½ny jï¿½tï¿½kos jï¿½ttszik: ");
+	private JLabel rowsLabel = new JLabel("Hï¿½ny sorbï¿½l ï¿½lljon a pï¿½lya: ");
+	private JLabel columnsLabel = new JLabel("Hï¿½ny oszlopbï¿½l ï¿½lljon a pï¿½lya: ");
 	private JButton startButton = new JButton("Start");
 	private JButton numOfPlayersButton = new JButton("Ok");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
