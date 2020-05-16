@@ -19,6 +19,7 @@ public class inventoryPanel extends JPanel{
 	private Image lostHp;
 	private Image food;
 	private JLabel playerLabel;
+	private JLabel fieldLabel;
 	
 	public inventoryPanel(){
 		this.setPreferredSize(new Dimension(300,680));
@@ -31,12 +32,20 @@ public class inventoryPanel extends JPanel{
 		catch(IOException ex){
 			
 		}
+		this.setLayout(null);
 		
 		playerLabel = new JLabel("XY Játékos");
-		playerLabel.setBounds(10, 20, 250, 50);
+		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(playerLabel);
+		
+		fieldLabel = new JLabel("Selected Field");
+		fieldLabel.setBounds(10, 350, 300, 30);
+		fieldLabel.setFont(playerLabel.getFont().deriveFont(40f));
+		fieldLabel.setForeground(Color.getHSBColor(191, 18, 255));
+		this.add(fieldLabel);
+		
 		
 	}
 	
@@ -58,12 +67,24 @@ public class inventoryPanel extends JPanel{
 				g.fillRect(30+j*90, 100+i*90, 56, 56);
 				g.setColor(new Color(97, 61, 30));
 				g.fillRect(33+j*90, 103+i*90, 50, 50);
+				if(Game.GetCurrentPlayer().GetItems().size() > i+j){
+					Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
+				}
 			}
 		}
 		
-		g.drawImage(food, 33, 103, null);
 		
-		tesztDraw tD = new tesztDraw();
-		tD.draw(g);
+		for(int i = 0; i < 2; i++){
+			for(int j = 0; j < 3 ; j++)	{
+				g.setColor(Color.BLACK);
+				g.fillRect(30+j*90, 420+i*90, 56, 56);
+				g.setColor(new Color(97, 61, 30));
+				g.fillRect(33+j*90, 423+i*90, 50, 50);
+				
+				if(Game.GetCurrentPlayer().GetField().GetItems().size() > i+j){
+					Game.GetCurrentPlayer().GetField().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 423+i*90), g);
+				}
+			}
+		}
 	}
 }

@@ -30,4 +30,6 @@ public interface Inventory {
 	public void SetVisible(boolean b);
 	
 	public boolean GetVisible();
+	
+	public ItemView getView();
 }

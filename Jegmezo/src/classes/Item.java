@@ -109,6 +109,8 @@ public class Item implements Inventory {
 		return visible;
 	}
 	
-	
+	public ItemView getView(){
+		return view;
+	}
 
 }
