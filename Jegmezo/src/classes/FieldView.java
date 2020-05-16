@@ -28,6 +28,10 @@ public class FieldView {
 		coordinates = p;
 	}
 	
+	public Point GetCoordinates() {
+		return coordinates;
+	}
+	
 	public void Draw(Graphics g) {
 		g.drawImage(img, coordinates.x, coordinates.y, null);
 		for (CanMove cm : field.GetCreatures()) {

@@ -129,6 +129,10 @@ public class Field {
 		item.Drop(player);
 	}
 	
+	public void InitInventory(Inventory item) {
+		items.add(item);
+	}
+	
 	
 	/**
 	 * 
