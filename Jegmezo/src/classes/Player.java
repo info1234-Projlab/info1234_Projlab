@@ -115,7 +115,7 @@ public class Player implements CanMove{
 			
 			if(f.IsFall()){
 				f.Fall();
-				this.field.AddCreature(this);
+				//this.field.AddCreature(this);
 			}
 			
 			//Ha nem, a lepes sikeres
