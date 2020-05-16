@@ -74,9 +74,14 @@ public class inventoryPanel extends JPanel{
 				g.fillRect(30+j*90, 100+i*90, 56, 56);
 				g.setColor(new Color(97, 61, 30));
 				g.fillRect(33+j*90, 103+i*90, 50, 50);
-				if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-					Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
+				if (Game.GetCurrentPlayer() != null) {
+					if (Game.GetCurrentPlayer().GetItems() != null) {
+						if(Game.GetCurrentPlayer().GetItems().size() > i+j){
+								Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
+							}
+					}
 				}
+				
 				
 			}
 		}
