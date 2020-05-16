@@ -1,17 +1,26 @@
 package classes;
-
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.*;
+
 import java.awt.*;
 
 public class MenuPanel extends JPanel implements ActionListener{
 	
-	private JLabel numOfPlayersLabel = new JLabel("Hï¿½ny jï¿½tï¿½kos jï¿½ttszik: ");
-	private JLabel rowsLabel = new JLabel("Hï¿½ny sorbï¿½l ï¿½lljon a pï¿½lya: ");
-	private JLabel columnsLabel = new JLabel("Hï¿½ny oszlopbï¿½l ï¿½lljon a pï¿½lya: ");
+	private JLabel numOfPlayersLabel = new JLabel("Hány játékos játtszik: ");
+	private JLabel rowsLabel = new JLabel("Hány sorból álljon a pálya: ");
+	private JLabel columnsLabel = new JLabel("Hány oszlopból álljon a pálya: ");
 	private JButton startButton = new JButton("Start");
-	private JButton playerSelectButton = new JButton("Ok");
+	private JButton numOfPlayersButton = new JButton("Ok");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
 	JTextField numOfPlayersText = new JTextField();
 	JTextField rowsText = new JTextField();
@@ -28,9 +37,10 @@ public class MenuPanel extends JPanel implements ActionListener{
 
 		JPanel setPlayerPanel = new JPanel();
 		numOfPlayersText.setPreferredSize(new Dimension(80,30));
+		numOfPlayersButton.addActionListener(this);
 		setPlayerPanel.add(numOfPlayersLabel);
 		setPlayerPanel.add(numOfPlayersText);
-		setPlayerPanel.add(playerSelectButton);
+		setPlayerPanel.add(numOfPlayersButton);
 		
 		JPanel setRowsPanel = new JPanel();
 		rowsText.setPreferredSize(new Dimension(80,30));
@@ -93,18 +103,25 @@ public class MenuPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
-		case "Ok":
-				psP.SetNumOfPlayer(Integer.parseInt(numOfPlayersText.getText()));
 		case "Start" :
-			if(rowsText.getText()!=null)
+			if(!rowsText.getText().equals(""))
 				rows = Integer.parseInt(rowsText.getText());
 			else
 				rows = 10;
-			if(columnsText.getText()!=null)
+			if(!columnsText.getText().equals(""))
 				columns = Integer.parseInt(columnsText.getText());
 			else
 				columns = 10;
 			InitGame();
+		case "Ok":
+			if(!numOfPlayersText.getText().equals("")) {
+				psP.SetNumOfPlayer(Integer.parseInt(numOfPlayersText.getText()));
+				psP.repaint();
+			}
+			else{
+				psP.SetNumOfPlayer(1);
+				psP.repaint();
+			}
 			break;
 		}
 	}
