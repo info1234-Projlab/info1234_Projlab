@@ -49,10 +49,16 @@ public class Game {
 	public void InitBoard(int rows, int columns, int numOfPlayers) {
 		board.Init(rows, columns, numOfPlayers);
 		board.AddCreatures(cM);
+		currentPlayer = cM.get(0);
 	}
 	
 	public static void StartGame() {
-		board.repaint();
+		currentPlayer.StartTurn(4);
+		int indexOfCurrentPlayer = cM.indexOf(currentPlayer);
+		if(indexOfCurrentPlayer == cM.size()-1)
+			currentPlayer= cM.get(0);
+		else
+			currentPlayer = cM.get(indexOfCurrentPlayer+1);
 	}
 	
 	/**

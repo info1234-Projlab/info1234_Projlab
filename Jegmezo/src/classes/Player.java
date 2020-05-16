@@ -163,6 +163,8 @@ public class Player implements CanMove{
 	
 	
 	public void StartTurn(int numOfAction) {
+		numberOfAction = numOfAction;
+		
 	}
 	
 	/**
