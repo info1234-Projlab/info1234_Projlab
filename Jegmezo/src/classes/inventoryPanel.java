@@ -31,6 +31,7 @@ public class inventoryPanel extends JPanel{
 		} 
 		catch(IOException ex){
 			
+			
 		}
 		this.setLayout(null);
 		
