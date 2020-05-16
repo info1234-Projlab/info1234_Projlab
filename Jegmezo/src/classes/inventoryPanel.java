@@ -70,6 +70,7 @@ public class inventoryPanel extends JPanel{
 				if(Game.GetCurrentPlayer().GetItems().size() > i+j){
 					Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
 				}
+				
 			}
 		}
 		
