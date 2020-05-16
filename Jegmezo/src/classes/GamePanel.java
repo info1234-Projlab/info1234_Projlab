@@ -12,9 +12,9 @@ public class GamePanel extends JPanel{
 	private JButton actionButton;
 	private JLabel InventoryLabel;
 	private inventoryPanel iP;
-	private Game game;
+	private BoardView board;
 	
-	public GamePanel(Game g){
+	public GamePanel(BoardView b){
 		actionButton = new JButton("Use Ability");
 		actionButton.setBounds(330, 600, 100, 30);
 		this.setLayout(null);
@@ -24,10 +24,9 @@ public class GamePanel extends JPanel{
 		iP.setBounds(0, 0, 300, 680);
 		this.add(iP);
 		
-		game = g;
-		g.StartGame();
+		board=b;
 		//bP = new BoardPanel();
-		//this.add(bP);
+		this.add(board);
 		
 	}
 }

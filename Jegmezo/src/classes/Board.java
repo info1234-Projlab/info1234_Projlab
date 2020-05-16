@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
  */
 
 public class Board {
-	private ArrayList<Field> fields;
+	private ArrayList<Field> fields = new ArrayList<Field>();
 	private BoardView boardView;
 	
 	
@@ -61,9 +61,21 @@ public class Board {
 		        	fields.add(new Hole());
 		        else
 		        	fields.add(new UnstableField(randCapacity, randSnowLayer));
-		        fields.get(fields.size()-1).SetFieldView(25*j, 25*i);
+		        if(i%2==0)
+		        	fields.get(fields.size()-1).SetFieldView(50*j, 43*i);
+		        else
+		        	fields.get(fields.size()-1).SetFieldView(25+50*j, 43*i);
 			}
 		}
+	}
+	
+	public void AddCreatures(ArrayList<CanMove> cM) {
+		for(int i=0; i<cM.size(); i++)
+			fields.get(0).AddCreature(cM.get(i));
+	}
+	
+	public BoardView GetBoardView() {
+		return boardView;
 	}
 	
 	public ArrayList<FieldView> GetFieldViews(){

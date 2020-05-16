@@ -48,6 +48,7 @@ public class Game {
 	
 	public void InitBoard(int rows, int columns, int numOfPlayers) {
 		board.Init(rows, columns, numOfPlayers);
+		board.AddCreatures(cM);
 	}
 	
 	public static void StartGame() {
@@ -63,6 +64,10 @@ public class Game {
 				return true;
 		}
 		return false;
+	}
+	
+	public BoardView GetBoardView() {
+		return board.GetBoardView();
 	}
 	
 	public static void LoseGame() {

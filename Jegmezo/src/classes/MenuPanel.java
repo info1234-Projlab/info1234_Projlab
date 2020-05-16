@@ -88,12 +88,13 @@ public class MenuPanel extends JPanel implements ActionListener{
 			numOfPolarBears = 1;
 		for(int i = 0; i<numOfPolarBears; i++)
 			g.AddCreature(new PolarBear());
+		psP.AddPlayersToGame(g);
 		g.MixCanMoves();
 		g.InitBoard(rows, columns, psP.GetNumOfPlayers());
 		//g.StartGame();
 		myFrame mF = (myFrame) SwingUtilities.getWindowAncestor(this);
 		mF.remove(this);
-		mF.add(new GamePanel(g));
+		mF.add(new GamePanel(g.GetBoardView()));
 		mF.setVisible(true);
 	}
 
