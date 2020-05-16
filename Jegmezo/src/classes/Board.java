@@ -67,6 +67,46 @@ public class Board {
 		        	fields.get(fields.size()-1).SetFieldView(25+50*j, 43*i);
 			}
 		}
+		InitInventory(numOfPlayers);
+	}
+	
+	public void InitInventory(int numOfPlayers) {
+		Random random = new Random();
+		int randFieldIndex;
+		randFieldIndex = random.nextInt(fields.size());
+		fields.get(randFieldIndex).AddItem(new Flare(0, false));
+		randFieldIndex = random.nextInt(fields.size());
+		fields.get(randFieldIndex).AddItem(new Cartridge(0, false));
+		randFieldIndex = random.nextInt(fields.size());
+		fields.get(randFieldIndex).AddItem(new Gun(0, false));
+		int numOfFood = numOfPlayers * 3;
+		for(int i = 0; i < numOfFood; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).AddItem(new Food(0, false));
+		}
+		int numOfShovels = numOfPlayers - 1;
+		for(int i = 0; i < numOfShovels; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).AddItem(new Shovel(0, false));
+		}
+		int numOfFragileShovels = numOfPlayers - 1;
+		for(int i = 0; i < numOfFragileShovels; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).AddItem(new FragileShovel(0, false));
+		}
+		int numOfRopes = numOfPlayers - 2;
+		if(numOfRopes < 1)
+			numOfRopes = 1;
+		for(int i = 0; i < numOfRopes; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).AddItem(new Rope(0, false));
+		}
+		int numOfDivingSuits = numOfPlayers - 1;
+		for(int i = 0; i < numOfDivingSuits; i++) {
+			randFieldIndex = random.nextInt(fields.size());
+			fields.get(randFieldIndex).AddItem(new DivingSuit(0, false));
+		}
+			
 	}
 	
 	public void AddCreatures(ArrayList<CanMove> cM) {

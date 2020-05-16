@@ -86,26 +86,28 @@ public class MenuPanel extends JPanel implements ActionListener{
 	
 	public void InitGame() {
 		Game g = new Game();
+		
 		psP.AddPlayersToGame(g);
 		int numOfPolarBears = psP.GetNumOfPlayers() / 3;
 		if(numOfPolarBears == 0)
 			numOfPolarBears = 1;
 		for(int i = 0; i<numOfPolarBears; i++)
 			g.AddCreature(new PolarBear());
-		psP.AddPlayersToGame(g);
 		g.MixCanMoves();
+		
 		g.InitBoard(rows, columns, psP.GetNumOfPlayers());
+		
 		myFrame mF = (myFrame) SwingUtilities.getWindowAncestor(this);
 		mF.remove(this);
 		mF.add(new GamePanel(g.GetBoardView()));
 		mF.setVisible(true);
+		
 		g.StartGame();
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		switch(e.getActionCommand()){
 		case "Start" : 
 			InitGame();
