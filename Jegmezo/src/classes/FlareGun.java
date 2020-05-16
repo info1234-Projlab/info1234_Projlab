@@ -123,4 +123,9 @@ public class FlareGun implements Inventory {
 		return false;
 	}
 
+	@Override
+	public ItemView getView() {
+		return view;
+	}
+
 }
