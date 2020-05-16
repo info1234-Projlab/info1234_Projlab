@@ -20,6 +20,7 @@ public class inventoryPanel extends JPanel{
 	private Image food;
 	private JLabel playerLabel;
 	private JLabel fieldLabel;
+	private JLabel snowLayer;
 	
 	public inventoryPanel(){
 		this.setPreferredSize(new Dimension(300,680));
@@ -35,7 +36,6 @@ public class inventoryPanel extends JPanel{
 		}
 		this.setLayout(null);
 		
-		
 		playerLabel = new JLabel("XY Játékos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
@@ -48,7 +48,12 @@ public class inventoryPanel extends JPanel{
 		fieldLabel.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(fieldLabel);
 		
-		
+		snowLayer = new JLabel();
+		snowLayer.setText("Snow Layer: ");
+		snowLayer.setBounds(10, 600, 300, 30);
+		snowLayer.setFont(playerLabel.getFont().deriveFont(40f));
+		snowLayer.setForeground(Color.getHSBColor(191, 18, 255));
+		this.add(snowLayer);
 	}
 	
 	public void paintComponent(Graphics g){
