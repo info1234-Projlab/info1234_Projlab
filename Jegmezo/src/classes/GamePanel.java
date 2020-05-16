@@ -12,7 +12,6 @@ public class GamePanel extends JPanel{
 	private JButton actionButton;
 	private JLabel InventoryLabel;
 	private inventoryPanel iP;
-	private BoardView boardView;
 	private Game game;
 	
 	public GamePanel(Game g){
