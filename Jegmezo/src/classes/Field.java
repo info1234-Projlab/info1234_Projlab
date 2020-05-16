@@ -1,5 +1,6 @@
 package classes;
 
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -30,7 +31,6 @@ public class Field {
 	private ArrayList<CanMove> creatures;
 	private ArrayList<Inventory> items;
 	private Shelter shelter;
-	private ArrayList<Player> players;
 	protected FieldView view;
 	protected String name;
 	
@@ -47,6 +47,7 @@ public class Field {
 		this.items=new ArrayList<Inventory>();
 		this.neighbourFields=new ArrayList<Field>();
 		this.creatures=new ArrayList<CanMove>();
+		this.view = new FieldView(this);
 		this.name = name;
 	}
 	/**
@@ -65,6 +66,10 @@ public class Field {
 	 */
 	public ArrayList<Field> GetNeighbouringFields(){
 		return neighbourFields;
+	}
+	
+	public void SetFieldView(int x, int y) {
+		view.SetCoordinates(new Point(x,y));
 	}
 	
 	public ArrayList<CanMove> GetCreatures(){

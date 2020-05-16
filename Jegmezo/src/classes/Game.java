@@ -23,7 +23,7 @@ import java.util.Collections;
 public class Game {
 	private static CanMove currentPlayer;
 	private static ArrayList<CanMove> cM = new ArrayList<CanMove>();
-	private static Board board;
+	private static Board board = new Board();
 	private static int turn;
 	/**
 	 * Visszaadja a jelenlegi játékost.
@@ -46,11 +46,12 @@ public class Game {
 	public static void Init(ArrayList<CanMove> players, Board board) {
 	}
 	
-	public void InitBoard(int rows, int columns) {
-		board.Init(rows, columns);
+	public void InitBoard(int rows, int columns, int numOfPlayers) {
+		board.Init(rows, columns, numOfPlayers);
 	}
 	
 	public static void StartGame() {
+		board.repaint();
 	}
 	
 	/**

@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 public class myFrame extends JFrame implements ActionListener{
 	
 	MenuPanel mP= new MenuPanel();
-	GamePanel gP = new GamePanel();
+
 	ImageIcon img = new ImageIcon("iglu.png");
 	
 	public myFrame(){

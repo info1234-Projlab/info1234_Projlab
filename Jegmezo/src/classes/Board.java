@@ -1,6 +1,9 @@
 package classes;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+
+import javax.swing.SwingUtilities;
 
 //
 //
@@ -28,11 +31,13 @@ public class Board {
 	 * @param fields ezek a malyan levo jegtablak, amiket majd inicializalas soran megadunk
 	 * @param tab indentalashoz kell
 	 */
-	public Board(ArrayList<Field> fields) {
-		this.fields=fields;
+	public Board() {
 		this.boardView = new BoardView(this);
 	}
 	
+	public void repaint() {
+		boardView.repaint();
+	}
 	/**
 	 * A Storm() fuggveny felelos a jatektablan idonkent atvonulo viharert.
 	 */
@@ -43,8 +48,22 @@ public class Board {
 			
 	}
 	
-	public void Init(int rows, int columns) {
-		
+	public void Init(int rows, int columns, int numOfPlayers) {
+		int randCapacity, randSnowLayer;
+		Random rand = new Random(); 
+		for(int i = 0; i < rows; i++) {
+			for(int j=0; j < columns; j++) {
+		        randCapacity = rand.nextInt(numOfPlayers+1);
+		        randSnowLayer = rand.nextInt(10);
+		        if(randCapacity == numOfPlayers)
+		        	fields.add(new StableField(randCapacity, randSnowLayer));
+		        else if(randCapacity == 0)
+		        	fields.add(new Hole());
+		        else
+		        	fields.add(new UnstableField(randCapacity, randSnowLayer));
+		        fields.get(fields.size()-1).SetFieldView(25*j, 25*i);
+			}
+		}
 	}
 	
 	public ArrayList<FieldView> GetFieldViews(){

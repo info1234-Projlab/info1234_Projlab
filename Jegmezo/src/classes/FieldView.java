@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-abstract public class FieldView {
+public class FieldView {
 	protected Point coordinates;
 	protected Image img;
 	protected boolean isSelected;
@@ -22,6 +22,10 @@ abstract public class FieldView {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void SetCoordinates(Point p) {
+		coordinates = p;
 	}
 	
 	public void Draw(Graphics g) {
