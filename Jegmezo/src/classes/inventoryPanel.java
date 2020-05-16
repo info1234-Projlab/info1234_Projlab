@@ -34,6 +34,7 @@ public class inventoryPanel extends JPanel{
 		}
 		this.setLayout(null);
 		
+		
 		playerLabel = new JLabel("XY Játékos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
