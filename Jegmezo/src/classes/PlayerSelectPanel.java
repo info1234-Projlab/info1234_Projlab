@@ -24,13 +24,15 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
 	
 	public PlayerSelectPanel(int num){
 		numOfPlayers = num;
-		Point p = new Point(450,100);
+		Point p = new Point(450,50);
+		this.setPreferredSize(new Dimension(970, numOfPlayers*130));
 		for(int i = 1; i <= numOfPlayers; i++){
         	images.add(new Images(new Point(p.x,p.y),i));
         	p.y+=100;
         }
 		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 		addMouseListener(this);	
+		
 	}
 	
 	public void paintComponent(Graphics g){ 
@@ -46,11 +48,13 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
 		numOfPlayers = n;
 		System.out.println(numOfPlayers);
 		images.clear();
-		Point p = new Point(450,100);
+		Point p = new Point(450,50);
 		for(int i = 1; i <= numOfPlayers; i++){
         	images.add(new Images(new Point(p.x,p.y),i));
         	p.y+=100;
         }
+		this.repaint();
+		this.setPreferredSize(new Dimension(970, numOfPlayers*100));
 	}
 	
 	public int GetNumOfPlayers() {

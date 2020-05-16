@@ -72,12 +72,16 @@ public class MenuPanel extends JPanel implements ActionListener{
         
 
 		
+		
 		this.add(setPlayerPanel);
 		this.add(setRowsPanel);
 		this.add(setColumnsPanel);
 		
 		this.add(startButtonPanel, BorderLayout.SOUTH);
-		this.add(psP);
+		JScrollPane sP = new JScrollPane(psP);
+		psP.setAutoscrolls(true);
+		sP.setPreferredSize(new Dimension( 800,600));
+		this.add(sP);
 	}
 	
 	public void InitGame() {
