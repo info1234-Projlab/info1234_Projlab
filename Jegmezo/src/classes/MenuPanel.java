@@ -1,17 +1,8 @@
 package classes;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.*;
-
 import java.awt.*;
 
 public class MenuPanel extends JPanel implements ActionListener{
@@ -20,9 +11,6 @@ public class MenuPanel extends JPanel implements ActionListener{
 	private JLabel rowsLabel = new JLabel("H�ny sorb�l �lljon a p�lya: ");
 	private JLabel columnsLabel = new JLabel("H�ny oszlopb�l �lljon a p�lya: ");
 	private JButton startButton = new JButton("Start");
-	private JButton numOfPlayersButton = new JButton("Ok");
-	private JButton rowsButton = new JButton("Mehet");
-	private JButton columnsButton = new JButton("Rendben");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
 	JTextField numOfPlayersText = new JTextField();
 	JTextField rowsText = new JTextField();
@@ -39,25 +27,19 @@ public class MenuPanel extends JPanel implements ActionListener{
 
 		JPanel setPlayerPanel = new JPanel();
 		numOfPlayersText.setPreferredSize(new Dimension(80,30));
-		numOfPlayersButton.addActionListener(this);
 		setPlayerPanel.add(numOfPlayersLabel);
 		setPlayerPanel.add(numOfPlayersText);
-		setPlayerPanel.add(numOfPlayersButton);
 		
 		JPanel setRowsPanel = new JPanel();
 		rowsText.setPreferredSize(new Dimension(80,30));
-		rowsButton.addActionListener(this);
 		setRowsPanel.add(rowsLabel);
 		setRowsPanel.add(rowsText);
-		setRowsPanel.add(rowsButton);
 		setRowsPanel.setLocation(250, 250);
 		
 		JPanel setColumnsPanel = new JPanel();
 		columnsText.setPreferredSize(new Dimension(80,30));
-		columnsButton.addActionListener(this);
 		setColumnsPanel.add(columnsLabel);
 		setColumnsPanel.add(columnsText);
-		setColumnsPanel.add(columnsButton);
 		setColumnsPanel.setLocation(250, 300);
 		
 		JPanel startButtonPanel = new JPanel();
@@ -109,18 +91,20 @@ public class MenuPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch(e.getActionCommand()){
-		case "Start" : 
+		case "Start" :
+			if(numOfPlayersText.getText()!=null)
+				psP.SetNumOfPlayer(Integer.parseInt(numOfPlayersText.getText()));
+			else
+				psP.SetNumOfPlayer(1);
+			if(rowsText.getText()!=null)
+				rows = Integer.parseInt(rowsText.getText());
+			else
+				rows = 10;
+			if(columnsText.getText()!=null)
+				columns = Integer.parseInt(columnsText.getText());
+			else
+				columns = 10;
 			InitGame();
-			break;
-		case "Ok":
-			psP.setNum_of_player(Integer.parseInt(numOfPlayersText.getText()));
-			psP.repaint();
-			break;
-		case "Mehet":
-			rows = Integer.parseInt(rowsText.getText());
-			break;
-		case "Rendben":
-			columns = Integer.parseInt(columnsText.getText());
 			break;
 		}
 	}

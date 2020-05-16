@@ -44,7 +44,7 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
         
     }
 	
-	public void setNum_of_player(int n){
+	public void SetNumOfPlayer(int n){
 		numOfPlayers = n;
 		System.out.println(numOfPlayers);
 		images.clear();
