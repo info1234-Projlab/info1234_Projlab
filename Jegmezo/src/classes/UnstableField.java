@@ -32,7 +32,7 @@ public class UnstableField extends Field {
 	 * Ha tobben vannak a mezon, mint ahany jatekost elbir, akkor beleesnek a vizbe. 
 	 */
 	public boolean IsFall(){
-		if(numOfPlayers >= capacity){
+		if(numOfPlayers > capacity){
 			return true;
 		}
 		else{
