@@ -81,7 +81,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		System.out.println(e.getPoint().x + ", " + e.getPoint().y);
 		if (SwingUtilities.isRightMouseButton(e)) {
 			for (FieldView fv : board.GetFieldViews()) {
-				if (fv.CheckClicked(e.getPoint())) {
+				if (fv.CheckClicked(e.getPoint())&& Game.GetCurrentPlayer()!=null) {
 					Game.GetCurrentPlayer().Move(fv.GetField());
 					System.out.println(Game.GetCurrentPlayer().toString());
 					System.out.println("akart mozogni");

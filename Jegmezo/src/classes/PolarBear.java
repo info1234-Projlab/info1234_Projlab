@@ -49,9 +49,12 @@ public class PolarBear implements CanMove {
  * true-val ter vissza jegesmacira lepes eseteben
  */
 	public void StepOn(CanMove cm) {
-		if(!cm.GetField().GetShelter().DefendFromBear())
+		if(cm.GetField().hasShelter()) {
+			if(!cm.GetField().GetShelter().DefendFromBear())
+				cm.SetHp(0);
+		}
+		else
 			cm.SetHp(0);
-		
 	}
 	
 	public boolean IsDead() {
