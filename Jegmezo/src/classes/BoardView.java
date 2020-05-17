@@ -76,6 +76,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 			break;
 		case "DIG" : 
 			Game.GetCurrentPlayer().DigPlayer(1);
+			inventory.SetCurrentField(Game.GetCurrentPlayer().GetField());
 			inventory.repaint();
 			this.repaint();
 			break;
