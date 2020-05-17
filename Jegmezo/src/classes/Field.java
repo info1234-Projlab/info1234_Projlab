@@ -99,7 +99,7 @@ public class Field {
 		}
 		
 		for(CanMove p : creatures){
-			//p.SetHp(0);    ez itt szar valamiert..... ha kikommentezed akkor meghalunk mindig
+			p.SetHp(0);   // ez itt szar valamiert..... ha kikommentezed akkor meghalunk mindig
 		}
 	}
 	
