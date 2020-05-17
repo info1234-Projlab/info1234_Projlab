@@ -26,6 +26,7 @@ public class FieldView {
 	
 	public void SetCoordinates(Point p) {
 		coordinates = p;
+		coordinates.x += 300;
 	}
 	
 	public Point GetCoordinates() {

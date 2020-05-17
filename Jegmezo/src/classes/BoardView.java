@@ -19,9 +19,10 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 	private JButton actionButton;
 	private JButton endTurnButton;
 	private JButton digButton;
+	private inventoryPanel inventory;
 	
 	public BoardView(Board b) {
-		this.setBounds(300, 0, 700, 680);
+		this.setBounds(0, 0, 1000, 1000);
 		this.setLayout(null);
 		
 		actionButton = new JButton("Use Ability");
@@ -88,6 +89,14 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 					break;
 				}
 			}
+		}else if (SwingUtilities.isLeftMouseButton(e)) {
+			for (FieldView fv : board.GetFieldViews()) {
+				if (fv.CheckClicked(e.getPoint())) {
+					inventory.SetCurrentField(fv.GetField());
+					inventory.repaint();
+					break;
+				}
+			}
 		}
 		
 		
@@ -115,5 +124,10 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void SetInventory(inventoryPanel ip) {
+		this.inventory = ip;
+		this.add(inventory);
 	}
 }
