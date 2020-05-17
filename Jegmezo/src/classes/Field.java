@@ -93,9 +93,10 @@ public class Field {
 		}
 		Field iterF;
 		for(Field f : neighbourFields){
-			for(CanMove p : f.creatures){
-				p.PullPlayer(this);
+			for(int i = 0 ; i < f.creatures.size(); i++) {
+				f.creatures.get(i).PullPlayer(this);
 			}
+			
 		}
 		
 		for(CanMove p : creatures){
