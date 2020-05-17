@@ -15,17 +15,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public class inventoryPanel extends JPanel implements MouseListener{
-	private Image background ;
-	private Image fullHp;
-	private Image lostHp;
-	private JLabel playerLabel;
-	private JLabel fieldLabel;
-	private JLabel snowLayer;
-	private Field currentField;
-	private BoardView board;
-	
-	public inventoryPanel(BoardView b){
+public inventoryPanel(BoardView b){
 		this.setPreferredSize(new Dimension(300,680));
 		try{
 			background = ImageIO.read(new File("inventoryBg.png"));
@@ -38,24 +28,18 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă„ÄľÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€ąÄŹĹĽËťĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â€šÂ¬ÄąË‡Ä‚â€šĂ‚Â¬Ä‚â€žĂ„â€¦Ä‚â€ąĂ˘â‚¬Ë‡Ă„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ä‚â€žĂ˘â‚¬Â¦Ä‚â€žĂ˘â‚¬ĹˇÄ‚â€ąÄŹĹĽËťĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â€šÂ¬ÄąË‡Ä‚â€šĂ‚Â¬Ă„â€šĂ˘â‚¬Ä…Ä‚Ë�Ă˘â€šÂ¬Ă‹â€ˇtĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă„ÄľÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€ąÄŹĹĽËťĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â€šÂ¬ÄąË‡Ä‚â€šĂ‚Â¬Ä‚â€žĂ„â€¦Ä‚â€ąĂ˘â‚¬Ë‡Ă„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
+		playerLabel = new JLabel("Player items");
 		playerLabel.setBounds(10, 10, 300, 30);
-		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
+		playerLabel.setFont(playerLabel.getFont().deriveFont(25f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(playerLabel);
 		
-		fieldLabel = new JLabel("Selected Field");
+		fieldLabel = new JLabel("Selected field items");
 		fieldLabel.setBounds(10, 350, 300, 30);
-		fieldLabel.setFont(playerLabel.getFont().deriveFont(40f));
+		fieldLabel.setFont(playerLabel.getFont().deriveFont(25f));
 		fieldLabel.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(fieldLabel);
 		
-		snowLayer = new JLabel();
-		snowLayer.setText("Snow Layer: ");
-		snowLayer.setBounds(10, 600, 300, 30);
-		snowLayer.setFont(playerLabel.getFont().deriveFont(40f));
-		snowLayer.setForeground(Color.getHSBColor(191, 18, 255));
-		this.add(snowLayer);
 		
 		this.addMouseListener(this);
 		
