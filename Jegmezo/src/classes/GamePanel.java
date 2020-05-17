@@ -25,7 +25,7 @@ public class GamePanel extends JPanel{
 		this.add(board);
 		
 		this.setLayout(null);
-		inventoryPanel iP = new inventoryPanel();
+		inventoryPanel iP = new inventoryPanel(board);
 		iP.setBounds(0, 0, 300, 680);
 		board.SetInventory(iP);
 		this.add(iP);
