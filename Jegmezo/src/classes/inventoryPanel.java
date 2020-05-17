@@ -37,7 +37,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€ąĂ˘â‚¬Ë‡tÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
+		playerLabel = new JLabel("XY JĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬Ä…Ä‚Ë�Ă˘â€šÂ¬Ă‹â€ˇtĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -125,34 +125,51 @@ public class inventoryPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
-		if(e.getPoint().y > 400){
-			for (Inventory iv : currentField.GetItems()) {
-				if (iv.getView().CheckClicked(e.getPoint())) {
-					//System.out.println(iv.toString() + "Felvesz");
-					if(currentField.GetCreatures().contains(Game.GetCurrentPlayer())){
-						System.out.println("Felveszi");
-						iv.PickUp(Game.GetCurrentPlayer());
+		if (SwingUtilities.isLeftMouseButton(e)){
+			if(e.getPoint().y > 400){
+				for (Inventory iv : currentField.GetItems()) {
+					if (iv.getView().CheckClicked(e.getPoint())) {
+						//System.out.println(iv.toString() + "Felvesz");
+						if(currentField.GetCreatures().contains(Game.GetCurrentPlayer())){
+							System.out.println("Felveszi");
+							iv.PickUp(Game.GetCurrentPlayer());
+						}
+						this.repaint();
+						break;
 					}
-					this.repaint();
-					break;
+				}
+			}
+			else{
+				if(Game.GetCurrentPlayer().GetItems().size() > 0){
+					Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
+					Inventory it =  iv.next();
+					while(iv.hasNext()){
+						if (it.getView().CheckClicked(e.getPoint())) {
+							break;
+						}
+						it =  iv.next();
+					}
+					it.Eat((Player)Game.GetCurrentPlayer());
+					it.Dig(Game.GetCurrentPlayer());
+					it.PutOn((Player)Game.GetCurrentPlayer());
+					it.Shoot((Player)Game.GetCurrentPlayer());
+					it.Swim((Player)Game.GetCurrentPlayer());
 				}
 			}
 		}
-		else{
-			Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
-			Inventory it =  iv.next();
-			while(iv.hasNext()){
-				if (it.getView().CheckClicked(e.getPoint())) {
-					break;
+		if (SwingUtilities.isRightMouseButton(e)){
+			if(e.getPoint().y < 400){
+				Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
+				Inventory it =  iv.next();
+				while(iv.hasNext()){
+					if (it.getView().CheckClicked(e.getPoint())) {
+						break;
+					}
+					it =  iv.next();
 				}
-				it =  iv.next();
+				it.Drop(Game.GetCurrentPlayer());
+				currentField.AddItem(it);
 			}
-			it.Eat((Player)Game.GetCurrentPlayer());
-			it.Dig(Game.GetCurrentPlayer());
-			it.PutOn((Player)Game.GetCurrentPlayer());
-			it.Shoot((Player)Game.GetCurrentPlayer());
-			it.Swim((Player)Game.GetCurrentPlayer());
 		}
 		this.repaint();
 	}
