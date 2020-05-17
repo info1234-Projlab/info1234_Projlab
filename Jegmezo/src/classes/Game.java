@@ -98,7 +98,8 @@ public class Game {
 		return board.GetBoardView();
 	}
 	
-	public static void LoseGame() {
+	public static void LooseGame() {
+		System.out.println("ddied");
 	}
 	
 	/**

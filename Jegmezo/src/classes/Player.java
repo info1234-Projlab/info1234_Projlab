@@ -137,6 +137,8 @@ public class Player implements CanMove{
 	 */
 	public void DecreaseHp() {
 		hp--;
+		if(hp==0)
+			Game.LooseGame();
 	}
 	
 	/**
@@ -231,6 +233,8 @@ public class Player implements CanMove{
 	
 	public void SetHp(int hp){
 		this.hp = hp;
+		if(hp==0)
+			Game.LooseGame();
 	}
 
 
