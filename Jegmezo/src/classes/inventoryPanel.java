@@ -156,7 +156,6 @@ public class inventoryPanel extends JPanel implements MouseListener{
 						it.Dig(Game.GetCurrentPlayer());
 						it.PutOn((Player)Game.GetCurrentPlayer());
 						it.Shoot((Player)Game.GetCurrentPlayer());
-						it.Swim((Player)Game.GetCurrentPlayer());
 						it.PutOnField((Player)Game.GetCurrentPlayer());
 					}
 				}
