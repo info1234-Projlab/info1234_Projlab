@@ -95,11 +95,26 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 					break;
 				}
 			}
+			for(Inventory inv : Game.GetCurrentPlayer().GetItems()) {
+				if(inv.getView().CheckClicked(e.getPoint())) {
+					// call inventory method (e g eat)
+					Game.GetCurrentPlayer().RemoveItem(inv);
+					inventory.repaint();
+					break;
+				}
+			}
 		}else if (SwingUtilities.isLeftMouseButton(e)) {
 			for (FieldView fv : board.GetFieldViews()) {
 				if (fv.CheckClicked(e.getPoint())) {
 					inventory.SetCurrentField(fv.GetField());
 					lastClicked = fv.GetField();
+					inventory.repaint();
+					break;
+				}
+			}
+			for(Inventory inv : inventory.GetCurrentField().GetItems()) {
+				if(inv.getView().CheckClicked(e.getPoint())) {
+					Game.GetCurrentPlayer().AddItem(inv);
 					inventory.repaint();
 					break;
 				}

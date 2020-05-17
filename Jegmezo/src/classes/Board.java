@@ -54,7 +54,8 @@ public class Board {
 		Random rand = new Random(); 
 		for(int i = 0; i < rows; i++) {
 			for(int j=0; j < columns; j++) {
-		        randCapacity = rand.nextInt(numOfPlayers+1);
+		      //  randCapacity = rand.nextInt(numOfPlayers+1);
+				randCapacity = 1 ;
 		        randSnowLayer = rand.nextInt(10);
 		        if(randCapacity == numOfPlayers)
 		        	fields.add(new StableField(randCapacity, randSnowLayer));

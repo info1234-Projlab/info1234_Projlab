@@ -85,9 +85,9 @@ public class inventoryPanel extends JPanel implements MouseListener{
 				g.fillRect(33+j*90, 103+i*90, 50, 50);
 				if (Game.GetCurrentPlayer() != null) {
 					if (Game.GetCurrentPlayer().GetItems() != null) {
-						if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-							Game.GetCurrentPlayer().GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
-							Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(g);
+						if(Game.GetCurrentPlayer().GetItems().size() > 3*i+j){
+							Game.GetCurrentPlayer().GetItems().get(3*i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
+							Game.GetCurrentPlayer().GetItems().get(3*i+j).getView().Draw(g);
 						}
 					}
 				}
@@ -103,13 +103,13 @@ public class inventoryPanel extends JPanel implements MouseListener{
 				g.fillRect(33+j*90, 423+i*90, 50, 50);
 				
 				if(currentField == null) {
-					if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-						Game.GetCurrentPlayer().GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
-						Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(g);
+					if(Game.GetCurrentPlayer().GetItems().size() > 2*i+j){
+						Game.GetCurrentPlayer().GetItems().get(2*i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
+						Game.GetCurrentPlayer().GetItems().get(2*i+j).getView().Draw(g);
 					}
-				}else if(currentField.GetItems().size() > i+j){
-					currentField.GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 423+i*90));
-					currentField.GetItems().get(i+j).getView().Draw(g);
+				}else if(currentField.GetItems().size() > 2*i+j){
+					currentField.GetItems().get(2*i+j).getView().setPoint(new Point(33+j*90, 423+i*90));
+					currentField.GetItems().get(2*i+j).getView().Draw(g);
 				}
 			}
 		}
@@ -117,6 +117,10 @@ public class inventoryPanel extends JPanel implements MouseListener{
 
 	public void SetCurrentField(Field f) {
 		this.currentField = f ;
+	}
+	
+	public Field GetCurrentField() {
+		return this.currentField;
 	}
 
 	@Override
