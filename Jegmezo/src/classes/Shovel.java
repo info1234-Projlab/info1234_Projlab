@@ -38,7 +38,6 @@ public class Shovel extends Item {
 	public boolean Dig(CanMove p) {
 		if (p.GetNumOfAction() <= 0)
 			return false;
-		p.SetNumOfAction(p.GetNumOfAction() - 1);
 		p.DigPlayer(2);
 		return true;
 	}
