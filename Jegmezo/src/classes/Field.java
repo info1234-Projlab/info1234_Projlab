@@ -170,8 +170,10 @@ public class Field {
 	 */
 	public void DigItems(int layers) {
 		for (Inventory i : items) {
-			i.SetLayer(i.GetLayer()-layers);
-			if(i.GetLayer() == 0)	i.SetVisible(true);
+			int newlayer = i.GetLayer()-layers;
+			if(newlayer <= 0 )	newlayer = 0 ;
+			i.SetLayer(newlayer);
+			if(newlayer == 0)	i.SetVisible(true);
 		}
 	}
 	
