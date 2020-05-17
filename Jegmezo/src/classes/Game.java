@@ -110,7 +110,9 @@ public class Game {
 		mF.remove(gamePanel);
 		mF.add(new GameOver());
 		mF.setVisible(true);
+		
 	}
+	
 	
 	/**
 	 * Minden játékos win attribútumot igazra állítja.
