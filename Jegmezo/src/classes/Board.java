@@ -97,27 +97,52 @@ public class Board {
 	public void InitInventory(int numOfPlayers) {
 		Random random = new Random();
 		int randFieldIndex;
+		boolean visible;
 		randFieldIndex = random.nextInt(fields.size());
-		fields.get(randFieldIndex).InitInventory(new Flare(0, false));
+		if (fields.get(randFieldIndex).GetCapacity() == 0)
+			visible = true;
+		else 
+			visible = false;
+		fields.get(randFieldIndex).InitInventory(new Flare(0, visible));
 		randFieldIndex = random.nextInt(fields.size());
-		fields.get(randFieldIndex).InitInventory(new Cartridge(0, false));
+		if (fields.get(randFieldIndex).GetCapacity() == 0)
+			visible = true;
+		else 
+			visible = false;
+		fields.get(randFieldIndex).InitInventory(new Cartridge(0, visible));
 		randFieldIndex = random.nextInt(fields.size());
-		fields.get(randFieldIndex).InitInventory(new Gun(0, false));
+		if (fields.get(randFieldIndex).GetCapacity() == 0)
+			visible = true;
+		else 
+			visible = false;
+		fields.get(randFieldIndex).InitInventory(new Gun(0, visible));
 		int numOfFood = numOfPlayers * 3;
 		for(int i = 0; i < numOfFood; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			fields.get(randFieldIndex).InitInventory(new Food(0, false));
+			if (fields.get(randFieldIndex).GetCapacity() == 0)
+				visible = true;
+			else 
+				visible = false;
+			fields.get(randFieldIndex).InitInventory(new Food(0, visible));
 		}
 		int numOfShovels = numOfPlayers - 1;
 		for(int i = 0; i < numOfShovels; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			if(!fields.get(randFieldIndex).InitInventory(new Shovel(0, false)))
+			if (fields.get(randFieldIndex).GetCapacity() == 0)
+				visible = true;
+			else 
+				visible = false;
+			if(!fields.get(randFieldIndex).InitInventory(new Shovel(0, visible)))
 				i-=1;
 		}
 		int numOfFragileShovels = numOfPlayers - 1;
 		for(int i = 0; i < numOfFragileShovels; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			if(!fields.get(randFieldIndex).InitInventory(new FragileShovel(0, false)))
+			if (fields.get(randFieldIndex).GetCapacity() == 0)
+				visible = true;
+			else 
+				visible = false;
+			if(!fields.get(randFieldIndex).InitInventory(new FragileShovel(0, visible)))
 				i-=1;
 		}
 		int numOfRopes = numOfPlayers - 2;
@@ -125,13 +150,21 @@ public class Board {
 			numOfRopes = 1;
 		for(int i = 0; i < numOfRopes; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			if(!fields.get(randFieldIndex).InitInventory(new Rope(0, false)))
+			if (fields.get(randFieldIndex).GetCapacity() == 0)
+				visible = true;
+			else 
+				visible = false;
+			if(!fields.get(randFieldIndex).InitInventory(new Rope(0, visible)))
 				i-=1;
 		}
 		int numOfDivingSuits = numOfPlayers - 1;
 		for(int i = 0; i < numOfDivingSuits; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			if(!fields.get(randFieldIndex).InitInventory(new DivingSuit(0, false)))
+			if (fields.get(randFieldIndex).GetCapacity() == 0)
+				visible = true;
+			else 
+				visible = false;
+			if(!fields.get(randFieldIndex).InitInventory(new DivingSuit(0, visible)))
 				i-=1;
 		}
 			

@@ -146,7 +146,7 @@ public class Game {
 	}
 	
 	public static void MixCanMoves() {
-		Collections.shuffle(cM);
+		//Collections.shuffle(cM);
 	}
 	/**
 	 * Hozzáad egy CanMove-ot a listába.

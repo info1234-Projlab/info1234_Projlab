@@ -171,9 +171,11 @@ public class Field {
 	public boolean DigItems(int layers) {
 		for (Inventory i : items) {
 			int newlayer = i.GetLayer()-layers;
-			if(newlayer <= 0 )	newlayer = 0 ;
+			if(newlayer <= 0 )	
+				newlayer = 0 ;
 			i.SetLayer(newlayer);
-			if(newlayer == 0)	i.SetVisible(true);
+			if(newlayer == snowLayer)
+				i.SetVisible(true);
 		}
 		if (snowLayer >= 2 && layers == 2) {
 			layers -= 2;
