@@ -70,7 +70,7 @@ public class Game {
 		}
 		Random rand = new Random();
 		int random = rand.nextInt(3);
-		if(random % 2 == 1 )	board.Storm();
+		//if(random % 2 == 1 )	board.Storm();
 	}
 		
 	/**
