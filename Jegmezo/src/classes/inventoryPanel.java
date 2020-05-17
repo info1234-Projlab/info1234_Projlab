@@ -15,7 +15,17 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-public inventoryPanel(BoardView b){
+public class inventoryPanel extends JPanel implements MouseListener{
+	private Image background ;
+	private Image fullHp;
+	private Image lostHp;
+	private JLabel playerLabel;
+	private JLabel fieldLabel;
+	private JLabel snowLayer;
+	private Field currentField;
+	private BoardView board;
+	
+	public inventoryPanel(BoardView b){
 		this.setPreferredSize(new Dimension(300,680));
 		try{
 			background = ImageIO.read(new File("inventoryBg.png"));
