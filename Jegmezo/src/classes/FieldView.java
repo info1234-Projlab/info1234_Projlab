@@ -45,7 +45,7 @@ public class FieldView {
 		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
 		g.setColor(Color.BLACK);
 		if (field.GetVisibleCapacity()) {
-			g.drawString(Integer.toString(field.GetCapacity()), coordinates.x + 1, coordinates.y + 35);
+			g.drawString(Integer.toString(field.GetCapacity()), coordinates.x + 5, coordinates.y + 17);
 		}
 		for (CanMove cm : field.GetCreatures()) {
 			cm.GetCanMoveView().Draw(new Point(coordinates.x + shift, coordinates.y), g,(double) 1 / numberOfCreatures);
