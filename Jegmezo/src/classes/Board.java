@@ -167,7 +167,7 @@ public class Board {
 			if(!fields.get(randFieldIndex).InitInventory(new DivingSuit(0, visible)))
 				i-=1;
 		}
-		int numOftent = 10;
+		int numOftent = numOfPlayers;
 		for(int i = 0; i < numOftent; i++) {
 			randFieldIndex = random.nextInt(fields.size());
 			if (fields.get(randFieldIndex).GetCapacity() == 0)
