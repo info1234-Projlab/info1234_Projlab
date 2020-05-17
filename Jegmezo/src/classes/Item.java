@@ -47,6 +47,9 @@ public class Item implements Inventory {
 		return false;
 	}
 	
+	public boolean PutOnField(Player p){
+		return false;
+	}
 	/**
 	 * Ha valaki el szeretne dobni egy t�rgyat akkor h�v�dik ez a 
 	 * f�ggv�ny. Ilyenkor, a param�ter�l kapott Player items t�rol�j�b�l kiveszi az adott t�rgyat �s

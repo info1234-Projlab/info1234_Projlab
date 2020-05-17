@@ -32,4 +32,6 @@ public interface Inventory {
 	public boolean GetVisible();
 	
 	public ItemView getView();
+	
+	public boolean PutOnField(Player p);
 }
