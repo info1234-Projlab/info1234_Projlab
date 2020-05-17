@@ -20,6 +20,7 @@ public class myFrame extends JFrame implements ActionListener{
 		this.setResizable(false);
 		this.setVisible(true);
 		this.setIconImage(img.getImage());
+		Game.SetWindow(this);
 	}
 
 	@Override

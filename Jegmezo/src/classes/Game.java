@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 
@@ -29,11 +30,16 @@ public class Game {
 	private static Board board = new Board();
 	private static int turn;
 	private static GamePanel gamePanel;
+	private static JFrame window;
 	/**
 	 * Visszaadja a jelenlegi játékost.
 	 */
 	public static CanMove GetCurrentPlayer() {
 		return currentPlayer;
+	}
+	
+	public static void SetWindow(JFrame _window) {
+		window = _window;
 	}
 	/**
 	 * Beállítja a jelenlegi játékost.
@@ -109,10 +115,9 @@ public class Game {
 	}
 	
 	public static void LooseGame() {
-		myFrame mF = (myFrame) SwingUtilities.getWindowAncestor(gamePanel);
-		mF.remove(gamePanel);
-		mF.add(new GameOver());
-		mF.setVisible(true);
+		window.remove(gamePanel);
+		window.add(new GameOver());
+		window.setVisible(true);
 		
 	}
 	
