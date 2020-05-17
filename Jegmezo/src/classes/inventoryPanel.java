@@ -127,17 +127,20 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		if (SwingUtilities.isLeftMouseButton(e)){
 			if(e.getPoint().y > 400){
-				for (Inventory iv : currentField.GetItems()) {
-					if (iv.getView().CheckClicked(e.getPoint())) {
-						//System.out.println(iv.toString() + "Felvesz");
-						if(currentField.GetCreatures().contains(Game.GetCurrentPlayer())){
-							System.out.println("Felveszi");
-							iv.PickUp(Game.GetCurrentPlayer());
+				if (currentField != null) {
+					for (Inventory iv : currentField.GetItems()) {
+						if (iv.getView().CheckClicked(e.getPoint())) {
+							//System.out.println(iv.toString() + "Felvesz");
+							if(currentField.GetCreatures().contains(Game.GetCurrentPlayer())){
+								System.out.println("Felveszi");
+								iv.PickUp(Game.GetCurrentPlayer());
+							}
+							this.repaint();
+							break;
 						}
-						this.repaint();
-						break;
 					}
 				}
+				
 			}
 			else{
 				if(Game.GetCurrentPlayer().GetItems().size() > 0){
