@@ -26,7 +26,6 @@ csökken. (a többi item esetében false-al tér vissza).
 	public boolean Dig(CanMove p) {
 			if (p.GetNumOfAction() <= 0)
 				return false;
-			p.SetNumOfAction(p.GetNumOfAction() - 1);
 			p.DigPlayer(2);
 			this.DeceaseLifeTime();
 			if(this.lifetime==0)
