@@ -52,6 +52,9 @@ public class Game {
 		boolean nemMaci = true;
  		int index = cM.indexOf(currentPlayer);
 		currentPlayer.SetNumOfAction(4);
+		for (Field f : board.GetFields()) {
+			f.GetShelter().DestroyTent(turn);
+		}
 		while(nemMaci) {
 			if (cM.size() == index + 1) {
 				index = -1;

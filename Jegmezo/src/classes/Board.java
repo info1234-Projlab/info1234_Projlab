@@ -201,6 +201,10 @@ public class Board {
 		return fw;
 	}
 	
+	public ArrayList<Field> GetFields(){
+		return fields;
+	}
+	
 	/**
 	 * A parameterkent kapott Field objektumokbol letrehozza a jatektablat. 
 	 */
