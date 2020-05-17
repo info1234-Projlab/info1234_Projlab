@@ -36,7 +36,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JĂˇtĂ©kos");
+		playerLabel = new JLabel("XY JÄ‚Ë‡tÄ‚Â©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -54,6 +54,8 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		snowLayer.setFont(playerLabel.getFont().deriveFont(40f));
 		snowLayer.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(snowLayer);
+		
+		this.addMouseListener(this);
 	}
 	
 	public void paintComponent(Graphics g){
@@ -114,17 +116,20 @@ public class inventoryPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if (SwingUtilities.isRightMouseButton(e)) {
 			for (Inventory iv : currentField.GetItems()) {
 				if (iv.getView().CheckClicked(e.getPoint())) {
-					System.out.println(iv.toString() + "Felvesz");
+					//System.out.println(iv.toString() + "Felvesz");
+					if(currentField.GetCreatures().contains(Game.GetCurrentPlayer())){
+						System.out.println("Felveszi");
+						iv.PickUp(Game.GetCurrentPlayer());
+					}
 					this.repaint();
 					break;
 				}
 			}
-		}
-		
 	}
+		
+	
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -135,7 +140,6 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
