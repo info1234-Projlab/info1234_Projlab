@@ -54,7 +54,7 @@ public class Game {
 		currentPlayer.SetNumOfAction(4);
 		for (Field f : board.GetFields()) {
 			if(f.GetShelter() != null)
-			f.GetShelter().DestroyTent(turn);
+				f.GetShelter().DestroyTent(turn);
 		}
 		while(nemMaci) {
 			if (cM.size() == index + 1) {

@@ -32,6 +32,9 @@ public class DivingSuit extends Item {
 			isOn=true;
 			p.SetNumOfAction(nActions-1);
 		}
+		if (p.GetNumOfAction() == 0) {
+			Game.NextPlayer();
+		}
 		return true;
 	}
 	
