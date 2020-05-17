@@ -52,11 +52,14 @@ public class PolarBear implements CanMove {
 	public void StepOn(CanMove cm) {
 		System.out.println("jeges");
 		if(cm.GetField().hasShelter()) {
-			if(!cm.GetField().GetShelter().DefendFromBear())
+			System.out.println("innn");
+			if(!cm.GetField().GetShelter().DefendFromBear()) {
 				cm.SetHp(0);
+			}
+				
 		}
-		else
-			cm.SetHp(0);
+		
+			
 	}
 	
 	public boolean IsDead() {
