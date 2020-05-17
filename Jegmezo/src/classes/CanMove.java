@@ -22,7 +22,7 @@ public interface CanMove {
 	public boolean IsDead();
 	public boolean SwimPlayer();
 	public void PullPlayer(Field from);
-	public void UseAbility();
+	public void UseAbility(Field f);
 	public void RemoveItem(Inventory i);
 	public void AddItem(Inventory i);
 	public Field GetField();

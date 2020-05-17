@@ -28,7 +28,8 @@ public class Eskimo extends Player {
 	/**
 	 * Az eszkimo UseAbility fuggvenye egy iglut epit a mezore, amennyiben azon meg nincsen. Ez egy munkaba kerul.
 	 */
-	public void UseAbility() {
+	@Override
+	public void UseAbility(Field f) {
 		int a = this.GetNumOfAction();
 		if(a > 0 ) {
 			if(this.GetField().CanBuildShelter()) {

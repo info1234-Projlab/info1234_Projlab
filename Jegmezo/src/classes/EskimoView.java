@@ -24,4 +24,5 @@ public EskimoView() {
 	public void DrawInformation(Point coordinates) {
 		
 	}
+	
 }

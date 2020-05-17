@@ -94,7 +94,7 @@ public class Player implements CanMove{
 	/**
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
-	public void UseAbility() {
+	public void UseAbility(Field f) {
 		System.out.println("player useability");
 	}
 	/**

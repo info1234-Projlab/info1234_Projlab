@@ -25,11 +25,12 @@ public class Explorer extends Player {
 	 * A kutato UseAbility fuggvenye egy megnezi, hogy az adott mezo kapacitasa mekkora. Ez egy munkaba kerul.
 	 * @param tab	Az indentalast jelzi.
 	 */
-	public void UseAbility() {
+	@Override
+	public void UseAbility(Field f) {
 		System.out.println("explorer useability");
 		int a = this.GetNumOfAction();
-		if(a > 0 ) {
-			this.GetField().SetVisibleCapacity(true);
+		if(a > 0 && this.field.isNeighour(f)) {
+			f.SetVisibleCapacity(true);
 			this.DecreaseAction();
 		}
 		if (numberOfAction == 0) {

@@ -97,7 +97,7 @@ public class PolarBear implements CanMove {
 
 
 	@Override
-	public void UseAbility() {
+	public void UseAbility(Field f) {
 		// TODO Auto-generated method stub
 		
 	}

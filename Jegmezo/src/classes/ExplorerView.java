@@ -27,4 +27,5 @@ public void DrawInformation(Point coordinates) {
 		
 }
 
+
 }

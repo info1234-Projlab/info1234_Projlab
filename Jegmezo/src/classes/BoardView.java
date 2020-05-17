@@ -20,6 +20,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 	private JButton endTurnButton;
 	private JButton digButton;
 	private inventoryPanel inventory;
+	private Field lastClicked;
 	
 	public BoardView(Board b) {
 		this.setBounds(0, 0, 1000, 1000);
@@ -44,12 +45,6 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		this.addMouseListener(this);
 	}
 	
-	public void UseAbilityButton() {
-		System.out.println("useability gomb fv");
-		Game.GetCurrentPlayer().UseAbility();
-		this.repaint();
-	}
-	
 	 protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -69,7 +64,9 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		switch(e.getActionCommand()){
-		case "Use Ability" : Game.GetCurrentPlayer().UseAbility(); this.repaint();
+		case "Use Ability" :
+			Game.GetCurrentPlayer().UseAbility(lastClicked);
+			this.repaint();
 			break;
 		case "End Turn" : Game.NextPlayer();
 			break;
@@ -99,6 +96,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 			for (FieldView fv : board.GetFieldViews()) {
 				if (fv.CheckClicked(e.getPoint())) {
 					inventory.SetCurrentField(fv.GetField());
+					lastClicked = fv.GetField();
 					inventory.repaint();
 					break;
 				}
