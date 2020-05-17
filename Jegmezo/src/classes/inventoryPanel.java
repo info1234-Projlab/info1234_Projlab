@@ -109,7 +109,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 					}
 				}else if(currentField.GetItems().size() > 2*i+j){
 					currentField.GetItems().get(2*i+j).getView().setPoint(new Point(33+j*90, 423+i*90));
-					currentField.GetItems().get(2*i+j).getView().Draw(g);
+					if(currentField.GetItems().get(2*i+j).GetVisible())	currentField.GetItems().get(2*i+j).getView().Draw(g);
 				}
 			}
 		}
