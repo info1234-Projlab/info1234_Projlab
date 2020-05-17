@@ -168,13 +168,22 @@ public class Field {
 	 *  @param layers A hórétegek száma.
 	 * @param tab	Indentálást jelzi. 
 	 */
-	public void DigItems(int layers) {
+	public boolean DigItems(int layers) {
 		for (Inventory i : items) {
 			int newlayer = i.GetLayer()-layers;
 			if(newlayer <= 0 )	newlayer = 0 ;
 			i.SetLayer(newlayer);
 			if(newlayer == 0)	i.SetVisible(true);
 		}
+		if (snowLayer >= 2 && layers == 2) {
+			layers -= 2;
+			return true;
+		}
+		if (snowLayer >= 1) {
+			snowLayer--;
+			return true;
+		}
+		return false;
 	}
 	
 	

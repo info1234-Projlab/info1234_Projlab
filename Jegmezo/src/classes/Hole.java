@@ -36,7 +36,8 @@ public class Hole extends Field {
 		return false;
 	}
 	
-	public void DigItems(int layers) {
+	public boolean DigItems(int layers) {
+		return false;
 	}
 	
 	/*public boolean IsFull() {

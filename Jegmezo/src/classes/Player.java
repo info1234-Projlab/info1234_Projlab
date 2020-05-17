@@ -195,9 +195,12 @@ public class Player implements CanMove{
 	 */
 	public void DigPlayer(int layers) {    //csökkenti a field layerét
 		if(numberOfAction > 0){
-			field.SetLayer(field.GetLayer()-layers);
-			field.DigItems(layers);
-			numberOfAction--;
+			if (field.DigItems(layers)) {
+				numberOfAction--;
+			}
+		}
+		if (numberOfAction == 0) {
+			Game.NextPlayer();
 		}
 	}
 	
