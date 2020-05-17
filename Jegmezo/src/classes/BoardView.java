@@ -91,6 +91,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 					System.out.println(Game.GetCurrentPlayer().toString());
 					//System.out.println("akart mozogni");
 					this.repaint();
+					inventory.repaint();
 					break;
 				}
 			}
