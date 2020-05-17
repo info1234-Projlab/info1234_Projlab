@@ -28,8 +28,10 @@ public class Rope extends Item {
 
 		for(Iterator it = from.GetCreatures().iterator();it.hasNext(); ){
 			CanMove cm = (CanMove)it.next();
+			to.AddCreature(cm);
 			cm.setField(to);
-			//to.AddCreature(cm);
+			
+			
 		}
 		from.PullFromHole();
 		return true;
