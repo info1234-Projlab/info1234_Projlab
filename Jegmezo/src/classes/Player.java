@@ -141,6 +141,12 @@ public class Player implements CanMove{
 			Game.LooseGame();
 	}
 	
+	public void SetHp(int hp){
+		this.hp = hp;
+		if(this.hp==0)
+			Game.LooseGame();
+	}
+	
 	/**
 	 * A kapott Inventory-t beteszi az items list�j�ba.
 	 */
@@ -231,11 +237,7 @@ public class Player implements CanMove{
 		win = b;
 	}
 	
-	public void SetHp(int hp){
-		this.hp = hp;
-		if(hp==0)
-			Game.LooseGame();
-	}
+	
 
 
 	@Override

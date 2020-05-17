@@ -73,8 +73,6 @@ public class Game {
 	
 	public void InitBoard(int rows, int columns, int numOfPlayers) {
 		board.Init(rows, columns, numOfPlayers);
-		board.AddCreatures(cM);
-		currentPlayer = cM.get(0);
 	}
 	
 	public static void StartGame() {
@@ -144,7 +142,14 @@ public class Game {
 	 * Hozzáad egy CanMove-ot a listába.
 	 * @param cm a hozzáadot CanMove.
 	 */
-	public static void AddCreature(CanMove cm) {
-		cM.add(cm);
+	public static void AddPlayer(Player p) {
+		cM.add(p);
+		board.AddPlayer(p);
+		currentPlayer = cM.get(0);
+	}
+	
+	public static void AddPolarBear(PolarBear b) {
+		cM.add(b);
+		board.AddPolarBear(b);
 	}
 }

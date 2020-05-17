@@ -30,9 +30,9 @@ public class Images {
 	
 	public void AddPlayerToGame(Game g) {
 		if(esk==true)
-			g.AddCreature(new Eskimo());
+			g.AddPlayer(new Eskimo());
 		else
-			g.AddCreature(new Explorer());
+			g.AddPlayer(new Explorer());
 	}
 	
 	public void Draw(Graphics g, Point click) {

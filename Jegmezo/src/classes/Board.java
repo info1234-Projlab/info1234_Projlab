@@ -130,9 +130,12 @@ public class Board {
 			
 	}
 	
-	public void AddCreatures(ArrayList<CanMove> cM) {
-		for(int i=0; i<cM.size(); i++)
-			fields.get(0).AddCreature(cM.get(i));
+	public void AddPlayer(Player p) {
+		fields.get(0).AddCreature(p);
+	}
+	
+	public void AddPolarBear(PolarBear b) {
+		fields.get(fields.size()-1).AddCreature(b);
 	}
 	
 	public BoardView GetBoardView() {
