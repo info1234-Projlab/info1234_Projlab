@@ -28,7 +28,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		this.setPreferredSize(new Dimension(300,680));
 		try{
 			background = ImageIO.read(new File("inventoryBg.png"));
-			fullHp = ImageIO.read(new File("fullHp.png"));
+			fullHp = ImageIO.read(new File("FullHp.png"));
 			lostHp = ImageIO.read(new File("lostHp.png"));
 		} 
 		catch(IOException ex){
