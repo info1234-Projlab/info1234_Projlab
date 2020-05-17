@@ -61,6 +61,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
+		System.out.println("helloka");
 		
 		g.drawImage(background, 0, 0, null);
 		g.fillRect(294, 0, 6, 690);

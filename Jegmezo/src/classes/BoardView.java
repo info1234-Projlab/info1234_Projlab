@@ -58,7 +58,10 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
         for(int i=0; i < fw.size(); i++) {
         	fw.get(i).Draw(g);
         }
-        inventory.repaint();
+	 }
+	 
+	 public inventoryPanel GetInventoryPanel() {
+		 return inventory;
 	 }
 
 	@Override
