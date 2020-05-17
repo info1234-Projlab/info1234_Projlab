@@ -178,7 +178,7 @@ public class Field {
 				i.SetVisible(true);
 		}
 		if (snowLayer >= 2 && layers == 2) {
-			layers -= 2;
+			snowLayer -= 2;
 			return true;
 		}
 		if (snowLayer >= 1) {
