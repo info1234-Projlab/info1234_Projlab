@@ -2,6 +2,7 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import javax.swing.SwingUtilities;
 
@@ -58,8 +59,12 @@ public class Game {
 			if (cM.size() == index + 1) {
 				index = -1;
 			}
+			
 			currentPlayer = cM.get(index + 1);
 		}
+		Random rand = new Random();
+		int random = rand.nextInt(3);
+		if(random % 2 == 1 )	board.Storm();
 	}
 		
 	/**
