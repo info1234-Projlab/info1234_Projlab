@@ -74,7 +74,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 			g.drawImage(fullHp, 10+i*25, 50	, null);
 		}
 		for(int i = 0; i < Game.GetCurrentPlayer().GetMaxHP()- Game.GetCurrentPlayer().GetHP(); i++){
-			g.drawImage(lostHp, 70 + Game.GetCurrentPlayer().GetHP()*25 + i*25, 50	, null);
+			g.drawImage(lostHp, 10 + Game.GetCurrentPlayer().GetHP()*25 + i*25, 50	, null);
 		}
 		
 		for(int i = 0; i < 3; i++){
