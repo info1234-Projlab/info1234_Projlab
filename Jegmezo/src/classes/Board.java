@@ -26,6 +26,7 @@ import javax.swing.SwingUtilities;
 public class Board {
 	private ArrayList<Field> fields = new ArrayList<Field>();
 	private BoardView boardView;
+	int rows, columns;
 	
 	
 	/**
@@ -50,6 +51,8 @@ public class Board {
 	}
 	
 	public void Init(int rows, int columns, int numOfPlayers) {
+		this.rows = rows;
+		this.columns = columns;
 		int randCapacity, randSnowLayer;
 		Random rand = new Random(); 
 		for(int i = 0; i < rows; i++) {
@@ -134,7 +137,7 @@ public class Board {
 	}
 	
 	public void AddPlayer(Player p) {
-		fields.get(0).AddCreature(p);
+		fields.get(columns / 2 + (rows / 2) * columns).AddCreature(p);
 	}
 	
 	public void AddPolarBear(PolarBear b) {

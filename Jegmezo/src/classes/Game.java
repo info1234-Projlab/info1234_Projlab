@@ -43,7 +43,7 @@ public class Game {
 	
 	public static void NextPlayer() {
 		boolean nemMaci = true;
-		int index = cM.indexOf(currentPlayer);
+ 		int index = cM.indexOf(currentPlayer);
 		currentPlayer.SetNumOfAction(4);
 		while(nemMaci) {
 			if (cM.size() == index + 1) {
