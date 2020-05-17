@@ -37,24 +37,19 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąÄľĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬Ă„â€¦Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ä‚â€ąĂ˘â‚¬Ë‡tÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąÄľĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
+		playerLabel = new JLabel("Players items");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(playerLabel);
 		
-		fieldLabel = new JLabel("Selected Field");
+		fieldLabel = new JLabel("Selected field items");
 		fieldLabel.setBounds(10, 350, 300, 30);
 		fieldLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		fieldLabel.setForeground(Color.getHSBColor(191, 18, 255));
 		this.add(fieldLabel);
 		
-		snowLayer = new JLabel();
-		snowLayer.setText("Snow Layer: ");
-		snowLayer.setBounds(10, 600, 300, 30);
-		snowLayer.setFont(playerLabel.getFont().deriveFont(40f));
-		snowLayer.setForeground(Color.getHSBColor(191, 18, 255));
-		this.add(snowLayer);
+		
 		
 		this.addMouseListener(this);
 	}
