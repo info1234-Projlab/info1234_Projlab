@@ -71,8 +71,11 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		case "End Turn" : 
 			Game.NextPlayer();
 			this.repaint();
+			inventory.repaint();
 			break;
-		case "DIG" : Game.GetCurrentPlayer().DigPlayer(1);
+		case "DIG" : 
+			Game.GetCurrentPlayer().DigPlayer(1);
+			inventory.repaint();
 			break;
 		}
 	}
