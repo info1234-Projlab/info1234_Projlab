@@ -129,8 +129,9 @@ public class Field {
 		item.Drop(player);
 	}
 	
-	public void InitInventory(Inventory item) {
+	public boolean InitInventory(Inventory item) {
 		items.add(item);
+		return true;
 	}
 	
 	

@@ -32,6 +32,10 @@ public class Hole extends Field {
 	public void AddItem(Inventory item) {
 	}
 	
+	public boolean InitInventory(Inventory item) {
+		return false;
+	}
+	
 	public void DigItems(int layers) {
 	}
 	

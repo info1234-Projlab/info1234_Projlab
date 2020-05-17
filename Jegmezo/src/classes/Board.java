@@ -104,24 +104,28 @@ public class Board {
 		int numOfShovels = numOfPlayers - 1;
 		for(int i = 0; i < numOfShovels; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			fields.get(randFieldIndex).InitInventory(new Shovel(0, false));
+			if(!fields.get(randFieldIndex).InitInventory(new Shovel(0, false)))
+				i-=1;
 		}
 		int numOfFragileShovels = numOfPlayers - 1;
 		for(int i = 0; i < numOfFragileShovels; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			fields.get(randFieldIndex).InitInventory(new FragileShovel(0, false));
+			if(!fields.get(randFieldIndex).InitInventory(new FragileShovel(0, false)))
+				i-=1;
 		}
 		int numOfRopes = numOfPlayers - 2;
 		if(numOfRopes < 1)
 			numOfRopes = 1;
 		for(int i = 0; i < numOfRopes; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			fields.get(randFieldIndex).InitInventory(new Rope(0, false));
+			if(!fields.get(randFieldIndex).InitInventory(new Rope(0, false)))
+				i-=1;
 		}
 		int numOfDivingSuits = numOfPlayers - 1;
 		for(int i = 0; i < numOfDivingSuits; i++) {
 			randFieldIndex = random.nextInt(fields.size());
-			fields.get(randFieldIndex).InitInventory(new DivingSuit(0, false));
+			if(!fields.get(randFieldIndex).InitInventory(new DivingSuit(0, false)))
+				i-=1;
 		}
 			
 	}
