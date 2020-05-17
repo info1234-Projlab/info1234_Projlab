@@ -39,6 +39,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		endTurnButton = new JButton("End Turn");
 		endTurnButton.setBounds(160,600,100,30);
 		this.add(endTurnButton);
+		endTurnButton.addActionListener(this);
 		
 		digButton = new JButton("DIG");
 		digButton.setBounds(290, 600, 100, 30);
@@ -65,7 +66,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		switch(e.getActionCommand()){
 		case "Use Ability" : Game.GetCurrentPlayer().UseAbility();
 			break;
-		case "End Turn" : Game.GetCurrentPlayer().SetNumOfAction(0);
+		case "End Turn" : Game.NextPlayer();
 			break;
 		case "DIG" : //Game.GetCurrentPlayer()
 			break;

@@ -137,15 +137,29 @@ public class Player implements CanMove{
 	 */
 	public void DecreaseHp() {
 		hp--;
-		if(hp==0)
+		if(hp==0) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Game.LooseGame();
+		}
 	}
 	
 	public void SetHp(int hp){
 		System.out.println("meghivodtam");
 		this.hp = hp;
-		if(this.hp==0)
+		if(this.hp==0) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			Game.LooseGame();
+		}
 	}
 	
 	/**
