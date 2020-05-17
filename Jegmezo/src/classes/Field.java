@@ -98,7 +98,7 @@ public class Field {
 		}
 		
 		for(CanMove p : creatures){
-			p.SetHp(0);
+			//p.SetHp(0);
 		}
 	}
 	

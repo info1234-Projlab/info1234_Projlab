@@ -28,6 +28,7 @@ public class PolarBear implements CanMove {
 	 */
 	@Override
 	public void Move(Field f) {
+		System.out.println("jeges");
 		System.out.println(Game.GetCurrentPlayer().toString());
 		if(this.field.isNeighour(f)){
 			this.field.RemoveCreature(this);
@@ -49,6 +50,7 @@ public class PolarBear implements CanMove {
  * true-val ter vissza jegesmacira lepes eseteben
  */
 	public void StepOn(CanMove cm) {
+		System.out.println("jeges");
 		if(cm.GetField().hasShelter()) {
 			if(!cm.GetField().GetShelter().DefendFromBear())
 				cm.SetHp(0);

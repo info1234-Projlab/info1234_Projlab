@@ -142,6 +142,7 @@ public class Player implements CanMove{
 	}
 	
 	public void SetHp(int hp){
+		System.out.println("meghivodtam");
 		this.hp = hp;
 		if(this.hp==0)
 			Game.LooseGame();
