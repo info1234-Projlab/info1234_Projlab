@@ -47,7 +47,7 @@ public class DivingSuit extends Item {
 			if(this.isOn){
 				p.field.neighbourFields.get(0).AddCreature(p);
 				p.field.RemoveCreature(p);
-				p.SetField(p.field.neighbourFields.get(0));				
+				p.SetField(p.field.neighbourFields.get(0));			
 				return true;
 			}
 			else

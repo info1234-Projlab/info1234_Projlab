@@ -28,7 +28,7 @@ public class Game {
 	private static CanMove currentPlayer;
 	private static ArrayList<CanMove> cM = new ArrayList<CanMove>();
 	private static Board board = new Board();
-	private static int turn;
+	private static int turn = 0;
 	private static GamePanel gamePanel;
 	private static JFrame window;
 	/**
@@ -64,6 +64,8 @@ public class Game {
 			}
 			if (cM.size() == index + 1) {
 				index = -1;
+				turn++;
+				System.out.println(turn);
 			}
 			
 			currentPlayer = cM.get(index + 1);
