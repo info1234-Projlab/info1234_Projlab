@@ -76,6 +76,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		case "DIG" : 
 			Game.GetCurrentPlayer().DigPlayer(1);
 			inventory.repaint();
+			this.repaint();
 			break;
 		}
 	}
@@ -115,13 +116,16 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 					break;
 				}
 			}
-			for(Inventory inv : inventory.GetCurrentField().GetItems()) {
-				if(inv.getView().CheckClicked(e.getPoint())) {
-					Game.GetCurrentPlayer().AddItem(inv);
-					inventory.repaint();
-					break;
+			/*if (inventory.GetCurrentField() != null) {
+				for(Inventory inv : inventory.GetCurrentField().GetItems()) {
+					if(inv.getView().CheckClicked(e.getPoint())) {
+						Game.GetCurrentPlayer().AddItem(inv);
+						inventory.repaint();
+						break;
+					}
 				}
-			}
+			}*/
+			
 		}
 		
 		

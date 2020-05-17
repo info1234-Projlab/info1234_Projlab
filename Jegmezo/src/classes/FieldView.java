@@ -52,7 +52,6 @@ public class FieldView {
 		g.drawString(Integer.toString(field.GetLayer()), coordinates.x + 37, coordinates.y + 15);
 		for (CanMove cm : field.GetCreatures()) {
 			cm.GetCanMoveView().Draw(new Point(coordinates.x + shift, coordinates.y), g,(double) 1 / numberOfCreatures);
-			cm.GetCanMoveView().DrawInformation(coordinates);
 			shift += 50 / numberOfCreatures;
 		}
 	}
