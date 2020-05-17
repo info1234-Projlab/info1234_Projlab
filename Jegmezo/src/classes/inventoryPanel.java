@@ -62,11 +62,16 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		
+		g.setFont(new Font("TimesRoman",Font.BOLD,20));
+		g.setColor(Color.BLACK);
+		g.drawString("Action: " , 150, 70);
+		g.drawString(Integer.toString(Game.GetCurrentPlayer().GetNumOfAction()), 230, 70);
+		
 		g.drawImage(background, 0, 0, null);
 		g.fillRect(294, 0, 6, 690);
 		
 		for(int i = 0; i < Game.GetCurrentPlayer().GetHP(); i++){
-			g.drawImage(fullHp, 70+i*25, 50	, null);
+			g.drawImage(fullHp, 10+i*25, 50	, null);
 		}
 		for(int i = 0; i < Game.GetCurrentPlayer().GetMaxHP()- Game.GetCurrentPlayer().GetHP(); i++){
 			g.drawImage(lostHp, 70 + Game.GetCurrentPlayer().GetHP()*25 + i*25, 50	, null);
