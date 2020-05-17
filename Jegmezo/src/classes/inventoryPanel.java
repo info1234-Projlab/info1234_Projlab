@@ -37,7 +37,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬Ä…Ä‚Ë�Ă˘â€šÂ¬Ă‹â€ˇtĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
+		playerLabel = new JLabel("XY JÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąÄľĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬Ă„â€¦Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ä‚â€ąĂ˘â‚¬Ë‡tÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąÄľĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -145,33 +145,42 @@ public class inventoryPanel extends JPanel implements MouseListener{
 			else{
 				if(Game.GetCurrentPlayer().GetItems().size() > 0){
 					Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
-					Inventory it =  iv.next();
+					Inventory it =  null;
+					Boolean find = false;
 					while(iv.hasNext()){
+						it =  iv.next();
 						if (it.getView().CheckClicked(e.getPoint())) {
+							find = true;
 							break;
 						}
-						it =  iv.next();
 					}
-					it.Eat((Player)Game.GetCurrentPlayer());
-					it.Dig(Game.GetCurrentPlayer());
-					it.PutOn((Player)Game.GetCurrentPlayer());
-					it.Shoot((Player)Game.GetCurrentPlayer());
-					it.Swim((Player)Game.GetCurrentPlayer());
+					if(find){
+						it.Eat((Player)Game.GetCurrentPlayer());
+						it.Dig(Game.GetCurrentPlayer());
+						it.PutOn((Player)Game.GetCurrentPlayer());
+						it.Shoot((Player)Game.GetCurrentPlayer());
+						it.Swim((Player)Game.GetCurrentPlayer());
+					}
 				}
 			}
 		}
 		if (SwingUtilities.isRightMouseButton(e)){
 			if(e.getPoint().y < 400){
 				Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
-				Inventory it =  iv.next();
+				Inventory it = null ;
+				Boolean find = false;
 				while(iv.hasNext()){
+					it =  iv.next();
 					if (it.getView().CheckClicked(e.getPoint())) {
+						find = true;
 						break;
 					}
-					it =  iv.next();
 				}
-				it.Drop(Game.GetCurrentPlayer());
-				currentField.AddItem(it);
+				
+				if(find){
+					it.Drop(Game.GetCurrentPlayer());
+					Game.GetCurrentPlayer().GetField().AddItem(it);
+				}
 			}
 		}
 		this.repaint();
