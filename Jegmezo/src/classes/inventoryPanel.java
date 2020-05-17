@@ -23,8 +23,9 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	private JLabel fieldLabel;
 	private JLabel snowLayer;
 	private Field currentField;
+	private BoardView board;
 	
-	public inventoryPanel(){
+	public inventoryPanel(BoardView b){
 		this.setPreferredSize(new Dimension(300,680));
 		try{
 			background = ImageIO.read(new File("inventoryBg.png"));
@@ -37,7 +38,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąÄľĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬Ă„â€¦Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ä‚â€ąĂ˘â‚¬Ë‡tÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąÄľĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
+		playerLabel = new JLabel("XY JĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă„ÄľÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€ąÄŹĹĽËťĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â€šÂ¬ÄąË‡Ä‚â€šĂ‚Â¬Ä‚â€žĂ„â€¦Ä‚â€ąĂ˘â‚¬Ë‡Ă„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ä‚â€žĂ˘â‚¬Â¦Ä‚â€žĂ˘â‚¬ĹˇÄ‚â€ąÄŹĹĽËťĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â€šÂ¬ÄąË‡Ä‚â€šĂ‚Â¬Ă„â€šĂ˘â‚¬Ä…Ä‚Ë�Ă˘â€šÂ¬Ă‹â€ˇtĂ„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă„ÄľÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€ąÄŹĹĽËťĂ„â€šĂ‹ďż˝Ä‚Ë�Ă˘â€šÂ¬ÄąË‡Ä‚â€šĂ‚Â¬Ä‚â€žĂ„â€¦Ä‚â€ąĂ˘â‚¬Ë‡Ă„â€šĂ˘â‚¬ĹľÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ‹ďż˝Ä‚Ë�Ă˘â‚¬ĹˇĂ‚Â¬Ă„Ä…Ă‹â€ˇÄ‚â€žĂ˘â‚¬ĹˇÄ‚Ë�Ă˘â€šÂ¬ÄąË‡Ă„â€šĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -57,6 +58,8 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		this.add(snowLayer);
 		
 		this.addMouseListener(this);
+		
+		board = b;
 	}
 	
 	public void paintComponent(Graphics g){
@@ -160,6 +163,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 						it.PutOn((Player)Game.GetCurrentPlayer());
 						it.Shoot((Player)Game.GetCurrentPlayer());
 						it.Swim((Player)Game.GetCurrentPlayer());
+						System.out.println(currentField.GetLayer());
 					}
 				}
 			}
@@ -184,6 +188,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 			}
 		}
 		this.repaint();
+		board.repaint();
 	}
 		
 	
@@ -210,4 +215,5 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
 }
