@@ -30,6 +30,7 @@ public class Field {
 	protected ArrayList<Field> neighbourFields;
 	private ArrayList<CanMove> creatures;
 	private ArrayList<Inventory> items;
+	private BoardView boardView;
 	private Shelter shelter;
 	protected FieldView view;
 	protected String name;
@@ -261,6 +262,14 @@ public class Field {
 	 */
 	public int GetLayer() {		
 		return snowLayer;
+	}
+	
+	public void AddBoardView(BoardView bv) {	
+		boardView = bv;
+	}
+	
+	public BoardView GetBoardView() {	
+		return boardView;
 	}
 	
 	

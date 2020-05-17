@@ -129,6 +129,7 @@ public class Player implements CanMove{
 	 */
 	public void IncreaseHp() {
 		hp++;
+		field.GetBoardView().repaint();
 	}
 	
 	/**
@@ -146,11 +147,13 @@ public class Player implements CanMove{
 			}
 			Game.LooseGame();
 		}
+		field.GetBoardView().repaint();
 	}
 	
 	public void SetHp(int hp){
 		System.out.println("meghivodtam");
 		this.hp = hp;
+		field.GetBoardView().repaint();
 		if(this.hp==0) {
 			try {
 				Thread.sleep(1000);

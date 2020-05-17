@@ -68,6 +68,8 @@ public class Board {
 		        	fields.get(fields.size()-1).SetFieldView(25+50*j, 43*i);
 			}
 		}
+		for(int i=0; i<fields.size();i++)
+			fields.get(i).AddBoardView(boardView);
 		for(int i = 0; i < fields.size(); i++) {
 			Point fieldCoordinate = fields.get(i).GetFieldView().GetCoordinates();
 			for(int j = 0; j < fields.size(); j++) {

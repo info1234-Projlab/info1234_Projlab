@@ -16,13 +16,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class inventoryPanel extends JPanel implements MouseListener{
-	private Image background ;
-	private Image fullHp;
-	private Image lostHp;
-	private JLabel playerLabel;
-	private JLabel fieldLabel;
-	private JLabel snowLayer;
-	private Field currentField;
+	static private Image background ;
+	static private Image fullHp;
+	static private Image lostHp;
+	static private JLabel playerLabel;
+	static private JLabel fieldLabel;
+	static private JLabel snowLayer;
+	static private Field currentField;
 	
 	public inventoryPanel(){
 		this.setPreferredSize(new Dimension(300,680));
