@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -36,7 +37,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JÄ‚Ë‡tÄ‚Â©kos");
+		playerLabel = new JLabel("XY JĂ„â€šĂ‹â€ˇtĂ„â€šĂ‚Â©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -63,11 +64,12 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		
 		g.drawImage(background, 0, 0, null);
 		g.fillRect(294, 0, 6, 690);
-		for(int i = 0; i < 3; i++){
+		
+		for(int i = 0; i < Game.GetCurrentPlayer().GetHP(); i++){
 			g.drawImage(fullHp, 70+i*25, 50	, null);
 		}
-		for(int i = 0; i < 2; i++){
-			g.drawImage(lostHp, 150+i*25, 50	, null);
+		for(int i = 0; i < Game.GetCurrentPlayer().GetMaxHP()- Game.GetCurrentPlayer().GetHP(); i++){
+			g.drawImage(lostHp, 70 + Game.GetCurrentPlayer().GetHP() + i*25, 50	, null);
 		}
 		
 		for(int i = 0; i < 3; i++){
@@ -116,6 +118,8 @@ public class inventoryPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
+		if(e.getPoint().y > 400){
 			for (Inventory iv : currentField.GetItems()) {
 				if (iv.getView().CheckClicked(e.getPoint())) {
 					//System.out.println(iv.toString() + "Felvesz");
@@ -127,6 +131,18 @@ public class inventoryPanel extends JPanel implements MouseListener{
 					break;
 				}
 			}
+		}
+		else{
+			Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
+			while(iv.hasNext()){
+				if (iv.next().getView().CheckClicked(e.getPoint())) {
+					//iv.next().Dig(Game.GetCurrentPlayer());
+					//iv.next().Eat((Player)Game.GetCurrentPlayer());
+					
+				}
+			}
+		}
+			
 	}
 		
 	
