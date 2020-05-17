@@ -93,7 +93,9 @@ public class MenuPanel extends JPanel implements ActionListener{
 		
 		myFrame mF = (myFrame) SwingUtilities.getWindowAncestor(this);
 		mF.remove(this);
-		mF.add(new GamePanel(g.GetBoardView()));
+		GamePanel gp = new GamePanel(g.GetBoardView());
+		g.AddGamePanel(gp);
+		mF.add(gp);
 		mF.setVisible(true);
 		
 		g.StartGame();
