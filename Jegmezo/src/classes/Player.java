@@ -194,8 +194,11 @@ public class Player implements CanMove{
 	 * @param tab	Indentálást jelzi. 
 	 */
 	public void DigPlayer(int layers) {    //csökkenti a field layerét
-		field.SetLayer(field.GetLayer()-layers);
-		field.DigItems(layers);
+		if(numberOfAction > 0){
+			field.SetLayer(field.GetLayer()-layers);
+			field.DigItems(layers);
+			numberOfAction--;
+		}
 	}
 	
 	/**
