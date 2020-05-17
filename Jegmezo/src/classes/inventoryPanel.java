@@ -16,13 +16,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class inventoryPanel extends JPanel implements MouseListener{
-	static private Image background ;
-	static private Image fullHp;
-	static private Image lostHp;
-	static private JLabel playerLabel;
-	static private JLabel fieldLabel;
-	static private JLabel snowLayer;
-	static private Field currentField;
+	private Image background ;
+	private Image fullHp;
+	private Image lostHp;
+	private JLabel playerLabel;
+	private JLabel fieldLabel;
+	private JLabel snowLayer;
+	private Field currentField;
 	
 	public inventoryPanel(){
 		this.setPreferredSize(new Dimension(300,680));
@@ -37,7 +37,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY JĂ„â€šĂ‹â€ˇtĂ„â€šĂ‚Â©kos");
+		playerLabel = new JLabel("XY JÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€ąĂ˘â‚¬Ë‡tÄ‚â€žĂ˘â‚¬ĹˇÄ‚â€šĂ‚Â©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -61,7 +61,6 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		System.out.println("helloka");
 		
 		g.drawImage(background, 0, 0, null);
 		g.fillRect(294, 0, 6, 690);
@@ -70,7 +69,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 			g.drawImage(fullHp, 70+i*25, 50	, null);
 		}
 		for(int i = 0; i < Game.GetCurrentPlayer().GetMaxHP()- Game.GetCurrentPlayer().GetHP(); i++){
-			g.drawImage(lostHp, 70 + Game.GetCurrentPlayer().GetHP() + i*25, 50	, null);
+			g.drawImage(lostHp, 70 + Game.GetCurrentPlayer().GetHP()*25 + i*25, 50	, null);
 		}
 		
 		for(int i = 0; i < 3; i++){
@@ -135,15 +134,20 @@ public class inventoryPanel extends JPanel implements MouseListener{
 		}
 		else{
 			Iterator<Inventory> iv = Game.GetCurrentPlayer().GetItems().iterator();
+			Inventory it =  iv.next();
 			while(iv.hasNext()){
-				if (iv.next().getView().CheckClicked(e.getPoint())) {
-					//iv.next().Dig(Game.GetCurrentPlayer());
-					//iv.next().Eat((Player)Game.GetCurrentPlayer());
-					
+				if (it.getView().CheckClicked(e.getPoint())) {
+					break;
 				}
+				it =  iv.next();
 			}
+			it.Eat((Player)Game.GetCurrentPlayer());
+			it.Dig(Game.GetCurrentPlayer());
+			it.PutOn((Player)Game.GetCurrentPlayer());
+			it.Shoot((Player)Game.GetCurrentPlayer());
+			it.Swim((Player)Game.GetCurrentPlayer());
 		}
-			
+		this.repaint();
 	}
 		
 	
