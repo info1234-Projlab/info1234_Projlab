@@ -28,13 +28,7 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		actionButton = new JButton("Use Ability");
 		actionButton.setBounds(30, 600, 100, 30);
 		this.add(actionButton);
-		actionButton.addActionListener(new ActionListener(){  
-			public void actionPerformed(ActionEvent e){  
-	            Game.GetCurrentPlayer().UseAbility();
-	            System.out.println(Game.GetCurrentPlayer());
-	            System.out.println("asd");
-	        }  
-	    });
+		actionButton.addActionListener(this);
 		
 		endTurnButton = new JButton("End Turn");
 		endTurnButton.setBounds(160,600,100,30);
@@ -44,9 +38,16 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		digButton = new JButton("DIG");
 		digButton.setBounds(290, 600, 100, 30);
 		this.add(digButton);
+		digButton.addActionListener(this);
 		
 		board = b;
 		this.addMouseListener(this);
+	}
+	
+	public void UseAbilityButton() {
+		System.out.println("useability gomb fv");
+		Game.GetCurrentPlayer().UseAbility();
+		this.repaint();
 	}
 	
 	 protected void paintComponent(Graphics g) {
@@ -68,11 +69,11 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		switch(e.getActionCommand()){
-		case "Use Ability" : Game.GetCurrentPlayer().UseAbility();
+		case "Use Ability" : Game.GetCurrentPlayer().UseAbility(); this.repaint();
 			break;
 		case "End Turn" : Game.NextPlayer();
 			break;
-		case "DIG" : //Game.GetCurrentPlayer()
+		case "DIG" : Game.GetCurrentPlayer().DigPlayer(1);
 			break;
 		}
 	}
@@ -83,13 +84,13 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println(e.getPoint().x + ", " + e.getPoint().y);
+		//System.out.println(e.getPoint().x + ", " + e.getPoint().y);
 		if (SwingUtilities.isRightMouseButton(e)) {
 			for (FieldView fv : board.GetFieldViews()) {
 				if (fv.CheckClicked(e.getPoint())) {
 					Game.GetCurrentPlayer().Move(fv.GetField());
 					System.out.println(Game.GetCurrentPlayer().toString());
-					System.out.println("akart mozogni");
+					//System.out.println("akart mozogni");
 					this.repaint();
 					break;
 				}

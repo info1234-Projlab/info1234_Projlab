@@ -221,6 +221,10 @@ public class Field {
 		this.visibleCapacity = bool;
 	}
 	
+	public boolean GetVisibleCapacity() {
+		return this.visibleCapacity;
+	}
+	
 	/**
 	 * 
 	 * @param layer hany reteg ho kerult a mezore
@@ -305,6 +309,10 @@ public class Field {
 	
 	public void SetCapacity(int num) {
 		this.capacity=num;
+	}
+	
+	public int GetCapacity() {
+		return this.capacity;
 	}
 	
 	/**

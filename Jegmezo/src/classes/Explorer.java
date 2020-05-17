@@ -26,11 +26,15 @@ public class Explorer extends Player {
 	 * @param tab	Az indentalast jelzi.
 	 */
 	public void UseAbility() {
+		System.out.println("explorer useability");
 		int a = this.GetNumOfAction();
 		if(a > 0 ) {
 			this.GetField().SetVisibleCapacity(true);
 			this.DecreaseAction();
-			}
+		}
+		if (numberOfAction == 0) {
+			Game.NextPlayer();
+		}
 	}
 	
 	@Override

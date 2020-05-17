@@ -1,5 +1,7 @@
 package classes;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -37,13 +39,18 @@ public class FieldView {
 		g.drawImage(img, coordinates.x, coordinates.y, null);
 		int shift = 0;
 		int numberOfCreatures = field.GetCreatures().size();
+		if (field.GetShelter() != null) {
+			field.GetShelter().GetShelterView().Draw(coordinates, g);
+		}
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+		g.setColor(Color.BLACK);
+		if (field.GetVisibleCapacity()) {
+			g.drawString(Integer.toString(field.GetCapacity()), coordinates.x + 1, coordinates.y + 35);
+		}
 		for (CanMove cm : field.GetCreatures()) {
 			cm.GetCanMoveView().Draw(new Point(coordinates.x + shift, coordinates.y), g,(double) 1 / numberOfCreatures);
 			cm.GetCanMoveView().DrawInformation(coordinates);
 			shift += 50 / numberOfCreatures;
-		}
-		if (field.GetShelter() != null) {
-			field.GetShelter().GetShelterView().Draw(coordinates, g);
 		}
 	}
 	

@@ -82,13 +82,11 @@ public class inventoryPanel extends JPanel implements MouseListener{
 				if (Game.GetCurrentPlayer() != null) {
 					if (Game.GetCurrentPlayer().GetItems() != null) {
 						if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-								Game.GetCurrentPlayer().GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
-								Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(g);
-							}
+							Game.GetCurrentPlayer().GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
+							Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(g);
+						}
 					}
 				}
-				
-				
 			}
 		}
 		

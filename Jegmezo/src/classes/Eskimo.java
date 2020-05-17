@@ -36,6 +36,9 @@ public class Eskimo extends Player {
 				this.DecreaseAction();
 			}	
 		}
+		if (numberOfAction == 0) {
+			Game.NextPlayer();
+		}
 	}
 	
 	@Override
