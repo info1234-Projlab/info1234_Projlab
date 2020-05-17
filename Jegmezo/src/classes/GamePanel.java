@@ -21,13 +21,14 @@ public class GamePanel extends JPanel{
 		this.add(actionButton);*/
 		board=b;
 		//bP = new BoardPanel();
+		board.setBounds(300, 0, 700, 680);
 		this.add(board);
 		
 		this.setLayout(null);
 		inventoryPanel iP = new inventoryPanel();
 		iP.setBounds(0, 0, 300, 680);
 		board.SetInventory(iP);
-		
+		this.add(iP);
 		
 		
 	}
