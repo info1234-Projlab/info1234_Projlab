@@ -27,6 +27,7 @@ public class Board {
 	private ArrayList<Field> fields = new ArrayList<Field>();
 	private BoardView boardView;
 	int rows, columns;
+	int numOfPlayers;
 	
 	
 	/**
@@ -53,14 +54,15 @@ public class Board {
 	public void Init(int rows, int columns, int numOfPlayers) {
 		this.rows = rows;
 		this.columns = columns;
+		this.numOfPlayers = numOfPlayers;
 		int randCapacity, randSnowLayer;
 		Random rand = new Random(); 
 		for(int i = 0; i < rows; i++) {
 			for(int j=0; j < columns; j++) {
-		        randCapacity = rand.nextInt(numOfPlayers+4);
+		        randCapacity = rand.nextInt(numOfPlayers+2);
 		        randSnowLayer = rand.nextInt(10);
 		        if(randCapacity >= numOfPlayers)
-		        	fields.add(new StableField(randCapacity, randSnowLayer));
+		        	fields.add(new StableField(numOfPlayers, randSnowLayer));
 		        else if(randCapacity == 0)
 		        	fields.add(new Hole());
 		        else
@@ -137,6 +139,7 @@ public class Board {
 	
 	public void AddPlayer(Player p) {
 		fields.get(columns / 2 + (rows / 2) * columns).AddCreature(p);
+		fields.get(columns / 2 + (rows / 2) * columns).SetCapacity(numOfPlayers);
 	}
 	
 	public void AddPolarBear(PolarBear b) {
