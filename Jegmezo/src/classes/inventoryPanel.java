@@ -2,6 +2,8 @@ package classes;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,14 +12,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 import javax.swing.*;
 
-public class inventoryPanel extends JPanel{
+public class inventoryPanel extends JPanel implements MouseListener{
 	private Image background ;
 	private Image fullHp;
 	private Image lostHp;
-	private Image food;
 	private JLabel playerLabel;
 	private JLabel fieldLabel;
 	private JLabel snowLayer;
@@ -29,7 +29,6 @@ public class inventoryPanel extends JPanel{
 			background = ImageIO.read(new File("inventoryBg.png"));
 			fullHp = ImageIO.read(new File("fullHp.png"));
 			lostHp = ImageIO.read(new File("lostHp.png"));
-			food = ImageIO.read(new File("food.png"));
 		} 
 		catch(IOException ex){
 			
@@ -37,7 +36,7 @@ public class inventoryPanel extends JPanel{
 		}
 		this.setLayout(null);
 		
-		playerLabel = new JLabel("XY Játékos");
+		playerLabel = new JLabel("XY JĂˇtĂ©kos");
 		playerLabel.setBounds(10, 10, 300, 30);
 		playerLabel.setFont(playerLabel.getFont().deriveFont(40f));
 		playerLabel.setForeground(Color.getHSBColor(191, 18, 255));
@@ -78,7 +77,8 @@ public class inventoryPanel extends JPanel{
 				if (Game.GetCurrentPlayer() != null) {
 					if (Game.GetCurrentPlayer().GetItems() != null) {
 						if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-								Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
+								Game.GetCurrentPlayer().GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
+								Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(g);
 							}
 					}
 				}
@@ -97,17 +97,56 @@ public class inventoryPanel extends JPanel{
 				
 				if(currentField == null) {
 					if(Game.GetCurrentPlayer().GetItems().size() > i+j){
-						Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(new Point(33+j*90, 103+i*90), g);
+						Game.GetCurrentPlayer().GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 103+i*90));
+						Game.GetCurrentPlayer().GetItems().get(i+j).getView().Draw(g);
 					}
 				}else if(currentField.GetItems().size() > i+j){
-					currentField.GetItems().get(i+j).getView().Draw(new Point(33+j*90, 423+i*90), g);
+					currentField.GetItems().get(i+j).getView().setPoint(new Point(33+j*90, 423+i*90));
+					currentField.GetItems().get(i+j).getView().Draw(g);
 				}
 			}
 		}
 	}
 
 	public void SetCurrentField(Field f) {
-		// TODO Auto-generated method stub
 		this.currentField = f ;
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		if (SwingUtilities.isRightMouseButton(e)) {
+			for (Inventory iv : currentField.GetItems()) {
+				if (iv.getView().CheckClicked(e.getPoint())) {
+					System.out.println(iv.toString() + "Felvesz");
+					this.repaint();
+					break;
+				}
+			}
+		}
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
