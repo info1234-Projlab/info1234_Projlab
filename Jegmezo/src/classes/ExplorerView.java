@@ -8,24 +8,23 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * Az Explorer obijektum grafikus megjelenitese.
+ *
+ */
 public class ExplorerView extends CanMoveView{
 	
-public ExplorerView(){
-	try {
-		img = ImageIO.read(new File("explorer.png"));
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+	public ExplorerView(){
+		try {
+			img = ImageIO.read(new File("explorer.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-}
-
 	
-/*public void Draw(Point coordinates, Graphics g, double resize) {
-	g.drawImage(img, coordinates.x, coordinates.y, null);
-}*/
-public void DrawInformation(Point coordinates) {
-		
-}
+	public void DrawInformation(Point coordinates) {
+			
+	}
 
 
 }

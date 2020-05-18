@@ -69,14 +69,28 @@ public class Field {
 		return neighbourFields;
 	}
 	
+	/**
+	 * Beállítja a Fieldhez tartozó View obijektum koordinátáit.
+	 * @param x
+	 * @param y
+	 */
 	public void SetFieldView(int x, int y) {
 		view.SetCoordinates(new Point(x,y));
 	}
 	
+	
+	/**
+	 * Visszaadja a Fielden allo lenyek gyujtemenyet.
+	 * @return
+	 */
 	public ArrayList<CanMove> GetCreatures(){
 		return creatures;
 	}
 	
+	/**
+	 * Lekerdezhetö, borul e a mező
+	 * @return
+	 */
 	public boolean IsFall() {
 		return false;
 	}
@@ -131,6 +145,11 @@ public class Field {
 		item.Drop(player);
 	}
 	
+	/**
+	 * Hozzáad egy Inventory-t implementáló obijektumot az items tagvaltozoba.
+	 * @param item
+	 * @return
+	 */
 	public boolean InitInventory(Inventory item) {
 		items.add(item);
 		return true;
@@ -253,6 +272,9 @@ public class Field {
 		snowLayer=layer;
 	}
 	
+	/**
+	 * Noveli a horeteget a mezon, ha nincs rajta shelter.
+	 */
 	public void IncreaseLayer() {
 		if(shelter != null) {
 			snowLayer = snowLayer+1;
@@ -351,9 +373,9 @@ public class Field {
 		
 	}
 	
-/**
- * A vizbe esett jatekost eltavolitjuk a Hole-bol
- */
+	/**
+	 * A vizbe esett jatekost eltavolitjuk a Hole-bol
+	 */
 	public void PullFromHole(){
 		Iterator it = creatures.iterator();
 		while(it.hasNext()){
@@ -362,10 +384,18 @@ public class Field {
 		}
 	}
 	
+	/**
+	 * Visszaadja a mezon levo sheltert
+	 * @return
+	 */
 	public Shelter GetShelter() {
 		return shelter;
 	}
 	
+	/**
+	 * Visszaadja a fieldhez tarttozo grafikus obijektumot.
+	 * @return
+	 */
 	public FieldView GetFieldView() {
 		return view;
 	}

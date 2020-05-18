@@ -54,23 +54,6 @@ public class FlareGun implements Inventory {
 		
 	}
 	
-	public boolean Eat(Player p) {
-		return false;
-	}
-	
-	public boolean Dig(CanMove p) {
-		return false;
-	}
-	
-	public boolean PutOn(Player p) {
-		return false;
-	}
-	
-	public boolean Swim(Player p) {
-		return false;
-	}
-	
-	
 	/**
 	 * Ha valaki el szeretne dobni egy t�rgyat akkor h�v�dik ez a f�ggv�ny. 
 	 * Ilyenkor, a param�ter�l kapott Player items t�rol�j�b�l kiveszi az adott t�rgyat �s �leteszi� a f�ldre,
@@ -131,6 +114,26 @@ public class FlareGun implements Inventory {
 
 	@Override
 	public boolean PutOnField(Player p) {
+		return false;
+	}
+	
+	@Override
+	public boolean Eat(Player p) {
+		return false;
+	}
+	
+	@Override
+	public boolean Dig(CanMove p) {
+		return false;
+	}
+	
+	@Override
+	public boolean PutOn(Player p) {
+		return false;
+	}
+	
+	@Override
+	public boolean Swim(Player p) {
 		return false;
 	}
 
