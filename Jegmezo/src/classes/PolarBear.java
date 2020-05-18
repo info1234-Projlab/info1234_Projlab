@@ -92,14 +92,12 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public void PullPlayer(Field from) {
-		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
 	public void UseAbility(Field f) {
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -139,25 +137,21 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public boolean GetWin() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public ArrayList<Inventory> GetItems() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public int GetHP() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int GetNumOfAction() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -165,7 +159,6 @@ public class PolarBear implements CanMove {
  * A mackonak nem foglalkozunk az eletevel, nullara allitjuk
  */
 	public int GetMaxHP() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -179,7 +172,6 @@ public class PolarBear implements CanMove {
 
 	@Override
 	public void DigPlayer(int layers) {
-		// TODO Auto-generated method stub
 		
 	}
 

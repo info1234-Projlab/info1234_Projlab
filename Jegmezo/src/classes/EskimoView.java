@@ -8,13 +8,18 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
+/**
+ * 
+ * Az Eszkimo obijektum grafikus megjelenitese.
+ */
 public class EskimoView extends CanMoveView{
 
-public EskimoView() {
-	try {
-		img = ImageIO.read(new File("eskimo.png"));
-	} catch (IOException e) {
-		e.printStackTrace();
+	public EskimoView() {
+		try {
+			img = ImageIO.read(new File("eskimo.png"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
-}
 }

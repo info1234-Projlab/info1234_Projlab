@@ -41,6 +41,10 @@ public class Eskimo extends Player {
 		}
 	}
 	
+	
+	/**
+	 * Visszaadja a hozzá tartozó CanMoveView obijektumot.
+	 */
 	@Override
 	public CanMoveView GetCanMoveView() {
 		return view;

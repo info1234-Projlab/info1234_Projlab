@@ -31,6 +31,7 @@ public class Game {
 	private static int turn = 0;
 	private static GamePanel gamePanel;
 	private static JFrame window;
+	
 	/**
 	 * Visszaadja a jelenlegi játékost.
 	 */
@@ -41,12 +42,14 @@ public class Game {
 	public static void SetWindow(JFrame _window) {
 		window = _window;
 	}
+	
 	/**
 	 * Beállítja a jelenlegi játékost.
 	 */
 	public static void SetCurrentPlayer(CanMove player) {
 		currentPlayer=player;
 	}
+	
 	
 	public static void NextPlayer() {
 		boolean nemMaci = true;
@@ -84,6 +87,8 @@ public class Game {
 	public static int GetTurn() {
 		return turn;
 	}
+	
+	
 	public static void Init(ArrayList<CanMove> players, Board board) {
 	}
 	
@@ -111,6 +116,10 @@ public class Game {
 		gamePanel = gp;
 	}
 	
+	
+	/**
+	 * Jatek elvesztese eseten kepernyonezetet valt.
+	 */
 	public static void LooseGame() {
 		window.remove(gamePanel);
 		window.add(new GameOver());
@@ -130,10 +139,19 @@ public class Game {
 		return false;
 	}
 	
+	
+	/**
+	 * Tagvaltozoba menti a kapott Boardot.
+	 * @param b
+	 */
 	public static void SetBoard(Board b) {
 		board=b;
 	}
 	
+	/**
+	 * Visszaadja a tarolt Boardot.
+	 * @return
+	 */
 	public static Board GetBoard() {
 		return board;
 	}
@@ -154,6 +172,11 @@ public class Game {
 		currentPlayer = cM.get(0);
 	}
 	
+	
+	/**
+	 * A Jatekhoz ad es tagvaltozoba ment egy PolarBeart
+	 * @param b
+	 */
 	public static void AddPolarBear(PolarBear b) {
 		cM.add(b);
 		board.AddPolarBear(b);

@@ -40,9 +40,6 @@ public class Hole extends Field {
 		return false;
 	}
 	
-	/*public boolean IsFull() {
-	}*/
-	
 	public void RemoveItem(Inventory item) {
 	}
 }

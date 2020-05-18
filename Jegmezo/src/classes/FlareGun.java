@@ -120,7 +120,6 @@ public class FlareGun implements Inventory {
 
 	@Override
 	public boolean Pull(Field from, Field to) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

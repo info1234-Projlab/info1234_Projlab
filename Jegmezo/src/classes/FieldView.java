@@ -10,6 +10,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * A Field obijektum Grafikus reprezentalasa
+ *
+ */
+
 public class FieldView {
 	protected Point coordinates;
 	protected Image img;
@@ -26,15 +31,26 @@ public class FieldView {
 		}
 	}
 	
+	/**
+	 * Kapott ertzekre allitja az obikejtum koordinatait.
+	 * @param p
+	 */
 	public void SetCoordinates(Point p) {
 		coordinates = p;
 		
 	}
 	
+	/**
+	 * Visszaadja az obijektum koordinatait
+	 * @return
+	 */
 	public Point GetCoordinates() {
 		return coordinates;
 	}
 	
+	/*
+	 * A Parameterul kapott grafikus feluletre kirajzolja a mezot es a mezo tulajdonsagait.
+	 */
 	public void Draw(Graphics g) {
 		g.drawImage(img, coordinates.x, coordinates.y, null);
 		int shift = 0;
@@ -56,6 +72,11 @@ public class FieldView {
 		}
 	}
 	
+	/**
+	 * Ellenorzi, hogy a kapott koordinataalapjan a mezore kattintottak -e jatek soran.
+	 * @param p
+	 * @return
+	 */
 	public boolean CheckClicked(Point p) {
 		Point center = new Point(coordinates.x + 25, coordinates.y + 25);
 		double a = (p.x-center.x) * (p.x-center.x);

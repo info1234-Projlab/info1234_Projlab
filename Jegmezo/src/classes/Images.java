@@ -9,6 +9,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
+/**
+ * Segedosztaly a Menuben torteno Karakterek kivalasztasahoz.
+ *
+ */
 public class Images {
 	BufferedImage explorer;
 	BufferedImage eskimo;
@@ -35,11 +40,16 @@ public class Images {
 			g.AddPlayer(new Explorer());
 	}
 	
+	/**
+	 * A kepek segitsegevel torteno jatekosvalasztast rajzolja ki
+	 * @param g
+	 * @param click
+	 */
 	public void Draw(Graphics g, Point click) {
 		Point explorerCoord = new Point(coordinates.x+eskimo.getWidth()+30, coordinates.y);
 		g.drawImage(eskimo, coordinates.x, coordinates.y, null);
 		g.drawImage(explorer, explorerCoord.x, explorerCoord.y, null);
-		g.drawString(Integer.toString(num) + ". Játékos", coordinates.x-40, coordinates.y -5);
+		g.drawString(Integer.toString(num) + ". Jatakos", coordinates.x-40, coordinates.y -5);
 		boolean inside = false;
 		if(click!=null) {
 			if(click.x >= coordinates.x && click.x <= (coordinates.x+eskimo.getWidth()) && click.y >= coordinates.y && click.y <= (coordinates.y+eskimo.getHeight())) {

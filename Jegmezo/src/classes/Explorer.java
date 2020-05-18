@@ -38,6 +38,10 @@ public class Explorer extends Player {
 		}
 	}
 	
+	
+	/**
+	 * Visszaadja az obijektumhoz tartozo CanMoveView-t
+	 */
 	@Override
 	public CanMoveView GetCanMoveView() {
 		return view;
