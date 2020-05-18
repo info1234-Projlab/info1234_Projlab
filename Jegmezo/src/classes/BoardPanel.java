@@ -18,7 +18,11 @@ public class BoardPanel extends JPanel{
     private BufferedImage polarBear;
     private BufferedImage explorer;
     private BufferedImage tent;
-
+    
+    
+    /**
+     * BoardPanel konstruktora.
+     */
     public BoardPanel() {
        try {                
           field = ImageIO.read(new File("IceField_2.png"));
@@ -33,10 +37,11 @@ public class BoardPanel extends JPanel{
        
        this.setBounds(300, 0, 700, 680);
     }
-
+    
+    
     @Override
     protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+        /*super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(new Color(51,204,255));
         g2d.fillRect(0,0,700,680);
@@ -56,7 +61,7 @@ public class BoardPanel extends JPanel{
         g.drawImage(eskimo, 115, 84,40,40, this);
         g.drawImage(polarBear, 160, 75, this);
         g.drawImage(explorer, 210, 75, this);
-        g.drawImage(tent, 260, 78, this);
+        g.drawImage(tent, 260, 78, this);*/
         }
    }
 

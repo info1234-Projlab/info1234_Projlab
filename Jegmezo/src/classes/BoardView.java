@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class BoardView extends JPanel implements ActionListener, MouseListener{
+	
 	private Board board;
 	private JButton actionButton;
 	private JButton endTurnButton;
@@ -22,6 +23,11 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 	private inventoryPanel inventory;
 	private Field lastClicked;
 	
+	
+	/**
+	 * A BoardView Konstruktora.
+	 * @param b
+	 */
 	public BoardView(Board b) {
 		this.setBounds(0, 0, 1000, 1000);
 		this.setLayout(null);
@@ -45,6 +51,10 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		this.addMouseListener(this);
 	}
 	
+	
+	/**
+	 * A BoardView paintComponent metódusa meghívja a Board mezőinek fieldView metódusát, ami kirajzolja a mezőket.
+	 */
 	 protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -56,6 +66,11 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
         }
 	 }
 	 
+	 
+	 /**
+	  * Visszaadja a játék inventoryPaneljét
+	  * @return
+	  */
 	 public inventoryPanel GetInventoryPanel() {
 		 return inventory;
 	 }
@@ -83,6 +98,11 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		}
 	}
 	
+	
+	/**
+	 * Viasszaadja a játék Boardját. 
+	 * @return
+	 */
 	public Board getBoard(){
 		return board;
 	}
@@ -118,16 +138,6 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 					break;
 				}
 			}
-			/*if (inventory.GetCurrentField() != null) {
-				for(Inventory inv : inventory.GetCurrentField().GetItems()) {
-					if(inv.getView().CheckClicked(e.getPoint())) {
-						Game.GetCurrentPlayer().AddItem(inv);
-						inventory.repaint();
-						break;
-					}
-				}
-			}*/
-			
 		}
 		
 		
@@ -157,6 +167,10 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 		
 	}
 	
+	/**
+	 * Tagváltozóba állítja a paraméterként kapott inventoryPanelt.
+	 * @param ip
+	 */
 	public void SetInventory(inventoryPanel ip) {
 		this.inventory = ip;
 		this.add(inventory);

@@ -19,6 +19,7 @@ package classes;
 
 
 public class Cartridge extends FlareGun implements Inventory {
+	
 	/**
 	 * 
 	 * @param layer mennyi r�teg h� van a t�rgy felett

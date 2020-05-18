@@ -24,6 +24,8 @@ import javax.swing.SwingUtilities;
  */
 
 public class Board {
+
+	
 	private ArrayList<Field> fields = new ArrayList<Field>();
 	private BoardView boardView;
 	int rows, columns;
@@ -38,9 +40,13 @@ public class Board {
 		this.boardView = new BoardView(this);
 	}
 	
+	/**
+	 * Újrarajzoltatja a jétéktáblát a BoardView segfítségével.
+	 */
 	public void repaint() {
 		boardView.repaint();
 	}
+	
 	/**
 	 * A Storm() fuggveny felelos a jatektablan idonkent atvonulo viharert.
 	 */
@@ -51,6 +57,13 @@ public class Board {
 			
 	}
 	
+	/**
+	 * A beállított sor és oszlopszám alapján létrehozza a mezőket és a Boardhoz adja őket.
+	 * A mezők kapacitását és a hóréteget is beállítja.
+	 * @param rows
+	 * @param columns
+	 * @param numOfPlayers
+	 */
 	public void Init(int rows, int columns, int numOfPlayers) {
 		this.rows = rows;
 		this.columns = columns;
@@ -86,6 +99,12 @@ public class Board {
 		InitInventory(numOfPlayers);
 	}
 	
+	/**
+	 * A metódus segítségével eldönthető hogy két mező szomszédos-e a kapott koordináták alapján.
+	 * @param fieldCoord
+	 * @param neighbourCoord
+	 * @return
+	 */
 	public boolean IsNeighbour(Point fieldCoord, Point neighbourCoord) {
 		if(fieldCoord.y == neighbourCoord.y && Math.abs(neighbourCoord.x - fieldCoord.x) == 50)
 			return true;
@@ -94,6 +113,12 @@ public class Board {
 		return false;
 	}
 	
+	
+	/**
+	 * Inicializálja, és a Board mezőihez ad tárgyakat.A játékban részt vevő játékosok számától függően 
+	 * mindegyik tárgyból más mennyiséget hoz létre.
+	 * @param numOfPlayers
+	 */
 	public void InitInventory(int numOfPlayers) {
 		Random random = new Random();
 		int randFieldIndex;
@@ -180,19 +205,35 @@ public class Board {
 			
 	}
 	
+	/**
+	 * Hozzáad a Játéktábla középső mezőjéhez egy paraméterként kapott játékost.
+	 * @param p
+	 */
 	public void AddPlayer(Player p) {
 		fields.get(columns / 2 + (rows / 2) * columns).AddCreature(p);
 		fields.get(columns / 2 + (rows / 2) * columns).SetCapacity(numOfPlayers);
 	}
 	
+	/**
+	 * Hozzáadja a paraméterkémnt kapott jegesmedvét a jobb alsó mezőhöz.
+	 * @param b
+	 */
 	public void AddPolarBear(PolarBear b) {
 		fields.get(fields.size()-1).AddCreature(b);
 	}
 	
+	/**
+	 * A Boardhoz tartpzó BoardView lekérdezése.
+	 * @return
+	 */
 	public BoardView GetBoardView() {
 		return boardView;
 	}
 	
+	/**
+	 * A játéktáblát alkotó mezők nézetének lekérdezése.
+	 * @return
+	 */
 	public ArrayList<FieldView> GetFieldViews(){
 		ArrayList<FieldView> fw = new ArrayList<FieldView>();
 		for(int i = 0; i < fields.size(); i++) {
@@ -201,6 +242,10 @@ public class Board {
 		return fw;
 	}
 	
+	/**
+	 * A játéktáblát alkotó mezők gyűjteményének lekérdezése.
+	 * @return
+	 */
 	public ArrayList<Field> GetFields(){
 		return fields;
 	}
