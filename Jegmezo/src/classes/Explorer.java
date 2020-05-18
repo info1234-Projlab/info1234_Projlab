@@ -27,7 +27,6 @@ public class Explorer extends Player {
 	 */
 	@Override
 	public void UseAbility(Field f) {
-		System.out.println("explorer useability");
 		int a = this.GetNumOfAction();
 		if(a > 0 && (this.field.isNeighour(f) || this.field == f)) {
 			f.SetVisibleCapacity(true);

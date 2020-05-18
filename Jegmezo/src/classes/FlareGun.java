@@ -48,7 +48,7 @@ public class FlareGun implements Inventory {
 			return false;
 		}
 		p.SetNumOfAction(p.GetNumOfAction() - 1);
-		p.SetWin(true);
+		Game.Win();
 		return true;
 		
 		

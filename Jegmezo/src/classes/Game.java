@@ -132,11 +132,10 @@ public class Game {
 	 * Minden játékos win attribútumot igazra állítja.
 	 */
 	public static boolean Win() {
-		for(int i=0; i<cM.size(); i++) {
-			if(cM.get(i).Win())
-				return true;
-		}
-		return false;
+		window.remove(gamePanel);
+		window.add(new WinGame());
+		window.setVisible(true);
+		return true;
 	}
 	
 	
