@@ -46,7 +46,6 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
 	
 	public void SetNumOfPlayer(int n){
 		numOfPlayers = n;
-		System.out.println(numOfPlayers);
 		images.clear();
 		Point p = new Point(450,50);
 		for(int i = 1; i <= numOfPlayers; i++){
@@ -68,29 +67,24 @@ public class PlayerSelectPanel extends JPanel implements MouseListener {
 
 	public void mouseClicked(MouseEvent e) {
 		click = e.getPoint();
-		System.out.println(click.x);
 		this.repaint();
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-	
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	

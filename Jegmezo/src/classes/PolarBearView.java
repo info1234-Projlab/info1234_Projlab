@@ -19,9 +19,6 @@ public PolarBearView() {
 		e.printStackTrace();
 	}
 }
-/*public void Draw(Point coordinates, Graphics g, double resize) {
-	g.drawImage(img, coordinates.x, coordinates.y, null);
-}*/
 public void DrawInformation(Point coordinates) {
 		
 }

@@ -14,7 +14,6 @@ public class iceField {
 		myFrame jF = new myFrame();
 		
 		MenuPanel mP= new MenuPanel();
-		//GamePanel gP = new GamePanel();
 		jF.add(mP);
 
 		jF.pack();

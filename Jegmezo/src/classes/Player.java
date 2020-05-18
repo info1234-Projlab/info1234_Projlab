@@ -95,7 +95,6 @@ public class Player implements CanMove{
 	 * A játékos használja a képességét. Az eszkimó iglut épít, a sarkkutató jeget kutat. 
 	 */
 	public void UseAbility(Field f) {
-		System.out.println("player useability");
 	}
 	/**
 	 * Egy helyvaltoztatas es abbol adodo vizbeeses tesztelese
@@ -151,14 +150,12 @@ public class Player implements CanMove{
 	}
 	
 	public void SetHp(int hp){
-		System.out.println("meghivodtam");
 		this.hp = hp;
 		field.GetBoardView().GetInventoryPanel().repaint();
 		if(this.hp==0) {
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			Game.LooseGame();

@@ -69,14 +69,13 @@ public class Game {
 			if (cM.size() == index + 1) {
 				index = -1;
 				turn++;
-				System.out.println(turn);
 			}
 			
 			currentPlayer = cM.get(index + 1);
 		}
 		Random rand = new Random();
-		int random = rand.nextInt(3);
-		//if(random % 2 == 1 )	board.Storm();
+		int random = rand.nextInt(4);
+		if(random % 4 == 0 )	board.Storm();
 	}
 		
 	/**
@@ -92,14 +91,6 @@ public class Game {
 		board.Init(rows, columns, numOfPlayers);
 	}
 	
-	public static void StartGame() {
-		/*currentPlayer.StartTurn(4);
-		int indexOfCurrentPlayer = cM.indexOf(currentPlayer);
-		if(indexOfCurrentPlayer == cM.size()-1)
-			currentPlayer= cM.get(0);
-		else
-			currentPlayer = cM.get(indexOfCurrentPlayer+1);*/
-	}
 	
 	/**
 	 * Igazzal tér vissza, ha valakinek az élete 0-ra csökkent.
@@ -152,7 +143,6 @@ public class Game {
 	}
 	
 	public static void MixCanMoves() {
-		//Collections.shuffle(cM);
 	}
 	/**
 	 * Hozzáad egy CanMove-ot a listába.

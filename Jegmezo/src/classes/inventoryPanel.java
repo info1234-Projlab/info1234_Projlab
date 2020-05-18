@@ -21,7 +21,6 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	private Image lostHp;
 	private JLabel playerLabel;
 	private JLabel fieldLabel;
-	private JLabel snowLayer;
 	private Field currentField;
 	private BoardView board;
 	
@@ -127,9 +126,7 @@ public class inventoryPanel extends JPanel implements MouseListener{
 				if (currentField != null) {
 					for (Inventory iv : currentField.GetItems()) {
 						if (iv.getView().CheckClicked(e.getPoint())) {
-							//System.out.println(iv.toString() + "Felvesz");
 							if(currentField.GetCreatures().contains(Game.GetCurrentPlayer())){
-								System.out.println("Felveszi");
 								iv.PickUp(Game.GetCurrentPlayer());
 							}
 							this.repaint();
@@ -189,24 +186,20 @@ public class inventoryPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 	

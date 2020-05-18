@@ -16,9 +16,9 @@ import java.awt.*;
 
 public class MenuPanel extends JPanel implements ActionListener{
 	
-	private JLabel numOfPlayersLabel = new JLabel("H�ny j�t�kos j�ttszik: ");
-	private JLabel rowsLabel = new JLabel("H�ny sorb�l �lljon a p�lya: ");
-	private JLabel columnsLabel = new JLabel("H�ny oszlopb�l �lljon a p�lya: ");
+	private JLabel numOfPlayersLabel = new JLabel("Hany jatekos jatszik : ");
+	private JLabel rowsLabel = new JLabel("Hany sorbol alljon a palya: ");
+	private JLabel columnsLabel = new JLabel("Hany oszlopbol alljon a palya: ");
 	private JButton startButton = new JButton("Start");
 	private JButton numOfPlayersButton = new JButton("Ok");
 	PlayerSelectPanel psP = new PlayerSelectPanel(1);
@@ -59,13 +59,6 @@ public class MenuPanel extends JPanel implements ActionListener{
 		startButton.addActionListener(this);
 		startButtonPanel.add(startButton);
 		
-		/*JScrollPane scrollPane = new JScrollPane();
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        scrollPane.setBounds(50, 30, 300, 50);*/
-        
-
-		
 		
 		this.add(setPlayerPanel);
 		this.add(setRowsPanel);
@@ -99,7 +92,6 @@ public class MenuPanel extends JPanel implements ActionListener{
 		mF.add(gp);
 		mF.setVisible(true);
 		
-		g.StartGame();
 	}
 
 

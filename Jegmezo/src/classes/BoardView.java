@@ -109,13 +109,10 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		//System.out.println(e.getPoint().x + ", " + e.getPoint().y);
 		if (SwingUtilities.isRightMouseButton(e)) {
 			for (FieldView fv : board.GetFieldViews()) {
 				if (fv.CheckClicked(e.getPoint())) {
 					Game.GetCurrentPlayer().Move(fv.GetField());
-					System.out.println(Game.GetCurrentPlayer().toString());
-					//System.out.println("akart mozogni");
 					this.repaint();
 					inventory.repaint();
 					break;
@@ -123,7 +120,6 @@ public class BoardView extends JPanel implements ActionListener, MouseListener{
 			}
 			for(Inventory inv : Game.GetCurrentPlayer().GetItems()) {
 				if(inv.getView().CheckClicked(e.getPoint())) {
-					// call inventory method (e g eat)
 					Game.GetCurrentPlayer().RemoveItem(inv);
 					inventory.repaint();
 					break;

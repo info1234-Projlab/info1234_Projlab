@@ -33,7 +33,6 @@ public class Field {
 	private BoardView boardView;
 	private Shelter shelter;
 	protected FieldView view;
-	protected String name;
 	
 	/**
 	 * 
@@ -49,7 +48,6 @@ public class Field {
 		this.neighbourFields=new ArrayList<Field>();
 		this.creatures=new ArrayList<CanMove>();
 		this.view = new FieldView(this);
-		this.name = name;
 	}
 	/**
 	 * Hozzaad egy mezot a szomszedok listajahoz.
@@ -100,7 +98,7 @@ public class Field {
 		}
 		
 		for(CanMove p : creatures){
-			p.SetHp(0);   // ez itt szar valamiert..... ha kikommentezed akkor meghalunk mindig
+			p.SetHp(0);
 		}
 	}
 	

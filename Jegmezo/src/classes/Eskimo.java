@@ -22,7 +22,6 @@ public class Eskimo extends Player {
 	public Eskimo() {
 		super(5);
 		this.view = new EskimoView();
-		System.out.println(hp);
 	}
 	
 	/**

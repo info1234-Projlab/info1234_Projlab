@@ -2,7 +2,7 @@ package classes;
 
 
 /**
- * A Búvárruha obijektum grafikus reprezentálása.
+ * A Búvárruha objektum grafikus reprezentálása.
  * 
  */
 public class DivingSuitView extends ItemView{
