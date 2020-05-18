@@ -14,6 +14,11 @@ import javax.swing.*;
 
 import java.awt.*;
 
+
+/**
+ * A Jatek menujenek felulete, beallithato vele a jtekosok szama, a jatektabla merete es a jatekosok karaktere.
+ *
+ */
 public class MenuPanel extends JPanel implements ActionListener{
 	
 	private JLabel numOfPlayersLabel = new JLabel("Hany jatekos jatszik : ");
@@ -71,6 +76,10 @@ public class MenuPanel extends JPanel implements ActionListener{
 		this.add(sP);
 	}
 	
+	
+	/**
+	 * Inicializalja a jatekot.
+	 */
 	public void InitGame() {
 		Game g = new Game();
 

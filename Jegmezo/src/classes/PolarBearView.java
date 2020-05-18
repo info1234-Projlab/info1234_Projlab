@@ -8,6 +8,10 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+/**
+ * A PolarBear osztaly grafikus reprezentalasa
+ *
+ */
 public class PolarBearView extends CanMoveView {
 	
 	

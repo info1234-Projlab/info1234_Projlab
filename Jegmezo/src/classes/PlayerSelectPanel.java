@@ -16,6 +16,10 @@ import javax.swing.*;
 
 import java.awt.*;
 
+/**
+ * A menuPanelben levo jatekosvalasztas segedpanelja.
+ *
+ */
 public class PlayerSelectPanel extends JPanel implements MouseListener {
 	
 	private int numOfPlayers = 0;
