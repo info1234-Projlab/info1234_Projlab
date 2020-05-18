@@ -241,8 +241,7 @@ public class Field {
 		if(CanBuildShelter()) {
 			shelter = s;
 		}
-		else
-			System.out.printf("Mar van rajta menedek! \n");
+		
 	}
 	
 	
