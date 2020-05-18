@@ -11,6 +11,10 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Ha egyik jatekos meghal, vege a jateknak es a jatekfelulet helyen megjelenik egy Game Over felirat.
+ *
+ */
 public class GameOver extends JPanel {
 	private BufferedImage img;
 	

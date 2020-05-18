@@ -8,19 +8,16 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.*;
 
+/**
+ * A jatek soran hasznalt Grafikus panel, tartalmaz egy BoardView es egy InventoryPanel, alpanel-t.
+ */
 public class GamePanel extends JPanel{
-	
-	private JButton actionButton;
-	private JLabel InventoryLabel;
-//	private inventoryPanel iP;
+
 	private BoardView board;
 	
 	public GamePanel(BoardView b){
-		/*actionButton = new JButton("Use Ability");
-		actionButton.setBounds(330, 600, 100, 30);
-		this.add(actionButton);*/
 		board=b;
-		//bP = new BoardPanel();
+
 		board.setBounds(300, 0, 700, 680);
 		this.add(board);
 		

@@ -32,10 +32,12 @@ public class Hole extends Field {
 	public void AddItem(Inventory item) {
 	}
 	
+	@Override
 	public boolean InitInventory(Inventory item) {
 		return false;
 	}
 	
+	@Override
 	public boolean DigItems(int layers) {
 		return false;
 	}

@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.*;
-
+/*
 public class iceField {
 	public static void main(String[] args) {
 		
@@ -20,4 +20,4 @@ public class iceField {
 		jF.pack();
 
 	}
-}
+}*/

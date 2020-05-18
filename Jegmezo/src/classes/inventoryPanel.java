@@ -15,6 +15,11 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+
+/**
+ *A jatekfelulet egyik resze egy inventorybol all, melyben a targyakat lehet fekvenni es lerakni, valamint hasznalni oket. 
+ *
+ */
 public class inventoryPanel extends JPanel implements MouseListener{
 	private Image background ;
 	private Image fullHp;
@@ -25,6 +30,11 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	private Field currentField;
 	private BoardView board;
 	
+	
+	/**
+	 * Az inventoryPanel konctruktora.
+	 * @param b
+	 */
 	public inventoryPanel(BoardView b){
 		this.setPreferredSize(new Dimension(300,680));
 		try{
@@ -119,7 +129,11 @@ public class inventoryPanel extends JPanel implements MouseListener{
 	public Field GetCurrentField() {
 		return this.currentField;
 	}
-
+	
+	
+	/**
+	 * Alabb talalhato a panel esemenykezeloje, amely egerkettintas alapjan donti el minek kell tortennie.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (SwingUtilities.isLeftMouseButton(e)){
